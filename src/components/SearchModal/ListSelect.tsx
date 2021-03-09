@@ -19,6 +19,7 @@ import ListLogo from '../ListLogo'
 import QuestionHelper from '../QuestionHelper'
 import Row, { RowBetween } from '../Row'
 import { PaddedColumn, SearchInput, Separator, SeparatorDark } from './styleds'
+import { lightColors } from '../../style/Color'
 
 const UnpaddedLinkStyledButton = styled(LinkStyledButton)`
   padding: 0;
@@ -60,6 +61,9 @@ const StyledListUrlText = styled.div`
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
+`
+const TextStyle = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)}
 `
 
 function ListOrigin({ listUrl }: { listUrl: string }) {
@@ -134,9 +138,9 @@ const ListRow = memo(function ListRow({ listUrl, onBack }: { listUrl: string; on
       )}
       <Column style={{ flex: '1' }}>
         <Row>
-          <Text bold={isSelected} fontSize="16px" style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          <TextStyle bold={isSelected} fontSize="16px" style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
             {list.name}
-          </Text>
+          </TextStyle>
         </Row>
         <Row
           style={{
@@ -272,7 +276,7 @@ export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBac
           <div>
             <ArrowLeft style={{ cursor: 'pointer' }} onClick={onBack} />
           </div>
-          <Text fontSize="20px">Manage Lists</Text>
+          <TextStyle fontSize="20px">Manage Lists</TextStyle>
           <CloseIcon onClick={onDismiss} />
         </RowBetween>
       </PaddedColumn>
@@ -280,10 +284,10 @@ export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBac
       <Separator />
 
       <PaddedColumn gap="14px">
-        <Text bold>
+        <TextStyle bold>
           Add a list{' '}
           <QuestionHelper text="Token lists are an open specification for lists of BEP20 tokens. You can use any token list by entering its URL below. Beware that third party token lists can contain fake or malicious BEP20 tokens." />
-        </Text>
+        </TextStyle>
         <Row>
           <SearchInput
             type="text"
@@ -299,9 +303,9 @@ export function ListSelect({ onDismiss, onBack }: { onDismiss: () => void; onBac
           </Button>
         </Row>
         {addError ? (
-          <Text color="failure" title={addError} style={{ textOverflow: 'ellipsis', overflow: 'hidden' }}>
+          <TextStyle title={addError} style={{ textOverflow: 'ellipsis', overflow: 'hidden' }}>
             {addError}
-          </Text>
+          </TextStyle>
         ) : null}
       </PaddedColumn>
 

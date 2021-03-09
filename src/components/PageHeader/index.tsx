@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Heading, IconButton, Text, Flex, useModal, CogIcon, Svg } from '@pancakeswap-libs/uikit'
 import SettingsModal from './SettingsModal'
 import RecentTransactionsModal from './RecentTransactionsModal'
+import { lightColors } from '../../style/Color'
 
 interface PageHeaderProps {
   title: ReactNode
@@ -28,6 +29,30 @@ const Details = styled.div`
   flex: 1;
 `
 
+const Styledheading = styled(Heading)`
+  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)}
+`
+
+const StyledText = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)}
+`
+
+const StyledCogIcon = styled.div`
+  width: 19px;
+  height: 20.2px;
+  background-image: url('/images/setting-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.png');
+  background-size: 100%;
+  
+`
+
+const StyledHistoryIcon = styled.div`
+  width: 26.25px;
+  height: 22.5px;
+  background-image: url('/images/history-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.png');
+  background-repeat: no-repeat;
+  background-position: center;
+`
+
 const PageHeader = ({ title, description, children }: PageHeaderProps) => {
   const [onPresentSettings] = useModal(<SettingsModal />)
   const [onPresentRecentTransactions] = useModal(<RecentTransactionsModal />)
@@ -36,18 +61,18 @@ const PageHeader = ({ title, description, children }: PageHeaderProps) => {
     <StyledPageHeader>
       <Flex alignItems="center">
         <Details>
-          <Heading mb="8px">{title}</Heading>
+          <Styledheading mb="8px">{title}</Styledheading>
           {description && (
-            <Text color="textSubtle" fontSize="14px">
+            <StyledText color="textSubtle" fontSize="14px">
               {description}
-            </Text>
+            </StyledText>
           )}
         </Details>
         <IconButton variant="text" onClick={onPresentSettings} title="Settings">
-          <CogIcon width="24px" color="currentColor" />
+          <StyledCogIcon />
         </IconButton>
         <IconButton variant="text" onClick={onPresentRecentTransactions} title="Recent transactions">
-          <HistoryIcon />
+          <StyledHistoryIcon/>
         </IconButton>
       </Flex>
       {children && <Text mt="16px">{children}</Text>}

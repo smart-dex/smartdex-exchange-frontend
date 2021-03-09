@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react'
 import { HelpCircle as Question } from 'react-feather'
 import styled from 'styled-components'
 import Tooltip from '../Tooltip'
+import { lightColors } from '../../style/Color'
 
 const QuestionWrapper = styled.div`
   display: flex;
@@ -13,14 +14,15 @@ const QuestionWrapper = styled.div`
   outline: none;
   cursor: default;
   border-radius: 36px;
-  background-color: ${({ theme }) => theme.colors.invertedContrast};
-  color: ${({ theme }) => theme.colors.textSubtle};
+  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)}
 
   :hover,
   :focus {
     opacity: 0.7;
   }
 `
+
+
 
 export default function QuestionHelper({ text }: { text: string }) {
   const [show, setShow] = useState<boolean>(false)

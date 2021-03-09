@@ -12,6 +12,7 @@ import { Input as NumericalInput } from '../NumericalInput'
 import { useActiveWeb3React } from '../../hooks'
 import TranslatedText from "../TranslatedText"
 import { TranslateString } from '../../utils/translateTextHelpers'
+import { lightColors } from '../../style/Color'
 
 const InputRow = styled.div<{ selected: boolean }>`
   display: flex;
@@ -26,7 +27,7 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
   font-size: 16px;
   font-weight: 500;
   background-color: transparent;
-  color: ${({ selected, theme }) => (selected ? theme.colors.text : '#FFFFFF')};
+  color: ${({ selected, theme }) => (selected ? theme.colors.text : lightColors.background)};
   border-radius: 12px;
   outline: none;
   cursor: pointer;
@@ -65,14 +66,18 @@ const InputPanel = styled.div<{ hideInput?: boolean }>`
   flex-flow: column nowrap;
   position: relative;
   border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: #5f5e761a;
   z-index: 1;
 `
 
 const Container = styled.div<{ hideInput: boolean }>`
   border-radius: 16px;
-  background-color: ${({ theme }) => theme.colors.input};
+  background-color: #5f5e761a;
   box-shadow: ${({ theme }) => theme.shadows.inset};
+`
+
+const TextStyle = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)}
 `
 
 interface CurrencyInputPanelProps {
@@ -122,13 +127,13 @@ export default function CurrencyInputPanel({
         {!hideInput && (
           <LabelRow>
             <RowBetween>
-              <Text fontSize="14px">{label}</Text>
+              <TextStyle fontSize="14px">{label}</TextStyle>
               {account && (
-                <Text onClick={onMax} fontSize="14px" style={{ display: 'inline', cursor: 'pointer' }}>
+                <TextStyle onClick={onMax} fontSize="14px" style={{ display: 'inline', cursor: 'pointer' }}>
                   {!hideBalance && !!currency && selectedCurrencyBalance
                     ? `Balance: ${  selectedCurrencyBalance?.toSignificant(6)}`
                     : ' -'}
-                </Text>
+                </TextStyle>
               )}
             </RowBetween>
           </LabelRow>
@@ -166,17 +171,17 @@ export default function CurrencyInputPanel({
                 <CurrencyLogo currency={currency} size="24px" style={{ marginRight: '8px' }} />
               ) : null}
               {pair ? (
-                <Text>
+                <TextStyle>
                   {pair?.token0.symbol}:{pair?.token1.symbol}
-                </Text>
+                </TextStyle>
               ) : (
-                <Text>
+                <TextStyle>
                   {(currency && currency.symbol && currency.symbol.length > 20
                     ? `${currency.symbol.slice(0, 4) 
                       }...${ 
                       currency.symbol.slice(currency.symbol.length - 5, currency.symbol.length)}`
                     : currency?.symbol) || <TranslatedText translationId={82}>Select a currency</TranslatedText>}
-                </Text>
+                </TextStyle>
               )}
               {!disableCurrencySelect && <ChevronDownIcon />}
             </Aligner>
