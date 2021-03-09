@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { escapeRegExp } from '../../utils'
+import { lightColors } from '../../style/Color'
 
 const StyledInput = styled.input<{ error?: boolean; fontSize?: string; align?: string }>`
   color: ${({ error, theme }) => (error ? theme.colors.failure : theme.colors.text)};
@@ -33,7 +34,8 @@ const StyledInput = styled.input<{ error?: boolean; fontSize?: string; align?: s
   }
 
   ::placeholder {
-    color: ${({ theme }) => theme.colors.textSubtle};
+    color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)};
+    
   }
 `
 

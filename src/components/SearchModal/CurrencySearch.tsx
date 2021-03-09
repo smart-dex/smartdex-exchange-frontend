@@ -4,7 +4,7 @@ import { Text, CloseIcon } from '@pancakeswap-libs/uikit'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { FixedSizeList } from 'react-window'
-import { ThemeContext } from 'styled-components'
+import styled, { ThemeContext }  from 'styled-components'
 import AutoSizer from 'react-virtualized-auto-sizer'
 import { useActiveWeb3React } from '../../hooks'
 import { AppState } from '../../state'
@@ -25,7 +25,11 @@ import { useTokenComparator } from './sorting'
 import { PaddedColumn, SearchInput, Separator } from './styleds'
 import TranslatedText from '../TranslatedText'
 import { TranslateString } from '../../utils/translateTextHelpers'
+import { lightColors } from '../../style/Color'
 
+const TextStyle = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)}
+`
 interface CurrencySearchProps {
   isOpen: boolean
   onDismiss: () => void
@@ -142,7 +146,7 @@ export function CurrencySearch({
     <Column style={{ width: '100%', flex: '1 1' }}>
       <PaddedColumn gap="14px">
         <RowBetween>
-          <Text>
+          <TextStyle>
             <TranslatedText translationId={82}>Select a token</TranslatedText>
             <QuestionHelper
               text={TranslateString(
@@ -150,7 +154,7 @@ export function CurrencySearch({
                 'Find a token by searching for its name or symbol or by pasting its address below.'
               )}
             />
-          </Text>
+          </TextStyle>
           <CloseIcon onClick={onDismiss} />
         </RowBetween>
         <SearchInput
@@ -166,9 +170,9 @@ export function CurrencySearch({
           <CommonBases chainId={chainId} onSelect={handleCurrencySelect} selectedCurrency={selectedCurrency} />
         )}
         <RowBetween>
-          <Text fontSize="14px">
+          <TextStyle fontSize="14px">
             <TranslatedText translationId={126}>Token name</TranslatedText>
-          </Text>
+          </TextStyle>
           <SortButton ascending={invertSearchOrder} toggleSortOrder={() => setInvertSearchOrder((iso) => !iso)} />
         </RowBetween>
       </PaddedColumn>

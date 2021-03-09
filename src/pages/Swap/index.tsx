@@ -2,7 +2,7 @@ import { CurrencyAmount, JSBI, Token, Trade } from '@pancakeswap-libs/sdk'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { ArrowDown } from 'react-feather'
 import { CardBody, ArrowDownIcon, Button, IconButton, Text } from '@pancakeswap-libs/uikit'
-import { ThemeContext } from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
 import AddressInputPanel from 'components/AddressInputPanel'
 import Card, { GreyCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
@@ -35,6 +35,11 @@ import { TranslateString } from 'utils/translateTextHelpers'
 import PageHeader from 'components/PageHeader'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import AppBody from '../AppBody'
+import { lightColors } from '../../style/Color'
+
+const TextStyle = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)}
+`
 
 const Swap = () => {
   const loadedUrlParams = useDefaultsFromURLSearch()
@@ -355,7 +360,7 @@ const Swap = () => {
                   <AutoColumn gap="4px">
                     {Boolean(trade) && (
                       <RowBetween align="center">
-                        <Text fontSize="14px">Price</Text>
+                        <TextStyle fontSize="14px">Price</TextStyle>
                         <TradePrice
                           price={trade?.executionPrice}
                           showInverted={showInverted}
@@ -365,8 +370,8 @@ const Swap = () => {
                     )}
                     {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
                       <RowBetween align="center">
-                        <Text fontSize="14px">Slippage Tolerance</Text>
-                        <Text fontSize="14px">{allowedSlippage / 100}%</Text>
+                        <TextStyle fontSize="14px">Slippage Tolerance</TextStyle>
+                        <TextStyle fontSize="14px">{allowedSlippage / 100}%</TextStyle>
                       </RowBetween>
                     )}
                   </AutoColumn>
@@ -383,7 +388,7 @@ const Swap = () => {
                 </Button>
               ) : noRoute && userHasSpecifiedInputOutput ? (
                 <GreyCard style={{ textAlign: 'center' }}>
-                  <Text mb="4px">Insufficient liquidity for this trade.</Text>
+                  <TextStyle mb="4px">Insufficient liquidity for this trade.</TextStyle>
                 </GreyCard>
               ) : showApproveFlow ? (
                 <RowBetween>
