@@ -3,9 +3,11 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { ButtonMenu, ButtonMenuItem } from '@pancakeswap-libs/uikit'
 import TranslatedText from '../TranslatedText'
+import {SelectButtonStyle} from '../../style/Button'
 
 const StyledNav = styled.div`
   margin-bottom: 40px;
+  ${SelectButtonStyle}
 `
 
 const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => (

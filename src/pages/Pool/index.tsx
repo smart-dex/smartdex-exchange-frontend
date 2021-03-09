@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from 'react'
-import { ThemeContext } from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
 import { Pair } from '@pancakeswap-libs/sdk'
 import { Button, CardBody, Text } from '@pancakeswap-libs/uikit'
 import { Link } from 'react-router-dom'
@@ -20,6 +20,7 @@ import TranslatedText from 'components/TranslatedText'
 import { TranslateString } from 'utils/translateTextHelpers'
 import PageHeader from 'components/PageHeader'
 import AppBody from '../AppBody'
+import {ButtonSecondary} from '../../style/Button'
 
 export default function Pool() {
   const theme = useContext(ThemeContext)
@@ -54,22 +55,44 @@ export default function Pool() {
 
   const allV2PairsWithLiquidity = v2Pairs.map(([, pair]) => pair).filter((v2Pair): v2Pair is Pair => Boolean(v2Pair))
 
+  const ButtonAdd = styled(Button)`
+    ${ButtonSecondary}
+    padding: 0 20px;
+  `
+
+  const TextHeading = styled(Text)`
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+  `
+
+  const TextStyle = styled(Text)`
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+  `
+  const TextContent = styled(Text)`
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+  `
+
   return (
     <>
       <CardNav activeIndex={1} />
       <AppBody>
         <PageHeader title="Liquidity" description="Add liquidity to receive LP tokens">
-          <Button id="join-pool-button" as={Link} to="/add/ETH">
+          <ButtonAdd id="join-pool-button" as={Link} to="/add/ETH">
             <TranslatedText translationId={100}>Add Liquidity</TranslatedText>
-          </Button>
+          </ButtonAdd>
         </PageHeader>
         <AutoColumn gap="lg" justify="center">
           <CardBody>
             <AutoColumn gap="12px" style={{ width: '100%' }}>
               <RowBetween padding="0 8px">
-                <Text color={theme.colors.text}>
+                <TextHeading color={theme.colors.text}>
                   <TranslatedText translationId={102}>Your Liquidity</TranslatedText>
-                </Text>
+                </TextHeading>
                 <Question
                   text={TranslateString(
                     130,
@@ -79,13 +102,13 @@ export default function Pool() {
               </RowBetween>
 
               {!account ? (
-                <LightCard padding="40px">
-                  <Text color="textDisabled" textAlign="center">
+                <LightCard padding="40px 20px">
+                  <TextContent color="textDisabled" textAlign="center">
                     Connect to a wallet to view your liquidity.
-                  </Text>
+                  </TextContent>
                 </LightCard>
               ) : v2IsLoading ? (
-                <LightCard padding="40px">
+                <LightCard padding="20px">
                   <Text color="textDisabled" textAlign="center">
                     <Dots>Loading</Dots>
                   </Text>
@@ -97,7 +120,7 @@ export default function Pool() {
                   ))}
                 </>
               ) : (
-                <LightCard padding="40px">
+                <LightCard padding="40px 20px">
                   <Text color="textDisabled" textAlign="center">
                     <TranslatedText translationId={104}>No liquidity found.</TranslatedText>
                   </Text>
@@ -105,15 +128,15 @@ export default function Pool() {
               )}
 
               <div>
-                <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
+                <TextStyle fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
                   {TranslateString(106, "Don't see a pool you joined?")}{' '}
                   <StyledInternalLink id="import-pool-link" to="/find">
                     {TranslateString(108, 'Import it.')}
                   </StyledInternalLink>
-                </Text>
-                <Text fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
+                </TextStyle>
+                <TextStyle fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
                   Or, if you staked your FLIP tokens in a farm, unstake them to see them here.
-                </Text>
+                </TextStyle>
               </div>
             </AutoColumn>
           </CardBody>

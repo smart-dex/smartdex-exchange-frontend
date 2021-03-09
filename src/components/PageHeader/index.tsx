@@ -27,6 +27,12 @@ const StyledPageHeader = styled.div`
 const Details = styled.div`
   flex: 1;
 `
+const HeadingStyle = styled(Heading)`
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 700;
+  color: #5F5E76;
+`
 
 const PageHeader = ({ title, description, children }: PageHeaderProps) => {
   const [onPresentSettings] = useModal(<SettingsModal />)
@@ -36,7 +42,7 @@ const PageHeader = ({ title, description, children }: PageHeaderProps) => {
     <StyledPageHeader>
       <Flex alignItems="center">
         <Details>
-          <Heading mb="8px">{title}</Heading>
+          <HeadingStyle mb="8px">{title}</HeadingStyle>
           {description && (
             <Text color="textSubtle" fontSize="14px">
               {description}
