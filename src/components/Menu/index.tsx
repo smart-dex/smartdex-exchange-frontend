@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
-import { Menu as UikitMenu, ConnectorId } from '@pancakeswap-libs/uikit'
+import { ConnectorId } from '@pancakeswap-libs/uikit'
+import { Menu as UikitMenu } from 'uikit-sotatek'
 import { useWeb3React } from '@web3-react/core'
 import { allLanguages } from 'constants/localisation/languageCodes'
 import { LanguageContext } from 'hooks/LanguageContext'

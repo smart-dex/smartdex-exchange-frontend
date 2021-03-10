@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Heading, IconButton, Text, Flex, useModal, CogIcon, Svg } from '@pancakeswap-libs/uikit'
 import SettingsModal from './SettingsModal'
 import RecentTransactionsModal from './RecentTransactionsModal'
+import { lightColors, darkColors } from '../../style/Color'
 
 interface PageHeaderProps {
   title: ReactNode
@@ -31,7 +32,54 @@ const HeadingStyle = styled(Heading)`
   font-size: 24px;
   line-height: 29px;
   font-weight: 700;
-  color: #5F5E76;
+  color: ${({ theme }) => (theme.isDark ? darkColors.textSubtle : lightColors.textMenuLeft)};
+  @media(max-width: 767px) {
+    font-size: 18px;
+    line-height: 22px;
+  }
+`
+
+const StyledText = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? darkColors.titleMini : lightColors.titleMini)};
+  font-size: 14px;
+  @media(max-width: 767px) {
+    font-size: 12px;
+    line-height: 15px;
+    color: ${({ theme }) => (theme.isDark ? darkColors.textSubtle : lightColors.titleMini)};
+  }
+`
+
+const StyledCogIcon = styled.div`
+  width: 24.83px;
+  height: 26.21px;
+  background-image: url('/images/setting-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
+  background-size: 100%;
+  @media(max-width: 767px) {
+    width: 16.55px;
+    height: 17.48px;
+    background-image: url('/images/setting-mobile-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
+  }
+`
+
+const StyledHistoryIcon = styled.div`
+  width: 26.25px;
+  height: 22.5px;
+  background-image: url('/images/history-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  @media(max-width: 767px) {
+    height: 15px;
+    background-image: url('/images/history-mobile-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
+  }
+`
+
+const StyleButton = styled.div`
+  @media(max-width: 767px) {
+    button {
+      width: 28px;
+      height: 28px;
+    }
+  }
 `
 
 const PageHeader = ({ title, description, children }: PageHeaderProps) => {
@@ -44,17 +92,19 @@ const PageHeader = ({ title, description, children }: PageHeaderProps) => {
         <Details>
           <HeadingStyle mb="8px">{title}</HeadingStyle>
           {description && (
-            <Text color="textSubtle" fontSize="14px">
+            <StyledText color="textSubtle">
               {description}
-            </Text>
+            </StyledText>
           )}
         </Details>
-        <IconButton variant="text" onClick={onPresentSettings} title="Settings">
-          <CogIcon width="24px" color="currentColor" />
-        </IconButton>
-        <IconButton variant="text" onClick={onPresentRecentTransactions} title="Recent transactions">
-          <HistoryIcon />
-        </IconButton>
+        <StyleButton>
+          <IconButton variant="text" onClick={onPresentSettings} title="Settings">
+            <StyledCogIcon />
+          </IconButton>
+          <IconButton variant="text" onClick={onPresentRecentTransactions} title="Recent transactions">
+            <StyledHistoryIcon/>
+          </IconButton>
+        </StyleButton>
       </Flex>
       {children && <Text mt="16px">{children}</Text>}
     </StyledPageHeader>

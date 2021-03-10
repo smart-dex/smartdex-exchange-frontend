@@ -18,6 +18,18 @@ export const SelectButtonStyle = `
   &.bSLFEh {
     background: #0085FF;
     color: #fff;
+    font-weight: 600;
+    &:hover {
+      background: #0085FF !important;
+    }
+    &:focus: {
+      boxShadow: none;
+    }
+  }
+  &.gGdvQK {
+    background: #0085FF;
+    color: #fff;
+    font-weight: 600;
     &:hover {
       background: #0085FF !important;
     }
@@ -35,6 +47,7 @@ export const SelectButtonStyle = `
     height: 56px;
     padding: 0 35px;
     font-size: 16px;
+    font-weight: normal;
   }
 }
 `

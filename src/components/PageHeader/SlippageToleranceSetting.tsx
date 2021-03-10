@@ -4,6 +4,7 @@ import { Button, Flex, Input, Text } from '@pancakeswap-libs/uikit'
 import { useUserSlippageTolerance } from 'state/user/hooks'
 import QuestionHelper from '../QuestionHelper'
 import TranslatedText from '../TranslatedText'
+import { lightColors } from '../../style/Color'
 
 const MAX_SLIPPAGE = 5000
 const RISKY_SLIPPAGE_LOW = 50
@@ -41,6 +42,9 @@ const Label = styled.div`
   margin-bottom: 8px;
 `
 
+const TextStyle = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)}
+`
 const predefinedValues = [
   { label: '0.1%', value: 0.1 },
   { label: '0.5%', value: 0.5 },
@@ -84,9 +88,9 @@ const SlippageToleranceSettings = () => {
   return (
     <StyledSlippageToleranceSettings>
       <Label>
-        <Text style={{ fontWeight: 600 }}>
+        <TextStyle style={{ fontWeight: 600 }}>
           <TranslatedText translationId={88}>Slippage tolerance</TranslatedText>
-        </Text>
+        </TextStyle>
         <QuestionHelper text="Your transaction will revert if the price changes unfavorably by more than this percentage." />
       </Label>
       <Options>
@@ -117,14 +121,14 @@ const SlippageToleranceSettings = () => {
             />
           </Option>
           <Option>
-            <Text fontSize="18px">%</Text>
+            <TextStyle fontSize="18px">%</TextStyle>
           </Option>
         </Flex>
       </Options>
       {error && (
-        <Text mt="8px" color="failure">
+        <TextStyle mt="8px" color="failure">
           {error}
-        </Text>
+        </TextStyle>
       )}
     </StyledSlippageToleranceSettings>
   )

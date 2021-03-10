@@ -19,11 +19,11 @@ import { Dots } from 'components/swap/styleds'
 import TranslatedText from 'components/TranslatedText'
 import { TranslateString } from 'utils/translateTextHelpers'
 import PageHeader from 'components/PageHeader'
+import { lightColors, baseColors, darkColors } from 'style/Color'
 import AppBody from '../AppBody'
 import {ButtonSecondary} from '../../style/Button'
 
 export default function Pool() {
-  const theme = useContext(ThemeContext)
   const { account } = useActiveWeb3React()
 
   // fetch the user's balances of all tracked V2 LP tokens
@@ -58,23 +58,67 @@ export default function Pool() {
   const ButtonAdd = styled(Button)`
     ${ButtonSecondary}
     padding: 0 20px;
+    font-weight: 600;
+    @media(max-width: 767px) {
+      font-size: 14px;
+      line-height: 17px;
+    }
   `
 
   const TextHeading = styled(Text)`
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
+    color: ${({ theme }) => (theme.isDark ? darkColors.textSubtle : lightColors.textMenuLeft)};
+    @media(max-width: 767px) {
+      font-size: 14px;
+      line-height: 17px;
+    }
   `
 
   const TextStyle = styled(Text)`
     font-weight: 500;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 17px;
+    padding: .5rem 0 .5rem 0;
+    color: ${({ theme }) => (theme.isDark ? darkColors.textSubtle : lightColors.textMenuLeft)};
+    @media(max-width: 767px) {
+      font-size: 10px;
+      line-height: 20px;
+      padding: 0;
+    }
   `
   const TextContent = styled(Text)`
     font-weight: 600;
     font-size: 14px;
     line-height: 17px;
+    color: ${({ theme }) => (theme.isDark ? darkColors.titleMini : "rgba(95, 94, 118, 0.5)")};
+    @media(max-width: 767px) {
+      font-size: 10px;
+      line-height: 12px;
+    }
+  `
+
+  const TextLink = styled.a `
+    .sc-jQbIHB {
+      color: ${baseColors.primary};
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+    }
+    @media(max-width: 767px) {
+      .sc-jQbIHB {
+        font-size: 10px;
+        line-height: 12px;
+      }
+    }
+  `
+
+  const StyleConnect = styled.div`
+  .sc-dtTInj.sc-dkIXFM.dKXeuF.fDZHaJ {
+    background: ${({ theme }) => (theme.isDark ? darkColors.backgroundColor : lightColors.backgroundColor)};
+    border: none;
+  }
   `
 
   return (
@@ -90,7 +134,7 @@ export default function Pool() {
           <CardBody>
             <AutoColumn gap="12px" style={{ width: '100%' }}>
               <RowBetween padding="0 8px">
-                <TextHeading color={theme.colors.text}>
+                <TextHeading>
                   <TranslatedText translationId={102}>Your Liquidity</TranslatedText>
                 </TextHeading>
                 <Question
@@ -102,11 +146,13 @@ export default function Pool() {
               </RowBetween>
 
               {!account ? (
-                <LightCard padding="40px 20px">
-                  <TextContent color="textDisabled" textAlign="center">
-                    Connect to a wallet to view your liquidity.
-                  </TextContent>
-                </LightCard>
+                <StyleConnect>
+                  <LightCard padding="40px 20px">
+                      <TextContent color="textDisabled" textAlign="center">
+                        Connect to a wallet to view your liquidity.
+                      </TextContent>
+                  </LightCard>
+                </StyleConnect>
               ) : v2IsLoading ? (
                 <LightCard padding="20px">
                   <Text color="textDisabled" textAlign="center">
@@ -129,12 +175,14 @@ export default function Pool() {
 
               <div>
                 <TextStyle fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
-                  {TranslateString(106, "Don't see a pool you joined?")}{' '}
-                  <StyledInternalLink id="import-pool-link" to="/find">
-                    {TranslateString(108, 'Import it.')}
-                  </StyledInternalLink>
+                  {TranslateString(106, "Don't see a pool you joined?")}&nbsp;&nbsp;&nbsp;&nbsp;
+                  <TextLink>
+                    <StyledInternalLink color="red" id="import-pool-link" to="/find">
+                      {TranslateString(108, 'Import it.')}
+                    </StyledInternalLink>
+                  </TextLink>
                 </TextStyle>
-                <TextStyle fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
+                <TextStyle fontSize="14px">
                   Or, if you staked your FLIP tokens in a farm, unstake them to see them here.
                 </TextStyle>
               </div>

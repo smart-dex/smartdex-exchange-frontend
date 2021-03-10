@@ -7,6 +7,18 @@ import {SelectButtonStyle} from '../../style/Button'
 
 const StyledNav = styled.div`
   margin-bottom: 40px;
+  @media(max-width: 767px) {
+    &>div {
+      background: ${({ theme }) => (theme.isDark ? "rgba(233, 244, 252, 0.1) !important" : "#E9F4FC")};
+    }
+    .sc-dlfnbm.gZSYVP.sc-iqHYGH.gsnKmh {
+      color: ${({ theme }) => (theme.isDark ? "rgba(255, 255, 255, 0.87) !important" : "")};
+      font-weight: normal !important;
+    }
+    .sc-dlfnbm.gasPXd.sc-iqHYGH.kKBchV {
+      font-weight: normal !important;
+    }
+  }
   ${SelectButtonStyle}
 `
 
