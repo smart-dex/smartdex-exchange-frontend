@@ -1,8 +1,7 @@
 import React, { useCallback, useState } from 'react'
-import { HelpCircle as Question } from 'react-feather'
 import styled from 'styled-components'
 import Tooltip from '../Tooltip'
-import { lightColors, darkColors } from '../../style/Color'
+import { lightColors } from '../../style/Color'
 
 const QuestionWrapper = styled.div`
   display: flex;
@@ -23,28 +22,28 @@ const QuestionWrapper = styled.div`
 `
 
 const IconQuestion = styled.div`
-  width: 9px;
-  height: 14px;
-  background-image: url('/images/question-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
-  margin: 5px 7px;
-  @media(max-width: 767px) {
-    width: 5.08px;
-    height: 8.42px;
-    background-image: url('/images/question-mobile-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
-    margin: 3px 5px;
+  width: 5.08px;
+  height: 8.42px;
+  background-image: url('/images/question-mobile-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
+  margin: 3px 5px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: 9px;
+    height: 14px;
+    background-image: url('/images/question-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
+    margin: 5px 7px;
   }
 `
 
 const BorderQuestion = styled.div`
-  width: 24px;
-  height: 24px;
-  background-image: url('/images/border-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
+  width: 15px;
+  height: 15px;
+  background-image: url('/images/border-mobile-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
   background-repeat: no-repeat;
   background-position: center;
-  @media(max-width: 767px) {
-    width: 15px;
-    height: 15px;
-    background-image: url('/images/border-mobile-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: 24px;
+    height: 24px;
+    background-image: url('/images/border-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
   }
 `
 

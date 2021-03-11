@@ -1,6 +1,8 @@
 import { Currency, ETHER, JSBI, TokenAmount } from '@pancakeswap-libs/sdk'
 import React, { useCallback, useEffect, useState } from 'react'
-import { Button, ChevronDownIcon, AddIcon, CardBody, Text } from '@pancakeswap-libs/uikit'
+import styled from 'styled-components'
+import { baseColors, darkColors, lightColors } from 'style/Color'
+import { Button, ChevronDownIcon, AddIcon, CardBody, Text } from 'uikit-sotatek'
 import CardNav from 'components/CardNav'
 import { LightCard } from 'components/Card'
 import { AutoColumn, ColumnCenter } from 'components/Column'
@@ -67,13 +69,58 @@ export default function PoolFinder() {
     setShowSearch(false)
   }, [setShowSearch])
 
+  const TextNote = styled(Text)`
+  div {
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 12px;
+    color: ${({ theme }) => (theme.isDark ? darkColors.titleMini : lightColors.titleSub)};
+    ${({ theme }) => theme.mediaQueries.nav} {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+  `
+
+  const StyleNote = styled(Text)`
+  div {
+    background: ${({ theme }) => (theme.isDark ? darkColors.backgroundColor : lightColors.backgroundColor)};
+    border: none;
+  }
+  `
+
   const prerequisiteMessage = (
-    <LightCard padding="45px 10px">
-      <Text style={{ textAlign: 'center' }}>
-        {!account ? 'Connect to a wallet to find pools' : 'Select a token to find your liquidity.'}
-      </Text>
-    </LightCard>
+    <StyleNote>
+      <LightCard padding="45px 10px">
+        <TextNote>
+          <Text style={{ textAlign: 'center' }}>
+            {!account ? 'Connect to a wallet to find pools' : 'Select a token to find your liquidity.'}
+          </Text>
+        </TextNote>
+      </LightCard>
+    </StyleNote>
   )
+
+  const StyleButton = styled(Text)`
+    button {
+      width: 100%;
+      height: 45px;
+      font-size: 14px;
+      background: ${baseColors.primary};
+      ${({ theme }) => theme.mediaQueries.nav} {
+        font-size: 17px;
+      }
+    }
+  `
+
+  const StyleIcon = styled(Text)`
+    svg {
+      width: 12px;
+      path {
+        fill: ${({ theme }) => (theme.isDark ? darkColors.colorIcon : lightColors.colorIcon )};
+      }
+    }
+  `
 
   return (
     <>
@@ -82,33 +129,35 @@ export default function PoolFinder() {
         <FindPoolTabs />
         <CardBody>
           <AutoColumn gap="md">
-            <Button
-              onClick={() => {
-                setShowSearch(true)
-                setActiveField(Fields.TOKEN0)
-              }}
-              startIcon={currency0 ? <CurrencyLogo currency={currency0} style={{ marginRight: '.5rem' }} /> : null}
-              endIcon={<ChevronDownIcon width="24px" color="white" />}
-              fullWidth
-            >
-              {currency0 ? currency0.symbol : <TranslatedText translationId={82}>Select a Token</TranslatedText>}
-            </Button>
+            <StyleButton>
+              <Button
+                onClick={() => {
+                  setShowSearch(true)
+                  setActiveField(Fields.TOKEN0)
+                }}
+                startIcon={currency0 ? <CurrencyLogo currency={currency0} style={{ marginRight: '.5rem' }} /> : null}
+                endIcon={<ChevronDownIcon width="24px" color="white" />}
+              >
+                {currency0 ? currency0.symbol : <TranslatedText translationId={82}>Select a Token</TranslatedText>}
+              </Button>
+            </StyleButton>
 
             <ColumnCenter>
-              <AddIcon color="textSubtle" />
+              <StyleIcon><AddIcon color="textSubtle" /></StyleIcon>
             </ColumnCenter>
 
-            <Button
-              onClick={() => {
-                setShowSearch(true)
-                setActiveField(Fields.TOKEN1)
-              }}
-              startIcon={currency1 ? <CurrencyLogo currency={currency1} style={{ marginRight: '.5rem' }} /> : null}
-              endIcon={<ChevronDownIcon width="24px" color="white" />}
-              fullWidth
-            >
-              {currency1 ? currency1.symbol : <TranslatedText translationId={82}>Select a Token</TranslatedText>}
-            </Button>
+            <StyleButton>
+              <Button
+                onClick={() => {
+                  setShowSearch(true)
+                  setActiveField(Fields.TOKEN1)
+                }}
+                startIcon={currency1 ? <CurrencyLogo currency={currency1} style={{ marginRight: '.5rem' }} /> : null}
+                endIcon={<ChevronDownIcon width="24px" color="white" />}
+              >
+                {currency1 ? currency1.symbol : <TranslatedText translationId={82}>Select a Token</TranslatedText>}
+              </Button>
+            </StyleButton>
 
             {hasPosition && (
               <ColumnCenter

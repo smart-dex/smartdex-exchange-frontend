@@ -35,7 +35,11 @@ export const baseColors = {
     activeBackgroundMenuLeft: '#E9F4FC',
     textLogoMenuLeft: '#5F5E76',
     backgroundColor: '#FFFFFF',
-    titleMini: '#5F5E76' 
+    titleMini: '#5F5E76',
+    titleSub: 'rgba(95, 94, 118, 0.5)',
+    fillSvg: '#8F8FA0',
+    backButtonGrey: '#E8E8EB',
+    colorIcon: '#452A7A'
   }
   
   export const darkColors = {
@@ -63,6 +67,10 @@ export const baseColors = {
     activeBackgroundMenuLeft: '#1C2438',
     textLogoMenuLeft: '#FFFFFF',
     backgroundColor: '#00071C',
-    titleMini: 'rgba(255, 255, 255, 0.6)'
+    titleMini: 'rgba(255, 255, 255, 0.6)',
+    darkText: 'rgba(233, 244, 252, 0.1)',
+    fillSvg: '#8F8FA0',
+    backButtonGrey: '#E8E8EB',
+    colorIcon: '#EAE2FC'
   }
   

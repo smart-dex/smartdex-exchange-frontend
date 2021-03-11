@@ -1,7 +1,7 @@
-import React, { useContext, useMemo } from 'react'
-import styled, { ThemeContext } from 'styled-components'
+import React, { useMemo } from 'react'
+import styled from 'styled-components'
 import { Pair } from '@pancakeswap-libs/sdk'
-import { Button, CardBody, Text } from '@pancakeswap-libs/uikit'
+import { Button, CardBody, Text } from 'uikit-sotatek'
 import { Link } from 'react-router-dom'
 import CardNav from 'components/CardNav'
 import Question from 'components/QuestionHelper'
@@ -57,68 +57,70 @@ export default function Pool() {
 
   const ButtonAdd = styled(Button)`
     ${ButtonSecondary}
+    font-size: 14px;
+    line-height: 17px;
     padding: 0 20px;
     font-weight: 600;
-    @media(max-width: 767px) {
-      font-size: 14px;
-      line-height: 17px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      font-size: 16px;
+      line-height: 20px;
     }
   `
 
   const TextHeading = styled(Text)`
+    font-size: 14px;
+    line-height: 17px;
     font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
     color: ${({ theme }) => (theme.isDark ? darkColors.textSubtle : lightColors.textMenuLeft)};
-    @media(max-width: 767px) {
-      font-size: 14px;
-      line-height: 17px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      font-size: 16px;
+      line-height: 20px;
     }
   `
 
   const TextStyle = styled(Text)`
+    font-size: 10px;
+    line-height: 20px;
+    padding: 0;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 17px;
-    padding: .5rem 0 .5rem 0;
     color: ${({ theme }) => (theme.isDark ? darkColors.textSubtle : lightColors.textMenuLeft)};
-    @media(max-width: 767px) {
-      font-size: 10px;
-      line-height: 20px;
-      padding: 0;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      font-size: 14px;
+      line-height: 17px;
+      padding: .2rem 0;
     }
   `
   const TextContent = styled(Text)`
     font-weight: 600;
-    font-size: 14px;
-    line-height: 17px;
-    color: ${({ theme }) => (theme.isDark ? darkColors.titleMini : "rgba(95, 94, 118, 0.5)")};
-    @media(max-width: 767px) {
-      font-size: 10px;
-      line-height: 12px;
+    font-size: 10px;
+    line-height: 12px;
+    color: ${({ theme }) => (theme.isDark ? darkColors.titleMini : lightColors.titleSub)};
+    ${({ theme }) => theme.mediaQueries.nav} {
+      font-size: 14px;
+      line-height: 17px;
     }
   `
 
   const TextLink = styled.a `
-    .sc-jQbIHB {
+    a {
       color: ${baseColors.primary};
       font-weight: 600;
-      font-size: 14px;
-      line-height: 17px;
+      font-size: 10px;
+      line-height: 12px;
     }
-    @media(max-width: 767px) {
-      .sc-jQbIHB {
-        font-size: 10px;
-        line-height: 12px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      a {
+        font-size: 14px;
+        line-height: 17px;
       }
     }
   `
 
   const StyleConnect = styled.div`
-  .sc-dtTInj.sc-dkIXFM.dKXeuF.fDZHaJ {
-    background: ${({ theme }) => (theme.isDark ? darkColors.backgroundColor : lightColors.backgroundColor)};
-    border: none;
-  }
+    div {
+      background: ${({ theme }) => (theme.isDark ? darkColors.backgroundColor : lightColors.backgroundColor)};
+      border: none;
+    }
   `
 
   return (
