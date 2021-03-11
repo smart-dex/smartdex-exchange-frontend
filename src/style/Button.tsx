@@ -27,7 +27,7 @@ background-color: ${baseColors.primary};
 export const ButtonSecondary = `
 ${Button}
 box-shadow: 0px 4px 10px rgba(255, 161, 78, 0.24);
-background-color: #FFA14E;
+background-color: ${lightColors.buttonSecon};
 `
 export const ButtonBorder = `
 ${Button}

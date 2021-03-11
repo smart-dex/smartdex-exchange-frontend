@@ -39,7 +39,8 @@ export const baseColors = {
     titleSub: 'rgba(95, 94, 118, 0.5)',
     fillSvg: '#8F8FA0',
     backButtonGrey: '#E8E8EB',
-    colorIcon: '#452A7A'
+    colorIcon: '#452A7A',
+    buttonSecon: '#FFA14E'
   }
   
   export const darkColors = {
