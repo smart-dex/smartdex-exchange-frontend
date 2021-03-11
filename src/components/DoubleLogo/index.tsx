@@ -1,4 +1,4 @@
-import { Currency } from '@sotatek-anhdao/cake-sdk'
+import { Currency } from '@pancakeswap-libs/sdk'
 import React from 'react'
 import styled from 'styled-components'
 import CurrencyLogo from '../CurrencyLogo'
