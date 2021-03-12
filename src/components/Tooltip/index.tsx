@@ -7,9 +7,12 @@ const TooltipContainer = styled.div`
   width: 228px;
   padding: 0.6rem 1rem;
   line-height: 150%;
-  font-weight: 400;
-  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)}
-
+  font-weight: normal;
+  font-size: 12px;
+  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)};
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 14px;
+  }
 `
 
 interface TooltipProps extends Omit<PopoverProps, 'content'> {

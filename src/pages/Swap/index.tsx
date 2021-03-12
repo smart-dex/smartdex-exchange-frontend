@@ -1,7 +1,7 @@
 import { CurrencyAmount, JSBI, Token, Trade } from '@pancakeswap-libs/sdk'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { ArrowDown } from 'react-feather'
-import { CardBody, ArrowDownIcon, Button, IconButton, Text } from '@pancakeswap-libs/uikit'
+import { CardBody, ArrowDownIcon, Button, IconButton, Text } from 'uikit-sotatek'
 import styled, { ThemeContext } from 'styled-components'
 import AddressInputPanel from 'components/AddressInputPanel'
 import Card, { GreyCard } from 'components/Card'
@@ -35,10 +35,21 @@ import { TranslateString } from 'utils/translateTextHelpers'
 import PageHeader from 'components/PageHeader'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import AppBody from '../AppBody'
-import { lightColors } from '../../style/Color'
+import { lightColors, darkColors } from '../../style/Color'
 
 const TextStyle = styled(Text)`
   color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)}
+`
+
+const StyleIcon = styled(Text)`
+  button {
+    background: ${({ theme }) => (theme.isDark ? darkColors.backIcon : lightColors.backIcon )};
+    svg {
+      path {
+        fill: ${({ theme }) => (theme.isDark ? darkColors.colorIcon : lightColors.colorIcon )};
+      }
+    }
+  }
 `
 
 const Swap = () => {
@@ -309,17 +320,19 @@ const Swap = () => {
               <AutoColumn justify="space-between">
                 <AutoRow justify={isExpertMode ? 'space-between' : 'center'} style={{ padding: '0 1rem' }}>
                   <ArrowWrapper clickable>
-                    <IconButton
-                      variant="tertiary"
-                      onClick={() => {
-                        setApprovalSubmitted(false) // reset 2 step UI for approvals
-                        onSwitchTokens()
-                      }}
-                      style={{ borderRadius: '50%' }}
-                      size="sm"
-                    >
-                      <ArrowDownIcon color="primary" width="24px" />
-                    </IconButton>
+                    <StyleIcon>
+                      <IconButton
+                        variant="tertiary"
+                        onClick={() => {
+                          setApprovalSubmitted(false) // reset 2 step UI for approvals
+                          onSwitchTokens()
+                        }}
+                        style={{ borderRadius: '50%' }}
+                        scale="sm"
+                      >
+                        <ArrowDownIcon />
+                      </IconButton>
+                    </StyleIcon>
                   </ArrowWrapper>
                   {recipient === null && !showWrap && isExpertMode ? (
                     <LinkStyledButton id="add-recipient-button" onClick={() => onChangeRecipient('')}>
@@ -382,7 +395,7 @@ const Swap = () => {
               {!account ? (
                 <ConnectWalletButton fullWidth />
               ) : showWrap ? (
-                <Button disabled={Boolean(wrapInputError)} onClick={onWrap} fullWidth>
+                <Button disabled={Boolean(wrapInputError)} onClick={onWrap}>
                   {wrapInputError ??
                     (wrapType === WrapType.WRAP ? 'Wrap' : wrapType === WrapType.UNWRAP ? 'Unwrap' : null)}
                 </Button>
@@ -452,7 +465,6 @@ const Swap = () => {
                   id="swap-button"
                   disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
                   variant={isValid && priceImpactSeverity > 2 && !swapCallbackError ? 'danger' : 'primary'}
-                  fullWidth
                 >
                   {swapInputError ||
                     (priceImpactSeverity > 3 && !isExpertMode

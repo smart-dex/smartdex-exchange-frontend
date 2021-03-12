@@ -1,8 +1,10 @@
 import React, { useCallback, useState } from 'react'
 import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
+import styled from 'styled-components'
 import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@pancakeswap-libs/sdk'
-import { Button, CardBody, AddIcon, Text as UIKitText } from '@pancakeswap-libs/uikit'
+import { darkColors, lightColors } from 'style/Color'
+import { Button, CardBody, AddIcon, Text as UIKitText } from 'uikit-sotatek'
 import { RouteComponentProps } from 'react-router-dom'
 import { LightCard } from 'components/Card'
 import { AutoColumn, ColumnCenter } from 'components/Column'
@@ -285,6 +287,15 @@ export default function AddLiquidity({
     setTxHash('')
   }, [onFieldAInput, txHash])
 
+  const StyleIcon = styled(UIKitText)`
+    svg {
+      width: 12px;
+      path {
+        fill: ${({ theme }) => (theme.isDark ? darkColors.colorIcon : lightColors.colorIcon )};
+      }
+    }
+  `
+
   return (
     <>
       <CardNav activeIndex={1} />
@@ -332,7 +343,7 @@ export default function AddLiquidity({
                 showCommonBases={false}
               />
               <ColumnCenter>
-                <AddIcon color="textSubtle" />
+                <StyleIcon><AddIcon color="textSubtle" /></StyleIcon>
               </ColumnCenter>
               <CurrencyInputPanel
                 value={formattedAmounts[Field.CURRENCY_B]}
@@ -419,7 +430,6 @@ export default function AddLiquidity({
                         ? 'danger'
                         : 'primary'
                     }
-                    fullWidth
                   >
                     {error ?? 'Supply'}
                   </Button>

@@ -13,6 +13,12 @@ const ButtonStyle = styled(Button)`
   &:hover {
     background: #5ba7ec !important;
   }
+  font-weight: 600;
+  font-size: 13px;
+  box-shadow: 0px 4px 10px rgba(83, 185, 234, 0.24);
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 16px;
+  }
 `
 
 const UnlockButton: React.FC<ButtonProps> = props => {

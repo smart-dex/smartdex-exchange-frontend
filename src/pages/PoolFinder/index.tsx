@@ -105,10 +105,10 @@ export default function PoolFinder() {
     button {
       width: 100%;
       height: 45px;
-      font-size: 14px;
+      font-size: 13px;
       background: ${baseColors.primary};
       ${({ theme }) => theme.mediaQueries.nav} {
-        font-size: 17px;
+        font-size: 16px;
       }
     }
   `
