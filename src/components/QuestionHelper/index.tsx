@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from 'react'
-import { HelpCircle as Question } from 'react-feather'
 import styled from 'styled-components'
 import Tooltip from '../Tooltip'
 import { lightColors } from '../../style/Color'
@@ -22,7 +21,31 @@ const QuestionWrapper = styled.div`
   }
 `
 
+const IconQuestion = styled.div`
+  width: 5.08px;
+  height: 8.42px;
+  background-image: url('/images/question-mobile-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
+  margin: 3px 5px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: 9px;
+    height: 14px;
+    background-image: url('/images/question-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
+    margin: 5px 7px;
+  }
+`
 
+const BorderQuestion = styled.div`
+  width: 15px;
+  height: 15px;
+  background-image: url('/images/border-mobile-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: 24px;
+    height: 24px;
+    background-image: url('/images/border-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
+  }
+`
 
 export default function QuestionHelper({ text }: { text: string }) {
   const [show, setShow] = useState<boolean>(false)
@@ -34,7 +57,9 @@ export default function QuestionHelper({ text }: { text: string }) {
     <span style={{ marginLeft: 4 }}>
       <Tooltip text={text} show={show}>
         <QuestionWrapper onClick={open} onMouseEnter={open} onMouseLeave={close}>
-          <Question size={16} />
+          <BorderQuestion>
+            <IconQuestion />
+          </BorderQuestion>
         </QuestionWrapper>
       </Tooltip>
     </span>
