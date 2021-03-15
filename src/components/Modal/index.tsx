@@ -7,8 +7,8 @@ import '@reach/dialog/styles.css'
 import { transparentize } from 'polished'
 
 const AnimatedDialogOverlay = animated(DialogOverlay)
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const StyledDialogOverlay = styled(AnimatedDialogOverlay)`
+  margin-top: 50px;
   &[data-reach-dialog-overlay] {
     z-index: 2;
     background-color: transparent;
@@ -23,8 +23,6 @@ const StyledDialogOverlay = styled(AnimatedDialogOverlay)`
 `
 
 const AnimatedDialogContent = animated(DialogContent)
-// destructure to not pass custom props to Dialog DOM element
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const StyledDialogContent = styled(({ minHeight, maxHeight, mobile, isOpen, ...rest }) => (
   <AnimatedDialogContent {...rest} />
 )).attrs({
@@ -53,7 +51,7 @@ const StyledDialogContent = styled(({ minHeight, maxHeight, mobile, isOpen, ...r
         min-height: ${minHeight}vh;
       `}
     display: flex;
-    border-radius: 20px;
+    border-radius: 40px;
 
     ${({ theme }) => theme.mediaQueries.lg} {
       width: 65vw;

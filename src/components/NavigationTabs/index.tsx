@@ -4,6 +4,7 @@ import { Link as HistoryLink } from 'react-router-dom'
 import { ArrowLeft } from 'react-feather'
 import { RowBetween } from 'components/Row'
 import QuestionHelper from 'components/QuestionHelper'
+import { lightColors, darkColors } from 'style/Color'
 
 const Tabs = styled.div`
   display: flex;
@@ -14,8 +15,20 @@ const Tabs = styled.div`
 `
 
 const ActiveText = styled.div`
-  font-weight: 500;
-  font-size: 20px;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: bold;
+  color: ${({ theme }) => (theme.isDark ? darkColors.textSubtle : lightColors.textMenuLeft)};
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 24px;
+    line-height: 29px;
+  }
+`
+
+const Styleback = styled.div`
+  svg {
+    color: ${({ theme }) => (theme.isDark ? darkColors.textSubtle : lightColors.textMenuLeft)};
+  } 
 `
 
 const StyledArrowLeft = styled(ArrowLeft)`
@@ -27,7 +40,7 @@ export function FindPoolTabs() {
     <Tabs>
       <RowBetween style={{ padding: '1rem' }}>
         <HistoryLink to="/pool">
-          <StyledArrowLeft />
+          <Styleback><StyledArrowLeft /></Styleback>
         </HistoryLink>
         <ActiveText>Import Pool</ActiveText>
         <QuestionHelper text={"Use this tool to find pairs that don't automatically appear in the interface."} />
@@ -41,7 +54,7 @@ export function AddRemoveTabs({ adding }: { adding: boolean }) {
     <Tabs>
       <RowBetween style={{ padding: '1rem' }}>
         <HistoryLink to="/pool">
-          <StyledArrowLeft />
+          <Styleback><StyledArrowLeft /></Styleback>
         </HistoryLink>
         <ActiveText>{adding ? 'Add' : 'Remove'} Liquidity</ActiveText>
         <QuestionHelper

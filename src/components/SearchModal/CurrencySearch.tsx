@@ -1,11 +1,12 @@
 import { Currency, ETHER, Token } from '@pancakeswap-libs/sdk'
-import React, { KeyboardEvent, RefObject, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
-import { Text, CloseIcon } from '@pancakeswap-libs/uikit'
+import React, { KeyboardEvent, RefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { Text } from 'uikit-sotatek'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import { FixedSizeList } from 'react-window'
-import styled, { ThemeContext }  from 'styled-components'
+import styled from 'styled-components'
 import AutoSizer from 'react-virtualized-auto-sizer'
+import { lightColors, darkColors, baseColors } from 'style/Color'
 import { useActiveWeb3React } from '../../hooks'
 import { AppState } from '../../state'
 import { useAllTokens, useToken } from '../../hooks/Tokens'
@@ -22,14 +23,83 @@ import CurrencyList from './CurrencyList'
 import { filterTokens } from './filtering'
 import SortButton from './SortButton'
 import { useTokenComparator } from './sorting'
-import { PaddedColumn, SearchInput, Separator } from './styleds'
+import { PaddedColumn, SearchInputToken } from './styleds'
 import TranslatedText from '../TranslatedText'
 import { TranslateString } from '../../utils/translateTextHelpers'
-import { lightColors } from '../../style/Color'
 
-const TextStyle = styled(Text)`
-  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)}
+const StyleHeader = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)};
+  display: flex;
 `
+
+const HeadingTitle = styled(Text)`
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: bold;
+  color: ${({ theme }) => (theme.isDark ? darkColors.textSubtle : lightColors.textMenuLeft)};
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 24px;
+    line-height: 29px;
+  }
+`
+
+const IconClose = styled(Text)`
+  width: 20px;
+  height: 20px;
+  svg path {
+    fill: ${({ theme }) => (theme.isDark ? darkColors.iconClose : lightColors.iconClose)};
+  }
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: 29px;
+    height: 29px;
+  }
+`
+
+const TopDevider = styled(Text)`
+  svg rect {
+    stroke: ${({ theme }) => (theme.isDark ? darkColors.borderTop : lightColors.borderTop)};
+  }
+`
+
+const SubTitle = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? darkColors.contrast : lightColors.titleMini)};
+  font-weight: 600;
+  font-size: 13px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 16px;
+  }
+`
+
+const StyleLink = styled(Text)`
+  button {
+    color: ${baseColors.primary};
+    font-weight: 600;
+    font-size: 13px;
+  }
+  ${({ theme }) => theme.mediaQueries.nav} {
+    button {
+      font-size: 16px;
+    }
+  }
+`
+
+const StyleText = styled(Text)`
+  div {
+    font-size: 13px;
+    font-weight: 600;
+    color: ${({ theme }) => (theme.isDark ? darkColors.textSubtle : lightColors.textMenuLeft)};
+    ${({ theme }) => theme.mediaQueries.nav} {
+      font-size: 16px;
+    }
+  }
+`
+
+const StyleIcon = styled(Text)`
+  svg {
+    margin-top: 10px;
+  }
+`
+
 interface CurrencySearchProps {
   isOpen: boolean
   onDismiss: () => void
@@ -51,7 +121,6 @@ export function CurrencySearch({
 }: CurrencySearchProps) {
   const { t } = useTranslation()
   const { chainId } = useActiveWeb3React()
-  const theme = useContext(ThemeContext)
 
   const fixedList = useRef<FixedSizeList>()
   const [searchQuery, setSearchQuery] = useState<string>('')
@@ -146,18 +215,29 @@ export function CurrencySearch({
     <Column style={{ width: '100%', flex: '1 1' }}>
       <PaddedColumn gap="14px">
         <RowBetween>
-          <TextStyle>
-            <TranslatedText translationId={82}>Select a token</TranslatedText>
+          <StyleHeader>
+            <HeadingTitle><TranslatedText translationId={82}>Select a token</TranslatedText></HeadingTitle>
             <QuestionHelper
               text={TranslateString(
                 130,
                 'Find a token by searching for its name or symbol or by pasting its address below.'
               )}
             />
-          </TextStyle>
-          <CloseIcon onClick={onDismiss} />
+          </StyleHeader>
+          <IconClose onClick={onDismiss}>
+            <svg viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15.5 0.916626C7.43538 0.916626 0.916626 7.43538 0.916626 15.5C0.916626 23.5645 7.43538 30.0833 15.5 30.0833C23.5645 30.0833 30.0833 23.5645 30.0833 15.5C30.0833 7.43538 23.5645 0.916626 15.5 0.916626ZM22.7916 20.7354L20.7354 22.7916L15.5 17.5562L10.2645 22.7916L8.20829 20.7354L13.4437 15.5L8.20829 10.2645L10.2645 8.20829L15.5 13.4437L20.7354 8.20829L22.7916 10.2645L17.5562 15.5L22.7916 20.7354Z"/>
+            </svg>
+          </IconClose>
         </RowBetween>
-        <SearchInput
+
+        <TopDevider>
+          <svg viewBox="0 0 413 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="1" width="411" height="1" strokeDasharray="5 5"/>
+          </svg>
+        </TopDevider>
+
+        <SearchInputToken
           type="text"
           id="token-search-input"
           placeholder={t('tokenSearchPlaceholder')}
@@ -170,14 +250,12 @@ export function CurrencySearch({
           <CommonBases chainId={chainId} onSelect={handleCurrencySelect} selectedCurrency={selectedCurrency} />
         )}
         <RowBetween>
-          <TextStyle fontSize="14px">
+          <SubTitle>
             <TranslatedText translationId={126}>Token name</TranslatedText>
-          </TextStyle>
-          <SortButton ascending={invertSearchOrder} toggleSortOrder={() => setInvertSearchOrder((iso) => !iso)} />
+          </SubTitle>
+            <SortButton ascending={invertSearchOrder} toggleSortOrder={() => setInvertSearchOrder((iso) => !iso)} />
         </RowBetween>
       </PaddedColumn>
-
-      <Separator />
 
       <div style={{ flex: '1' }}>
         <AutoSizer disableWidth>
@@ -197,28 +275,30 @@ export function CurrencySearch({
 
       {null && (
         <>
-          <Separator />
           <Card>
             <RowBetween>
               {selectedListInfo.current ? (
                 <Row>
                   {selectedListInfo.current.logoURI ? (
-                    <ListLogo
-                      style={{ marginRight: 12 }}
-                      logoURI={selectedListInfo.current.logoURI}
-                      alt={`${selectedListInfo.current.name} list logo`}
-                    />
+                    <StyleIcon >
+                      <ListLogo
+                        style={{ marginRight: 12 }}
+                        logoURI={selectedListInfo.current.logoURI}
+                        alt={`${selectedListInfo.current.name} list logo`}
+                      />
+                    </StyleIcon>
                   ) : null}
-                  <Text id="currency-search-selected-list-name">{selectedListInfo.current.name}</Text>
+                  <StyleText><Text id="currency-search-selected-list-name">{selectedListInfo.current.name}</Text></StyleText>
                 </Row>
               ) : null}
-              <LinkStyledButton
-                style={{ fontWeight: 500, color: theme.colors.textSubtle, fontSize: 16 }}
-                onClick={onChangeList}
-                id="currency-search-change-list-button"
-              >
-                {selectedListInfo.current ? 'Change' : 'Select a list'}
-              </LinkStyledButton>
+              <StyleLink>
+                <LinkStyledButton
+                  onClick={onChangeList}
+                  id="currency-search-change-list-button"
+                >
+                  {selectedListInfo.current ? 'Change' : 'Select a list'}
+                </LinkStyledButton>
+              </StyleLink>
             </RowBetween>
           </Card>
         </>

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Button, ButtonProps, ConnectorId, useWalletModal } from '@pancakeswap-libs/uikit'
 import { injected, walletconnect } from 'connectors'
 import useI18n from 'hooks/useI18n'
-import { baseColors } from '../../style/Color'
+import { baseColors } from 'style/Color'
 
 
 const ButtonStyle = styled(Button)`
@@ -12,6 +12,12 @@ const ButtonStyle = styled(Button)`
   border-radius: 10px;
   &:hover {
     background: #5ba7ec !important;
+  }
+  font-weight: 600;
+  font-size: 13px;
+  box-shadow: 0px 4px 10px rgba(83, 185, 234, 0.24);
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 16px;
   }
 `
 

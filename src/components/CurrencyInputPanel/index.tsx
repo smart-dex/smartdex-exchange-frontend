@@ -3,6 +3,7 @@ import { Currency, Pair } from '@pancakeswap-libs/sdk'
 import { Button, ChevronDownIcon, Text } from '@pancakeswap-libs/uikit'
 import styled from 'styled-components'
 import { darken } from 'polished'
+import { lightColors, darkColors } from 'style/Color'
 import { useCurrencyBalance } from '../../state/wallet/hooks'
 import CurrencySearchModal from '../SearchModal/CurrencySearchModal'
 import CurrencyLogo from '../CurrencyLogo'
@@ -12,7 +13,6 @@ import { Input as NumericalInput } from '../NumericalInput'
 import { useActiveWeb3React } from '../../hooks'
 import TranslatedText from "../TranslatedText"
 import { TranslateString } from '../../utils/translateTextHelpers'
-import { lightColors } from '../../style/Color'
 
 const InputRow = styled.div<{ selected: boolean }>`
   display: flex;
@@ -66,18 +66,23 @@ const InputPanel = styled.div<{ hideInput?: boolean }>`
   flex-flow: column nowrap;
   position: relative;
   border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
-  background-color: #5f5e761a;
+  background-color: ${({ theme }) => (theme.isDark ? lightColors.backInput : darkColors.backInput)};
   z-index: 1;
 `
 
 const Container = styled.div<{ hideInput: boolean }>`
   border-radius: 16px;
-  background-color: #5f5e761a;
+  background-color: ${({ theme }) => (theme.isDark ? lightColors.backInput : darkColors.backInput)};
   box-shadow: ${({ theme }) => theme.shadows.inset};
 `
 
 const TextStyle = styled(Text)`
-  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)}
+  color: ${({ theme }) => (theme.isDark ? darkColors.text : lightColors.text)};
+  font-weight: bold;
+  font-size: 12px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 16px;
+  }
 `
 
 interface CurrencyInputPanelProps {
@@ -180,7 +185,7 @@ export default function CurrencyInputPanel({
                     ? `${currency.symbol.slice(0, 4) 
                       }...${ 
                       currency.symbol.slice(currency.symbol.length - 5, currency.symbol.length)}`
-                    : currency?.symbol) || <TranslatedText translationId={82}>Select a currency</TranslatedText>}
+                    : currency?.symbol) || <TranslatedText translationId={82}>Select a token</TranslatedText>}
                 </TextStyle>
               )}
               {!disableCurrencySelect && <ChevronDownIcon />}

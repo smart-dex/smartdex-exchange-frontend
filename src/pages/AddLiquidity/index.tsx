@@ -1,8 +1,10 @@
 import React, { useCallback, useState } from 'react'
 import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
+import styled from 'styled-components'
 import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@pancakeswap-libs/sdk'
-import { Button, CardBody, AddIcon, Text as UIKitText } from '@pancakeswap-libs/uikit'
+import { darkColors, lightColors } from 'style/Color'
+import { Button, CardBody, AddIcon, Text as UIKitText } from 'uikit-sotatek'
 import { RouteComponentProps } from 'react-router-dom'
 import { LightCard } from 'components/Card'
 import { AutoColumn, ColumnCenter } from 'components/Column'
@@ -190,6 +192,27 @@ export default function AddLiquidity({
       })
   }
 
+  const StyleText = styled(UIKitText)`
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+    color: ${({theme}) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+    ${({ theme }) => theme.mediaQueries.nav} {
+      font-size: 16px;
+    }
+  `
+
+  const StyleTextTit = styled(UIKitText)`
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: ${({theme}) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+    ${({ theme }) => theme.mediaQueries.nav} {
+      font-size: 14px;
+    }
+  `
+
   const modalHeader = () => {
     return noLiquidity ? (
       <AutoColumn gap="20px">
@@ -285,6 +308,15 @@ export default function AddLiquidity({
     setTxHash('')
   }, [onFieldAInput, txHash])
 
+  const StyleIcon = styled(UIKitText)`
+    svg {
+      width: 12px;
+      path {
+        fill: ${({ theme }) => (theme.isDark ? darkColors.colorIcon : lightColors.colorIcon )};
+      }
+    }
+  `
+
   return (
     <>
       <CardNav activeIndex={1} />
@@ -312,9 +344,9 @@ export default function AddLiquidity({
                 <ColumnCenter>
                   <Pane>
                     <AutoColumn gap="12px">
-                      <UIKitText>You are the first liquidity provider.</UIKitText>
-                      <UIKitText>The ratio of tokens you add will set the price of this pool.</UIKitText>
-                      <UIKitText>Once you are happy with the rate click supply to review.</UIKitText>
+                      <UIKitText><StyleText>You are the first liquidity provider.</StyleText></UIKitText>
+                      <UIKitText><StyleText>The ratio of tokens you add will set the price of this pool.</StyleText></UIKitText>
+                      <UIKitText><StyleText>Once you are happy with the rate click supply to review.</StyleText></UIKitText>
                     </AutoColumn>
                   </Pane>
                 </ColumnCenter>
@@ -332,7 +364,7 @@ export default function AddLiquidity({
                 showCommonBases={false}
               />
               <ColumnCenter>
-                <AddIcon color="textSubtle" />
+                <StyleIcon><AddIcon color="textSubtle" /></StyleIcon>
               </ColumnCenter>
               <CurrencyInputPanel
                 value={formattedAmounts[Field.CURRENCY_B]}
@@ -348,14 +380,9 @@ export default function AddLiquidity({
               />
               {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
                 <div>
-                  <UIKitText
-                    style={{ textTransform: 'uppercase', fontWeight: 600 }}
-                    color="textSubtle"
-                    fontSize="12px"
-                    mb="2px"
-                  >
+                  <StyleTextTit>
                     {noLiquidity ? 'Initial prices and pool share' : 'Prices and pool share'}
-                  </UIKitText>
+                  </StyleTextTit>
                   <Pane>
                     <PoolPriceBar
                       currencies={currencies}
@@ -419,7 +446,6 @@ export default function AddLiquidity({
                         ? 'danger'
                         : 'primary'
                     }
-                    fullWidth
                   >
                     {error ?? 'Supply'}
                   </Button>
