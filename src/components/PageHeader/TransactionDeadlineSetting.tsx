@@ -25,12 +25,25 @@ const Field = styled.div`
   }
 
   & > ${Text} {
-    font-size: 14px;
     margin-left: 8px;
   }
 `
 const TextStyle = styled(Text)`
-  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)}
+  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)};
+  font-size: 13px;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    font-size: 16px;
+  }
+`
+
+const StyleInput = styled(Text)`
+  input {
+    font-size: 13px;
+    color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)};
+    ${({ theme }) => theme.mediaQueries.sm} {
+      font-size: 16px;
+    }
+  }
 `
 
 const TransactionDeadlineSetting = () => {
@@ -67,7 +80,7 @@ const TransactionDeadlineSetting = () => {
         <QuestionHelper text="Your transaction will revert if it is pending for more than this long." />
       </Label>
       <Field>
-        <Input type="number" step="1" min="1" value={value} onChange={handleChange} />
+        <StyleInput><Input type="number" step="1" min="1" value={value} onChange={handleChange} /></StyleInput>
         <TextStyle>Minutes</TextStyle>
       </Field>
       {error && (

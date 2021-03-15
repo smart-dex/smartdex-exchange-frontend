@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { lightColors, darkColors, baseColors } from 'style/Color'
 import { AutoColumn } from '../Column'
 import { RowBetween, RowFixed } from '../Row'
 
@@ -53,6 +54,40 @@ export const SearchInput = styled.input`
     outline: none;
   }
 `
+export const SearchInputToken = styled.input`
+  height: 60px;
+  background: ${({theme}) => (theme.isDark ? darkColors.background : lightColors.background)};
+  border-radius: 20px;
+  font-size: 13px;
+
+  position: relative;
+  display: flex;
+  padding: 16px;
+  align-items: center;
+  width: 100%;
+  white-space: nowrap;
+  border: none;
+  outline: none;
+  color: ${({theme}) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+  border-style: solid;
+  border: 1px solid ${({theme}) => (theme.isDark ? darkColors.background : lightColors.borderColor)};
+  -webkit-appearance: none;
+
+  ::placeholder {
+    color: ${({theme}) => (theme.isDark ? darkColors.colorPla : lightColors.colorPla)};
+  }
+  transition: border 100ms;
+  :focus {
+    border: 1px solid ${baseColors.primary};
+    outline: none;
+  }
+
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 16px;
+    height: 70px;
+  }
+`
+
 export const Separator = styled.div`
   width: 100%;
   height: 1px;

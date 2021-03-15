@@ -1,5 +1,7 @@
 import React, { useMemo } from 'react'
-import { CheckmarkCircleIcon, ErrorIcon, Flex, LinkExternal, Text, Modal, Button } from '@pancakeswap-libs/uikit'
+import styled from 'styled-components'
+import { baseColors, darkColors, lightColors } from 'style/Color'
+import { CheckmarkCircleIcon, ErrorIcon, Flex, LinkExternal, Text, Modal, Button } from 'uikit-sotatek'
 import { useActiveWeb3React } from 'hooks'
 import { getBscScanLink } from 'utils'
 import { isTransactionRecent, useAllTransactions } from 'state/transactions/hooks'
@@ -39,26 +41,56 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss }: RecentTransac
     return txs.filter(isTransactionRecent).sort(newTransactionsFirst)
   }, [allTransactions])
 
+  const StyleText = styled(Text)`
+    font-size: 13px;
+    font-weight: 500;
+    color: ${({ theme }) => (theme.isDark ? darkColors.textSubtle : lightColors.textMenuLeft)};
+    ${({ theme }) => theme.mediaQueries.nav} {
+      font-size: 16px;
+    }
+  `
+
+  const StyleButton = styled(Text)`
+    font-weight: 600;
+    button {
+      color: ${lightColors.background};
+      background: ${baseColors.primary};
+      border-radius: 10px;
+      height: 45px;
+      font-size: 13px;
+    }
+    ${({ theme }) => theme.mediaQueries.nav} {
+      button {
+        height: 50px;
+        font-size: 16px;
+      }
+    }
+  `
+
   return (
     <Modal title="Recent Transactions" onDismiss={onDismiss}>
       {!account && (
         <Flex justifyContent="center" flexDirection="column" alignItems="center">
           <Text mb="8px" bold>
-            Please connect your wallet to view your recent transactions
+            <StyleText>Please connect your wallet to view your recent transactions</StyleText>
           </Text>
-          <Button variant="tertiary" size="sm" onClick={onDismiss}>
-            Close
-          </Button>
+          <StyleButton>
+            <Button variant="tertiary" size="sm" onClick={onDismiss}>
+              Close
+            </Button>
+          </StyleButton>
         </Flex>
       )}
       {account && chainId && sortedRecentTransactions.length === 0 && (
         <Flex justifyContent="center" flexDirection="column" alignItems="center">
           <Text mb="8px" bold>
-            No recent transactions
+            <StyleText>No recent transactions</StyleText>
           </Text>
-          <Button variant="tertiary" size="sm" onClick={onDismiss}>
-            Close
-          </Button>
+          <StyleButton>
+            <Button variant="tertiary" size="sm" onClick={onDismiss}>
+              Close
+            </Button>
+          </StyleButton>
         </Flex>
       )}
       {account &&

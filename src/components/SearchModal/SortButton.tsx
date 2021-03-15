@@ -1,19 +1,26 @@
 import React from 'react'
-import { Text } from '@pancakeswap-libs/uikit'
+import { Text } from 'uikit-sotatek'
 import styled from 'styled-components'
+import { lightColors, darkColors } from 'style/Color'
 import { RowFixed } from '../Row'
 
 export const FilterWrapper = styled(RowFixed)`
-  padding: 8px;
-  background-color: ${({ theme }) => theme.colors.invertedContrast};
-  color: ${({ theme }) => theme.colors.text};
-  border-radius: 8px;
+  padding: 0px 8px;
+  color: ${({ theme }) => (theme.isDark ? darkColors.textSubtle : lightColors.titleMini)};
   user-select: none;
   & > * {
     user-select: none;
   }
   :hover {
     cursor: pointer;
+  }
+  div {
+    font-size: 30px;
+  }
+  ${({ theme }) => theme.mediaQueries.nav} {
+    div {
+      font-size: 35px;
+    }
   }
 `
 

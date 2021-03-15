@@ -43,7 +43,11 @@ export const baseColors = {
     buttonSecon: '#FFA14E',
     backInput: 'rgba(95, 94, 118, 0.1)',
     fontPlaceholder: 'rgba(95, 94, 118, 0.7)',
-    backIcon: '#E8F3FB'
+    backIcon: '#E8F3FB',
+    colorPla: '#BCBCBC',
+    iconClose: '#D8D8D8',
+    borderTop: '#EFEFF1',
+    boederInput: '#E2E2E8'
   }
   
   export const darkColors = {
@@ -78,6 +82,9 @@ export const baseColors = {
     colorIcon: '#0085FF',
     backInput: 'rgba(95, 94, 118, 0.1)',
     fontPlaceholder: 'rgba(255, 255, 255, 0.6)',
-    backIcon: 'rgba(232, 243, 251, 0.1)'
+    backIcon: 'rgba(232, 243, 251, 0.1)',
+    colorPla: '#38415E',
+    iconClose: '#9296A3',
+    borderTop: '#181E31'
   }
   

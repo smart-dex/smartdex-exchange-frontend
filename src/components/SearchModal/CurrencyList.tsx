@@ -2,7 +2,8 @@ import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from '@pancake
 import React, { CSSProperties, MutableRefObject, useCallback, useMemo } from 'react'
 import { FixedSizeList } from 'react-window'
 import styled from 'styled-components'
-import { Text } from '@pancakeswap-libs/uikit'
+import { darkColors, lightColors } from 'style/Color'
+import { Text } from 'uikit-sotatek'
 import { useActiveWeb3React } from '../../hooks'
 import { useSelectedTokenList, WrappedTokenInfo } from '../../state/lists/hooks'
 import { useAddUserToken, useRemoveUserAddedToken } from '../../state/user/hooks'
@@ -40,6 +41,40 @@ const Tag = styled.div`
   white-space: nowrap;
   justify-self: flex-end;
   margin-right: 4px;
+`
+
+const StyleListToken = styled(Text)`
+  div::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => (theme.isDark ? darkColors.background : lightColors.iconClose)};
+    height: 20px;
+  }
+  div div div {
+    &:hover {
+      background-color: ${({ theme }) => (theme.isDark ? darkColors.backgroundColor : lightColors.backgroundColor)};
+      opacity: 0.65;
+      div {
+        background-color: ${({ theme }) => (theme.isDark ? darkColors.backgroundColor : lightColors.backgroundColor)};
+        opacity: 0.65;
+      }
+    }
+    img {
+      width: 24px;
+      height: 24px;
+      ${({ theme }) => theme.mediaQueries.nav} {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    div div {
+      color: ${({ theme }) => (theme.isDark ? darkColors.text : lightColors.textMenuLeft)};
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 22px;
+      ${({ theme }) => theme.mediaQueries.nav} {
+        font-size: 18px;
+      }
+    }
+  }
 `
 
 function Balance({ balance }: { balance: CurrencyAmount }) {
@@ -191,18 +226,19 @@ export default function CurrencyList({
   )
 
   const itemKey = useCallback((index: number, data: any) => currencyKey(data[index]), [])
-
   return (
-    <FixedSizeList
-      height={height}
-      ref={fixedListRef as any}
-      width="100%"
-      itemData={itemData}
-      itemCount={itemData.length}
-      itemSize={56}
-      itemKey={itemKey}
-    >
-      {Row}
-    </FixedSizeList>
+    <StyleListToken className="list-token">
+      <FixedSizeList
+        height={height}
+        ref={fixedListRef as any}
+        width="100%"
+        itemData={itemData}
+        itemCount={itemData.length}
+        itemSize={56}
+        itemKey={itemKey}
+      >
+        {Row}
+      </FixedSizeList>
+    </StyleListToken>
   )
 }

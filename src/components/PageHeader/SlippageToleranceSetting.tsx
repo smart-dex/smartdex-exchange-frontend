@@ -43,8 +43,30 @@ const Label = styled.div`
 `
 
 const TextStyle = styled(Text)`
-  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)}
+  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)};
+  font-size: 13px;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    font-size: 16px;
+  }
 `
+const StyleButton = styled(Text)`
+  button {
+    font-size: 13px;
+    ${({ theme }) => theme.mediaQueries.sm} {
+      font-size: 16px;
+    }
+  }
+`
+const StyleInput = styled(Text)`
+  input {
+    font-size: 13px;
+    color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)};
+    ${({ theme }) => theme.mediaQueries.sm} {
+      font-size: 16px;
+    }
+  }
+`
+
 const predefinedValues = [
   { label: '0.1%', value: 0.1 },
   { label: '0.5%', value: 0.5 },
@@ -100,28 +122,32 @@ const SlippageToleranceSettings = () => {
 
             return (
               <Option key={predefinedValue}>
-                <Button variant={value === predefinedValue ? 'primary' : 'tertiary'} onClick={handleClick}>
-                  {label}
-                </Button>
+                <StyleButton>
+                  <Button variant={value === predefinedValue ? 'primary' : 'tertiary'} onClick={handleClick}>
+                    {label}
+                  </Button>
+                </StyleButton>
               </Option>
             )
           })}
         </Flex>
         <Flex alignItems="center">
           <Option>
-            <Input
-              type="number"
-              scale="lg"
-              step={0.1}
-              min={0.1}
-              placeholder="5%"
-              value={value}
-              onChange={handleChange}
-              isWarning={error !== null}
-            />
+            <StyleInput>
+              <Input
+                type="number"
+                scale="lg"
+                step={0.1}
+                min={0.1}
+                placeholder="5%"
+                value={value}
+                onChange={handleChange}
+                isWarning={error !== null}
+              />
+            </StyleInput>
           </Option>
           <Option>
-            <TextStyle fontSize="18px">%</TextStyle>
+            <TextStyle>%</TextStyle>
           </Option>
         </Flex>
       </Options>

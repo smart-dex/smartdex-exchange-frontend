@@ -1,9 +1,13 @@
 import styled from 'styled-components'
+import { lightColors, darkColors } from 'style/Color'
 
 const Column = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  background: ${({ theme }) => (theme.isDark ? darkColors.backgroundColor : lightColors.backgroundColor)};
+  border-radius: 40px;
+  padding: 0px;
 `
 export const ColumnCenter = styled(Column)`
   width: 100%;
