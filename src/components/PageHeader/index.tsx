@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import { Heading, IconButton, Text, Flex, useModal } from 'uikit-sotatek'
+import { lightColors, darkColors } from 'style/Color'
 import SettingsModal from './SettingsModal'
 import RecentTransactionsModal from './RecentTransactionsModal'
-import { lightColors, darkColors } from '../../style/Color'
 
 interface PageHeaderProps {
   title: ReactNode

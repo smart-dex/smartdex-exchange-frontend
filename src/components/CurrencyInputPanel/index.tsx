@@ -3,6 +3,7 @@ import { Currency, Pair } from '@pancakeswap-libs/sdk'
 import { Button, ChevronDownIcon, Text } from '@pancakeswap-libs/uikit'
 import styled from 'styled-components'
 import { darken } from 'polished'
+import { lightColors, darkColors } from 'style/Color'
 import { useCurrencyBalance } from '../../state/wallet/hooks'
 import CurrencySearchModal from '../SearchModal/CurrencySearchModal'
 import CurrencyLogo from '../CurrencyLogo'
@@ -12,7 +13,6 @@ import { Input as NumericalInput } from '../NumericalInput'
 import { useActiveWeb3React } from '../../hooks'
 import TranslatedText from "../TranslatedText"
 import { TranslateString } from '../../utils/translateTextHelpers'
-import { lightColors, darkColors } from '../../style/Color'
 
 const InputRow = styled.div<{ selected: boolean }>`
   display: flex;

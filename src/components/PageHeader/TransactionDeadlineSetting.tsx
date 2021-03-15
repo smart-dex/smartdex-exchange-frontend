@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Input, Text } from '@pancakeswap-libs/uikit'
+import { lightColors } from 'style/Color'
+import { Input, Text } from 'uikit-sotatek'
 import { useUserDeadline } from 'state/user/hooks'
 import QuestionHelper from '../QuestionHelper'
 import TranslatedText from '../TranslatedText'
-import { lightColors } from '../../style/Color'
 
 const StyledTransactionDeadlineSetting = styled.div`
   margin-bottom: 16px;

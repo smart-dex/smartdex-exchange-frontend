@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { FixedSizeList } from 'react-window'
 import styled from 'styled-components'
 import AutoSizer from 'react-virtualized-auto-sizer'
+import { lightColors, darkColors, baseColors } from 'style/Color'
 import { useActiveWeb3React } from '../../hooks'
 import { AppState } from '../../state'
 import { useAllTokens, useToken } from '../../hooks/Tokens'
@@ -25,7 +26,6 @@ import { useTokenComparator } from './sorting'
 import { PaddedColumn, SearchInputToken } from './styleds'
 import TranslatedText from '../TranslatedText'
 import { TranslateString } from '../../utils/translateTextHelpers'
-import { lightColors, darkColors, baseColors } from '../../style/Color'
 
 const StyleHeader = styled(Text)`
   color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)};

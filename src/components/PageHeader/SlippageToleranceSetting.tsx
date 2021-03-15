@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Button, Flex, Input, Text } from '@pancakeswap-libs/uikit'
+import { Button, Flex, Input, Text } from 'uikit-sotatek'
 import { useUserSlippageTolerance } from 'state/user/hooks'
+import { lightColors } from 'style/Color'
 import QuestionHelper from '../QuestionHelper'
 import TranslatedText from '../TranslatedText'
-import { lightColors } from '../../style/Color'
 
 const MAX_SLIPPAGE = 5000
 const RISKY_SLIPPAGE_LOW = 50

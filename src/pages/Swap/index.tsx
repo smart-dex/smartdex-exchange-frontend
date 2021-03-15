@@ -34,8 +34,8 @@ import Loader from 'components/Loader'
 import { TranslateString } from 'utils/translateTextHelpers'
 import PageHeader from 'components/PageHeader'
 import ConnectWalletButton from 'components/ConnectWalletButton'
+import { lightColors, darkColors } from 'style/Color'
 import AppBody from '../AppBody'
-import { lightColors, darkColors } from '../../style/Color'
 
 const TextStyle = styled(Text)`
   color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)}

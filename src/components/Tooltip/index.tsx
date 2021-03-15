@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
+import { lightColors } from 'style/Color'
 import Popover, { PopoverProps } from '../Popover'
-import { lightColors } from '../../style/Color'
 
 const TooltipContainer = styled.div`
   width: 228px;

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Button, ButtonProps, ConnectorId, useWalletModal } from '@pancakeswap-libs/uikit'
 import { injected, walletconnect } from 'connectors'
 import useI18n from 'hooks/useI18n'
-import { baseColors } from '../../style/Color'
+import { baseColors } from 'style/Color'
 
 
 const ButtonStyle = styled(Button)`

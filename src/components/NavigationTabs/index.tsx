@@ -4,7 +4,7 @@ import { Link as HistoryLink } from 'react-router-dom'
 import { ArrowLeft } from 'react-feather'
 import { RowBetween } from 'components/Row'
 import QuestionHelper from 'components/QuestionHelper'
-import { lightColors, darkColors } from '../../style/Color'
+import { lightColors, darkColors } from 'style/Color'
 
 const Tabs = styled.div`
   display: flex;
