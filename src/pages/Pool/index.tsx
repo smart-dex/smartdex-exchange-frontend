@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
-import { Pair } from '@pancakeswap-libs/sdk'
+import { Pair } from '@sotatek-anhdao/cake-sdk'
 import { Button, CardBody, Text } from 'uikit-sotatek'
 import { Link } from 'react-router-dom'
 import CardNav from 'components/CardNav'

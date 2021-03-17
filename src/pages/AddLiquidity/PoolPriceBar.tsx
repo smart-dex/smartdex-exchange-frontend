@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { darkColors, lightColors } from 'style/Color'
-import { Currency, Percent, Price } from '@pancakeswap-libs/sdk'
+import { Currency, Percent, Price } from '@sotatek-anhdao/cake-sdk'
 import { Text } from 'uikit-sotatek'
 import { AutoColumn } from '../../components/Column'
 import { AutoRow } from '../../components/Row'
