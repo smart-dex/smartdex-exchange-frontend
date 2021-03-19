@@ -4,7 +4,7 @@ const config: MenuEntry[] = [
   {
     label: 'Home',
     icon: 'HomeIcon',
-    href: 'https://pancakeswap.finance/',
+    href: `${process.env.REACT_APP_FINANCE_URL}`,
   },
   {
     label: 'Trade',
@@ -24,22 +24,22 @@ const config: MenuEntry[] = [
   {
     label: 'Farms',
     icon: 'FarmIcon',
-    href: 'https://pancakeswap.finance/farms',
+    href: `${process.env.REACT_APP_FINANCE_URL}/farms`,
   },
   {
     label: 'Pools',
     icon: 'PoolIcon',
-    href: 'https://pancakeswap.finance/syrup',
+    href: `${process.env.REACT_APP_FINANCE_URL}/pools`,
   },
   {
     label: 'Lottery',
     icon: 'TicketIcon',
-    href: 'https://pancakeswap.finance/lottery',
+    href: `${process.env.REACT_APP_FINANCE_URL}/lottery`,
   },
   {
     label: 'NFT',
     icon: 'NftIcon',
-    href: 'https://pancakeswap.finance/nft',
+    href: `${process.env.REACT_APP_FINANCE_URL}/collectibles`,
   },
   {
     label: 'Teams & Profile',
@@ -48,15 +48,15 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Leaderboard',
-        href: 'https://pancakeswap.finance/teams',
+        href: `${process.env.REACT_APP_FINANCE_URL}/teams`,
       },
       {
         label: 'Task Center',
-        href: 'https://pancakeswap.finance/profile/tasks',
+        href: `${process.env.REACT_APP_FINANCE_URL}/tasks`,
       },
       {
         label: 'Your Profile',
-        href: 'https://pancakeswap.finance/profile',
+        href: `${process.env.REACT_APP_FINANCE_URL}/profile`,
       },
     ],
   },
@@ -66,26 +66,26 @@ const config: MenuEntry[] = [
     items: [
       {
         label: 'Overview',
-        href: 'https://pancakeswap.info',
+        href: `${process.env.REACT_APP_INFO_URL}/home`,
       },
       {
         label: 'Tokens',
-        href: 'https://pancakeswap.info/tokens',
+        href: `${process.env.REACT_APP_INFO_URL}/tokens`,
       },
       {
         label: 'Pairs',
-        href: 'https://pancakeswap.info/pairs',
+        href: `${process.env.REACT_APP_INFO_URL}/pairs`,
       },
       {
         label: 'Accounts',
-        href: 'https://pancakeswap.info/accounts',
+        href: `${process.env.REACT_APP_INFO_URL}/accounts`,
       },
     ],
   },
   {
     label: 'IFO',
     icon: 'IfoIcon',
-    href: 'https://pancakeswap.finance/ifo',
+    href: `${process.env.REACT_APP_FINANCE_URL}/ifo`,
   },
   {
     label: 'More',
@@ -101,7 +101,7 @@ const config: MenuEntry[] = [
       },
       {
         label: 'Docs',
-        href: 'https://docs.pancakeswap.finance',
+        href: `${process.env.REACT_APP_DOCS_URL}`,
       },
       {
         label: 'Blog',
