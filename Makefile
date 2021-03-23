@@ -14,4 +14,4 @@ build-image:
 	docker push registry-server:5000/pancake-swap-interface:latest
 
 deploy:
-	make build-image
+	rsync -a /var/www/smartdex/smartdex-exchange/build  sotatek@192.168.1.206:/var/www/test
