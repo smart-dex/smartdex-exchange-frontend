@@ -52,10 +52,34 @@ const Body = styled.div`
 `
 
 const ConnectWalletButtonStyle = styled(ConnectWalletButton)`
-    margin-top: 40px;
-    ${({ theme }) => theme.mediaQueries.nav} {
-      margin-top: 69px;
-    }
+  margin-top: 40px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    margin-top: 69px;
+  }
+`
+
+const IconDirect = styled.img`
+  width: 10px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: 16px;
+  }
+`
+
+  const BoxIconDirect = styled.div`
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+  background: #0085FF;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 24px;
+  text-align: center;
+  line-height: 45px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: 36px;
+    line-height: 60px;
+  }
 `
 
 export default function RemoveLiquidity({
@@ -628,7 +652,14 @@ export default function RemoveLiquidity({
               )}
               <div style={{ position: 'relative' }}>
                 {!account ? (
-                  <ConnectWalletButtonStyle  />
+                  <ConnectWalletButtonStyle
+                    endIcon={
+                      <BoxIconDirect>
+                        <IconDirect src="/images/icon-direct.svg" alt="" />
+                      </BoxIconDirect>
+                    }
+                    style={{ width: '100%' }}
+                  />
                 ) : (
                   <RowBetween>
                     <Button

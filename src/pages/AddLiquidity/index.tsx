@@ -37,12 +37,11 @@ import { ConfirmAddModalBottom } from './ConfirmAddModalBottom'
 import { PoolPriceBar } from './PoolPriceBar'
 import { ROUTER_ADDRESS } from '../../constants'
 
-
 const ConnectWalletButtonStyle = styled(ConnectWalletButton)`
-    margin-top: 20px;
-    ${({ theme }) => theme.mediaQueries.nav} {
-      margin-top: 59px;
-    }
+  margin-top: 20px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    margin-top: 59px;
+  }
 `
 export default function AddLiquidity({
   match: {
@@ -203,7 +202,7 @@ export default function AddLiquidity({
     font-weight: normal;
     font-size: 13px;
     line-height: 20px;
-    color: ${({theme}) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+    color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
     ${({ theme }) => theme.mediaQueries.nav} {
       font-size: 16px;
     }
@@ -214,7 +213,7 @@ export default function AddLiquidity({
     font-size: 12px;
     line-height: 20px;
     text-transform: uppercase;
-    color: ${({theme}) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+    color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
     ${({ theme }) => theme.mediaQueries.nav} {
       font-size: 14px;
     }
@@ -222,12 +221,34 @@ export default function AddLiquidity({
 
   const AutoColumnStyle = styled(AutoColumn)`
     margin-top: 25px;
-  ${({ theme }) => theme.mediaQueries.nav} {
-    margin-top: 50px;
-  }
-    
+    ${({ theme }) => theme.mediaQueries.nav} {
+      margin-top: 50px;
+    }
   `
 
+  const IconDirect = styled.img`
+  width: 10px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: 16px;
+  }
+`
+
+  const BoxIconDirect = styled.div`
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+  background: #0085FF;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 24px;
+  text-align: center;
+  line-height: 45px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: 36px;
+    line-height: 60px;
+  }
+`
   const modalHeader = () => {
     return noLiquidity ? (
       <AutoColumn gap="20px">
@@ -327,7 +348,7 @@ export default function AddLiquidity({
     svg {
       width: 12px;
       path {
-        fill: ${({ theme }) => (theme.isDark ? darkColors.colorIcon : lightColors.colorIcon )};
+        fill: ${({ theme }) => (theme.isDark ? darkColors.colorIcon : lightColors.colorIcon)};
       }
     }
   `
@@ -359,9 +380,15 @@ export default function AddLiquidity({
                 <ColumnCenter>
                   <Pane>
                     <AutoColumn gap="12px">
-                      <UIKitText><StyleText>You are the first liquidity provider.</StyleText></UIKitText>
-                      <UIKitText><StyleText>The ratio of tokens you add will set the price of this pool.</StyleText></UIKitText>
-                      <UIKitText><StyleText>Once you are happy with the rate click supply to review.</StyleText></UIKitText>
+                      <UIKitText>
+                        <StyleText>You are the first liquidity provider.</StyleText>
+                      </UIKitText>
+                      <UIKitText>
+                        <StyleText>The ratio of tokens you add will set the price of this pool.</StyleText>
+                      </UIKitText>
+                      <UIKitText>
+                        <StyleText>Once you are happy with the rate click supply to review.</StyleText>
+                      </UIKitText>
                     </AutoColumn>
                   </Pane>
                 </ColumnCenter>
@@ -379,7 +406,9 @@ export default function AddLiquidity({
                 showCommonBases={false}
               />
               <ColumnCenter>
-                <StyleIcon><AddIcon color="textSubtle" /></StyleIcon>
+                <StyleIcon>
+                  <AddIcon color="textSubtle" />
+                </StyleIcon>
               </ColumnCenter>
               <CurrencyInputPanel
                 value={formattedAmounts[Field.CURRENCY_B]}
@@ -395,9 +424,7 @@ export default function AddLiquidity({
               />
               {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
                 <div>
-                  <StyleTextTit>
-                    {noLiquidity ? 'Initial prices and pool share' : 'Prices and pool share'}
-                  </StyleTextTit>
+                  <StyleTextTit>{noLiquidity ? 'Initial prices and pool share' : 'Prices and pool share'}</StyleTextTit>
                   <Pane>
                     <PoolPriceBar
                       currencies={currencies}
@@ -410,7 +437,14 @@ export default function AddLiquidity({
               )}
 
               {!account ? (
-                <ConnectWalletButtonStyle  />
+                <ConnectWalletButtonStyle
+                  endIcon={
+                    <BoxIconDirect>
+                      <IconDirect src="/images/icon-direct.svg" alt="" />
+                    </BoxIconDirect>
+                  }
+                  style={{ width: '100%' }}
+                />
               ) : (
                 <AutoColumnStyle gap="md">
                   {(approvalA === ApprovalState.NOT_APPROVED ||

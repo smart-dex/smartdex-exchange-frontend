@@ -56,32 +56,22 @@ export default function Pool() {
   const ButtonStyle = styled.div`
   margin-top: 45px;
   a {
-    width: 100%;
-    background: ${baseColors.primary};
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 13px;
-    height: 45px;
-    box-shadow: 0px 4px 10px rgba(83, 185, 234, 0.24);
-    &:hover {
-      background: #5ba7ec !important;
-    }
-    ${({ theme }) => theme.mediaQueries.nav} {
-      font-size: 16px;
-      height: 56px;
-    }
-    p {
-      padding-right: 8px;
-    }
-    svg {
-      width: 10px;
-      height: 10px;
-      ${({ theme }) => theme.mediaQueries.nav} {
-        width: 16px;
-       height: 16px;
-      }
-    }
+  background: ${({ theme }) => (theme.isDark ? darkColors.buttonView : lightColors.buttonView)};
+  color: ${baseColors.primary};
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(239, 239, 239, 0.24);
+  height: 45px;
+  font-weight: 600;
+  font-size: 13px;
+  position: relative;
+  padding-right: 24px;
+  width: 100%;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 16px;
+    height: 56px;
+    padding-right: 36px;
   }
+  
 `
 
   const TextHeading = styled(Text)`
@@ -172,16 +162,38 @@ export default function Pool() {
       padding: 30px 34px 28px 49px;
     }
   `
+  const IconDirect = styled.img`
+    width: 10px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      width: 16px;
+    }
+  `
 
+  const BoxIconDirect = styled.div`
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    background: #0085ff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 24px;
+    text-align: center;
+    line-height: 45px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      width: 36px;
+      line-height: 60px;
+    }
+  `
   return (
     <>
       <CardNav activeIndex={1} />
       <ArrowLeft />
       <BodyStyle>
         <PageHeader title="Liquidity" description="Add liquidity to receive LP tokens" />
-        <AutoColumn gap="lg"  >
+        <AutoColumn gap="lg">
           <CardBodyStyle>
-            <AutoColumn  style={{ width: '100%' }}>
+            <AutoColumn style={{ width: '100%' }}>
               <RowBetween>
                 <TextHeading>
                   <TranslatedText translationId={102}>Your Liquidity</TranslatedText>
@@ -239,13 +251,10 @@ export default function Pool() {
 
             <ButtonStyle>
               <Button id="join-pool-button" as={Link} to="/add/ETH">
-                <p>{TranslateString(100, 'Add Liquidity')}</p> 
-                <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M13.8913 0.110002L0.898166 6.10688C-0.600897 6.80656 -0.101209 9.00531 1.49785 9.00531H6.99504V14.5025C6.99504 16.1016 9.19379 16.6016 9.89348 15.1022L15.8904 2.10906C16.39 0.909376 15.0907 -0.389998 13.8913 0.110002Z"
-                    fill="white"
-                  />
-                </svg>
+                {TranslateString(100, 'Add Liquidity')}
+                <BoxIconDirect>
+                  <IconDirect src="/images/icon-direct.svg" alt="" />
+                </BoxIconDirect>
               </Button>
             </ButtonStyle>
           </CardBodyStyle>

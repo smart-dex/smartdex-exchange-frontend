@@ -37,15 +37,15 @@ import ConnectWalletButton from 'components/ConnectWalletButton'
 import { lightColors, darkColors, baseColors } from 'style/Color'
 
 const TextStyle = styled(Text)`
-  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)}
+  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)};
 `
 
 const StyleIcon = styled(Text)`
   button {
-    background: ${({ theme }) => (theme.isDark ? darkColors.backIcon : lightColors.backIcon )};
+    background: ${({ theme }) => (theme.isDark ? darkColors.backIcon : lightColors.backIcon)};
     svg {
       path {
-        fill: ${({ theme }) => (theme.isDark ? darkColors.colorIcon : lightColors.colorIcon )};
+        fill: ${({ theme }) => (theme.isDark ? darkColors.colorIcon : lightColors.colorIcon)};
       }
     }
   }
@@ -53,7 +53,7 @@ const StyleIcon = styled(Text)`
 
 const BodyStyle = styled.div`
   background: ${({ theme }) => (theme.isDark ? darkColors.backgroundColor : lightColors.backgroundColor)};
-  border: 1px solid  ${({ theme }) => (theme.isDark ? darkColors.borderColor : lightColors.borderColor)};
+  border: 1px solid ${({ theme }) => (theme.isDark ? darkColors.borderColor : lightColors.borderColor)};
   box-shadow: 14px 14px 20px rgba(120, 118, 148, 0.1);
   border-radius: 30px;
   width: 334px;
@@ -72,7 +72,7 @@ const ArrowLeft = styled.div`
     margin-left: 42px;
     border-top: 15px solid transparent;
     border-bottom: 15px solid transparent;
-    border-right:25px solid ${baseColors.primary};
+    border-right: 25px solid ${baseColors.primary};
   }
 `
 
@@ -80,6 +80,30 @@ const CardBodyStyle = styled(CardBody)`
   padding: 23px 24px 37px 24px;
   ${({ theme }) => theme.mediaQueries.nav} {
     padding: 30px 34px 28px 49px;
+  }
+`
+
+const IconDirect = styled.img`
+  width: 10px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: 16px;
+  }
+`
+
+const BoxIconDirect = styled.div`
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+  background: #0085ff;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 24px;
+  text-align: center;
+  line-height: 45px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: 36px;
+    line-height: 60px;
   }
 `
 
@@ -315,7 +339,7 @@ const Swap = () => {
         onConfirm={handleConfirmSyrupWarning}
       />
       <CardNav />
-      <ArrowLeft/>
+      <ArrowLeft />
       <BodyStyle>
         <Wrapper id="swap-page">
           <ConfirmSwapModal
@@ -425,7 +449,14 @@ const Swap = () => {
             </AutoColumn>
             <BottomGrouping>
               {!account ? (
-                <ConnectWalletButton  />
+                <ConnectWalletButton
+                  endIcon={
+                    <BoxIconDirect>
+                      <IconDirect src="/images/icon-direct.svg" alt="" />
+                    </BoxIconDirect>
+                  }
+                  style={{ width: '100%' }}
+                />
               ) : showWrap ? (
                 <Button disabled={Boolean(wrapInputError)} onClick={onWrap} style={{ width: '100%' }}>
                   {wrapInputError ??
@@ -497,7 +528,7 @@ const Swap = () => {
                   id="swap-button"
                   disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
                   variant={isValid && priceImpactSeverity > 2 && !swapCallbackError ? 'danger' : 'primary'}
-                  style={{ width: '100%'}}
+                  style={{ width: '100%' }}
                 >
                   {swapInputError ||
                     (priceImpactSeverity > 3 && !isExpertMode
@@ -511,10 +542,7 @@ const Swap = () => {
           </CardBodyStyle>
         </Wrapper>
       </BodyStyle>
-      {
-        trade && <AdvancedSwapDetailsDropdown trade={trade} />
-      }
-      
+      {trade && <AdvancedSwapDetailsDropdown trade={trade} />}
     </>
   )
 }

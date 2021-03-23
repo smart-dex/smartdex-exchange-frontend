@@ -48,7 +48,8 @@ export const baseColors = {
     colorPla: '#BCBCBC',
     iconClose: '#D8D8D8',
     borderTop: '#EFEFF1',
-    boederInput: '#E2E2E8'
+    boederInput: '#E2E2E8',
+    buttonView: '#E8E8EB',
   }
   
   export const darkColors = {
@@ -87,6 +88,7 @@ export const baseColors = {
     backIcon: 'rgba(232, 243, 251, 0.1)',
     colorPla: '#38415E',
     iconClose: '#9296A3',
-    borderTop: '#181E31'
+    borderTop: '#181E31',
+    buttonView: '#2A3145',
   }
   
