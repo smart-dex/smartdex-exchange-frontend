@@ -6,9 +6,8 @@ import { ButtonMenu, ButtonMenuItem } from 'uikit-sotatek'
 import TranslatedText from '../TranslatedText'
 
 const StyledNav = styled.div`
-  
   ${({ theme }) => theme.mediaQueries.nav} {
-  width: 218px;
+    width: 218px;
   }
   & > div {
     display: flex;
@@ -22,11 +21,15 @@ const StyledNav = styled.div`
     width: 100%;
     flex-direction: column;
     & > div {
-      &>div {
-        height: 87.5px;
-        width: 87.5px;
+      & > div {
+        height: 61.25px;
+        width: 61.25px;
         background-image: url('/images/iconTabActive.png');
         background-size: cover;
+        ${({ theme }) => theme.mediaQueries.nav} {
+          height: 87.5px;
+          width: 87.5px;
+        }
       }
     }
     font-weight: 600;
@@ -45,19 +48,23 @@ const StyledNav = styled.div`
     font-weight: normal;
     width: 100%;
     justify-content: flex-end;
-    &>div {
+    & > div {
       & > div {
-        height: 56.88px;
-        width: 56.88px;
+        height: 40.25px;
+        width: 40.25px;
         background-image: url('/images/iconTab.png');
         background-repeat: no-repeat;
         background-size: cover;
+        ${({ theme }) => theme.mediaQueries.nav} {
+          height: 56.88px;
+          width: 56.88px;
+        }
       }
     }
   }
   & a {
     color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
-    height: 20vh;
+    height: 15vh;
     font-size: 13px;
     padding: 0 20px;
     background: none;
@@ -82,6 +89,7 @@ const StyledNav = styled.div`
   }
   ${({ theme }) => theme.mediaQueries.nav} {
     & a {
+      height: 20vh;
       padding: 0 35px;
       font-size: 16px;
       font-weight: normal;
@@ -96,9 +104,9 @@ const TextTab = styled.p`
 `
 
 const TabBlock = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const arrIndex = [
@@ -133,7 +141,6 @@ const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => {
                 <TranslatedText translationId={8}>Bridge</TranslatedText>
               </TextTab>
             </TabBlock>
-            
           </ButtonMenuItem>
         </div>
         <>
