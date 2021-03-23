@@ -37,6 +37,13 @@ import { ConfirmAddModalBottom } from './ConfirmAddModalBottom'
 import { PoolPriceBar } from './PoolPriceBar'
 import { ROUTER_ADDRESS } from '../../constants'
 
+
+const ConnectWalletButtonStyle = styled(ConnectWalletButton)`
+    margin-top: 20px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      margin-top: 59px;
+    }
+`
 export default function AddLiquidity({
   match: {
     params: { currencyIdA, currencyIdB },
@@ -211,6 +218,14 @@ export default function AddLiquidity({
     ${({ theme }) => theme.mediaQueries.nav} {
       font-size: 14px;
     }
+  `
+
+  const AutoColumnStyle = styled(AutoColumn)`
+    margin-top: 25px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    margin-top: 50px;
+  }
+    
   `
 
   const modalHeader = () => {
@@ -395,9 +410,9 @@ export default function AddLiquidity({
               )}
 
               {!account ? (
-                <ConnectWalletButton fullWidth />
+                <ConnectWalletButtonStyle  />
               ) : (
-                <AutoColumn gap="md">
+                <AutoColumnStyle gap="md">
                   {(approvalA === ApprovalState.NOT_APPROVED ||
                     approvalA === ApprovalState.PENDING ||
                     approvalB === ApprovalState.NOT_APPROVED ||
@@ -449,7 +464,7 @@ export default function AddLiquidity({
                   >
                     {error ?? 'Supply'}
                   </Button>
-                </AutoColumn>
+                </AutoColumnStyle>
               )}
             </AutoColumn>
           </CardBody>

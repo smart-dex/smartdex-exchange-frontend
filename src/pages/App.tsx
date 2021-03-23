@@ -15,8 +15,8 @@ import { RedirectPathToSwapOnly } from './Swap/redirects'
 import { EN, allLanguages } from '../constants/localisation/languageCodes'
 import { LanguageContext } from '../hooks/LanguageContext'
 import { TranslationsContext } from '../hooks/TranslationsContext'
-
 import Menu from '../components/Menu'
+import { darkColors, lightColors } from '../style/Color'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -36,17 +36,10 @@ const BodyWrapper = styled.div`
   overflow-x: hidden;
   z-index: 1;
   justify-content: center;
-  background-image: url('/images/bg-trade-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.png');
-  background-repeat: no-repeat;
-  background-position: center;
-
-  ${({ theme }) => theme.mediaQueries.xs} {
-    background-size: 100%;
-  }
-
-  ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url('/images/bg-trade-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.png');
-    background-repeat: no-repeat;
+  background-size: 100%;
+  background: ${ ({ theme}) => theme.isDark ? darkColors.backgroundContent : lightColors.backgroundContent};
+  ${({ theme }) => theme.mediaQueries.nav} {
+    flex-direction: row;
     min-height: 90vh;
   }
 `

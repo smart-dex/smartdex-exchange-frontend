@@ -23,7 +23,7 @@ const StyledDialogOverlay = styled(AnimatedDialogOverlay)`
 `
 
 const AnimatedDialogContent = animated(DialogContent)
-const StyledDialogContent = styled(({ minHeight, maxHeight, mobile, isOpen, ...rest }) => (
+const StyledDialogContent = styled(({ ...rest }) => (
   <AnimatedDialogContent {...rest} />
 )).attrs({
   'aria-label': 'dialog',

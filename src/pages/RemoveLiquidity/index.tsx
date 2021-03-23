@@ -51,6 +51,13 @@ const Body = styled.div`
   padding-right: 24px;
 `
 
+const ConnectWalletButtonStyle = styled(ConnectWalletButton)`
+    margin-top: 40px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      margin-top: 69px;
+    }
+`
+
 export default function RemoveLiquidity({
   history,
   match: {
@@ -621,7 +628,7 @@ export default function RemoveLiquidity({
               )}
               <div style={{ position: 'relative' }}>
                 {!account ? (
-                  <ConnectWalletButton fullWidth />
+                  <ConnectWalletButtonStyle  />
                 ) : (
                   <RowBetween>
                     <Button
