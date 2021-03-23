@@ -34,21 +34,76 @@ import Loader from 'components/Loader'
 import { TranslateString } from 'utils/translateTextHelpers'
 import PageHeader from 'components/PageHeader'
 import ConnectWalletButton from 'components/ConnectWalletButton'
-import { lightColors, darkColors } from 'style/Color'
-import AppBody from '../AppBody'
+import { lightColors, darkColors, baseColors } from 'style/Color'
 
 const TextStyle = styled(Text)`
-  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)}
+  color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)};
 `
 
 const StyleIcon = styled(Text)`
   button {
-    background: ${({ theme }) => (theme.isDark ? darkColors.backIcon : lightColors.backIcon )};
+    background: ${({ theme }) => (theme.isDark ? darkColors.backIcon : lightColors.backIcon)};
     svg {
       path {
-        fill: ${({ theme }) => (theme.isDark ? darkColors.colorIcon : lightColors.colorIcon )};
+        fill: ${({ theme }) => (theme.isDark ? darkColors.colorIcon : lightColors.colorIcon)};
       }
     }
+  }
+`
+
+const BodyStyle = styled.div`
+  background: ${({ theme }) => (theme.isDark ? darkColors.backgroundColor : lightColors.backgroundColor)};
+  border: 1px solid ${({ theme }) => (theme.isDark ? darkColors.borderColor : lightColors.borderColor)};
+  box-shadow: 14px 14px 20px rgba(120, 118, 148, 0.1);
+  border-radius: 30px;
+  width: 334px;
+  height: 456px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: 530px;
+    height: 521px;
+    border-left: 20px solid ${baseColors.primary};
+    border-radius: 10px;
+  }
+`
+const ArrowLeft = styled.div`
+  display: none;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    display: block;
+    margin-left: 42px;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 25px solid ${baseColors.primary};
+  }
+`
+
+const CardBodyStyle = styled(CardBody)`
+  padding: 23px 24px 37px 24px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    padding: 30px 34px 28px 49px;
+  }
+`
+
+const IconDirect = styled.img`
+  width: 10px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: 16px;
+  }
+`
+
+const BoxIconDirect = styled.div`
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+  background: #0085ff;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 24px;
+  text-align: center;
+  line-height: 45px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: 36px;
+    line-height: 60px;
   }
 `
 
@@ -284,7 +339,8 @@ const Swap = () => {
         onConfirm={handleConfirmSyrupWarning}
       />
       <CardNav />
-      <AppBody>
+      <ArrowLeft />
+      <BodyStyle>
         <Wrapper id="swap-page">
           <ConfirmSwapModal
             isOpen={showConfirm}
@@ -300,7 +356,7 @@ const Swap = () => {
             onDismiss={handleConfirmDismiss}
           />
           <PageHeader title="Exchange" description="Trade tokens in an instant" />
-          <CardBody>
+          <CardBodyStyle>
             <AutoColumn gap="md">
               <CurrencyInputPanel
                 label={
@@ -393,9 +449,16 @@ const Swap = () => {
             </AutoColumn>
             <BottomGrouping>
               {!account ? (
-                <ConnectWalletButton fullWidth />
+                <ConnectWalletButton
+                  endIcon={
+                    <BoxIconDirect>
+                      <IconDirect src="/images/icon-direct.svg" alt="" />
+                    </BoxIconDirect>
+                  }
+                  style={{ width: '100%' }}
+                />
               ) : showWrap ? (
-                <Button disabled={Boolean(wrapInputError)} onClick={onWrap}>
+                <Button disabled={Boolean(wrapInputError)} onClick={onWrap} style={{ width: '100%' }}>
                   {wrapInputError ??
                     (wrapType === WrapType.WRAP ? 'Wrap' : wrapType === WrapType.UNWRAP ? 'Unwrap' : null)}
                 </Button>
@@ -408,7 +471,7 @@ const Swap = () => {
                   <Button
                     onClick={approveCallback}
                     disabled={approval !== ApprovalState.NOT_APPROVED || approvalSubmitted}
-                    style={{ width: '48%' }}
+                    style={{ width: '100%' }}
                     variant={approval === ApprovalState.APPROVED ? 'success' : 'primary'}
                   >
                     {approval === ApprovalState.PENDING ? (
@@ -435,7 +498,7 @@ const Swap = () => {
                         })
                       }
                     }}
-                    style={{ width: '48%' }}
+                    style={{ width: '100%' }}
                     id="swap-button"
                     disabled={
                       !isValid || approval !== ApprovalState.APPROVED || (priceImpactSeverity > 3 && !isExpertMode)
@@ -465,6 +528,7 @@ const Swap = () => {
                   id="swap-button"
                   disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
                   variant={isValid && priceImpactSeverity > 2 && !swapCallbackError ? 'danger' : 'primary'}
+                  style={{ width: '100%' }}
                 >
                   {swapInputError ||
                     (priceImpactSeverity > 3 && !isExpertMode
@@ -475,10 +539,10 @@ const Swap = () => {
               {showApproveFlow && <ProgressSteps steps={[approval === ApprovalState.APPROVED]} />}
               {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
             </BottomGrouping>
-          </CardBody>
+          </CardBodyStyle>
         </Wrapper>
-      </AppBody>
-      <AdvancedSwapDetailsDropdown trade={trade} />
+      </BodyStyle>
+      {trade && <AdvancedSwapDetailsDropdown trade={trade} />}
     </>
   )
 }

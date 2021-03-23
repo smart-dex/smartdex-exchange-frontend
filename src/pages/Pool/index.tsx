@@ -20,8 +20,6 @@ import TranslatedText from 'components/TranslatedText'
 import { TranslateString } from 'utils/translateTextHelpers'
 import PageHeader from 'components/PageHeader'
 import { lightColors, baseColors, darkColors } from 'style/Color'
-import AppBody from '../AppBody'
-import {ButtonSecondary} from '../../style/Button'
 
 export default function Pool() {
   const { account } = useActiveWeb3React()
@@ -55,17 +53,26 @@ export default function Pool() {
 
   const allV2PairsWithLiquidity = v2Pairs.map(([, pair]) => pair).filter((v2Pair): v2Pair is Pair => Boolean(v2Pair))
 
-  const ButtonAdd = styled(Button)`
-    ${ButtonSecondary}
-    font-size: 14px;
-    line-height: 17px;
-    padding: 0 20px;
-    font-weight: 600;
-    ${({ theme }) => theme.mediaQueries.nav} {
-      font-size: 16px;
-      line-height: 20px;
-    }
-  `
+  const ButtonStyle = styled.div`
+  margin-top: 45px;
+  a {
+  background: ${({ theme }) => (theme.isDark ? darkColors.buttonView : lightColors.buttonView)};
+  color: ${baseColors.primary};
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(239, 239, 239, 0.24);
+  height: 45px;
+  font-weight: 600;
+  font-size: 13px;
+  position: relative;
+  padding-right: 24px;
+  width: 100%;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 16px;
+    height: 56px;
+    padding-right: 36px;
+  }
+  
+`
 
   const TextHeading = styled(Text)`
     font-size: 14px;
@@ -86,8 +93,8 @@ export default function Pool() {
     color: ${({ theme }) => (theme.isDark ? darkColors.textSubtle : lightColors.textMenuLeft)};
     ${({ theme }) => theme.mediaQueries.nav} {
       font-size: 14px;
-      line-height: 17px;
-      padding: .2rem 0;
+      line-height: 24px;
+      padding: 0.2rem 0;
     }
   `
   const TextContent = styled(Text)`
@@ -101,7 +108,7 @@ export default function Pool() {
     }
   `
 
-  const TextLink = styled.a `
+  const TextLink = styled.a`
     a {
       color: ${baseColors.primary};
       font-weight: 600;
@@ -123,19 +130,71 @@ export default function Pool() {
     }
   `
 
+  const BodyStyle = styled.div`
+    background: ${({ theme }) => (theme.isDark ? darkColors.backgroundColor : lightColors.backgroundColor)};
+    border: 1px solid ${({ theme }) => (theme.isDark ? darkColors.borderColor : lightColors.borderColor)};
+    box-shadow: 14px 14px 20px rgba(120, 118, 148, 0.1);
+    border-radius: 30px;
+    width: 334px;
+    height: 456px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      width: 530px;
+      height: 521px;
+      border-left: 20px solid ${baseColors.primary};
+      border-radius: 10px;
+    }
+  `
+
+  const ArrowLeft = styled.div`
+    display: none;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      display: block;
+      margin-left: 42px;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-right: 25px solid ${baseColors.primary};
+    }
+  `
+
+  const CardBodyStyle = styled(CardBody)`
+    padding: 23px 24px 37px 24px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      padding: 30px 34px 28px 49px;
+    }
+  `
+  const IconDirect = styled.img`
+    width: 10px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      width: 16px;
+    }
+  `
+
+  const BoxIconDirect = styled.div`
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    background: #0085ff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 24px;
+    text-align: center;
+    line-height: 45px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      width: 36px;
+      line-height: 60px;
+    }
+  `
   return (
     <>
       <CardNav activeIndex={1} />
-      <AppBody>
-        <PageHeader title="Liquidity" description="Add liquidity to receive LP tokens">
-          <ButtonAdd id="join-pool-button" as={Link} to="/add/ETH">
-            <TranslatedText translationId={100}>Add Liquidity</TranslatedText>
-          </ButtonAdd>
-        </PageHeader>
-        <AutoColumn gap="lg" justify="center">
-          <CardBody>
-            <AutoColumn gap="12px" style={{ width: '100%' }}>
-              <RowBetween padding="0 8px">
+      <ArrowLeft />
+      <BodyStyle>
+        <PageHeader title="Liquidity" description="Add liquidity to receive LP tokens" />
+        <AutoColumn gap="lg">
+          <CardBodyStyle>
+            <AutoColumn style={{ width: '100%' }}>
+              <RowBetween>
                 <TextHeading>
                   <TranslatedText translationId={102}>Your Liquidity</TranslatedText>
                 </TextHeading>
@@ -149,10 +208,10 @@ export default function Pool() {
 
               {!account ? (
                 <StyleConnect>
-                  <LightCard padding="40px 20px">
-                      <TextContent color="textDisabled" textAlign="center">
-                        Connect to a wallet to view your liquidity.
-                      </TextContent>
+                  <LightCard padding="50px 20px">
+                    <TextContent color="textDisabled" textAlign="center">
+                      Connect to a wallet to view your liquidity.
+                    </TextContent>
                   </LightCard>
                 </StyleConnect>
               ) : v2IsLoading ? (
@@ -176,7 +235,7 @@ export default function Pool() {
               )}
 
               <div>
-                <TextStyle fontSize="14px" style={{ padding: '.5rem 0 .5rem 0' }}>
+                <TextStyle fontSize="14px" style={{ padding: '0.18rem 0 .5rem 0' }}>
                   {TranslateString(106, "Don't see a pool you joined?")}&nbsp;&nbsp;&nbsp;&nbsp;
                   <TextLink>
                     <StyledInternalLink color="red" id="import-pool-link" to="/find">
@@ -189,9 +248,18 @@ export default function Pool() {
                 </TextStyle>
               </div>
             </AutoColumn>
-          </CardBody>
+
+            <ButtonStyle>
+              <Button id="join-pool-button" as={Link} to="/add/ETH">
+                {TranslateString(100, 'Add Liquidity')}
+                <BoxIconDirect>
+                  <IconDirect src="/images/icon-direct.svg" alt="" />
+                </BoxIconDirect>
+              </Button>
+            </ButtonStyle>
+          </CardBodyStyle>
         </AutoColumn>
-      </AppBody>
+      </BodyStyle>
     </>
   )
 }

@@ -16,6 +16,7 @@ export const baseColors = {
     ...baseColors,
     ...brandColors,
     background: '#FFFFFF',
+    backgroundContent: '#FFFFF',
     backgroundDisabled: '#E9EAEB',
     contrast: '#191326',
     invertedContrast: '#FFFFFF',
@@ -47,12 +48,15 @@ export const baseColors = {
     colorPla: '#BCBCBC',
     iconClose: '#D8D8D8',
     borderTop: '#EFEFF1',
-    boederInput: '#E2E2E8'
+    boederInput: '#E2E2E8',
+    buttonView: '#E8E8EB',
+    boxShadow: 'rgba(239, 239, 239, 0.24)',
   }
   
   export const darkColors = {
     ...baseColors,
     ...brandColors,
+    backgroundContent: '#161D32',
     secondary: '#9A6AFF',
     background: '#151C31',
     backgroundDisabled: '#3c3742',
@@ -85,6 +89,8 @@ export const baseColors = {
     backIcon: 'rgba(232, 243, 251, 0.1)',
     colorPla: '#38415E',
     iconClose: '#9296A3',
-    borderTop: '#181E31'
+    borderTop: '#181E31',
+    buttonView: '#2A3145',
+    boxShadow: 'rgba(46, 52, 69, 0.24)',
   }
   
