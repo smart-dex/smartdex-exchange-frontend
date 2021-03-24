@@ -9,10 +9,8 @@ export const BodyWrapper = styled(Card)`
   box-shadow: 14px 14px 20px rgba(120, 118, 148, 0.1);
   border-radius: 30px;
   width: 334px;
-  height: 456px;
   ${({ theme }) => theme.mediaQueries.nav} {
     width: 530px;
-    height: 521px;
     border-left: 20px solid ${baseColors.primary};
     border-radius: 10px;
   }
