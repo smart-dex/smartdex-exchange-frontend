@@ -1,6 +1,6 @@
 import React from 'react'
 import { Price } from '@sotatek-anhdao/cake-sdk'
-import { SyncAltIcon, Text } from '@pancakeswap-libs/uikit'
+import { SyncAltIcon, Text } from 'uikit-sotatek'
 import { StyledBalanceMaxMini } from './styleds'
 
 interface TradePriceProps {

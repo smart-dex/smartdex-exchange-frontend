@@ -1,6 +1,6 @@
 import { Token } from '@sotatek-anhdao/cake-sdk'
 import { transparentize } from 'polished'
-import { Button, Text } from '@pancakeswap-libs/uikit'
+import { Button, Text } from 'uikit-sotatek'
 import React, { useCallback, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { AlertTriangle } from 'react-feather'

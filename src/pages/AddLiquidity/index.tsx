@@ -38,10 +38,7 @@ import { PoolPriceBar } from './PoolPriceBar'
 import { ROUTER_ADDRESS } from '../../constants'
 
 const ConnectWalletButtonStyle = styled(ConnectWalletButton)`
-  margin-top: 20px;
-  ${({ theme }) => theme.mediaQueries.nav} {
-    margin-top: 59px;
-  }
+  margin-top: 16px;
 `
 export default function AddLiquidity({
   match: {
@@ -213,6 +210,7 @@ export default function AddLiquidity({
     font-size: 12px;
     line-height: 20px;
     text-transform: uppercase;
+    padding-bottom: 8px;
     color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
     ${({ theme }) => theme.mediaQueries.nav} {
       font-size: 14px;

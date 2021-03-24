@@ -1,6 +1,6 @@
 import { Trade, TradeType } from '@sotatek-anhdao/cake-sdk'
 import React, { useMemo, useState } from 'react'
-import { Text , Button } from '@pancakeswap-libs/uikit'
+import { Text , Button } from 'uikit-sotatek'
 import { Repeat } from 'react-feather'
 
 import { Field } from '../../state/swap/actions'
@@ -105,7 +105,7 @@ export default function SwapModalFooter({
           variant={severity > 2 ? 'danger' : 'primary'}
           mt="10px"
           id="confirm-swap-or-send"
-          fullWidth
+          style={{ width: '100%'}}
         >
           {severity > 2 ? 'Swap Anyway' : 'Confirm Swap'}
         </Button>

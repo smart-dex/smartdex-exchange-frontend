@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react'
+import { lightColors, baseColors, darkColors } from 'style/Color'
 import styled from 'styled-components'
 import { Pair } from '@sotatek-anhdao/cake-sdk'
 import { Button, CardBody, Text } from 'uikit-sotatek'
@@ -19,7 +20,6 @@ import { Dots } from 'components/swap/styleds'
 import TranslatedText from 'components/TranslatedText'
 import { TranslateString } from 'utils/translateTextHelpers'
 import PageHeader from 'components/PageHeader'
-import { lightColors, baseColors, darkColors } from 'style/Color'
 
 export default function Pool() {
   const { account } = useActiveWeb3React()
@@ -136,10 +136,8 @@ export default function Pool() {
     box-shadow: 14px 14px 20px rgba(120, 118, 148, 0.1);
     border-radius: 30px;
     width: 334px;
-    height: 456px;
     ${({ theme }) => theme.mediaQueries.nav} {
       width: 530px;
-      height: 521px;
       border-left: 20px solid ${baseColors.primary};
       border-radius: 10px;
     }
