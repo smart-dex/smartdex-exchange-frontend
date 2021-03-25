@@ -14,7 +14,6 @@ build-image:
 	docker push registry-server:5000/pancake-swap-interface:latest
 
 build-staging:
-	sudo npm install env-cmd --save 
 	npm run build:staging
 	
 build-development:
