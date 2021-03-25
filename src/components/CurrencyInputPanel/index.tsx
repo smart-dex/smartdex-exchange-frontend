@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import { Currency, Pair } from '@sotatek-anhdao/cake-sdk'
-import { Button, ChevronDownIcon, Text } from '@pancakeswap-libs/uikit'
+import { Button, ChevronDownIcon, Text } from 'uikit-sotatek'
 import styled from 'styled-components'
 import { darken } from 'polished'
 import { lightColors, darkColors } from 'style/Color'
@@ -35,10 +35,6 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
   border: none;
   padding: 0 0.5rem;
 
-  :focus,
-  :hover {
-    background-color: ${({ theme }) => darken(0.05, theme.colors.input)};
-  }
 `
 
 const LabelRow = styled.div`
@@ -61,19 +57,17 @@ const Aligner = styled.span`
   justify-content: space-between;
 `
 
-const InputPanel = styled.div<{ hideInput?: boolean }>`
+const InputPanel = styled.div<{ hideInput?: boolean, id}>`
   display: flex;
   flex-flow: column nowrap;
   position: relative;
   border-radius: ${({ hideInput }) => (hideInput ? '8px' : '20px')};
-  background-color: ${({ theme }) => (theme.isDark ? lightColors.backInput : darkColors.backInput)};
+  background-color: ${({ theme }) => theme.isDark ? lightColors.backInput : darkColors.backInput } ;
   z-index: 1;
 `
 
 const Container = styled.div<{ hideInput: boolean }>`
-  border-radius: 16px;
-  background-color: ${({ theme }) => (theme.isDark ? lightColors.backInput : darkColors.backInput)};
-  box-shadow: ${({ theme }) => theme.shadows.inset};
+  border-radius: 20px;
 `
 
 const TextStyle = styled(Text)`

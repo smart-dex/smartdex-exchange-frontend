@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { JSBI, Pair, Percent } from '@sotatek-anhdao/cake-sdk'
-import { Button, Card as UIKitCard, CardBody, Text } from '@pancakeswap-libs/uikit'
+import { darkColors, lightColors } from 'style/Color'
+import { Button, Card as UIKitCard, CardBody, Text } from 'uikit-sotatek'
 import { darken } from 'polished'
 import { ChevronDown, ChevronUp } from 'react-feather'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { useTotalSupply } from '../../data/TotalSupply'
-
 import { useActiveWeb3React } from '../../hooks'
 import { useTokenBalance } from '../../state/wallet/hooks'
 import { currencyId } from '../../utils/currencyId'
@@ -27,6 +27,14 @@ export const HoverCard = styled(Card)`
   :hover {
     border: 1px solid ${({ theme }) => darken(0.06, theme.colors.invertedContrast)};
   }
+`
+
+const TextStyle = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+`
+
+const UIKitCardStyle = styled(UIKitCard)`
+  box-shadow: none;
 `
 
 interface PositionCardProps {
@@ -61,47 +69,47 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
   return (
     <>
       {userPoolBalance && (
-        <UIKitCard>
-          <CardBody>
+        <UIKitCardStyle>
+          <CardBody style={{ padding: '8px'}}>
             <AutoColumn gap="12px">
               <FixedHeightRow>
                 <RowFixed>
-                  <Text style={{ textTransform: 'uppercase', fontWeight: 600 }} fontSize="14px" color="textSubtle">
+                  <TextStyle style={{ textTransform: 'uppercase', fontWeight: 600 }} fontSize="14px" color="textSubtle">
                     LP Tokens in your Wallet
-                  </Text>
+                  </TextStyle>
                 </RowFixed>
               </FixedHeightRow>
               <FixedHeightRow onClick={() => setShowMore(!showMore)}>
                 <RowFixed>
                   <DoubleCurrencyLogo currency0={currency0} currency1={currency1} margin size={20} />
-                  <Text fontSize="14px">
+                  <TextStyle fontSize="14px">
                     {currency0.symbol}/{currency1.symbol}
-                  </Text>
+                  </TextStyle>
                 </RowFixed>
                 <RowFixed>
-                  <Text fontSize="14px">{userPoolBalance ? userPoolBalance.toSignificant(4) : '-'}</Text>
+                  <TextStyle fontSize="14px">{userPoolBalance ? userPoolBalance.toSignificant(4) : '-'}</TextStyle>
                 </RowFixed>
               </FixedHeightRow>
               <AutoColumn gap="4px">
                 <FixedHeightRow>
-                  <Text fontSize="14px">{currency0.symbol}:</Text>
+                  <TextStyle fontSize="14px">{currency0.symbol}:</TextStyle>
                   {token0Deposited ? (
                     <RowFixed>
-                      <Text ml="6px" fontSize="14px">
+                      <TextStyle ml="6px" fontSize="14px">
                         {token0Deposited?.toSignificant(6)}
-                      </Text>
+                      </TextStyle>
                     </RowFixed>
                   ) : (
                     '-'
                   )}
                 </FixedHeightRow>
                 <FixedHeightRow>
-                  <Text fontSize="14px">{currency1.symbol}:</Text>
+                  <TextStyle fontSize="14px">{currency1.symbol}:</TextStyle>
                   {token1Deposited ? (
                     <RowFixed>
-                      <Text ml="6px" fontSize="14px">
+                      <TextStyle ml="6px" fontSize="14px">
                         {token1Deposited?.toSignificant(6)}
-                      </Text>
+                      </TextStyle>
                     </RowFixed>
                   ) : (
                     '-'
@@ -110,7 +118,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
               </AutoColumn>
             </AutoColumn>
           </CardBody>
-        </UIKitCard>
+        </UIKitCardStyle>
       )}
     </>
   )

@@ -1,8 +1,12 @@
-import { Text } from '@pancakeswap-libs/uikit'
+import { Text } from 'uikit-sotatek'
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   position: relative;
+  padding: 6px 4px 14px 4px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    padding: 10px 14px 18px 30px;
+  }
 `
 
 export const ClickableText = styled(Text)`

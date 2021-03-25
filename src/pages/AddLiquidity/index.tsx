@@ -3,7 +3,7 @@ import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
 import styled from 'styled-components'
 import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@sotatek-anhdao/cake-sdk'
-import { darkColors, lightColors } from 'style/Color'
+import { darkColors, lightColors, baseColors } from 'style/Color'
 import { Button, CardBody, AddIcon, Text as UIKitText } from 'uikit-sotatek'
 import { RouteComponentProps } from 'react-router-dom'
 import { LightCard } from 'components/Card'
@@ -37,6 +37,9 @@ import { ConfirmAddModalBottom } from './ConfirmAddModalBottom'
 import { PoolPriceBar } from './PoolPriceBar'
 import { ROUTER_ADDRESS } from '../../constants'
 
+const ConnectWalletButtonStyle = styled(ConnectWalletButton)`
+  margin-top: 16px;
+`
 export default function AddLiquidity({
   match: {
     params: { currencyIdA, currencyIdB },
@@ -196,7 +199,7 @@ export default function AddLiquidity({
     font-weight: normal;
     font-size: 13px;
     line-height: 20px;
-    color: ${({theme}) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+    color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
     ${({ theme }) => theme.mediaQueries.nav} {
       font-size: 16px;
     }
@@ -207,20 +210,59 @@ export default function AddLiquidity({
     font-size: 12px;
     line-height: 20px;
     text-transform: uppercase;
-    color: ${({theme}) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+    padding-bottom: 8px;
+    color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
     ${({ theme }) => theme.mediaQueries.nav} {
       font-size: 14px;
     }
   `
 
+  const AutoColumnStyle = styled(AutoColumn)`
+    margin-top: 25px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      margin-top: 50px;
+    }
+  `
+
+  const IconDirect = styled.img`
+    width: 10px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      width: 16px;
+    }
+  `
+
+  const BoxIconDirect = styled.div`
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    background: #0085ff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 24px;
+    text-align: center;
+    line-height: 45px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      width: 36px;
+      line-height: 60px;
+    }
+  `
+
+  const UIKitTextStyle = styled(UIKitText)`
+    color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+  `
+
+  const ButtonStyle = styled(Button)`
+    background: ${baseColors.primary};
+  `
   const modalHeader = () => {
     return noLiquidity ? (
       <AutoColumn gap="20px">
         <LightCard mt="20px" borderRadius="20px">
           <RowFlat>
-            <UIKitText fontSize="48px" mr="8px">
+            <UIKitTextStyle fontSize="48px" mr="8px">
               {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol}`}
-            </UIKitText>
+            </UIKitTextStyle>
             <DoubleCurrencyLogo
               currency0={currencies[Field.CURRENCY_A]}
               currency1={currencies[Field.CURRENCY_B]}
@@ -232,9 +274,9 @@ export default function AddLiquidity({
     ) : (
       <AutoColumn gap="20px">
         <RowFlat style={{ marginTop: '20px' }}>
-          <UIKitText fontSize="48px" mr="8px">
+          <UIKitTextStyle fontSize="48px" mr="8px">
             {liquidityMinted?.toSignificant(6)}
-          </UIKitText>
+          </UIKitTextStyle>
           <DoubleCurrencyLogo
             currency0={currencies[Field.CURRENCY_A]}
             currency1={currencies[Field.CURRENCY_B]}
@@ -242,15 +284,15 @@ export default function AddLiquidity({
           />
         </RowFlat>
         <Row>
-          <UIKitText fontSize="24px">
+          <UIKitTextStyle fontSize="24px">
             {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol} Pool Tokens`}
-          </UIKitText>
+          </UIKitTextStyle>
         </Row>
-        <UIKitText small textAlign="left" padding="8px 0 0 0 " style={{ fontStyle: 'italic' }}>
+        <UIKitTextStyle small textAlign="left" padding="8px 0 0 0 " style={{ fontStyle: 'italic' }}>
           {`Output is estimated. If the price changes by more than ${
             allowedSlippage / 100
           }% your transaction will revert.`}
-        </UIKitText>
+        </UIKitTextStyle>
       </AutoColumn>
     )
   }
@@ -312,7 +354,7 @@ export default function AddLiquidity({
     svg {
       width: 12px;
       path {
-        fill: ${({ theme }) => (theme.isDark ? darkColors.colorIcon : lightColors.colorIcon )};
+        fill: ${({ theme }) => (theme.isDark ? darkColors.colorIcon : lightColors.colorIcon)};
       }
     }
   `
@@ -344,9 +386,15 @@ export default function AddLiquidity({
                 <ColumnCenter>
                   <Pane>
                     <AutoColumn gap="12px">
-                      <UIKitText><StyleText>You are the first liquidity provider.</StyleText></UIKitText>
-                      <UIKitText><StyleText>The ratio of tokens you add will set the price of this pool.</StyleText></UIKitText>
-                      <UIKitText><StyleText>Once you are happy with the rate click supply to review.</StyleText></UIKitText>
+                      <UIKitText>
+                        <StyleText>You are the first liquidity provider.</StyleText>
+                      </UIKitText>
+                      <UIKitText>
+                        <StyleText>The ratio of tokens you add will set the price of this pool.</StyleText>
+                      </UIKitText>
+                      <UIKitText>
+                        <StyleText>Once you are happy with the rate click supply to review.</StyleText>
+                      </UIKitText>
                     </AutoColumn>
                   </Pane>
                 </ColumnCenter>
@@ -364,7 +412,9 @@ export default function AddLiquidity({
                 showCommonBases={false}
               />
               <ColumnCenter>
-                <StyleIcon><AddIcon color="textSubtle" /></StyleIcon>
+                <StyleIcon>
+                  <AddIcon color="textSubtle" />
+                </StyleIcon>
               </ColumnCenter>
               <CurrencyInputPanel
                 value={formattedAmounts[Field.CURRENCY_B]}
@@ -380,9 +430,7 @@ export default function AddLiquidity({
               />
               {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
                 <div>
-                  <StyleTextTit>
-                    {noLiquidity ? 'Initial prices and pool share' : 'Prices and pool share'}
-                  </StyleTextTit>
+                  <StyleTextTit>{noLiquidity ? 'Initial prices and pool share' : 'Prices and pool share'}</StyleTextTit>
                   <Pane>
                     <PoolPriceBar
                       currencies={currencies}
@@ -395,9 +443,16 @@ export default function AddLiquidity({
               )}
 
               {!account ? (
-                <ConnectWalletButton fullWidth />
+                <ConnectWalletButtonStyle
+                  endIcon={
+                    <BoxIconDirect>
+                      <IconDirect src="/images/icon-direct.svg" alt="" />
+                    </BoxIconDirect>
+                  }
+                  style={{ width: '100%' }}
+                />
               ) : (
-                <AutoColumn gap="md">
+                <AutoColumnStyle gap="md">
                   {(approvalA === ApprovalState.NOT_APPROVED ||
                     approvalA === ApprovalState.PENDING ||
                     approvalB === ApprovalState.NOT_APPROVED ||
@@ -405,7 +460,7 @@ export default function AddLiquidity({
                     isValid && (
                       <RowBetween>
                         {approvalA !== ApprovalState.APPROVED && (
-                          <Button
+                          <ButtonStyle
                             onClick={approveACallback}
                             disabled={approvalA === ApprovalState.PENDING}
                             style={{ width: approvalB !== ApprovalState.APPROVED ? '48%' : '100%' }}
@@ -415,10 +470,10 @@ export default function AddLiquidity({
                             ) : (
                               `Approve ${currencies[Field.CURRENCY_A]?.symbol}`
                             )}
-                          </Button>
+                          </ButtonStyle>
                         )}
                         {approvalB !== ApprovalState.APPROVED && (
-                          <Button
+                          <ButtonStyle
                             onClick={approveBCallback}
                             disabled={approvalB === ApprovalState.PENDING}
                             style={{ width: approvalA !== ApprovalState.APPROVED ? '48%' : '100%' }}
@@ -428,11 +483,11 @@ export default function AddLiquidity({
                             ) : (
                               `Approve ${currencies[Field.CURRENCY_B]?.symbol}`
                             )}
-                          </Button>
+                          </ButtonStyle>
                         )}
                       </RowBetween>
                     )}
-                  <Button
+                  <ButtonStyle
                     onClick={() => {
                       if (expertMode) {
                         onAdd()
@@ -448,18 +503,18 @@ export default function AddLiquidity({
                     }
                   >
                     {error ?? 'Supply'}
-                  </Button>
-                </AutoColumn>
+                  </ButtonStyle>
+                </AutoColumnStyle>
               )}
             </AutoColumn>
+            {pair && !noLiquidity && pairState !== PairState.INVALID ? (
+              <AutoColumn style={{ minWidth: '20rem', marginTop: '1rem' }}>
+                <MinimalPositionCard showUnwrapped={oneCurrencyIsWETH} pair={pair} />
+              </AutoColumn>
+            ) : null}
           </CardBody>
         </Wrapper>
       </AppBody>
-      {pair && !noLiquidity && pairState !== PairState.INVALID ? (
-        <AutoColumn style={{ minWidth: '20rem', marginTop: '1rem' }}>
-          <MinimalPositionCard showUnwrapped={oneCurrencyIsWETH} pair={pair} />
-        </AutoColumn>
-      ) : null}
     </>
   )
 }

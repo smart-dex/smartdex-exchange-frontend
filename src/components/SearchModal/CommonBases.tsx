@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from '@pancakeswap-libs/uikit'
+import { Text } from 'uikit-sotatek'
 import { ChainId, Currency, currencyEquals, ETHER, Token } from '@sotatek-anhdao/cake-sdk'
 import styled from 'styled-components'
 

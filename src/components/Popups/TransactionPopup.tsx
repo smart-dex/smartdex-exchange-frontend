@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { AlertCircle, CheckCircle } from 'react-feather'
-import { Text } from '@pancakeswap-libs/uikit'
+import { darkColors, lightColors} from 'style/Color'
+import { Text } from 'uikit-sotatek'
 import styled, { ThemeContext } from 'styled-components'
 import { useActiveWeb3React } from '../../hooks'
 import { getBscScanLink } from '../../utils'
@@ -10,6 +11,10 @@ import { AutoRow } from '../Row'
 
 const RowNoFlex = styled(AutoRow)`
   flex-wrap: nowrap;
+`
+
+const TextStyle = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
 `
 
 export default function TransactionPopup({
@@ -35,7 +40,7 @@ export default function TransactionPopup({
         )}
       </div>
       <AutoColumn gap="8px">
-        <Text>{summary ?? `Hash: ${hash.slice(0, 8)}...${hash.slice(58, 65)}`}</Text>
+        <TextStyle>{summary ?? `Hash: ${hash.slice(0, 8)}...${hash.slice(58, 65)}`}</TextStyle>
         {chainId && <ExternalLink href={getBscScanLink(chainId, hash, 'transaction')}>View on bscscan</ExternalLink>}
       </AutoColumn>
     </RowNoFlex>

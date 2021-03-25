@@ -4,12 +4,13 @@ import { splitSignature } from '@ethersproject/bytes'
 import { Contract } from '@ethersproject/contracts'
 import { TransactionResponse } from '@ethersproject/providers'
 import { Currency, currencyEquals, ETHER, Percent, WETH } from '@sotatek-anhdao/cake-sdk'
-import { Button, Flex, Text } from '@pancakeswap-libs/uikit'
+import { Button, Flex, Text } from 'uikit-sotatek'
 import { ArrowDown, Plus } from 'react-feather'
 import { RouteComponentProps } from 'react-router'
 
 import { BigNumber } from '@ethersproject/bignumber'
 import ConnectWalletButton from 'components/ConnectWalletButton'
+import CardNav from 'components/CardNav'
 import { AutoColumn, ColumnCenter } from '../../components/Column'
 import TransactionConfirmationModal, { ConfirmationModalContent } from '../../components/TransactionConfirmationModal'
 import CurrencyInputPanel from '../../components/CurrencyInputPanel'
@@ -17,7 +18,6 @@ import DoubleCurrencyLogo from '../../components/DoubleLogo'
 import { AddRemoveTabs } from '../../components/NavigationTabs'
 import { MinimalPositionCard } from '../../components/PositionCard'
 import { RowBetween, RowFixed } from '../../components/Row'
-
 import Slider from '../../components/Slider'
 import CurrencyLogo from '../../components/CurrencyLogo'
 import { ROUTER_ADDRESS } from '../../constants'
@@ -49,6 +49,37 @@ const OutlineCard = styled.div`
 const Body = styled.div`
   padding-left: 24px;
   padding-right: 24px;
+`
+
+const ConnectWalletButtonStyle = styled(ConnectWalletButton)`
+  margin-top: 40px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    margin-top: 69px;
+  }
+`
+
+const IconDirect = styled.img`
+  width: 10px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: 16px;
+  }
+`
+
+  const BoxIconDirect = styled.div`
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+  background: #0085FF;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 24px;
+  text-align: center;
+  line-height: 45px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    width: 36px;
+    line-height: 60px;
+  }
 `
 
 export default function RemoveLiquidity({
@@ -443,6 +474,7 @@ export default function RemoveLiquidity({
 
   return (
     <>
+     <CardNav activeIndex={1} />
       <AppBody>
         <AddRemoveTabs adding={false} />
         <Wrapper>
@@ -621,7 +653,14 @@ export default function RemoveLiquidity({
               )}
               <div style={{ position: 'relative' }}>
                 {!account ? (
-                  <ConnectWalletButton fullWidth />
+                  <ConnectWalletButtonStyle
+                    endIcon={
+                      <BoxIconDirect>
+                        <IconDirect src="/images/icon-direct.svg" alt="" />
+                      </BoxIconDirect>
+                    }
+                    style={{ width: '100%' }}
+                  />
                 ) : (
                   <RowBetween>
                     <Button

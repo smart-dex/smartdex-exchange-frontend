@@ -1,6 +1,8 @@
 import { Trade, TradeType } from '@sotatek-anhdao/cake-sdk'
 import React, { useMemo, useState } from 'react'
-import { Text , Button } from '@pancakeswap-libs/uikit'
+import { darkColors, lightColors } from 'style/Color'
+import styled from 'styled-components'
+import { Text , Button } from 'uikit-sotatek'
 import { Repeat } from 'react-feather'
 
 import { Field } from '../../state/swap/actions'
@@ -15,6 +17,10 @@ import QuestionHelper from '../QuestionHelper'
 import { AutoRow, RowBetween, RowFixed } from '../Row'
 import FormattedPriceImpact from './FormattedPriceImpact'
 import { StyledBalanceMaxMini, SwapCallbackError } from './styleds'
+
+const TextStyle = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+`
 
 export default function SwapModalFooter({
   trade,
@@ -41,8 +47,8 @@ export default function SwapModalFooter({
     <>
       <AutoColumn gap="0px">
         <RowBetween align="center">
-          <Text fontSize="14px">Price</Text>
-          <Text
+          <TextStyle fontSize="14px">Price</TextStyle>
+          <TextStyle
             fontSize="14px"
             style={{
               justifyContent: 'center',
@@ -57,44 +63,44 @@ export default function SwapModalFooter({
             <StyledBalanceMaxMini onClick={() => setShowInverted(!showInverted)}>
               <Repeat size={14} />
             </StyledBalanceMaxMini>
-          </Text>
+          </TextStyle>
         </RowBetween>
 
         <RowBetween>
           <RowFixed>
-            <Text fontSize="14px">
+            <TextStyle fontSize="14px">
               {trade.tradeType === TradeType.EXACT_INPUT ? 'Minimum received' : 'Maximum sold'}
-            </Text>
+            </TextStyle>
             <QuestionHelper text="Your transaction will revert if there is a large, unfavorable price movement before it is confirmed." />
           </RowFixed>
           <RowFixed>
-            <Text fontSize="14px">
+            <TextStyle fontSize="14px">
               {trade.tradeType === TradeType.EXACT_INPUT
                 ? slippageAdjustedAmounts[Field.OUTPUT]?.toSignificant(4) ?? '-'
                 : slippageAdjustedAmounts[Field.INPUT]?.toSignificant(4) ?? '-'}
-            </Text>
-            <Text fontSize="14px" marginLeft="4px">
+            </TextStyle>
+            <TextStyle fontSize="14px" marginLeft="4px">
               {trade.tradeType === TradeType.EXACT_INPUT
                 ? trade.outputAmount.currency.symbol
                 : trade.inputAmount.currency.symbol}
-            </Text>
+            </TextStyle>
           </RowFixed>
         </RowBetween>
         <RowBetween>
           <RowFixed>
-            <Text fontSize="14px">Price Impact</Text>
+            <TextStyle fontSize="14px">Price Impact</TextStyle>
             <QuestionHelper text="The difference between the market price and your price due to trade size." />
           </RowFixed>
           <FormattedPriceImpact priceImpact={priceImpactWithoutFee} />
         </RowBetween>
         <RowBetween>
           <RowFixed>
-            <Text fontSize="14px">Liquidity Provider Fee</Text>
+            <TextStyle fontSize="14px">Liquidity Provider Fee</TextStyle>
             <QuestionHelper text="For each trade a 0.2% fee is paid. 0.17% goes to liquidity providers and 0.03% goes to the PancakeSwap treasury." />
           </RowFixed>
-          <Text fontSize="14px">
+          <TextStyle fontSize="14px">
             {realizedLPFee ? `${realizedLPFee?.toSignificant(6)  } ${  trade.inputAmount.currency.symbol}` : '-'}
-          </Text>
+          </TextStyle>
         </RowBetween>
       </AutoColumn>
 
@@ -103,9 +109,9 @@ export default function SwapModalFooter({
           onClick={onConfirm}
           disabled={disabledConfirm}
           variant={severity > 2 ? 'danger' : 'primary'}
+          style={{  width: '100%', background: severity > 2 ? 'danger' : '#0085FF'}}
           mt="10px"
           id="confirm-swap-or-send"
-          fullWidth
         >
           {severity > 2 ? 'Swap Anyway' : 'Confirm Swap'}
         </Button>

@@ -2,7 +2,6 @@ import React, { Suspense, useEffect, useState } from 'react'
 import { HashRouter, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import { Credentials, StringTranslations } from '@crowdin/crowdin-api-client'
-import Popups from '../components/Popups'
 import Web3ReactManager from '../components/Web3ReactManager'
 import { RedirectDuplicateTokenIds, RedirectOldAddLiquidityPathStructure } from './AddLiquidity/redirects'
 import { RedirectOldRemoveLiquidityPathStructure } from './RemoveLiquidity/redirects'
@@ -15,8 +14,8 @@ import { RedirectPathToSwapOnly } from './Swap/redirects'
 import { EN, allLanguages } from '../constants/localisation/languageCodes'
 import { LanguageContext } from '../hooks/LanguageContext'
 import { TranslationsContext } from '../hooks/TranslationsContext'
-
 import Menu from '../components/Menu'
+import { darkColors, lightColors } from '../style/Color'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -36,17 +35,10 @@ const BodyWrapper = styled.div`
   overflow-x: hidden;
   z-index: 1;
   justify-content: center;
-  background-image: url('/images/bg-trade-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.png');
-  background-repeat: no-repeat;
-  background-position: center;
-
-  ${({ theme }) => theme.mediaQueries.xs} {
-    background-size: 100%;
-  }
-
-  ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url('/images/bg-trade-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.png');
-    background-repeat: no-repeat;
+  background-size: 100%;
+  background: ${ ({ theme}) => theme.isDark ? darkColors.backgroundContent : lightColors.backgroundContent};
+  ${({ theme }) => theme.mediaQueries.nav} {
+    flex-direction: row;
     min-height: 90vh;
   }
 `
@@ -119,7 +111,6 @@ export default function App() {
             <TranslationsContext.Provider value={{ translations, setTranslations }}>
               <Menu>
                 <BodyWrapper>
-                  <Popups />
                   <Web3ReactManager>
                     <Switch>
                       <Route exact strict path="/swap" component={Swap} />

@@ -1,6 +1,8 @@
 import React, { useCallback, useMemo } from 'react'
 import { diffTokenLists, TokenList } from '@uniswap/token-lists'
-import { Button, Text } from '@pancakeswap-libs/uikit'
+import { darkColors, lightColors} from 'style/Color'
+import styled from 'styled-components'
+import { Button, Text } from 'uikit-sotatek'
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../state'
 import { useRemovePopup } from '../../state/application/hooks'
@@ -8,6 +10,10 @@ import { acceptListUpdate } from '../../state/lists/actions'
 import listVersionLabel from '../../utils/listVersionLabel'
 import { AutoColumn } from '../Column'
 import { AutoRow } from '../Row'
+
+const TextStyle = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+`
 
 export default function ListUpdatePopup({
   popKey,
@@ -45,17 +51,17 @@ export default function ListUpdatePopup({
     <AutoRow>
       <AutoColumn style={{ flex: '1' }} gap="8px">
         {auto ? (
-          <Text>
+          <TextStyle>
             The token list &quot;{oldList.name}&quot; has been updated to{' '}
             <strong>{listVersionLabel(newList.version)}</strong>.
-          </Text>
+          </TextStyle>
         ) : (
           <>
             <div>
-              <Text fontSize="14px">
+              <TextStyle fontSize="14px">
                 An update is available for the token list &quot;{oldList.name}&quot; (
                 {listVersionLabel(oldList.version)} to {listVersionLabel(newList.version)}).
-              </Text>
+              </TextStyle>
               <ul>
                 {tokensAdded.length > 0 ? (
                   <li>

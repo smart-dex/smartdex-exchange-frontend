@@ -1,9 +1,29 @@
 import { Currency, CurrencyAmount, Fraction, Percent } from '@sotatek-anhdao/cake-sdk'
 import React from 'react'
-import { Button, Text } from '@pancakeswap-libs/uikit'
+import { darkColors, lightColors, baseColors} from 'style/Color'
+import styled from 'styled-components'
+import { Button, Text } from 'uikit-sotatek'
 import { RowBetween, RowFixed } from '../../components/Row'
 import CurrencyLogo from '../../components/CurrencyLogo'
 import { Field } from '../../state/mint/actions'
+
+
+const TextStyle = styled(Text)`
+font-size: 10px;
+line-height: 20px;
+padding: 0;
+font-weight: 500;
+color: ${({ theme }) => (theme.isDark ? darkColors.textSubtle : lightColors.textMenuLeft)};
+${({ theme }) => theme.mediaQueries.nav} {
+  font-size: 14px;
+  line-height: 24px;
+  padding: 0.2rem 0;
+}
+`
+
+const ButtonStyle = styled(Button)`
+  background: ${ baseColors.primary};
+`
 
 export function ConfirmAddModalBottom({
   noLiquidity,
@@ -23,41 +43,41 @@ export function ConfirmAddModalBottom({
   return (
     <>
       <RowBetween>
-        <Text>{currencies[Field.CURRENCY_A]?.symbol} Deposited</Text>
+        <TextStyle>{currencies[Field.CURRENCY_A]?.symbol} Deposited</TextStyle>
         <RowFixed>
           <CurrencyLogo currency={currencies[Field.CURRENCY_A]} style={{ marginRight: '8px' }} />
-          <Text>{parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)}</Text>
+          <TextStyle>{parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)}</TextStyle>
         </RowFixed>
       </RowBetween>
       <RowBetween>
-        <Text>{currencies[Field.CURRENCY_B]?.symbol} Deposited</Text>
+        <TextStyle>{currencies[Field.CURRENCY_B]?.symbol} Deposited</TextStyle>
         <RowFixed>
           <CurrencyLogo currency={currencies[Field.CURRENCY_B]} style={{ marginRight: '8px' }} />
-          <Text>{parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)}</Text>
+          <TextStyle>{parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)}</TextStyle>
         </RowFixed>
       </RowBetween>
       <RowBetween>
-        <Text>Rates</Text>
-        <Text>
+        <TextStyle>Rates</TextStyle>
+        <TextStyle>
           {`1 ${currencies[Field.CURRENCY_A]?.symbol} = ${price?.toSignificant(4)} ${
             currencies[Field.CURRENCY_B]?.symbol
           }`}
-        </Text>
+        </TextStyle>
       </RowBetween>
       <RowBetween style={{ justifyContent: 'flex-end' }}>
-        <Text>
+        <TextStyle>
           {`1 ${currencies[Field.CURRENCY_B]?.symbol} = ${price?.invert().toSignificant(4)} ${
             currencies[Field.CURRENCY_A]?.symbol
           }`}
-        </Text>
+        </TextStyle>
       </RowBetween>
       <RowBetween>
-        <Text>Share of Pool:</Text>
-        <Text>{noLiquidity ? '100' : poolTokenPercentage?.toSignificant(4)}%</Text>
+        <TextStyle>Share of Pool:</TextStyle>
+        <TextStyle>{noLiquidity ? '100' : poolTokenPercentage?.toSignificant(4)}%</TextStyle>
       </RowBetween>
-      <Button mt="20px" onClick={onAdd}>
+      <ButtonStyle mt="20px" onClick={onAdd}>
         {noLiquidity ? 'Create Pool & Supply' : 'Confirm Supply'}
-      </Button>
+      </ButtonStyle>
     </>
   )
 }
