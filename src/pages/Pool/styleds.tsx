@@ -1,5 +1,6 @@
 import { Text } from 'uikit-sotatek'
 import styled from 'styled-components'
+import { baseColors } from 'style/Color'
 
 export const Wrapper = styled.div`
   position: relative;
@@ -13,7 +14,7 @@ export const ClickableText = styled(Text)`
   :hover {
     cursor: pointer;
   }
-  color: ${({ theme }) => theme.colors.primary};
+  color: ${baseColors.primary};
 `
 
 export const Dots = styled.span`
