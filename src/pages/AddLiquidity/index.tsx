@@ -3,7 +3,7 @@ import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
 import styled from 'styled-components'
 import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@sotatek-anhdao/cake-sdk'
-import { darkColors, lightColors } from 'style/Color'
+import { darkColors, lightColors, baseColors } from 'style/Color'
 import { Button, CardBody, AddIcon, Text as UIKitText } from 'uikit-sotatek'
 import { RouteComponentProps } from 'react-router-dom'
 import { LightCard } from 'components/Card'
@@ -225,36 +225,44 @@ export default function AddLiquidity({
   `
 
   const IconDirect = styled.img`
-  width: 10px;
-  ${({ theme }) => theme.mediaQueries.nav} {
-    width: 16px;
-  }
-`
+    width: 10px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      width: 16px;
+    }
+  `
 
   const BoxIconDirect = styled.div`
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  height: 100%;
-  background: #0085FF;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  width: 24px;
-  text-align: center;
-  line-height: 45px;
-  ${({ theme }) => theme.mediaQueries.nav} {
-    width: 36px;
-    line-height: 60px;
-  }
-`
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    background: #0085ff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 24px;
+    text-align: center;
+    line-height: 45px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      width: 36px;
+      line-height: 60px;
+    }
+  `
+
+  const UIKitTextStyle = styled(UIKitText)`
+    color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+  `
+
+  const ButtonStyle = styled(Button)`
+    background: ${baseColors.primary};
+  `
   const modalHeader = () => {
     return noLiquidity ? (
       <AutoColumn gap="20px">
         <LightCard mt="20px" borderRadius="20px">
           <RowFlat>
-            <UIKitText fontSize="48px" mr="8px">
+            <UIKitTextStyle fontSize="48px" mr="8px">
               {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol}`}
-            </UIKitText>
+            </UIKitTextStyle>
             <DoubleCurrencyLogo
               currency0={currencies[Field.CURRENCY_A]}
               currency1={currencies[Field.CURRENCY_B]}
@@ -266,9 +274,9 @@ export default function AddLiquidity({
     ) : (
       <AutoColumn gap="20px">
         <RowFlat style={{ marginTop: '20px' }}>
-          <UIKitText fontSize="48px" mr="8px">
+          <UIKitTextStyle fontSize="48px" mr="8px">
             {liquidityMinted?.toSignificant(6)}
-          </UIKitText>
+          </UIKitTextStyle>
           <DoubleCurrencyLogo
             currency0={currencies[Field.CURRENCY_A]}
             currency1={currencies[Field.CURRENCY_B]}
@@ -276,15 +284,15 @@ export default function AddLiquidity({
           />
         </RowFlat>
         <Row>
-          <UIKitText fontSize="24px">
+          <UIKitTextStyle fontSize="24px">
             {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol} Pool Tokens`}
-          </UIKitText>
+          </UIKitTextStyle>
         </Row>
-        <UIKitText small textAlign="left" padding="8px 0 0 0 " style={{ fontStyle: 'italic' }}>
+        <UIKitTextStyle small textAlign="left" padding="8px 0 0 0 " style={{ fontStyle: 'italic' }}>
           {`Output is estimated. If the price changes by more than ${
             allowedSlippage / 100
           }% your transaction will revert.`}
-        </UIKitText>
+        </UIKitTextStyle>
       </AutoColumn>
     )
   }
@@ -452,7 +460,7 @@ export default function AddLiquidity({
                     isValid && (
                       <RowBetween>
                         {approvalA !== ApprovalState.APPROVED && (
-                          <Button
+                          <ButtonStyle
                             onClick={approveACallback}
                             disabled={approvalA === ApprovalState.PENDING}
                             style={{ width: approvalB !== ApprovalState.APPROVED ? '48%' : '100%' }}
@@ -462,10 +470,10 @@ export default function AddLiquidity({
                             ) : (
                               `Approve ${currencies[Field.CURRENCY_A]?.symbol}`
                             )}
-                          </Button>
+                          </ButtonStyle>
                         )}
                         {approvalB !== ApprovalState.APPROVED && (
-                          <Button
+                          <ButtonStyle
                             onClick={approveBCallback}
                             disabled={approvalB === ApprovalState.PENDING}
                             style={{ width: approvalA !== ApprovalState.APPROVED ? '48%' : '100%' }}
@@ -475,11 +483,11 @@ export default function AddLiquidity({
                             ) : (
                               `Approve ${currencies[Field.CURRENCY_B]?.symbol}`
                             )}
-                          </Button>
+                          </ButtonStyle>
                         )}
                       </RowBetween>
                     )}
-                  <Button
+                  <ButtonStyle
                     onClick={() => {
                       if (expertMode) {
                         onAdd()
@@ -495,18 +503,18 @@ export default function AddLiquidity({
                     }
                   >
                     {error ?? 'Supply'}
-                  </Button>
+                  </ButtonStyle>
                 </AutoColumnStyle>
               )}
             </AutoColumn>
+            {pair && !noLiquidity && pairState !== PairState.INVALID ? (
+              <AutoColumn style={{ minWidth: '20rem', marginTop: '1rem' }}>
+                <MinimalPositionCard showUnwrapped={oneCurrencyIsWETH} pair={pair} />
+              </AutoColumn>
+            ) : null}
           </CardBody>
         </Wrapper>
       </AppBody>
-      {pair && !noLiquidity && pairState !== PairState.INVALID ? (
-        <AutoColumn style={{ minWidth: '20rem', marginTop: '1rem' }}>
-          <MinimalPositionCard showUnwrapped={oneCurrencyIsWETH} pair={pair} />
-        </AutoColumn>
-      ) : null}
     </>
   )
 }

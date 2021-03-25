@@ -20,6 +20,7 @@ import { Dots } from 'components/swap/styleds'
 import TranslatedText from 'components/TranslatedText'
 import { TranslateString } from 'utils/translateTextHelpers'
 import PageHeader from 'components/PageHeader'
+import Popups from 'components/Popups'
 
 export default function Pool() {
   const { account } = useActiveWeb3React()
@@ -183,81 +184,85 @@ export default function Pool() {
       line-height: 60px;
     }
   `
+
   return (
     <>
       <CardNav activeIndex={1} />
       <ArrowLeft />
-      <BodyStyle>
-        <PageHeader title="Liquidity" description="Add liquidity to receive LP tokens" />
-        <AutoColumn gap="lg">
-          <CardBodyStyle>
-            <AutoColumn style={{ width: '100%' }}>
-              <RowBetween>
-                <TextHeading>
-                  <TranslatedText translationId={102}>Your Liquidity</TranslatedText>
-                </TextHeading>
-                <Question
-                  text={TranslateString(
-                    130,
-                    'When you add liquidity, you are given pool tokens that represent your share. If you don’t see a pool you joined in this list, try importing a pool below.'
-                  )}
-                />
-              </RowBetween>
+      <div>
+        <Popups />
+        <BodyStyle>
+          <PageHeader title="Liquidity" description="Add liquidity to receive LP tokens" />
+          <AutoColumn gap="lg">
+            <CardBodyStyle>
+              <AutoColumn style={{ width: '100%' }}>
+                <RowBetween>
+                  <TextHeading>
+                    <TranslatedText translationId={102}>Your Liquidity</TranslatedText>
+                  </TextHeading>
+                  <Question
+                    text={TranslateString(
+                      130,
+                      'When you add liquidity, you are given pool tokens that represent your share. If you don’t see a pool you joined in this list, try importing a pool below.'
+                    )}
+                  />
+                </RowBetween>
 
-              {!account ? (
-                <StyleConnect>
-                  <LightCard padding="50px 20px">
-                    <TextContent color="textDisabled" textAlign="center">
-                      Connect to a wallet to view your liquidity.
-                    </TextContent>
+                {!account ? (
+                  <StyleConnect>
+                    <LightCard padding="50px 20px">
+                      <TextContent color="textDisabled" textAlign="center">
+                        Connect to a wallet to view your liquidity.
+                      </TextContent>
+                    </LightCard>
+                  </StyleConnect>
+                ) : v2IsLoading ? (
+                  <LightCard padding="20px">
+                    <TextStyle textAlign="center">
+                      <Dots>Loading</Dots>
+                    </TextStyle>
                   </LightCard>
-                </StyleConnect>
-              ) : v2IsLoading ? (
-                <LightCard padding="20px">
-                  <Text color="textDisabled" textAlign="center">
-                    <Dots>Loading</Dots>
-                  </Text>
-                </LightCard>
-              ) : allV2PairsWithLiquidity?.length > 0 ? (
-                <>
-                  {allV2PairsWithLiquidity.map((v2Pair) => (
-                    <FullPositionCard key={v2Pair.liquidityToken.address} pair={v2Pair} />
-                  ))}
-                </>
-              ) : (
-                <LightCard padding="40px 20px">
-                  <Text color="textDisabled" textAlign="center">
-                    <TranslatedText translationId={104}>No liquidity found.</TranslatedText>
-                  </Text>
-                </LightCard>
-              )}
+                ) : allV2PairsWithLiquidity?.length > 0 ? (
+                  <>
+                    {allV2PairsWithLiquidity.map((v2Pair) => (
+                      <FullPositionCard key={v2Pair.liquidityToken.address} pair={v2Pair} />
+                    ))}
+                  </>
+                ) : (
+                  <LightCard padding="40px 20px">
+                    <TextStyle textAlign="center">
+                      <TranslatedText translationId={104}>No liquidity found.</TranslatedText>
+                    </TextStyle>
+                  </LightCard>
+                )}
 
-              <div>
-                <TextStyle fontSize="14px" style={{ padding: '0.18rem 0 .5rem 0' }}>
-                  {TranslateString(106, "Don't see a pool you joined?")}&nbsp;&nbsp;&nbsp;&nbsp;
-                  <TextLink>
-                    <StyledInternalLink color="red" id="import-pool-link" to="/find">
-                      {TranslateString(108, 'Import it.')}
-                    </StyledInternalLink>
-                  </TextLink>
-                </TextStyle>
-                <TextStyle fontSize="14px">
-                  Or, if you staked your FLIP tokens in a farm, unstake them to see them here.
-                </TextStyle>
-              </div>
-            </AutoColumn>
+                <div>
+                  <TextStyle fontSize="14px" style={{ padding: '0.18rem 0 .5rem 0' }}>
+                    {TranslateString(106, "Don't see a pool you joined?")}&nbsp;&nbsp;&nbsp;&nbsp;
+                    <TextLink>
+                      <StyledInternalLink color="red" id="import-pool-link" to="/find">
+                        {TranslateString(108, 'Import it.')}
+                      </StyledInternalLink>
+                    </TextLink>
+                  </TextStyle>
+                  <TextStyle fontSize="14px">
+                    Or, if you staked your FLIP tokens in a farm, unstake them to see them here.
+                  </TextStyle>
+                </div>
+              </AutoColumn>
 
-            <ButtonStyle>
-              <Button id="join-pool-button" as={Link} to="/add/ETH">
-                {TranslateString(100, 'Add Liquidity')}
-                <BoxIconDirect>
-                  <IconDirect src="/images/icon-direct.svg" alt="" />
-                </BoxIconDirect>
-              </Button>
-            </ButtonStyle>
-          </CardBodyStyle>
-        </AutoColumn>
-      </BodyStyle>
+              <ButtonStyle>
+                <Button id="join-pool-button" as={Link} to="/add/ETH">
+                  {TranslateString(100, 'Add Liquidity')}
+                  <BoxIconDirect>
+                    <IconDirect src="/images/icon-direct.svg" alt="" />
+                  </BoxIconDirect>
+                </Button>
+              </ButtonStyle>
+            </CardBodyStyle>
+          </AutoColumn>
+        </BodyStyle>
+      </div>
     </>
   )
 }
