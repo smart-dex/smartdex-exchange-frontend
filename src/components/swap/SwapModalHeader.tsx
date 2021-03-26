@@ -56,6 +56,7 @@ export default function SwapModalHeader({
           <TextStyle
             fontSize="24px"
             color={showAcceptChanges && trade.tradeType === TradeType.EXACT_OUTPUT ? theme.colors.primary : 'text'}
+            style={{ marginLeft: '10px', fontWeight: 500 }}
           >
             {trade.inputAmount.toSignificant(6)}
           </TextStyle>
