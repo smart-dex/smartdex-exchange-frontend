@@ -34,7 +34,6 @@ import { TranslateString } from 'utils/translateTextHelpers'
 import PageHeader from 'components/PageHeader'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import { lightColors, darkColors, baseColors } from 'style/Color'
-import Popups from '../../components/Popups'
 
 const TextStyle = styled(Text)`
   color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)};
@@ -351,7 +350,6 @@ const Swap = () => {
       <CardNav />
       <ArrowLeft />
       <div>
-        <Popups />
         <BodyStyle>
           <Wrapper id="swap-page">
             <ConfirmSwapModal
@@ -517,7 +515,7 @@ const Swap = () => {
                         !isValid || approval !== ApprovalState.APPROVED || (priceImpactSeverity > 3 && !isExpertMode)
                       }
                       variant={isValid && priceImpactSeverity > 2 ? 'danger' : 'primary'}
-                      style={{  width: '48%', background: (!isValid || approval !== ApprovalState.APPROVED || (priceImpactSeverity > 3 && !isExpertMode ) )? 'danger' : '#0085FF'}}
+                      style={{  width: '48%', background: (!isValid || approval !== ApprovalState.APPROVED || (priceImpactSeverity > 3 && !isExpertMode ) )? 'danger' : (priceImpactSeverity > 2 ?'#ED4B9E': "#0085FF")}}
                     >
                       {priceImpactSeverity > 3 && !isExpertMode
                         ? `Price Impact High`
@@ -542,7 +540,8 @@ const Swap = () => {
                     id="swap-button"
                     disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
                     variant={isValid && priceImpactSeverity > 2 && !swapCallbackError ? 'danger' : 'primary'}
-                    style={{ width: '100%', background: !isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError  ? '' : "#0085FF"}}
+                    style={{ width: '100%', background: !isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError  ? '' : (priceImpactSeverity > 2 ?'#ED4B9E': "#0085FF")}}
+
                   >
                     {swapInputError ||
                       (priceImpactSeverity > 3 && !isExpertMode

@@ -109,7 +109,7 @@ export default function SwapModalFooter({
           onClick={onConfirm}
           disabled={disabledConfirm}
           variant={severity > 2 ? 'danger' : 'primary'}
-          style={{  width: '100%', background: '#0085FF'}}
+          style={{  width: '100%', background: severity > 2 ? '#ED4B9E' : '#0085FF'}}
           mt="10px"
           id="confirm-swap-or-send"
         >

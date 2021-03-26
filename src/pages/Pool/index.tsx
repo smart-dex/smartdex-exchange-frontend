@@ -20,7 +20,6 @@ import { Dots } from 'components/swap/styleds'
 import TranslatedText from 'components/TranslatedText'
 import { TranslateString } from 'utils/translateTextHelpers'
 import PageHeader from 'components/PageHeader'
-import Popups from 'components/Popups'
 
 export default function Pool() {
   const { account } = useActiveWeb3React()
@@ -190,7 +189,6 @@ export default function Pool() {
       <CardNav activeIndex={1} />
       <ArrowLeft />
       <div>
-        <Popups />
         <BodyStyle>
           <PageHeader title="Liquidity" description="Add liquidity to receive LP tokens" />
           <AutoColumn gap="lg">
