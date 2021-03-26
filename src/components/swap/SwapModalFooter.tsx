@@ -22,6 +22,17 @@ const TextStyle = styled(Text)`
   color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
 `
 
+const ButtonStyle = styled(Button)`
+  color: #fff;
+  font-size: 12px;
+  padding: 0 12px;
+  height: 45px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 16px;
+    padding: 0 24px;
+    height: 56px;
+  }
+`
 export default function SwapModalFooter({
   trade,
   onConfirm,
@@ -105,7 +116,7 @@ export default function SwapModalFooter({
       </AutoColumn>
 
       <AutoRow>
-        <Button
+        <ButtonStyle
           onClick={onConfirm}
           disabled={disabledConfirm}
           variant={severity > 2 ? 'danger' : 'primary'}
@@ -114,7 +125,7 @@ export default function SwapModalFooter({
           id="confirm-swap-or-send"
         >
           {severity > 2 ? 'Swap Anyway' : 'Confirm Swap'}
-        </Button>
+        </ButtonStyle>
 
         {swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
       </AutoRow>

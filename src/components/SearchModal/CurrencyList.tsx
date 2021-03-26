@@ -68,8 +68,9 @@ const StyleListToken = styled(Text)`
     div div {
       color: ${({ theme }) => (theme.isDark ? darkColors.text : lightColors.textMenuLeft)};
       font-weight: 600;
-      font-size: 15px;
+      font-size: 11px;
       line-height: 22px;
+      padding-left: 3px;
       ${({ theme }) => theme.mediaQueries.nav} {
         font-size: 18px;
       }
@@ -145,7 +146,6 @@ function CurrencyRow({
   const removeToken = useRemoveUserAddedToken()
   const addToken = useAddUserToken()
 
-  // only show add or remove buttons if not on selected list
   return (
     <MenuItem
       style={style}
