@@ -44,6 +44,12 @@ background: #D8D8D8;
     fill: #fff;
   }
 `
+const HeadingStyle = styled(Heading)`
+  font-size: 20px;
+${({ theme }) => theme.mediaQueries.nav} {
+  font-size: 24px;
+}
+`
 
 type ContentHeaderProps = {
   children: ReactNode
@@ -52,7 +58,7 @@ type ContentHeaderProps = {
 
 export const ContentHeader = ({ children, onDismiss }: ContentHeaderProps) => (
   <StyledContentHeader>
-    <Heading>{children}</Heading>
+    <HeadingStyle>{children}</HeadingStyle>
     <IconButton onClick={onDismiss} variant="text">
       <StyleIcon>
         <CloseIcon />
