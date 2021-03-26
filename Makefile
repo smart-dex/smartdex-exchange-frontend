@@ -17,7 +17,6 @@ build-staging:
 	npm run build:staging
 	
 build-development:
-	sudo npm install env-cmd --save 
 	npm run build:development
 
 build-production:
