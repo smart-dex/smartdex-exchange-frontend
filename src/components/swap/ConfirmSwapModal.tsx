@@ -1,4 +1,4 @@
-import { currencyEquals, Trade } from '@sotatek-anhdao/cake-sdk'
+import { currencyEquals, Trade } from '@sotatek-anhdao/smartdex-sdk'
 import React, { useCallback, useMemo } from 'react'
 import TransactionConfirmationModal, {
   ConfirmationModalContent,

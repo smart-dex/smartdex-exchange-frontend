@@ -1,4 +1,4 @@
-import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from '@sotatek-anhdao/cake-sdk'
+import { Currency, CurrencyAmount, currencyEquals, ETHER, Token } from '@sotatek-anhdao/smartdex-sdk'
 import React, { CSSProperties, MutableRefObject, useCallback, useMemo } from 'react'
 import { FixedSizeList } from 'react-window'
 import styled from 'styled-components'

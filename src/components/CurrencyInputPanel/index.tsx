@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react'
-import { Currency, Pair } from '@sotatek-anhdao/cake-sdk'
+import { Currency, Pair } from '@sotatek-anhdao/smartdex-sdk'
 import { Button, ChevronDownIcon, Text } from 'uikit-sotatek'
 import styled from 'styled-components'
 import { darken } from 'polished'
@@ -176,8 +176,8 @@ export default function CurrencyInputPanel({
               ) : (
                 <TextStyle>
                   {(currency && currency.symbol && currency.symbol.length > 20
-                    ? `${currency.symbol.slice(0, 4) 
-                      }...${ 
+                    ? `${currency.symbol.slice(0, 4)
+                      }...${
                       currency.symbol.slice(currency.symbol.length - 5, currency.symbol.length)}`
                     : currency?.symbol) || <TranslatedText translationId={82}>Select a token</TranslatedText>}
                 </TextStyle>

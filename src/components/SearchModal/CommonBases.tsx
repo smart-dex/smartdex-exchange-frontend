@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text } from 'uikit-sotatek'
-import { ChainId, Currency, currencyEquals, ETHER, Token } from '@sotatek-anhdao/cake-sdk'
+import { ChainId, Currency, currencyEquals, ETHER, Token } from '@sotatek-anhdao/smartdex-sdk'
 import styled from 'styled-components'
 
 import { SUGGESTED_BASES } from '../../constants'

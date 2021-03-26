@@ -1,4 +1,4 @@
-import { Token, TokenAmount } from '@sotatek-anhdao/cake-sdk'
+import { Token, TokenAmount } from '@sotatek-anhdao/smartdex-sdk'
 import { useMemo } from 'react'
 
 import { useTokenContract } from '../hooks/useContract'

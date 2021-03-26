@@ -1,4 +1,4 @@
-import { Currency, ETHER, Token } from '@sotatek-anhdao/cake-sdk'
+import { Currency, ETHER, Token } from '@sotatek-anhdao/smartdex-sdk'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import useHttpLocations from '../../hooks/useHttpLocations'

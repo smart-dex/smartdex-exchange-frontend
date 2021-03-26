@@ -1,5 +1,5 @@
 import React from 'react'
-import { Price } from '@sotatek-anhdao/cake-sdk'
+import { Price } from '@sotatek-anhdao/smartdex-sdk'
 import { SyncAltIcon, Text } from 'uikit-sotatek'
 import { StyledBalanceMaxMini } from './styleds'
 

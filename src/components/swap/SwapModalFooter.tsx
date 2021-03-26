@@ -1,4 +1,4 @@
-import { Trade, TradeType } from '@sotatek-anhdao/cake-sdk'
+import { Trade, TradeType } from '@sotatek-anhdao/smartdex-sdk'
 import React, { useMemo, useState } from 'react'
 import { darkColors, lightColors } from 'style/Color'
 import styled from 'styled-components'

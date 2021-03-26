@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { JSBI, Pair, Percent } from '@sotatek-anhdao/cake-sdk'
+import { JSBI, Pair, Percent } from '@sotatek-anhdao/smartdex-sdk'
 import { darkColors, lightColors } from 'style/Color'
 import { Button, Card as UIKitCard, CardBody, Text } from 'uikit-sotatek'
 import { darken } from 'polished'

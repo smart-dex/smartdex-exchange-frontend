@@ -1,4 +1,4 @@
-import { Percent } from '@sotatek-anhdao/cake-sdk'
+import { Percent } from '@sotatek-anhdao/smartdex-sdk'
 import React from 'react'
 import { ONE_BIPS } from '../../constants'
 import { warningSeverity } from '../../utils/prices'

@@ -1,4 +1,4 @@
-import { ChainId, JSBI, Pair, Route, Token, TokenAmount, Trade, TradeType } from '@sotatek-anhdao/cake-sdk'
+import { ChainId, JSBI, Pair, Route, Token, TokenAmount, Trade, TradeType } from '@sotatek-anhdao/smartdex-sdk'
 import { computeTradePriceBreakdown } from './prices'
 
 describe('prices', () => {

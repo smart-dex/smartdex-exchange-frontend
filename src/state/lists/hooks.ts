@@ -1,4 +1,4 @@
-import { ChainId, Token } from '@sotatek-anhdao/cake-sdk'
+import { ChainId, Token } from '@sotatek-anhdao/smartdex-sdk'
 import { Tags, TokenInfo, TokenList } from '@uniswap/token-lists'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'

@@ -1,4 +1,4 @@
-import { ChainId } from '@sotatek-anhdao/cake-sdk'
+import { ChainId } from '@sotatek-anhdao/smartdex-sdk'
 import { createStore, Store } from 'redux'
 import { addTransaction, checkedTransaction, clearAllTransactions, finalizeTransaction } from './actions'
 import reducer, { initialState, TransactionState } from './reducer'
