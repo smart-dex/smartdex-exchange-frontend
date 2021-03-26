@@ -77,6 +77,13 @@ const StyleListToken = styled(Text)`
   }
 `
 
+const TextStyle = styled(Text)`
+  font-size: 12px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 15px;
+  }
+`
+
 function Balance({ balance }: { balance: CurrencyAmount }) {
   return <StyledBalanceText title={balance.toExact()}>{balance.toSignificant(4)}</StyledBalanceText>
 }
@@ -152,7 +159,7 @@ function CurrencyRow({
         <Text title={currency.name}>{currency.symbol}</Text>
         <FadedSpan>
           {!isOnSelectedList && customAdded && !(currency instanceof WrappedTokenInfo) ? (
-            <Text>
+            <TextStyle>
               Added by user
               <LinkStyledButton
                 onClick={(event) => {
@@ -162,10 +169,10 @@ function CurrencyRow({
               >
                 (Remove)
               </LinkStyledButton>
-            </Text>
+            </TextStyle>
           ) : null}
           {!isOnSelectedList && !customAdded && !(currency instanceof WrappedTokenInfo) ? (
-            <Text>
+            <TextStyle>
               Found by address
               <LinkStyledButton
                 onClick={(event) => {
@@ -175,7 +182,7 @@ function CurrencyRow({
               >
                 (Add)
               </LinkStyledButton>
-            </Text>
+            </TextStyle>
           ) : null}
         </FadedSpan>
       </Column>
