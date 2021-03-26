@@ -16,6 +16,7 @@ import { LanguageContext } from '../hooks/LanguageContext'
 import { TranslationsContext } from '../hooks/TranslationsContext'
 import Menu from '../components/Menu'
 import { darkColors, lightColors } from '../style/Color'
+import Popups from '../components/Popups'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -28,7 +29,7 @@ const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 32px 16px;
+  padding: 16px;
   align-items: center;
   flex: 1;
   overflow-y: auto;
@@ -46,7 +47,14 @@ const BodyWrapper = styled.div`
 const Marginer = styled.div`
   margin-top: 5rem;
 `
+const BlockPopup = styled.div`
+  width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: ${ ({ theme}) => theme.isDark ? darkColors.backgroundContent : lightColors.backgroundContent};
 
+`
 export default function App() {
   const [selectedLanguage, setSelectedLanguage] = useState<any>(undefined)
   const [translatedLanguage, setTranslatedLanguage] = useState<any>(undefined)
@@ -110,6 +118,9 @@ export default function App() {
           >
             <TranslationsContext.Provider value={{ translations, setTranslations }}>
               <Menu>
+                <BlockPopup>
+                <Popups />
+                </BlockPopup>
                 <BodyWrapper>
                   <Web3ReactManager>
                     <Switch>
