@@ -28,9 +28,9 @@ const IconQuestion = styled.div`
   margin: 3px 5px;
   ${({ theme }) => theme.mediaQueries.nav} {
     width: 9px;
-    height: 14px;
+    height: 11px;
     background-image: url('/images/question-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
-    margin: 5px 7px;
+    margin: 6px 8px;
   }
 `
 
