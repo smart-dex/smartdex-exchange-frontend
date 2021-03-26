@@ -25,6 +25,10 @@ export const LinkStyledButton = styled.button<{ disabled?: boolean }>`
   :active {
     text-decoration: none;
   }
+  font-size: 12px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 14px;
+  }
 `
 
 // An internal link from the react-router-dom library that is correctly styled
