@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { JSBI, Pair, Percent } from '@sotatek-anhdao/cake-sdk'
-import { darkColors, lightColors } from 'style/Color'
+import { darkColors, lightColors, baseColors } from 'style/Color'
 import { Button, Card as UIKitCard, CardBody, Text } from 'uikit-sotatek'
 import { darken } from 'polished'
 import { ChevronDown, ChevronUp } from 'react-feather'
@@ -23,6 +23,7 @@ export const FixedHeightRow = styled(RowBetween)`
 `
 
 export const HoverCard = styled(Card)`
+  margin-top: 12px;
   border: 1px solid ${({ theme }) => theme.colors.invertedContrast};
   :hover {
     border: 1px solid ${({ theme }) => darken(0.06, theme.colors.invertedContrast)};
@@ -35,8 +36,8 @@ const TextStyle = styled(Text)`
 
 const UIKitCardStyle = styled(UIKitCard)`
   box-shadow: none;
+  background-color: transparent;
 `
-
 interface PositionCardProps {
   pair: Pair
   // eslint-disable-next-line react/no-unused-prop-types
@@ -158,7 +159,7 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
         <FixedHeightRow onClick={() => setShowMore(!showMore)} style={{ cursor: 'pointer' }}>
           <RowFixed>
             <DoubleCurrencyLogo currency0={currency0} currency1={currency1} margin size={20} />
-            <Text>{!currency0 || !currency1 ? <Dots>Loading</Dots> : `${currency0.symbol}/${currency1.symbol}`}</Text>
+            <TextStyle>{!currency0 || !currency1 ? <Dots>Loading</Dots> : `${currency0.symbol}/${currency1.symbol}`}</TextStyle>
           </RowFixed>
           <RowFixed>
             {showMore ? (
@@ -172,11 +173,11 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
           <AutoColumn gap="8px">
             <FixedHeightRow>
               <RowFixed>
-                <Text>Pooled {currency0.symbol}:</Text>
+                <TextStyle>Pooled {currency0.symbol}:</TextStyle>
               </RowFixed>
               {token0Deposited ? (
                 <RowFixed>
-                  <Text ml="6px">{token0Deposited?.toSignificant(6)}</Text>
+                  <TextStyle ml="6px">{token0Deposited?.toSignificant(6)}</TextStyle>
                   <CurrencyLogo size="20px" style={{ marginLeft: '8px' }} currency={currency0} />
                 </RowFixed>
               ) : (
@@ -186,11 +187,11 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
 
             <FixedHeightRow>
               <RowFixed>
-                <Text>Pooled {currency1.symbol}:</Text>
+                <TextStyle>Pooled {currency1.symbol}:</TextStyle>
               </RowFixed>
               {token1Deposited ? (
                 <RowFixed>
-                  <Text ml="6px">{token1Deposited?.toSignificant(6)}</Text>
+                  <TextStyle ml="6px">{token1Deposited?.toSignificant(6)}</TextStyle>
                   <CurrencyLogo size="20px" style={{ marginLeft: '8px' }} currency={currency1} />
                 </RowFixed>
               ) : (
@@ -198,21 +199,21 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
               )}
             </FixedHeightRow>
             <FixedHeightRow>
-              <Text>Your pool tokens:</Text>
-              <Text>{userPoolBalance ? userPoolBalance.toSignificant(4) : '-'}</Text>
+              <TextStyle>Your pool tokens:</TextStyle>
+              <TextStyle>{userPoolBalance ? userPoolBalance.toSignificant(4) : '-'}</TextStyle>
             </FixedHeightRow>
             <FixedHeightRow>
-              <Text>Your pool share:</Text>
-              <Text>{poolTokenPercentage ? `${poolTokenPercentage.toFixed(2)}%` : '-'}</Text>
+              <TextStyle>Your pool share:</TextStyle>
+              <TextStyle>{poolTokenPercentage ? `${poolTokenPercentage.toFixed(2)}%` : '-'}</TextStyle>
             </FixedHeightRow>
 
             <RowBetween marginTop="10px">
-              <Button as={Link} to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`} style={{ width: '48%' }}>
+              <Button as={Link} to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`} style={{ width: '48%', background: baseColors.primary }}>
                 Add
               </Button>
               <Button
                 as={Link}
-                style={{ width: '48%' }}
+                style={{ width: '48%', background: baseColors.primary}}
                 to={`/remove/${currencyId(currency0)}/${currencyId(currency1)}`}
               >
                 Remove
