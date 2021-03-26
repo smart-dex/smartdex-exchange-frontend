@@ -53,6 +53,7 @@ const BlockPopup = styled.div`
    align-items: center;
    justify-content: center;
    background: ${ ({ theme}) => theme.isDark ? darkColors.backgroundContent : lightColors.backgroundContent};
+   padding-top: 12px;
 
 `
 export default function App() {
