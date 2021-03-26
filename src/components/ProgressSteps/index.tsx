@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { transparentize } from 'polished'
+import { baseColors } from 'style/Color'
 import { RowBetween } from '../Row'
 import { AutoColumn } from '../Column'
 
@@ -16,7 +17,7 @@ const Circle = styled.div<{ confirmed?: boolean; disabled?: boolean }>`
   min-width: 20px;
   min-height: 20px;
   background-color: ${({ theme, confirmed, disabled }) =>
-    disabled ? theme.colors.backgroundDisabled : confirmed ? theme.colors.success : theme.colors.primary};
+    disabled ? theme.colors.backgroundDisabled : confirmed ? theme.colors.success : baseColors.primary};
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -39,8 +40,8 @@ const Connector = styled.div<{ prevConfirmed?: boolean }>`
   background-color: ;
   background: linear-gradient(
     90deg,
-    ${({ theme, prevConfirmed }) => transparentize(0.5, prevConfirmed ? theme.colors.success : theme.colors.primary)} 0%,
-    ${({ theme, prevConfirmed }) => (prevConfirmed ? theme.colors.primary : theme.colors.backgroundDisabled)} 80%
+    ${({ theme, prevConfirmed }) => transparentize(0.5, prevConfirmed ? theme.colors.success : baseColors.primary)} 0%,
+    ${({ theme, prevConfirmed }) => (prevConfirmed ? baseColors.primary : theme.colors.backgroundDisabled)} 80%
   );
   opacity: 0.6;
 `

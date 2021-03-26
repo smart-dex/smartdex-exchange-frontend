@@ -105,6 +105,18 @@ const BoxIconDirect = styled.div`
   }
 `
 
+const ButtonStyle = styled(Button)`
+color: #fff;
+font-size: 12px;
+padding: 0 12px;
+height: 45px;
+${({ theme }) => theme.mediaQueries.nav} {
+  font-size: 16px;
+  padding: 0 24px;
+  height: 56px;
+}
+`
+
 const Swap = () => {
   const loadedUrlParams = useDefaultsFromURLSearch()
 
@@ -460,20 +472,20 @@ const Swap = () => {
                     style={{ width: '100%' }}
                   />
                 ) : showWrap ? (
-                  <Button disabled={Boolean(wrapInputError)} onClick={onWrap} style={{ width: '100%' }}>
+                  <ButtonStyle disabled={Boolean(wrapInputError)} onClick={onWrap} style={{ width: '100%' }}>
                     {wrapInputError ??
                       (wrapType === WrapType.WRAP ? 'Wrap' : wrapType === WrapType.UNWRAP ? 'Unwrap' : null)}
-                  </Button>
+                  </ButtonStyle>
                 ) : noRoute && userHasSpecifiedInputOutput ? (
                   <GreyCard style={{ textAlign: 'center' }}>
                     <TextStyle mb="4px">Insufficient liquidity for this trade.</TextStyle>
                   </GreyCard>
                 ) : showApproveFlow ? (
                   <RowBetween>
-                    <Button
+                    <ButtonStyle
                       onClick={approveCallback}
                       disabled={approval !== ApprovalState.NOT_APPROVED || approvalSubmitted}
-                      style={{ width: '100%' }}
+                      style={{ width: '48%', background: approval !== ApprovalState.NOT_APPROVED || approvalSubmitted ? 'danger' : '#0085FF' }}
                       variant={approval === ApprovalState.APPROVED ? 'success' : 'primary'}
                     >
                       {approval === ApprovalState.PENDING ? (
@@ -485,8 +497,8 @@ const Swap = () => {
                       ) : (
                         `Approve ${currencies[Field.INPUT]?.symbol}`
                       )}
-                    </Button>
-                    <Button
+                    </ButtonStyle>
+                    <ButtonStyle
                       onClick={() => {
                         if (isExpertMode) {
                           handleSwap()
@@ -505,15 +517,15 @@ const Swap = () => {
                         !isValid || approval !== ApprovalState.APPROVED || (priceImpactSeverity > 3 && !isExpertMode)
                       }
                       variant={isValid && priceImpactSeverity > 2 ? 'danger' : 'primary'}
-                      style={{  width: '100%', background: isValid && priceImpactSeverity > 2 ? 'danger' : '#0085FF'}}
+                      style={{  width: '48%', background: (!isValid || approval !== ApprovalState.APPROVED || (priceImpactSeverity > 3 && !isExpertMode ) )? 'danger' : '#0085FF'}}
                     >
                       {priceImpactSeverity > 3 && !isExpertMode
                         ? `Price Impact High`
                         : `Swap${priceImpactSeverity > 2 ? ' Anyway' : ''}`}
-                    </Button>
+                    </ButtonStyle>
                   </RowBetween>
                 ) : (
-                  <Button
+                  <ButtonStyle
                     onClick={() => {
                       if (isExpertMode) {
                         handleSwap()
@@ -536,7 +548,7 @@ const Swap = () => {
                       (priceImpactSeverity > 3 && !isExpertMode
                         ? `Price Impact Too High`
                         : `Swap${priceImpactSeverity > 2 ? ' Anyway' : ''}`)}
-                  </Button>
+                  </ButtonStyle>
                 )}
                 {showApproveFlow && <ProgressSteps steps={[approval === ApprovalState.APPROVED]} />}
                 {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}

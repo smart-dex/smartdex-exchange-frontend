@@ -1,8 +1,16 @@
 import React from 'react'
 import { Price } from '@sotatek-anhdao/cake-sdk'
+import styled from 'styled-components'
 import { SyncAltIcon, Text } from 'uikit-sotatek'
+import { baseColors} from 'style/Color'
 import { StyledBalanceMaxMini } from './styleds'
 
+
+const IconStyle = styled.div`
+svg {
+  fill: ${ baseColors.primary};
+}
+`
 interface TradePriceProps {
   price?: Price
   showInverted: boolean
@@ -23,7 +31,10 @@ export default function TradePrice({ price, showInverted, setShowInverted }: Tra
         <>
           {formattedPrice ?? '-'} {label}
           <StyledBalanceMaxMini onClick={() => setShowInverted(!showInverted)}>
+            <IconStyle>
             <SyncAltIcon width="20px" color="primary" />
+            </IconStyle>
+           
           </StyledBalanceMaxMini>
         </>
       ) : (
