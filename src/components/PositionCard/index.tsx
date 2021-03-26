@@ -32,12 +32,17 @@ export const HoverCard = styled(Card)`
 
 const TextStyle = styled(Text)`
   color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+  font-size: 12px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 16px;
+  }
 `
 
 const UIKitCardStyle = styled(UIKitCard)`
   box-shadow: none;
   background-color: transparent;
 `
+
 interface PositionCardProps {
   pair: Pair
   // eslint-disable-next-line react/no-unused-prop-types

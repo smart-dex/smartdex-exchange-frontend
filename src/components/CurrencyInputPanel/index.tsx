@@ -3,7 +3,7 @@ import { Currency, Pair } from '@sotatek-anhdao/cake-sdk'
 import { Button, ChevronDownIcon, Text } from 'uikit-sotatek'
 import styled from 'styled-components'
 import { darken } from 'polished'
-import { lightColors, darkColors } from 'style/Color'
+import { lightColors, darkColors, baseColors } from 'style/Color'
 import { useCurrencyBalance } from '../../state/wallet/hooks'
 import CurrencySearchModal from '../SearchModal/CurrencySearchModal'
 import CurrencyLogo from '../CurrencyLogo'
@@ -148,7 +148,7 @@ export default function CurrencyInputPanel({
                 }}
               />
               {account && currency && showMaxButton && label !== 'To' && (
-                <Button onClick={onMax} size="sm" variant="text">
+                <Button onClick={onMax} size="sm" variant="text" style={{ color: baseColors.primary}}>
                   MAX
                 </Button>
               )}
