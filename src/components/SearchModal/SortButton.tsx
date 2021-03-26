@@ -23,17 +23,19 @@ export const FilterWrapper = styled(RowFixed)`
     }
   }
 `
-
+const TextStyle = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+`
 export default function SortButton({
   toggleSortOrder,
-  ascending
+  ascending,
 }: {
   toggleSortOrder: () => void
   ascending: boolean
 }) {
   return (
     <FilterWrapper onClick={toggleSortOrder}>
-      <Text fontSize="14px">{ascending ? '↑' : '↓'}</Text>
+      <TextStyle fontSize="14px">{ascending ? '↑' : '↓'}</TextStyle>
     </FilterWrapper>
   )
 }
