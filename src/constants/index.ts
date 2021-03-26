@@ -1,6 +1,6 @@
-import { ChainId, JSBI, Percent, Token, WETH } from '@sotatek-anhdao/cake-sdk'
+import { ChainId, JSBI, Percent, Token, WETH } from '@sotatek-anhdao/smartdex-sdk'
 
-export const ROUTER_ADDRESS = '0x49982C72B1d460E5F022d38C2f0fE1DeD3746930'
+export const ROUTER_ADDRESS = '0x9Dd4f90659D8637b5666Fc8e5B2Aa8Dd314C732B'
 
 // a list of tokens by chain
 type ChainTokenList = {
