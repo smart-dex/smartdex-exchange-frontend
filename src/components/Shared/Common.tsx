@@ -1,6 +1,7 @@
 import React, { HTMLProps, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
+import { baseColors } from 'style/Color'
 
 // A button that triggers some onClick result, but looks like a link.
 export const LinkStyledButton = styled.button<{ disabled?: boolean }>`
@@ -9,7 +10,7 @@ export const LinkStyledButton = styled.button<{ disabled?: boolean }>`
   background: none;
 
   cursor: ${({ disabled }) => (disabled ? 'default' : 'pointer')};
-  color: ${({ theme, disabled }) => (disabled ? theme.colors.textSubtle : theme.colors.primary)};
+  color: ${({ theme, disabled }) => (disabled ? theme.colors.textSubtle : baseColors.primary)};
   font-weight: 500;
 
   :hover {
