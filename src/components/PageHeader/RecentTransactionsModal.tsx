@@ -67,6 +67,17 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss }: RecentTransac
     }
   `
 
+  const LinkExternalStyle = styled(LinkExternal)`
+  color: ${({ theme }) => (theme.isDark ? darkColors.textSubtle : lightColors.textMenuLeft)};
+  width: 100%;
+  background: none;
+  justify-content: flex-start;
+    svg {
+      margin-left: 4px;
+      fill: #0085FF;
+  }
+  `
+
   return (
     <Modal title="Recent Transactions" onDismiss={onDismiss}>
       {!account && (
@@ -97,14 +108,14 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss }: RecentTransac
         chainId &&
         sortedRecentTransactions.map((sortedRecentTransaction) => {
           const { hash, summary } = sortedRecentTransaction
-          const { icon, color } = getRowStatus(sortedRecentTransaction)
+          const { icon } = getRowStatus(sortedRecentTransaction)
 
           return (
             <>
               <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px">
-                <LinkExternal href={getBscScanLink(chainId, hash, 'transaction')} color={color}>
+                <LinkExternalStyle href={getBscScanLink(chainId, hash, 'transaction')} >
                   {summary ?? hash}
-                </LinkExternal>
+                </LinkExternalStyle>
                 {icon}
               </Flex>
             </>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Price } from '@sotatek-anhdao/cake-sdk'
 import styled from 'styled-components'
 import { SyncAltIcon, Text } from 'uikit-sotatek'
-import { baseColors} from 'style/Color'
+import { baseColors, darkColors, lightColors} from 'style/Color'
 import { StyledBalanceMaxMini } from './styleds'
 
 
@@ -10,6 +10,13 @@ const IconStyle = styled.div`
 svg {
   fill: ${ baseColors.primary};
 }
+`
+
+const TextStyle = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+  justify-content: center;
+  align-items: center;
+  display: flex;
 `
 interface TradePriceProps {
   price?: Price
@@ -26,7 +33,7 @@ export default function TradePrice({ price, showInverted, setShowInverted }: Tra
     : `${price?.baseCurrency?.symbol} per ${price?.quoteCurrency?.symbol}`
 
   return (
-    <Text fontSize="14px" style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
+    <TextStyle fontSize="14px">
       {show ? (
         <>
           {formattedPrice ?? '-'} {label}
@@ -40,6 +47,6 @@ export default function TradePrice({ price, showInverted, setShowInverted }: Tra
       ) : (
         '-'
       )}
-    </Text>
+    </TextStyle>
   )
 }
