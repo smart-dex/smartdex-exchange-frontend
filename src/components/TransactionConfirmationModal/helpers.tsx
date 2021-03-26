@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Heading, IconButton, CloseIcon } from 'uikit-sotatek'
 import { AutoColumn, ColumnCenter } from '../Column'
 
-
 export const Wrapper = styled.div`
   width: 100%;
   overflow-y: auto;
@@ -34,6 +33,18 @@ const StyledContentHeader = styled.div`
   }
 `
 
+const StyleIcon = styled.div`
+width: 29px;
+height: 29px;
+border-radius: 50%;
+justify-content: center;
+display: flex;
+background: #D8D8D8;
+  svg {
+    fill: #fff;
+  }
+`
+
 type ContentHeaderProps = {
   children: ReactNode
   onDismiss: () => void
@@ -43,7 +54,9 @@ export const ContentHeader = ({ children, onDismiss }: ContentHeaderProps) => (
   <StyledContentHeader>
     <Heading>{children}</Heading>
     <IconButton onClick={onDismiss} variant="text">
-      <CloseIcon color="primary" />
+      <StyleIcon>
+        <CloseIcon />
+      </StyleIcon>
     </IconButton>
   </StyledContentHeader>
 )
