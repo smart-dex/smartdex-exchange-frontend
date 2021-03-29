@@ -44,6 +44,7 @@ const HeadingTitle = styled(Text)`
 `
 
 const IconClose = styled(Text)`
+ cursor: pointer;
   width: 20px;
   height: 20px;
   svg path {
@@ -56,6 +57,7 @@ const IconClose = styled(Text)`
 `
 
 const TopDevider = styled(Text)`
+line-height: 0.5;
   svg rect {
     stroke: ${({ theme }) => (theme.isDark ? darkColors.borderTop : lightColors.borderTop)};
   }
