@@ -72,7 +72,7 @@ const StyleListToken = styled(Text)`
       line-height: 22px;
       padding-left: 3px;
       ${({ theme }) => theme.mediaQueries.nav} {
-        font-size: 18px;
+        font-size: 17px;
       }
     }
   }
