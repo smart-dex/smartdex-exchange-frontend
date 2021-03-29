@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Button, Text } from 'uikit-sotatek'
 import { AlertTriangle } from 'react-feather'
-import { baseColors } from 'style/Color'
+import { baseColors, darkColors, lightColors } from 'style/Color'
 import { AutoColumn } from '../Column'
 import { Wrapper, Section, BottomSection, ContentHeader } from './helpers'
 
@@ -18,6 +18,10 @@ const ButtonStyle = styled(Button)`
   }
 `
 
+const TextStyle = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+`
+
 type TransactionErrorContentProps = { message: string; onDismiss: () => void }
 
 const TransactionErrorContent = ({ message, onDismiss }: TransactionErrorContentProps) => {
@@ -27,10 +31,10 @@ const TransactionErrorContent = ({ message, onDismiss }: TransactionErrorContent
       <Section>
         <ContentHeader onDismiss={onDismiss}>Error</ContentHeader>
         <AutoColumn style={{ marginTop: 20, padding: '2rem 0' }} gap="24px" justify="center">
-          <AlertTriangle  style={{ strokeWidth: 1.5, color: baseColors.primary}} size={64} />
-          <Text fontSize="16px" color="failure" style={{ textAlign: 'center', width: '85%' }}>
+          <AlertTriangle  style={{ strokeWidth: 1.5, color: '#ED4B9E' }} size={64} />
+          <TextStyle fontSize="16px" color="failure" style={{ textAlign: 'center', width: '85%' }}>
             {message}
-          </Text>
+          </TextStyle>
         </AutoColumn>
       </Section>
       <BottomSection gap="12px">
