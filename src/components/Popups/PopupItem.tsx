@@ -9,6 +9,8 @@ import ListUpdatePopup from './ListUpdatePopup'
 import TransactionPopup from './TransactionPopup'
 
 export const StyledClose = styled(X)`
+  width: 18px;
+  hieght: 18px;
   position: absolute;
   right: 10px;
   top: 10px;
