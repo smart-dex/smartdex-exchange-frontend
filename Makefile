@@ -26,3 +26,7 @@ build-production:
 deploy-development:
 	make build-development
 	rsync -a build  sotatek@192.168.1.206:/var/www/test/smartdex-exchange
+
+deploy-staging:
+	make build-staging
+	rsync -a build  ubuntu@35.73.146.166:/var/www/smart-dex/smartdex-exchange
