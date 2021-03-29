@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { JSBI, Pair, Percent } from '@sotatek-anhdao/cake-sdk'
 import { darkColors, lightColors, baseColors } from 'style/Color'
 import { Button, Card as UIKitCard, CardBody, Text } from 'uikit-sotatek'
-import { darken } from 'polished'
 import { ChevronDown, ChevronUp } from 'react-feather'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
@@ -24,7 +23,7 @@ export const FixedHeightRow = styled(RowBetween)`
 
 export const HoverCard = styled(Card)`
   margin-top: 12px;
-  border: 1px solid transparent;
+  border: 1px solid ${ ({ theme}) => theme.isDark ? darkColors.borderColor : lightColors.borderColor};
   
 `
 
