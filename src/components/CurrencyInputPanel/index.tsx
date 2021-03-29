@@ -182,7 +182,7 @@ export default function CurrencyInputPanel({
                     : currency?.symbol) || <TranslatedText translationId={82}>Select a token</TranslatedText>}
                 </TextStyle>
               )}
-              {!disableCurrencySelect && <ChevronDownIcon />}
+              {!disableCurrencySelect && <ChevronDownIcon/>}
             </Aligner>
           </CurrencySelect>
         </InputRow>

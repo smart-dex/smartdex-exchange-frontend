@@ -236,7 +236,7 @@ export default function CurrencyList({
   return (
     <StyleListToken className="list-token">
       <FixedSizeList
-        height={height}
+        height={height - 28}
         ref={fixedListRef as any}
         width="100%"
         itemData={itemData}
