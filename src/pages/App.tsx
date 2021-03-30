@@ -48,10 +48,9 @@ const Marginer = styled.div`
   margin-top: 5rem;
 `
 const BlockPopup = styled.div`
+position: absolute;
   width: 100%;
    display: flex;
-   align-items: center;
-   justify-content: center;
    background: ${ ({ theme}) => theme.isDark ? darkColors.backgroundContent : lightColors.backgroundContent};
    padding-top: 12px;
 
