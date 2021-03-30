@@ -21,13 +21,16 @@ const ButtonStyle = styled(Button)`
 const TextStyle = styled(Text)`
   color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
 `
+const WrapperStyle = styled(Wrapper)`
+  background: ${({ theme }) => (theme.isDark ? darkColors.backgroundColor : lightColors.backgroundColor)};
+`
 
 type TransactionErrorContentProps = { message: string; onDismiss: () => void }
 
 const TransactionErrorContent = ({ message, onDismiss }: TransactionErrorContentProps) => {
   
   return (
-    <Wrapper>
+    <WrapperStyle>
       <Section>
         <ContentHeader onDismiss={onDismiss}>Error</ContentHeader>
         <AutoColumn style={{ marginTop: 20, padding: '2rem 0' }} gap="24px" justify="center">
@@ -40,7 +43,7 @@ const TransactionErrorContent = ({ message, onDismiss }: TransactionErrorContent
       <BottomSection gap="12px">
         <ButtonStyle  onClick={onDismiss} style={{ background: baseColors.primary}}>Dismiss</ButtonStyle>
       </BottomSection>
-    </Wrapper>
+    </WrapperStyle>
   )
 }
 
