@@ -56,6 +56,12 @@ const ButtonStyle = styled.div`
     }
   }
 `
+
+const IconBlock = styled.div`
+ svg {
+   stroke: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+ }
+`
 interface PositionCardProps {
   pair: Pair
   // eslint-disable-next-line react/no-unused-prop-types
@@ -182,11 +188,13 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
             </TextStyle>
           </RowFixed>
           <RowFixed>
+            <IconBlock>
             {showMore ? (
               <ChevronUp size="20" style={{ marginLeft: '10px' }} />
             ) : (
               <ChevronDown size="20" style={{ marginLeft: '10px' }} />
             )}
+            </IconBlock>
           </RowFixed>
         </FixedHeightRow>
         {showMore && (
