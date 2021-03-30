@@ -10,6 +10,10 @@ const BottomSectionStyle = styled(BottomSection)`
   background: none;
 `
 
+const SectionStyle = styled(Section)`
+  background-color: none;
+`
+
 type ConfirmationModalContentProps = {
   title: string
   onDismiss: () => void
@@ -20,10 +24,10 @@ type ConfirmationModalContentProps = {
 const ConfirmationModalContent = ({ title, bottomContent, onDismiss, topContent }: ConfirmationModalContentProps) => {
   return (
     <WrapperStyle>
-      <Section>
+      <SectionStyle>
         <ContentHeader onDismiss={onDismiss}>{title}</ContentHeader>
         {topContent()}
-      </Section>
+      </SectionStyle>
       <BottomSectionStyle gap="12px">{bottomContent()}</BottomSectionStyle>
     </WrapperStyle>
   )
