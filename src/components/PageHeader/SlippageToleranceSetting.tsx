@@ -19,7 +19,7 @@ const Option = styled.div`
 `
 
 const Options = styled.div`
-  align-items: center;
+  align-items: left;
   display: flex;
   flex-direction: column;
 
@@ -31,8 +31,9 @@ const Options = styled.div`
     padding-right: 0;
   }
 
-  ${({ theme }) => theme.mediaQueries.sm} {
+  ${({ theme }) => theme.mediaQueries.nav} {
     flex-direction: row;
+    align-items: center;
   }
 `
 
