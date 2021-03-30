@@ -59,7 +59,7 @@ export default function Pool() {
   background: ${({ theme }) => (theme.isDark ? darkColors.buttonView : lightColors.buttonView)};
   color: ${baseColors.primary};
   border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(239, 239, 239, 0.24);
+  box-shadow: 0px 4px 10px ${({ theme }) => (theme.isDark ? darkColors.boxShadow : lightColors.boxShadow)};
   height: 45px;
   font-weight: 600;
   font-size: 13px;
