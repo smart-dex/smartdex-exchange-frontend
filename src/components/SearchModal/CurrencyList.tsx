@@ -72,7 +72,7 @@ const StyleListToken = styled(Text)`
       line-height: 22px;
       padding-left: 3px;
       ${({ theme }) => theme.mediaQueries.nav} {
-        font-size: 18px;
+        font-size: 17px;
       }
     }
   }
@@ -154,7 +154,7 @@ function CurrencyRow({
       disabled={isSelected}
       selected={otherSelected}
     >
-      <CurrencyLogo currency={currency} size="24px" />
+      <CurrencyLogo currency={currency} size="30px" />
       <Column>
         <Text title={currency.name}>{currency.symbol}</Text>
         <FadedSpan>
@@ -236,7 +236,7 @@ export default function CurrencyList({
   return (
     <StyleListToken className="list-token">
       <FixedSizeList
-        height={height}
+        height={height - 28}
         ref={fixedListRef as any}
         width="100%"
         itemData={itemData}

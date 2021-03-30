@@ -37,7 +37,7 @@ const BodyWrapper = styled.div`
   z-index: 1;
   justify-content: center;
   background-size: 100%;
-  background: ${ ({ theme}) => theme.isDark ? darkColors.backgroundContent : lightColors.backgroundContent};
+  background: ${({ theme }) => (theme.isDark ? darkColors.backgroundContent : lightColors.backgroundContent)};
   ${({ theme }) => theme.mediaQueries.nav} {
     flex-direction: row;
     min-height: 90vh;
@@ -48,13 +48,12 @@ const Marginer = styled.div`
   margin-top: 5rem;
 `
 const BlockPopup = styled.div`
-  width: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   background: ${ ({ theme}) => theme.isDark ? darkColors.backgroundContent : lightColors.backgroundContent};
-   padding-top: 12px;
-
+  position: absolute;
+  width: 20%;
+  background: ${({ theme }) => (theme.isDark ? darkColors.backgroundContent : lightColors.backgroundContent)};
+  padding-top: 12px;
+  right: 0;
+  top: 0;
 `
 export default function App() {
   const [selectedLanguage, setSelectedLanguage] = useState<any>(undefined)
@@ -120,7 +119,7 @@ export default function App() {
             <TranslationsContext.Provider value={{ translations, setTranslations }}>
               <Menu>
                 <BlockPopup>
-                <Popups />
+                  <Popups />
                 </BlockPopup>
                 <BodyWrapper>
                   <Web3ReactManager>

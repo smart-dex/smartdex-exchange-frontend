@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { JSBI, Pair, Percent } from '@sotatek-anhdao/cake-sdk'
 import { darkColors, lightColors, baseColors } from 'style/Color'
 import { Button, Card as UIKitCard, CardBody, Text } from 'uikit-sotatek'
-import { darken } from 'polished'
 import { ChevronDown, ChevronUp } from 'react-feather'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
@@ -24,10 +23,7 @@ export const FixedHeightRow = styled(RowBetween)`
 
 export const HoverCard = styled(Card)`
   margin-top: 12px;
-  border: 1px solid ${({ theme }) => theme.colors.invertedContrast};
-  :hover {
-    border: 1px solid ${({ theme }) => darken(0.06, theme.colors.invertedContrast)};
-  }
+  border: 1px solid ${({ theme }) => (theme.isDark ? darkColors.borderColor : lightColors.borderColor)};
 `
 
 const TextStyle = styled(Text)`
@@ -43,6 +39,29 @@ const UIKitCardStyle = styled(UIKitCard)`
   background-color: transparent;
 `
 
+
+const ButtonStyle = styled.div`
+  width: 48%;
+  a {
+    color: #fff;
+    font-size: 12px;
+    padding: 0 12px;
+    height: 45px;
+    width: 100%;
+    background: ${baseColors.primary};
+    ${({ theme }) => theme.mediaQueries.nav} {
+      font-size: 16px;
+      padding: 0 24px;
+      height: 56px;
+    }
+  }
+`
+
+const IconBlock = styled.div`
+ svg {
+   stroke: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+ }
+`
 interface PositionCardProps {
   pair: Pair
   // eslint-disable-next-line react/no-unused-prop-types
@@ -76,7 +95,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
     <>
       {userPoolBalance && (
         <UIKitCardStyle>
-          <CardBody style={{ padding: '8px'}}>
+          <CardBody style={{ padding: '8px' }}>
             <AutoColumn gap="12px">
               <FixedHeightRow>
                 <RowFixed>
@@ -164,14 +183,18 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
         <FixedHeightRow onClick={() => setShowMore(!showMore)} style={{ cursor: 'pointer' }}>
           <RowFixed>
             <DoubleCurrencyLogo currency0={currency0} currency1={currency1} margin size={20} />
-            <TextStyle>{!currency0 || !currency1 ? <Dots>Loading</Dots> : `${currency0.symbol}/${currency1.symbol}`}</TextStyle>
+            <TextStyle>
+              {!currency0 || !currency1 ? <Dots>Loading</Dots> : `${currency0.symbol}/${currency1.symbol}`}
+            </TextStyle>
           </RowFixed>
           <RowFixed>
+            <IconBlock>
             {showMore ? (
               <ChevronUp size="20" style={{ marginLeft: '10px' }} />
             ) : (
               <ChevronDown size="20" style={{ marginLeft: '10px' }} />
             )}
+            </IconBlock>
           </RowFixed>
         </FixedHeightRow>
         {showMore && (
@@ -213,16 +236,22 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
             </FixedHeightRow>
 
             <RowBetween marginTop="10px">
-              <Button as={Link} to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`} style={{ width: '48%', background: baseColors.primary }}>
-                Add
-              </Button>
-              <Button
-                as={Link}
-                style={{ width: '48%', background: baseColors.primary}}
-                to={`/remove/${currencyId(currency0)}/${currencyId(currency1)}`}
-              >
-                Remove
-              </Button>
+              <ButtonStyle>
+                <Button
+                  as={Link}
+                  to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}
+                >
+                  Add
+                </Button>
+              </ButtonStyle>
+              <ButtonStyle>
+                <Button
+                  as={Link}
+                  to={`/remove/${currencyId(currency0)}/${currencyId(currency1)}`}
+                >
+                  Remove
+                </Button>
+              </ButtonStyle>
             </RowBetween>
           </AutoColumn>
         )}
@@ -230,3 +259,4 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
     </HoverCard>
   )
 }
+

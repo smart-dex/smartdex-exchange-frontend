@@ -4,6 +4,7 @@ import { Button, Text } from 'uikit-sotatek'
 import React, { useCallback, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { AlertTriangle } from 'react-feather'
+import { darkColors, lightColors } from 'style/Color'
 import { useActiveWeb3React } from '../../hooks'
 import { useAllTokens } from '../../hooks/Tokens'
 import { getBscScanLink, shortenAddress } from '../../utils'
@@ -31,6 +32,10 @@ const WarningContainer = styled.div`
 
 const StyledWarningIcon = styled(AlertTriangle)`
   stroke: ${({ theme }) => theme.colors.failure};
+`
+
+const TextStyle = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
 `
 
 interface TokenWarningCardProps {
@@ -67,11 +72,11 @@ function TokenWarningCard({ token }: TokenWarningCardProps) {
           <div> </div>
         </AutoColumn>
         <AutoColumn gap="10px" justify="flex-start">
-          <Text>
+          <TextStyle>
             {token && token.name && token.symbol && token.name !== token.symbol
               ? `${token.name} (${token.symbol})`
               : token.name || token.symbol}{' '}
-          </Text>
+          </TextStyle>
           {chainId && (
             <ExternalLink style={{ fontWeight: 400 }} href={getBscScanLink(chainId, token.address, 'token')}>
               <Text title={token.address}>{shortenAddress(token.address)} (View on BscScan)</Text>
@@ -104,17 +109,17 @@ export default function TokenWarningModal({
             <StyledWarningIcon />
             <Text color="failure">Token imported</Text>
           </AutoRow>
-          <Text>
+          <TextStyle>
             Anyone can create an BEP20 token on BSC with <em>any</em> name, including creating fake versions of existing
             tokens and tokens that claim to represent projects that do not have a token.
-          </Text>
-          <Text>
+          </TextStyle>
+          <TextStyle>
             This interface can load arbitrary tokens by token addresses. Please take extra caution and do your research
             when interacting with arbitrary BEP20 tokens.
-          </Text>
-          <Text>
+          </TextStyle>
+          <TextStyle>
             If you purchase an arbitrary token, <strong>you may be unable to sell it back.</strong>
-          </Text>
+          </TextStyle>
           {tokens.map((token) => {
             return <TokenWarningCard key={token.address} token={token} />
           })}
@@ -128,9 +133,9 @@ export default function TokenWarningModal({
                   checked={understandChecked}
                   onChange={toggleUnderstand}
                 />{' '}
-                <Text as="span" ml="4px">
+                <TextStyle as="span" ml="4px">
                   I understand
-                </Text>
+                </TextStyle>
               </label>
             </div>
             <Button

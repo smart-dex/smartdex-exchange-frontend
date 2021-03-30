@@ -44,7 +44,7 @@ const StyleIcon = styled(Text)`
     background: ${({ theme }) => (theme.isDark ? darkColors.backIcon : lightColors.backIcon)};
     svg {
       path {
-        fill: ${({ theme }) => (theme.isDark ? darkColors.colorIcon : lightColors.colorIcon)};
+        fill: ${baseColors.primary};
       }
     }
   }
@@ -483,7 +483,7 @@ const Swap = () => {
                     <ButtonStyle
                       onClick={approveCallback}
                       disabled={approval !== ApprovalState.NOT_APPROVED || approvalSubmitted}
-                      style={{ width: '48%', background: approval !== ApprovalState.NOT_APPROVED || approvalSubmitted ? 'danger' : '#0085FF' }}
+                      style={{ width: '48%', background: approval !== ApprovalState.NOT_APPROVED || approvalSubmitted ? '#E9EAEB' : '#0085FF' }}
                       variant={approval === ApprovalState.APPROVED ? 'success' : 'primary'}
                     >
                       {approval === ApprovalState.PENDING ? (

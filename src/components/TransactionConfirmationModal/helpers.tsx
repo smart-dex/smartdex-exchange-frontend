@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
+import { darkColors, lightColors } from 'style/Color'
 import { Heading, IconButton, CloseIcon } from 'uikit-sotatek'
 import { AutoColumn, ColumnCenter } from '../Column'
 
@@ -16,7 +17,6 @@ export const ConfirmedIcon = styled(ColumnCenter)`
 `
 
 export const BottomSection = styled(Section)`
-  background-color: ${({ theme }) => theme.colors.invertedContrast};
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 `
@@ -39,7 +39,7 @@ height: 29px;
 border-radius: 50%;
 justify-content: center;
 display: flex;
-background: #D8D8D8;
+background: ${ ({ theme}) => theme.isDark ? darkColors.iconClose : lightColors.iconClose} ;
   svg {
     fill: #fff;
   }
