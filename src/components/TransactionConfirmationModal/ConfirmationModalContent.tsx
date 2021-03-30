@@ -1,5 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
+import { darkColors, lightColors } from 'style/Color'
 import { Wrapper, Section, BottomSection, ContentHeader } from './helpers'
+
+const WrapperStyle = styled(Wrapper)`
+  background: ${({ theme }) => (theme.isDark ? darkColors.backgroundColor : lightColors.backgroundColor)};
+`
+const BottomSectionStyle = styled(BottomSection)`
+  background: none;
+`
 
 type ConfirmationModalContentProps = {
   title: string
@@ -10,13 +19,13 @@ type ConfirmationModalContentProps = {
 
 const ConfirmationModalContent = ({ title, bottomContent, onDismiss, topContent }: ConfirmationModalContentProps) => {
   return (
-    <Wrapper>
+    <WrapperStyle>
       <Section>
         <ContentHeader onDismiss={onDismiss}>{title}</ContentHeader>
         {topContent()}
       </Section>
-      <BottomSection gap="12px">{bottomContent()}</BottomSection>
-    </Wrapper>
+      <BottomSectionStyle gap="12px">{bottomContent()}</BottomSectionStyle>
+    </WrapperStyle>
   )
 }
 

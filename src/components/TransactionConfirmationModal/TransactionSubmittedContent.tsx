@@ -29,7 +29,7 @@ type TransactionSubmittedContentProps = {
 
 const TransactionSubmittedContent = ({ onDismiss, chainId, hash }: TransactionSubmittedContentProps) => {
 
-  return (
+  return ( 
     <Wrapper>
       <Section>
         <ContentHeader onDismiss={onDismiss}>Transaction submitted</ContentHeader>

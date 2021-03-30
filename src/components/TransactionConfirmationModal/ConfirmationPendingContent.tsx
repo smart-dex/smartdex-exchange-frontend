@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Text } from 'uikit-sotatek'
+import { darkColors, lightColors} from 'style/Color'
 import { Spinner } from '../Shared'
 import { AutoColumn } from '../Column'
 import { Wrapper, Section, ConfirmedIcon, ContentHeader } from './helpers'
@@ -12,9 +13,17 @@ const CustomLightSpinner = styled(Spinner)<{ size: string }>`
   width: ${({ size }) => size};
 `
 
+const TextStyle = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+`
+
+const WrapperStyle = styled(Wrapper)`
+  background: ${({ theme }) => (theme.isDark ? darkColors.backgroundColor : lightColors.backgroundColor)};
+`
+
 const ConfirmationPendingContent = ({ onDismiss, pendingText }: ConfirmationPendingContentProps) => {
   return (
-    <Wrapper>
+    <WrapperStyle>
       <Section>
         <ContentHeader onDismiss={onDismiss}>Waiting for confirmation</ContentHeader>
         <ConfirmedIcon>
@@ -22,14 +31,14 @@ const ConfirmationPendingContent = ({ onDismiss, pendingText }: ConfirmationPend
         </ConfirmedIcon>
         <AutoColumn gap="12px" justify="center">
           <AutoColumn gap="12px" justify="center">
-            <Text fontSize="14px">
+            <TextStyle fontSize="14px">
               <strong>{pendingText}</strong>
-            </Text>
+            </TextStyle>
           </AutoColumn>
-          <Text fontSize="14px">Confirm this transaction in your wallet</Text>
+          <TextStyle fontSize="14px">Confirm this transaction in your wallet</TextStyle>
         </AutoColumn>
       </Section>
-    </Wrapper>
+    </WrapperStyle>
   )
 }
 
