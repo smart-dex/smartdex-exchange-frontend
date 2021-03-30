@@ -1,7 +1,7 @@
 import { Currency } from '@sotatek-anhdao/cake-sdk'
 import React from 'react'
 import styled from 'styled-components'
-import { darkColors, lightColors} from 'style/Color'
+import { darkColors} from 'style/Color'
 import CurrencyLogo from '../CurrencyLogo'
 
 const Wrapper = styled.div<{ margin: boolean; sizeraw: number }>`
