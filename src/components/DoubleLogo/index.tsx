@@ -1,7 +1,7 @@
 import { Currency } from '@sotatek-anhdao/cake-sdk'
 import React from 'react'
 import styled from 'styled-components'
-import { darkColors} from 'style/Color'
+import { darkColors, lightColors} from 'style/Color'
 import CurrencyLogo from '../CurrencyLogo'
 
 const Wrapper = styled.div<{ margin: boolean; sizeraw: number }>`
@@ -10,7 +10,7 @@ const Wrapper = styled.div<{ margin: boolean; sizeraw: number }>`
   flex-direction: row;
   margin-right: ${({ sizeraw, margin }) => margin && `${(sizeraw / 3 + 8).toString()  }px`};
   svg {
-    stroke: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : '')};
+    stroke: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
   }
 `
 
