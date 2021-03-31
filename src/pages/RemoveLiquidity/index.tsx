@@ -111,7 +111,7 @@ const ButtonStyle = styled(Button)`
 `
 
 const ButtonClick = styled(Button)`
-  height: 45px; 
+  height: 45px;
   font-size: 12px;
 ${({ theme }) => theme.mediaQueries.nav} {
   font-size: 16px;
@@ -190,7 +190,7 @@ export default function RemoveLiquidity({
       { name: 'verifyingContract', type: 'address' },
     ]
     const domain = {
-      name: 'Pancake LPs',
+      name: 'SmartDEX LPs',
       version: '1',
       chainId,
       verifyingContract: pair.liquidityToken.address,
