@@ -39,7 +39,7 @@ export default function TradePrice({ price, showInverted, setShowInverted }: Tra
           {formattedPrice ?? '-'} {label}
           <StyledBalanceMaxMini onClick={() => setShowInverted(!showInverted)}>
             <IconStyle>
-            <SyncAltIcon width="20px" color="primary" />
+            <SyncAltIcon width="20px" />
             </IconStyle>
            
           </StyledBalanceMaxMini>
