@@ -195,9 +195,9 @@ export default function PoolFinder() {
                     <AutoColumn gap="sm" justify="center">
                       <Text style={{ textAlign: 'center' }}><StyleText>You don’t have liquidity in this pool yet.</StyleText></Text>
                       <StyledInternalLink to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
-                        <StyleText style={{ textAlign: 'center' }}>
+                        <StyleLink style={{ textAlign: 'center' }}>
                           <TranslatedText translationId={100}>Add Liquidity</TranslatedText>
-                        </StyleText>
+                        </StyleLink>
                       </StyledInternalLink>
                     </AutoColumn>
                   </LightCard>
