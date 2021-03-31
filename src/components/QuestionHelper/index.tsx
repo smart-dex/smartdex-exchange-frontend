@@ -22,15 +22,16 @@ const QuestionWrapper = styled.div`
 `
 
 const IconQuestion = styled.div`
-  width: 5.08px;
-  height: 8.42px;
+  width: 5px;
+  height: 8px;
   background-image: url('/images/question-mobile-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
   margin: 3px 5px;
+  background-repeat: no-repeat;
   ${({ theme }) => theme.mediaQueries.nav} {
     width: 9px;
-    height: 14px;
+    height: 11px;
     background-image: url('/images/question-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
-    margin: 5px 7px;
+    margin: 6px 8px;
   }
 `
 

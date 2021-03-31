@@ -20,7 +20,6 @@ import { Dots } from 'components/swap/styleds'
 import TranslatedText from 'components/TranslatedText'
 import { TranslateString } from 'utils/translateTextHelpers'
 import PageHeader from 'components/PageHeader'
-import Popups from 'components/Popups'
 
 export default function Pool() {
   const { account } = useActiveWeb3React()
@@ -60,7 +59,7 @@ export default function Pool() {
   background: ${({ theme }) => (theme.isDark ? darkColors.buttonView : lightColors.buttonView)};
   color: ${baseColors.primary};
   border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(239, 239, 239, 0.24);
+  box-shadow: 0px 4px 10px ${({ theme }) => (theme.isDark ? darkColors.boxShadow : lightColors.boxShadow)};
   height: 45px;
   font-weight: 600;
   font-size: 13px;
@@ -190,7 +189,6 @@ export default function Pool() {
       <CardNav activeIndex={1} />
       <ArrowLeft />
       <div>
-        <Popups />
         <BodyStyle>
           <PageHeader title="Liquidity" description="Add liquidity to receive LP tokens" />
           <AutoColumn gap="lg">
@@ -237,7 +235,7 @@ export default function Pool() {
                 )}
 
                 <div>
-                  <TextStyle fontSize="14px" style={{ padding: '0.18rem 0 .5rem 0' }}>
+                  <TextStyle fontSize="14px" style={{ padding: '12px 0' }}>
                     {TranslateString(106, "Don't see a pool you joined?")}&nbsp;&nbsp;&nbsp;&nbsp;
                     <TextLink>
                       <StyledInternalLink color="red" id="import-pool-link" to="/find">

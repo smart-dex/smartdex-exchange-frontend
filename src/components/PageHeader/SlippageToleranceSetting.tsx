@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Button, Flex, Input, Text } from 'uikit-sotatek'
 import { useUserSlippageTolerance } from 'state/user/hooks'
-import { lightColors } from 'style/Color'
+import { lightColors, baseColors } from 'style/Color'
 import QuestionHelper from '../QuestionHelper'
 import TranslatedText from '../TranslatedText'
 
@@ -19,7 +19,7 @@ const Option = styled.div`
 `
 
 const Options = styled.div`
-  align-items: center;
+  align-items: left;
   display: flex;
   flex-direction: column;
 
@@ -31,8 +31,9 @@ const Options = styled.div`
     padding-right: 0;
   }
 
-  ${({ theme }) => theme.mediaQueries.sm} {
+  ${({ theme }) => theme.mediaQueries.nav} {
     flex-direction: row;
+    align-items: center;
   }
 `
 
@@ -64,6 +65,20 @@ const StyleInput = styled(Text)`
     ${({ theme }) => theme.mediaQueries.sm} {
       font-size: 16px;
     }
+  }
+`
+
+const ButtonStyle = styled(Button)`
+  color: ${ baseColors.primary};
+  font-size: 12px;
+  padding: 0px 12px;
+  height: 45px;
+  margin-bottom: 12px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 16px;
+    padding: 0 24px;
+    height: 56px;
+    margin-bottom: 0px;
   }
 `
 
@@ -123,9 +138,9 @@ const SlippageToleranceSettings = () => {
             return (
               <Option key={predefinedValue}>
                 <StyleButton>
-                  <Button variant={value === predefinedValue ? 'primary' : 'tertiary'} onClick={handleClick}>
+                  <ButtonStyle variant={value === predefinedValue ? 'primary' : 'tertiary'} style={{ background: value === predefinedValue ? baseColors.primary : '', color: value === predefinedValue ? '#fff' : ''}} onClick={handleClick}>
                     {label}
-                  </Button>
+                  </ButtonStyle>
                 </StyleButton>
               </Option>
             )

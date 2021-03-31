@@ -2,7 +2,7 @@ import React from 'react'
 import { Text } from 'uikit-sotatek'
 import { ChainId, Currency, currencyEquals, ETHER, Token } from '@sotatek-anhdao/smartdex-sdk'
 import styled from 'styled-components'
-
+import { darkColors, lightColors} from 'style/Color'
 import { SUGGESTED_BASES } from '../../constants'
 import { AutoColumn } from '../Column'
 import QuestionHelper from '../QuestionHelper'
@@ -25,6 +25,10 @@ const BaseWrapper = styled.div<{ disable?: boolean }>`
   opacity: ${({ disable }) => disable && '0.4'};
 `
 
+const TextStyle = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+`
+
 export default function CommonBases({
   chainId,
   onSelect,
@@ -37,7 +41,7 @@ export default function CommonBases({
   return (
     <AutoColumn gap="md">
       <AutoRow>
-        <Text fontSize="14px">Common bases</Text>
+        <TextStyle fontSize="14px">Common bases</TextStyle>
         <QuestionHelper text="These tokens are commonly paired with other tokens." />
       </AutoRow>
       <AutoRow gap="4px">
@@ -50,14 +54,14 @@ export default function CommonBases({
           disable={selectedCurrency === ETHER}
         >
           <CurrencyLogo currency={ETHER} style={{ marginRight: 8 }} />
-          <Text>BNB</Text>
+          <TextStyle>BNB</TextStyle>
         </BaseWrapper>
         {(chainId ? SUGGESTED_BASES[chainId] : []).map((token: Token) => {
           const selected = selectedCurrency instanceof Token && selectedCurrency.address === token.address
           return (
             <BaseWrapper onClick={() => !selected && onSelect(token)} disable={selected} key={token.address}>
               <CurrencyLogo currency={token} style={{ marginRight: 8 }} />
-              <Text>{token.symbol}</Text>
+              <TextStyle>{token.symbol}</TextStyle>
             </BaseWrapper>
           )
         })}

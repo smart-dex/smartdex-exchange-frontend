@@ -68,10 +68,11 @@ const StyleListToken = styled(Text)`
     div div {
       color: ${({ theme }) => (theme.isDark ? darkColors.text : lightColors.textMenuLeft)};
       font-weight: 600;
-      font-size: 15px;
+      font-size: 11px;
       line-height: 22px;
+      padding-left: 3px;
       ${({ theme }) => theme.mediaQueries.nav} {
-        font-size: 18px;
+        font-size: 17px;
       }
     }
   }
@@ -145,7 +146,6 @@ function CurrencyRow({
   const removeToken = useRemoveUserAddedToken()
   const addToken = useAddUserToken()
 
-  // only show add or remove buttons if not on selected list
   return (
     <MenuItem
       style={style}
@@ -154,7 +154,7 @@ function CurrencyRow({
       disabled={isSelected}
       selected={otherSelected}
     >
-      <CurrencyLogo currency={currency} size="24px" />
+      <CurrencyLogo currency={currency} size="30px" />
       <Column>
         <Text title={currency.name}>{currency.symbol}</Text>
         <FadedSpan>
@@ -236,7 +236,7 @@ export default function CurrencyList({
   return (
     <StyleListToken className="list-token">
       <FixedSizeList
-        height={height}
+        height={height - 28}
         ref={fixedListRef as any}
         width="100%"
         itemData={itemData}

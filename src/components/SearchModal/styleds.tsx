@@ -17,14 +17,18 @@ export const MenuItem = styled(RowBetween)`
   padding: 4px 20px;
   height: 56px;
   display: grid;
-  grid-template-columns: auto minmax(auto, 1fr) auto minmax(0, 72px);
-  grid-gap: 16px;
+  grid-template-columns: auto minmax(auto, 1fr) auto minmax(0, 67px);
   cursor: ${({ disabled }) => !disabled && 'pointer'};
   pointer-events: ${({ disabled }) => disabled && 'none'};
   :hover {
     background-color: ${({ theme, disabled }) => !disabled && theme.colors.invertedContrast};
   }
   opacity: ${({ disabled, selected }) => (disabled || selected ? 0.5 : 1)};
+
+  ${({ theme }) => theme.mediaQueries.nav} {
+    grid-template-columns: auto minmax(auto, 1fr) auto minmax(0, 72px);
+    grid-gap: 16px;
+  }
 `
 
 export const SearchInput = styled.input`

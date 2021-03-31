@@ -218,10 +218,8 @@ export default function AddLiquidity({
   `
 
   const AutoColumnStyle = styled(AutoColumn)`
-    margin-top: 25px;
-    ${({ theme }) => theme.mediaQueries.nav} {
-      margin-top: 50px;
-    }
+    margin-top: 12px;
+    
   `
 
   const IconDirect = styled.img`

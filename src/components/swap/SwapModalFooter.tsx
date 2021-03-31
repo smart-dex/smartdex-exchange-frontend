@@ -22,6 +22,17 @@ const TextStyle = styled(Text)`
   color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
 `
 
+const ButtonStyle = styled(Button)`
+  color: #fff;
+  font-size: 12px;
+  padding: 0 12px;
+  height: 45px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 16px;
+    padding: 0 24px;
+    height: 56px;
+  }
+`
 export default function SwapModalFooter({
   trade,
   onConfirm,
@@ -96,7 +107,7 @@ export default function SwapModalFooter({
         <RowBetween>
           <RowFixed>
             <TextStyle fontSize="14px">Liquidity Provider Fee</TextStyle>
-            <QuestionHelper text="For each trade a 0.2% fee is paid. 0.17% goes to liquidity providers and 0.03% goes to the PancakeSwap treasury." />
+            <QuestionHelper text="For each trade a 0.2% fee is paid. 0.17% goes to liquidity providers and 0.03% goes to the SmartDEX treasury." />
           </RowFixed>
           <TextStyle fontSize="14px">
             {realizedLPFee ? `${realizedLPFee?.toSignificant(6)  } ${  trade.inputAmount.currency.symbol}` : '-'}
@@ -105,16 +116,16 @@ export default function SwapModalFooter({
       </AutoColumn>
 
       <AutoRow>
-        <Button
+        <ButtonStyle
           onClick={onConfirm}
           disabled={disabledConfirm}
           variant={severity > 2 ? 'danger' : 'primary'}
-          style={{  width: '100%', background: '#0085FF'}}
+          style={{  width: '100%', background: severity > 2 ? '#ED4B9E' : '#0085FF'}}
           mt="10px"
           id="confirm-swap-or-send"
         >
           {severity > 2 ? 'Swap Anyway' : 'Confirm Swap'}
-        </Button>
+        </ButtonStyle>
 
         {swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
       </AutoRow>

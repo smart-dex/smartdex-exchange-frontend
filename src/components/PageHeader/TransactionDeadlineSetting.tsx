@@ -37,7 +37,9 @@ const TextStyle = styled(Text)`
 `
 
 const StyleInput = styled(Text)`
+  margin-left: 0px !important;
   input {
+    height: 48px;
     font-size: 13px;
     color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)};
     ${({ theme }) => theme.mediaQueries.sm} {

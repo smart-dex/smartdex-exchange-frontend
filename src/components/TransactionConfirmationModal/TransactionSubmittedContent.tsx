@@ -1,6 +1,6 @@
 import { ChainId } from '@sotatek-anhdao/smartdex-sdk'
 import React from 'react'
-import { baseColors} from 'style/Color'
+import { baseColors, darkColors, lightColors } from 'style/Color'
 import styled  from 'styled-components'
 import { Button, LinkExternal } from 'uikit-sotatek'
 import { ArrowUpCircle } from 'react-feather'
@@ -10,7 +10,6 @@ import { Wrapper, Section, ConfirmedIcon, ContentHeader } from './helpers'
 
 const LinkExternalStyle = styled(LinkExternal)`
   color: ${ baseColors.primary};
-  width: 100%;
   background: none;
   svg {
     fill:  ${ baseColors.primary};
@@ -21,6 +20,10 @@ const ButtonStyle = styled(Button)`
   background: ${ baseColors.primary};
 `
 
+const WrapperStyle = styled(Wrapper)`
+  background: ${({ theme }) => (theme.isDark ? darkColors.backgroundColor : lightColors.backgroundColor)};
+`
+
 type TransactionSubmittedContentProps = {
   onDismiss: () => void
   hash: string | undefined
@@ -29,8 +32,8 @@ type TransactionSubmittedContentProps = {
 
 const TransactionSubmittedContent = ({ onDismiss, chainId, hash }: TransactionSubmittedContentProps) => {
 
-  return (
-    <Wrapper>
+  return ( 
+    <WrapperStyle>
       <Section>
         <ContentHeader onDismiss={onDismiss}>Transaction submitted</ContentHeader>
         <ConfirmedIcon>
@@ -45,7 +48,7 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash }: TransactionSu
           </ButtonStyle>
         </AutoColumn>
       </Section>
-    </Wrapper>
+    </WrapperStyle>
   )
 }
 

@@ -6,7 +6,9 @@ import { ButtonMenu, ButtonMenuItem } from 'uikit-sotatek'
 import TranslatedText from '../TranslatedText'
 
 const StyledNav = styled.div`
+  margin-bottom: 12px;
   ${({ theme }) => theme.mediaQueries.nav} {
+    margin-bottom: 0px;
     width: 218px;
   }
   & > div {

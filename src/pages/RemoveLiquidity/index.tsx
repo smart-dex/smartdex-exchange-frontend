@@ -449,9 +449,9 @@ export default function RemoveLiquidity({
             </RowBetween>
           </>
         )}
-        <Button disabled={!(approval === ApprovalState.APPROVED || signatureData !== null)} onClick={onRemove}>
+        <ButtonClick disabled={!(approval === ApprovalState.APPROVED || signatureData !== null)} onClick={onRemove} style={{ background: !(approval === ApprovalState.APPROVED || signatureData !== null) ? '#E9EAEB' : baseColors.primary}}>
           Confirm
-        </Button>
+        </ButtonClick>
       </>
     )
   }

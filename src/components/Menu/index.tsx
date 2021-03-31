@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { ConnectorId } from '@pancakeswap-libs/uikit'
 import { Menu as UikitMenu } from 'uikit-sotatek'
 import { useWeb3React } from '@web3-react/core'
@@ -17,6 +17,12 @@ const Menu: React.FC = (props) => {
   const priceData = useGetPriceData()
   const cakePriceUsd = priceData ? Number(priceData.prices.Cake) : undefined
   const profile = useGetLocalProfile()
+
+  useEffect(() => {
+    if (!account && window.localStorage.getItem('connectorId')) {
+      activate(injected)
+    }
+  }, [account, activate])
 
   return (
     <UikitMenu

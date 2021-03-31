@@ -34,7 +34,6 @@ import { TranslateString } from 'utils/translateTextHelpers'
 import PageHeader from 'components/PageHeader'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import { lightColors, darkColors, baseColors } from 'style/Color'
-import Popups from '../../components/Popups'
 
 const TextStyle = styled(Text)`
   color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)};
@@ -45,7 +44,7 @@ const StyleIcon = styled(Text)`
     background: ${({ theme }) => (theme.isDark ? darkColors.backIcon : lightColors.backIcon)};
     svg {
       path {
-        fill: ${({ theme }) => (theme.isDark ? darkColors.colorIcon : lightColors.colorIcon)};
+        fill: ${baseColors.primary};
       }
     }
   }
@@ -103,6 +102,18 @@ const BoxIconDirect = styled.div`
     width: 36px;
     line-height: 60px;
   }
+`
+
+const ButtonStyle = styled(Button)`
+color: #fff;
+font-size: 12px;
+padding: 0 12px;
+height: 45px;
+${({ theme }) => theme.mediaQueries.nav} {
+  font-size: 16px;
+  padding: 0 24px;
+  height: 56px;
+}
 `
 
 const Swap = () => {
@@ -339,7 +350,6 @@ const Swap = () => {
       <CardNav />
       <ArrowLeft />
       <div>
-        <Popups />
         <BodyStyle>
           <Wrapper id="swap-page">
             <ConfirmSwapModal
@@ -460,20 +470,20 @@ const Swap = () => {
                     style={{ width: '100%' }}
                   />
                 ) : showWrap ? (
-                  <Button disabled={Boolean(wrapInputError)} onClick={onWrap} style={{ width: '100%' }}>
+                  <ButtonStyle disabled={Boolean(wrapInputError)} onClick={onWrap} style={{ width: '100%' }}>
                     {wrapInputError ??
                       (wrapType === WrapType.WRAP ? 'Wrap' : wrapType === WrapType.UNWRAP ? 'Unwrap' : null)}
-                  </Button>
+                  </ButtonStyle>
                 ) : noRoute && userHasSpecifiedInputOutput ? (
                   <GreyCard style={{ textAlign: 'center' }}>
                     <TextStyle mb="4px">Insufficient liquidity for this trade.</TextStyle>
                   </GreyCard>
                 ) : showApproveFlow ? (
                   <RowBetween>
-                    <Button
+                    <ButtonStyle
                       onClick={approveCallback}
                       disabled={approval !== ApprovalState.NOT_APPROVED || approvalSubmitted}
-                      style={{ width: '100%' }}
+                      style={{ width: '48%', background: approval !== ApprovalState.NOT_APPROVED || approvalSubmitted ? '#E9EAEB' : '#0085FF' }}
                       variant={approval === ApprovalState.APPROVED ? 'success' : 'primary'}
                     >
                       {approval === ApprovalState.PENDING ? (
@@ -485,8 +495,8 @@ const Swap = () => {
                       ) : (
                         `Approve ${currencies[Field.INPUT]?.symbol}`
                       )}
-                    </Button>
-                    <Button
+                    </ButtonStyle>
+                    <ButtonStyle
                       onClick={() => {
                         if (isExpertMode) {
                           handleSwap()
@@ -505,15 +515,15 @@ const Swap = () => {
                         !isValid || approval !== ApprovalState.APPROVED || (priceImpactSeverity > 3 && !isExpertMode)
                       }
                       variant={isValid && priceImpactSeverity > 2 ? 'danger' : 'primary'}
-                      style={{  width: '100%', background: isValid && priceImpactSeverity > 2 ? 'danger' : '#0085FF'}}
+                      style={{  width: '48%', background: (!isValid || approval !== ApprovalState.APPROVED || (priceImpactSeverity > 3 && !isExpertMode ) )? 'danger' : (priceImpactSeverity > 2 ?'#ED4B9E': "#0085FF")}}
                     >
                       {priceImpactSeverity > 3 && !isExpertMode
                         ? `Price Impact High`
                         : `Swap${priceImpactSeverity > 2 ? ' Anyway' : ''}`}
-                    </Button>
+                    </ButtonStyle>
                   </RowBetween>
                 ) : (
-                  <Button
+                  <ButtonStyle
                     onClick={() => {
                       if (isExpertMode) {
                         handleSwap()
@@ -530,13 +540,14 @@ const Swap = () => {
                     id="swap-button"
                     disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
                     variant={isValid && priceImpactSeverity > 2 && !swapCallbackError ? 'danger' : 'primary'}
-                    style={{ width: '100%', background: !isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError  ? '' : "#0085FF"}}
+                    style={{ width: '100%', background: !isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError  ? '' : (priceImpactSeverity > 2 ?'#ED4B9E': "#0085FF")}}
+
                   >
                     {swapInputError ||
                       (priceImpactSeverity > 3 && !isExpertMode
                         ? `Price Impact Too High`
                         : `Swap${priceImpactSeverity > 2 ? ' Anyway' : ''}`)}
-                  </Button>
+                  </ButtonStyle>
                 )}
                 {showApproveFlow && <ProgressSteps steps={[approval === ApprovalState.APPROVED]} />}
                 {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
