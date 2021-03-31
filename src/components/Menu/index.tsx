@@ -19,7 +19,7 @@ const Menu: React.FC = (props) => {
   const profile = useGetLocalProfile()
 
   useEffect(() => {
-    if (!account) {
+    if (!account && window.localStorage.getItem('connectorId')) {
       activate(injected)
     }
   }, [account, activate])
