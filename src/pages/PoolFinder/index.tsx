@@ -1,4 +1,4 @@
-import { Currency, ETHER, JSBI, TokenAmount } from '@sotatek-anhdao/cake-sdk'
+import { Currency, ETHER, JSBI, TokenAmount } from '@sotatek-anhdao/smartdex-sdk'
 import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { baseColors, darkColors, lightColors } from 'style/Color'

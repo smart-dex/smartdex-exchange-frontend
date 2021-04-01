@@ -1,4 +1,4 @@
-import { Currency, ETHER, Token } from '@sotatek-anhdao/cake-sdk'
+import { Currency, ETHER, Token } from '@sotatek-anhdao/smartdex-sdk'
 
 export function currencyId(currency: Currency): string {
   if (currency === ETHER) return 'ETH'

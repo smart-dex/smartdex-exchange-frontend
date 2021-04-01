@@ -1,4 +1,4 @@
-import { Currency } from '@sotatek-anhdao/cake-sdk'
+import { Currency } from '@sotatek-anhdao/smartdex-sdk'
 import React from 'react'
 import styled from 'styled-components'
 import { darkColors, lightColors} from 'style/Color'

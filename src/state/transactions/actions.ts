@@ -1,5 +1,5 @@
 import { createAction } from '@reduxjs/toolkit'
-import { ChainId } from '@sotatek-anhdao/cake-sdk'
+import { ChainId } from '@sotatek-anhdao/smartdex-sdk'
 
 export interface SerializableTransactionReceipt {
   to: string

@@ -1,4 +1,4 @@
-import { Trade } from '@sotatek-anhdao/cake-sdk'
+import { Trade } from '@sotatek-anhdao/smartdex-sdk'
 import React, { Fragment, memo, useContext } from 'react'
 import { ChevronRight } from 'react-feather'
 import { Flex, Text } from 'uikit-sotatek'

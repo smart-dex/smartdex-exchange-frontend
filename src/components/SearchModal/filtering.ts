@@ -1,4 +1,4 @@
-import { Token } from '@sotatek-anhdao/cake-sdk'
+import { Token } from '@sotatek-anhdao/smartdex-sdk'
 import { isAddress } from '../../utils'
 
 export function filterTokens(tokens: Token[], search: string): Token[] {

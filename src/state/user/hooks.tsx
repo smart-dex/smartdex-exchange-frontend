@@ -1,4 +1,4 @@
-import { ChainId, Pair, Token } from '@sotatek-anhdao/cake-sdk'
+import { ChainId, Pair, Token } from '@sotatek-anhdao/smartdex-sdk'
 import flatMap from 'lodash.flatmap'
 import { useCallback, useMemo } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
@@ -192,7 +192,7 @@ export function usePairAdder(): (pair: Pair) => void {
  * @param tokenB the other token
  */
 export function toV2LiquidityToken([tokenA, tokenB]: [Token, Token]): Token {
-  return new Token(tokenA.chainId, Pair.getAddress(tokenA, tokenB), 18, 'Cake-LP', 'Pancake LPs')
+  return new Token(tokenA.chainId, Pair.getAddress(tokenA, tokenB), 18, 'SDC-LP', 'SmartDEX LPs')
 }
 
 /**

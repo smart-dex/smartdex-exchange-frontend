@@ -1,4 +1,4 @@
-import { ChainId } from '@sotatek-anhdao/cake-sdk'
+import { ChainId } from '@sotatek-anhdao/smartdex-sdk'
 import React from 'react'
 import { baseColors, darkColors, lightColors } from 'style/Color'
 import styled  from 'styled-components'

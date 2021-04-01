@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { lightColors, baseColors, darkColors } from 'style/Color'
 import styled from 'styled-components'
-import { Pair } from '@sotatek-anhdao/cake-sdk'
+import { Pair } from '@sotatek-anhdao/smartdex-sdk'
 import { Button, CardBody, Text } from 'uikit-sotatek'
 import { Link } from 'react-router-dom'
 import CardNav from 'components/CardNav'
@@ -71,7 +71,7 @@ export default function Pool() {
     height: 56px;
     padding-right: 36px;
   }
-  
+
 `
 
   const TextHeading = styled(Text)`

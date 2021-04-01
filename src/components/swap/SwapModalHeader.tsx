@@ -1,6 +1,6 @@
 import React, { useContext, useMemo } from 'react'
 import styled, { ThemeContext } from 'styled-components'
-import { Trade, TradeType } from '@sotatek-anhdao/cake-sdk'
+import { Trade, TradeType } from '@sotatek-anhdao/smartdex-sdk'
 import { darkColors, lightColors } from 'style/Color'
 import { Button, Text } from 'uikit-sotatek'
 import { ArrowDown, AlertTriangle } from 'react-feather'

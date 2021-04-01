@@ -3,7 +3,7 @@ import styled, { ThemeContext } from 'styled-components'
 import { splitSignature } from '@ethersproject/bytes'
 import { Contract } from '@ethersproject/contracts'
 import { TransactionResponse } from '@ethersproject/providers'
-import { Currency, currencyEquals, ETHER, Percent, WETH } from '@sotatek-anhdao/cake-sdk'
+import { Currency, currencyEquals, ETHER, Percent, WETH } from '@sotatek-anhdao/smartdex-sdk'
 import { Button, Flex, Text } from 'uikit-sotatek'
 import { ArrowDown, Plus } from 'react-feather'
 import { RouteComponentProps } from 'react-router'
@@ -111,7 +111,7 @@ const ButtonStyle = styled(Button)`
 `
 
 const ButtonClick = styled(Button)`
-  height: 45px; 
+  height: 45px;
   font-size: 12px;
 ${({ theme }) => theme.mediaQueries.nav} {
   font-size: 16px;
@@ -190,7 +190,7 @@ export default function RemoveLiquidity({
       { name: 'verifyingContract', type: 'address' },
     ]
     const domain = {
-      name: 'Pancake LPs',
+      name: 'SmartDEX LPs',
       version: '1',
       chainId,
       verifyingContract: pair.liquidityToken.address,

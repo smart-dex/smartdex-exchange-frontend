@@ -1,5 +1,5 @@
 import React from 'react'
-import { Trade, TradeType } from '@sotatek-anhdao/cake-sdk'
+import { Trade, TradeType } from '@sotatek-anhdao/smartdex-sdk'
 import { darkColors, lightColors} from 'style/Color'
 import styled from 'styled-components'
 import { CardBody, Text } from 'uikit-sotatek'

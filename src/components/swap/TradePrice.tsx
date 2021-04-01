@@ -1,5 +1,5 @@
 import React from 'react'
-import { Price } from '@sotatek-anhdao/cake-sdk'
+import { Price } from '@sotatek-anhdao/smartdex-sdk'
 import styled from 'styled-components'
 import { SyncAltIcon, Text } from 'uikit-sotatek'
 import { baseColors, darkColors, lightColors} from 'style/Color'
@@ -41,7 +41,7 @@ export default function TradePrice({ price, showInverted, setShowInverted }: Tra
             <IconStyle>
             <SyncAltIcon width="20px" />
             </IconStyle>
-           
+
           </StyledBalanceMaxMini>
         </>
       ) : (

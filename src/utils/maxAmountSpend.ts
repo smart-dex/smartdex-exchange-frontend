@@ -1,4 +1,4 @@
-import { CurrencyAmount, ETHER, JSBI } from '@sotatek-anhdao/cake-sdk'
+import { CurrencyAmount, ETHER, JSBI } from '@sotatek-anhdao/smartdex-sdk'
 import { MIN_ETH } from '../constants'
 
 /**
