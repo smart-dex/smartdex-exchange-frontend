@@ -1,7 +1,7 @@
 import { Currency, ETHER, Token } from '@sotatek-anhdao/smartdex-sdk'
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
-import { darkColors } from 'style/Color'
+import { darkColors, lightColors } from 'style/Color'
 import useHttpLocations from '../../hooks/useHttpLocations'
 import { WrappedTokenInfo } from '../../state/lists/hooks'
 import Logo from '../Logo'
@@ -15,17 +15,17 @@ const StyledBnbLogo = styled.img<{ size: string }>`
   height: ${({ size }) => size};
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.075);
   border-radius: 24px;
-  stroke: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : '')};
+  stroke: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft :  lightColors.textMenuLeft)};
 `
 
 const StyledLogo = styled(Logo)<{ size: string }>`
   width: ${({ size }) => size};
   height: ${({ size }) => size};
-  stroke: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : '')};
+  stroke: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
 `
 
 const CoinLogoStyle = styled(CoinLogo)`
-  stroke: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : '')};
+  stroke: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft :  lightColors.textMenuLeft)};
 `
 
 export default function CurrencyLogo({

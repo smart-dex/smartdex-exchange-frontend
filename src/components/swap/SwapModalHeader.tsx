@@ -26,6 +26,10 @@ const TextStyle = styled(Text)`
   color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
 `
 
+const ArrowDownStyle = styled(ArrowDown)`
+  color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+`
+
 export default function SwapModalHeader({
   trade,
   allowedSlippage,
@@ -68,7 +72,7 @@ export default function SwapModalHeader({
         </RowFixed>
       </RowBetween>
       <RowFixed>
-        <ArrowDown size="16" color={theme.colors.textSubtle} style={{ marginLeft: '4px', minWidth: '16px' }} />
+        <ArrowDownStyle size="16" style={{ marginLeft: '4px', minWidth: '16px' }} />
       </RowFixed>
       <RowBetween align="flex-end">
         <RowFixed gap="0px">

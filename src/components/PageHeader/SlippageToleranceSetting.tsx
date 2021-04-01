@@ -62,6 +62,9 @@ const StyleInput = styled(Text)`
   input {
     font-size: 13px;
     color: ${({ theme }) => (theme.isDark ? lightColors.background : lightColors.textMenuLeft)};
+    &:focus:not(:disabled) {
+      box-shadow: none;
+    }
     ${({ theme }) => theme.mediaQueries.sm} {
       font-size: 16px;
     }

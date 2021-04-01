@@ -33,6 +33,11 @@ const ButtonStyle = styled(Button)`
     height: 56px;
   }
 `
+
+const RepeatStyle = styled(Repeat)`
+color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+`
+
 export default function SwapModalFooter({
   trade,
   onConfirm,
@@ -72,7 +77,7 @@ export default function SwapModalFooter({
           >
             {formatExecutionPrice(trade, showInverted)}
             <StyledBalanceMaxMini onClick={() => setShowInverted(!showInverted)}>
-              <Repeat size={14} />
+              <RepeatStyle size={14} />
             </StyledBalanceMaxMini>
           </TextStyle>
         </RowBetween>
