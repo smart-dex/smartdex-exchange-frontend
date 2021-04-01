@@ -11,6 +11,7 @@ import { Wrapper, Section, ConfirmedIcon, ContentHeader } from './helpers'
 const LinkExternalStyle = styled(LinkExternal)`
   color: ${ baseColors.primary};
   background: none;
+  width: 100%;
   svg {
     fill:  ${ baseColors.primary};
   }

@@ -140,7 +140,7 @@ const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => {
             <TabBlock>
               <IconTab />
               <TextTab className="text-not-active">
-                <TranslatedText translationId={8}>Bridge</TranslatedText>
+                Bridge
               </TextTab>
             </TabBlock>
           </ButtonMenuItem>
@@ -157,7 +157,7 @@ const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => {
                 <TabBlock>
                   <IconTab />
                   <TextTab className={activeIndex === item.index ? 'text-active' : 'text-not-active'}>
-                    <TranslatedText translationId={8}>{item.text}</TranslatedText>
+                    {item.text}
                   </TextTab>
                 </TabBlock>
               </ButtonMenuItem>
