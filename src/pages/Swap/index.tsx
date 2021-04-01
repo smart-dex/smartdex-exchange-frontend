@@ -109,6 +109,7 @@ color: #fff;
 font-size: 12px;
 padding: 0 12px;
 height: 45px;
+background: ${baseColors.primary};
 ${({ theme }) => theme.mediaQueries.nav} {
   font-size: 16px;
   padding: 0 24px;
