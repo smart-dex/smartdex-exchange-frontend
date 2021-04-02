@@ -352,7 +352,7 @@ export default function AddLiquidity({
     svg {
       width: 12px;
       path {
-        fill: ${({ theme }) => (theme.isDark ? darkColors.colorIcon : lightColors.colorIcon)};
+        fill: ${baseColors.primary};
       }
     }
   `
@@ -411,7 +411,7 @@ export default function AddLiquidity({
               />
               <ColumnCenter>
                 <StyleIcon>
-                  <AddIcon color="textSubtle" />
+                  <AddIcon />
                 </StyleIcon>
               </ColumnCenter>
               <CurrencyInputPanel
