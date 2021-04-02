@@ -110,14 +110,28 @@ const ButtonStyle = styled(Button)`
   }
 `
 
+const handleBgDarkMode = (theme)=>(
+  theme.isDark ? darkColors.buttonView : lightColors.buttonView
+)
+
+const handleColorDarkMode = (theme)=>(
+  theme.isDark ? darkColors.fontPlaceholder : lightColors.invertedContrast
+)
+
 const ButtonClick = styled(Button)`
   height: 45px;
   font-size: 12px;
+  background: ${({disabled, theme }) => disabled ? handleBgDarkMode(theme) : baseColors.primary} !important;
+  color: ${({disabled, theme }) => disabled ? handleColorDarkMode(theme) : lightColors.invertedContrast} !important;
 ${({ theme }) => theme.mediaQueries.nav} {
   font-size: 16px;
   padding: 0 24px;
   height: 56px;
 }
+`
+
+const ArrowDownStyle = styled(ArrowDown)`
+  stroke: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
 `
 
 export default function RemoveLiquidity({
@@ -579,7 +593,7 @@ export default function RemoveLiquidity({
             {!showDetailed && (
               <>
                 <ColumnCenter>
-                  <ArrowDown size="16" color={theme.colors.textSubtle} />
+                  <ArrowDownStyle size="16" />
                 </ColumnCenter>
                 <Body>
                   <OutlineCard>
@@ -703,13 +717,11 @@ export default function RemoveLiquidity({
                   <RowBetween style={{padding: '0px 8px'}}>
                     <ButtonClick
                       onClick={onAttemptToApprove}
-                      variant={approval === ApprovalState.APPROVED || signatureData !== null ? 'success' : 'primary'}
+                      variant={approval === ApprovalState.APPROVED || signatureData !== null ? 'success' : '#0085FF'}
                       disabled={approval !== ApprovalState.NOT_APPROVED || signatureData !== null}
                       mr="8px"
                       style={{
                         width: '48%',
-                        background:
-                          approval !== ApprovalState.NOT_APPROVED || signatureData !== null ? '#E9EAEB' : '#0085FF',
                       }}
                     >
                       {approval === ApprovalState.PENDING ? (
@@ -732,10 +744,6 @@ export default function RemoveLiquidity({
                       }
                       style={{
                         width: '48%',
-                        background:
-                          !isValid || (signatureData === null && approval !== ApprovalState.APPROVED)
-                            ? '#E9EAEB'
-                            : '#0085FF',
                       }}
                     >
                       {error || 'Remove'}
