@@ -25,7 +25,7 @@ export const LinkStyledButton = styled.button<{ disabled?: boolean }>`
   :active {
     text-decoration: none;
   }
-  font-size: 12px;
+  font-size: 11px;
   ${({ theme }) => theme.mediaQueries.nav} {
     font-size: 14px;
   }
