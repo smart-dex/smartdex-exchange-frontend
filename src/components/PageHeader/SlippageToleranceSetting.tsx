@@ -6,7 +6,7 @@ import { lightColors, baseColors } from 'style/Color'
 import QuestionHelper from '../QuestionHelper'
 import TranslatedText from '../TranslatedText'
 
-const MAX_SLIPPAGE = 5000
+const MAX_SLIPPAGE = 10000
 const RISKY_SLIPPAGE_LOW = 50
 const RISKY_SLIPPAGE_HIGH = 500
 

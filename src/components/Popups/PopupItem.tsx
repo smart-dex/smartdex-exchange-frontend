@@ -2,6 +2,7 @@ import React, { useCallback, useContext, useEffect } from 'react'
 import { X } from 'react-feather'
 import { useSpring } from 'react-spring/web'
 import styled, { ThemeContext } from 'styled-components'
+import { darkColors, lightColors } from 'style/Color'
 import { animated } from 'react-spring'
 import { PopupContent } from '../../state/application/actions'
 import { useRemovePopup } from '../../state/application/hooks'
@@ -14,7 +15,7 @@ export const StyledClose = styled(X)`
   position: absolute;
   right: 10px;
   top: 10px;
-
+  color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
   :hover {
     cursor: pointer;
   }
@@ -90,7 +91,7 @@ export default function PopupItem({
 
   return (
     <Popup>
-      <StyledClose color={theme.colors.textSubtle} onClick={removeThisPopup} />
+      <StyledClose  onClick={removeThisPopup} />
       {popupContent}
       {removeAfterMs !== null ? <AnimatedFader style={faderStyle} /> : null}
     </Popup>
