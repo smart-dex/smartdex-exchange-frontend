@@ -22,25 +22,27 @@ const QuestionWrapper = styled.div`
 `
 
 const IconQuestion = styled.div`
-  width: 5px;
-  height: 8px;
+  width: 7px;
+  height: 9px;
   background-image: url('/images/question-mobile-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
-  margin: 3px 5px;
+  margin: 4px 5px;
   background-repeat: no-repeat;
+  background-size: 100% 100%;
   ${({ theme }) => theme.mediaQueries.nav} {
-    width: 9px;
-    height: 11px;
+    width: 8px;
+    height: 12px;
     background-image: url('/images/question-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
     margin: 6px 8px;
   }
 `
 
 const BorderQuestion = styled.div`
-  width: 15px;
-  height: 15px;
+  width: 17px;
+  height: 17px;
   background-image: url('/images/border-mobile-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 100% 100%;
   ${({ theme }) => theme.mediaQueries.nav} {
     width: 24px;
     height: 24px;

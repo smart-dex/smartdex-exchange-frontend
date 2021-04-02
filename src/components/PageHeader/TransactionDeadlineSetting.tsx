@@ -37,7 +37,6 @@ const TextStyle = styled(Text)`
 `
 
 const StyleInput = styled(Text)`
-  margin-left: 0px !important;
   input {
     height: 48px;
     font-size: 13px;
