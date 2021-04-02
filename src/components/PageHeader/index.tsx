@@ -57,12 +57,12 @@ const StyledCogIcon = styled.div`
 `
 
 const StyledHistoryIcon = styled.div`
-  width: 18px;
-  height: 15px;
+  width: 19px;
+  height: 16px;
   background-image: url('/images/history-mobile-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: 100% 100%;
   ${({ theme }) => theme.mediaQueries.nav} {
     width: 26.25px;
     height: 22.5px;
