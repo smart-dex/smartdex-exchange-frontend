@@ -115,7 +115,7 @@ const handleBgDarkMode = (theme)=>(
 )
 
 const handleColorDarkMode = (theme)=>(
-  theme.isDark ? darkColors.fontPlaceholder : lightColors.invertedContrast
+  theme.isDark ? darkColors.fontPlaceholder : '#8F8FA0'
 )
 
 const ButtonClick = styled(Button)`

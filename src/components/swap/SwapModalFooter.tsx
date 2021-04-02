@@ -1,6 +1,6 @@
 import { Trade, TradeType } from '@sotatek-anhdao/smartdex-sdk'
 import React, { useMemo, useState } from 'react'
-import { darkColors, lightColors } from 'style/Color'
+import { darkColors, lightColors, baseColors } from 'style/Color'
 import styled from 'styled-components'
 import { Text , Button } from 'uikit-sotatek'
 import { Repeat } from 'react-feather'
@@ -22,11 +22,25 @@ const TextStyle = styled(Text)`
   color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
 `
 
+const handleBgDarkMode = (theme)=>(
+  theme.isDark ? darkColors.buttonView : lightColors.buttonView
+)
+
+const handleColorDarkMode = (theme)=>(
+  theme.isDark ? darkColors.fontPlaceholder : '#8F8FA0'
+)
+
+const handleBgSWap = (severity) => (
+  severity > 2 ? baseColors.failure : baseColors.primary
+)
+
 const ButtonStyle = styled(Button)`
-  color: #fff;
   font-size: 12px;
   padding: 0 12px;
   height: 45px;
+  background: ${({disabled, theme, severity }) => disabled ? handleBgDarkMode(theme) : handleBgSWap(severity)} !important;
+  color: ${({disabled, theme }) => disabled ? handleColorDarkMode(theme) : lightColors.invertedContrast} !important;
+  box-shadow: none;
   ${({ theme }) => theme.mediaQueries.nav} {
     font-size: 16px;
     padding: 0 24px;
@@ -125,7 +139,8 @@ export default function SwapModalFooter({
           onClick={onConfirm}
           disabled={disabledConfirm}
           variant={severity > 2 ? 'danger' : 'primary'}
-          style={{  width: '100%', background: severity > 2 ? '#ED4B9E' : '#0085FF'}}
+          severity={severity}
+          style={{  width: '100%'}}
           mt="10px"
           id="confirm-swap-or-send"
         >

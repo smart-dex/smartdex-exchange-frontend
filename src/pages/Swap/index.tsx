@@ -104,32 +104,28 @@ const BoxIconDirect = styled.div`
   }
 `
 
-const handleBgDarkMode = (theme)=>(
-  theme.isDark ? darkColors.buttonView : lightColors.buttonView
-)
+const handleBgDarkMode = (theme) => (theme.isDark ? darkColors.buttonView : lightColors.buttonView)
 
-const handleColorDarkMode = (theme)=>(
-  theme.isDark ? darkColors.fontPlaceholder : lightColors.invertedContrast
-)
+const handleColorDarkMode = (theme) => (theme.isDark ? darkColors.fontPlaceholder : '#8F8FA0')
 
-const handleBgSwap = (priceImpactSeverity)=>(
-  priceImpactSeverity > 2 ? '#ED4B9E' : baseColors.primary
-)
+const handleBgSwap = (priceImpactSeverity) => (priceImpactSeverity > 2 ? '#ED4B9E' : baseColors.primary)
 
 const ButtonStyle = styled(Button)`
-font-size: 12px;
-padding: 0 12px;
-height: 45px;
-color: ${({disabled, theme }) => disabled ? handleColorDarkMode(theme) : lightColors.invertedContrast} !important;
-background: ${({disabled, theme, priceImpactSeverity }) => disabled ? handleBgDarkMode(theme) : handleBgSwap(priceImpactSeverity)} !important;
-${({ theme }) => theme.mediaQueries.nav} {
-  font-size: 16px;
-  padding: 0 24px;
-  height: 56px;
-}
+  font-size: 12px;
+  padding: 0 12px;
+  height: 45px;
+  color: ${({ disabled, theme }) => (disabled ? handleColorDarkMode(theme) : lightColors.invertedContrast)} !important;
+  background: ${({ disabled, theme, priceImpactSeverity }) =>
+    disabled ? handleBgDarkMode(theme) : handleBgSwap(priceImpactSeverity)} !important;
+  box-shadow: none;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 16px;
+    padding: 0 24px;
+    height: 56px;
+  }
 `
 const ButtonApprove = styled(ButtonStyle)`
-  background: ${({disabled, theme }) => disabled ? handleBgDarkMode(theme) : baseColors.primary} !important;
+  background: ${({ disabled, theme }) => (disabled ? handleBgDarkMode(theme) : baseColors.primary)} !important;
 `
 
 const Swap = () => {
@@ -499,7 +495,7 @@ const Swap = () => {
                     <ButtonApprove
                       onClick={approveCallback}
                       disabled={approval !== ApprovalState.NOT_APPROVED || approvalSubmitted}
-                      style={{ width: '48%'}}
+                      style={{ width: '48%' }}
                       variant={approval === ApprovalState.APPROVED ? 'success' : 'primary'}
                     >
                       {approval === ApprovalState.PENDING ? (
@@ -532,7 +528,7 @@ const Swap = () => {
                       }
                       variant={isValid && priceImpactSeverity > 2 ? 'danger' : 'primary'}
                       priceImpactSeverity={priceImpactSeverity}
-                      style={{  width: '48%'}}
+                      style={{ width: '48%' }}
                     >
                       {priceImpactSeverity > 3 && !isExpertMode
                         ? `Price Impact High`
@@ -558,7 +554,7 @@ const Swap = () => {
                     disabled={!isValid || (priceImpactSeverity > 3 && !isExpertMode) || !!swapCallbackError}
                     priceImpactSeverity={priceImpactSeverity}
                     variant={isValid && priceImpactSeverity > 2 && !swapCallbackError ? 'danger' : 'primary'}
-                    style={{ width: '100%'}}
+                    style={{ width: '100%' }}
                   >
                     {swapInputError ||
                       (priceImpactSeverity > 3 && !isExpertMode
