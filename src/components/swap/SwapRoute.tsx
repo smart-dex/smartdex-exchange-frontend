@@ -1,9 +1,14 @@
 import { Trade } from '@sotatek-anhdao/smartdex-sdk'
 import React, { Fragment, memo, useContext } from 'react'
+import { darkColors, lightColors} from 'style/Color'
 import { ChevronRight } from 'react-feather'
 import { Flex, Text } from 'uikit-sotatek'
-import { ThemeContext } from 'styled-components'
+import styled, { ThemeContext } from 'styled-components'
 import CurrencyLogo from '../CurrencyLogo'
+
+const TextStyle = styled(Text)`
+  color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+`
 
 export default memo(function SwapRoute({ trade }: { trade: Trade }) {
   const theme = useContext(ThemeContext)
@@ -24,9 +29,9 @@ export default memo(function SwapRoute({ trade }: { trade: Trade }) {
           <Fragment key={i}>
             <Flex my="0.5rem" alignItems="center" style={{ flexShrink: 0 }}>
               <CurrencyLogo currency={token} size="1.5rem" />
-              <Text fontSize="14px" color="text" ml="0.5rem">
+              <TextStyle fontSize="14px" color="text" ml="0.5rem">
                 {token.symbol}
-              </Text>
+              </TextStyle>
             </Flex>
             {isLastItem ? null : <ChevronRight color="textSubtle" />}
           </Fragment>
