@@ -69,10 +69,11 @@ const StyleListToken = styled(Text)`
       color: ${({ theme }) => (theme.isDark ? darkColors.text : lightColors.textMenuLeft)};
       font-weight: 600;
       font-size: 11px;
-      line-height: 22px;
+      line-height: 16px;
       padding-left: 3px;
       ${({ theme }) => theme.mediaQueries.nav} {
         font-size: 17px;
+        line-height: 22px;
       }
     }
   }
@@ -154,7 +155,7 @@ function CurrencyRow({
       disabled={isSelected}
       selected={otherSelected}
     >
-      <CurrencyLogo currency={currency} size="30px" />
+      <CurrencyLogo currency={currency} />
       <Column>
         <Text title={currency.name}>{currency.symbol}</Text>
         <FadedSpan>
