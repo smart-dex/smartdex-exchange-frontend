@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { lightColors, darkColors } from 'style/Color'
 import { ButtonMenu, ButtonMenuItem } from 'uikit-sotatek'
-import TranslatedText from '../TranslatedText'
 
 const StyledNav = styled.div`
   margin-bottom: 12px;

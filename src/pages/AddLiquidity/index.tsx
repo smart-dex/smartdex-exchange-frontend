@@ -219,7 +219,6 @@ export default function AddLiquidity({
 
   const AutoColumnStyle = styled(AutoColumn)`
     margin-top: 12px;
-    
   `
 
   const IconDirect = styled.img`
@@ -248,17 +247,36 @@ export default function AddLiquidity({
 
   const UIKitTextStyle = styled(UIKitText)`
     color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+    font-size: 34px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      font-size: 48px;
+    }
+   
   `
 
+  const handleBgDarkMode = (theme) => (theme.isDark ? darkColors.buttonView : lightColors.buttonView)
+
+  const handleColorDarkMode = (theme) => (theme.isDark ? darkColors.fontPlaceholder : '#8F8FA0')
+
   const ButtonStyle = styled(Button)`
-    background: ${baseColors.primary};
+    background: ${({ disabled, theme }) => (disabled ? handleBgDarkMode(theme) : baseColors.primary)} !important;
+    color: ${({ disabled, theme }) =>
+      disabled ? handleColorDarkMode(theme) : lightColors.invertedContrast} !important;
+    font-size: 12px;
+    padding: 0 12px;
+    height: 45px;
+    ${({ theme }) => theme.mediaQueries.nav} {
+      font-size: 16px;
+      padding: 0 24px;
+      height: 56px;
+    }
   `
   const modalHeader = () => {
     return noLiquidity ? (
       <AutoColumn gap="20px">
         <LightCard mt="20px" borderRadius="20px">
           <RowFlat>
-            <UIKitTextStyle fontSize="48px" mr="8px">
+            <UIKitTextStyle  mr="8px">
               {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol}`}
             </UIKitTextStyle>
             <DoubleCurrencyLogo
@@ -272,7 +290,7 @@ export default function AddLiquidity({
     ) : (
       <AutoColumn gap="20px">
         <RowFlat style={{ marginTop: '20px' }}>
-          <UIKitTextStyle fontSize="48px" mr="8px">
+          <UIKitTextStyle  mr="8px">
             {liquidityMinted?.toSignificant(6)}
           </UIKitTextStyle>
           <DoubleCurrencyLogo
@@ -352,7 +370,7 @@ export default function AddLiquidity({
     svg {
       width: 12px;
       path {
-        fill: ${baseColors.primary};
+        fill: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
       }
     }
   `
@@ -506,7 +524,7 @@ export default function AddLiquidity({
               )}
             </AutoColumn>
             {pair && !noLiquidity && pairState !== PairState.INVALID ? (
-              <AutoColumn style={{ minWidth: '18rem', marginTop: '1rem'}}>
+              <AutoColumn style={{ minWidth: '18rem', marginTop: '1rem' }}>
                 <MinimalPositionCard showUnwrapped={oneCurrencyIsWETH} pair={pair} />
               </AutoColumn>
             ) : null}
