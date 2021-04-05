@@ -247,12 +247,17 @@ export default function AddLiquidity({
 
   const UIKitTextStyle = styled(UIKitText)`
     color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
-    font-size: 34px;
+   
+  `
+
+  const UIKitTextCurrent = styled(UIKitText)`
+    color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+    font-size: 28px;
     ${({ theme }) => theme.mediaQueries.nav} {
       font-size: 48px;
     }
-   
   `
+
 
   const handleBgDarkMode = (theme) => (theme.isDark ? darkColors.buttonView : lightColors.buttonView)
 
@@ -276,9 +281,9 @@ export default function AddLiquidity({
       <AutoColumn gap="20px">
         <LightCard mt="20px" borderRadius="20px">
           <RowFlat>
-            <UIKitTextStyle  mr="8px">
+            <UIKitTextCurrent mr="8px">
               {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol}`}
-            </UIKitTextStyle>
+            </UIKitTextCurrent>
             <DoubleCurrencyLogo
               currency0={currencies[Field.CURRENCY_A]}
               currency1={currencies[Field.CURRENCY_B]}
@@ -290,9 +295,9 @@ export default function AddLiquidity({
     ) : (
       <AutoColumn gap="20px">
         <RowFlat style={{ marginTop: '20px' }}>
-          <UIKitTextStyle  mr="8px">
+          <UIKitTextCurrent mr="8px">
             {liquidityMinted?.toSignificant(6)}
-          </UIKitTextStyle>
+          </UIKitTextCurrent>
           <DoubleCurrencyLogo
             currency0={currencies[Field.CURRENCY_A]}
             currency1={currencies[Field.CURRENCY_B]}
