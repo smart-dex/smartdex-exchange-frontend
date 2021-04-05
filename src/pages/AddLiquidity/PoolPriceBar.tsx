@@ -12,9 +12,46 @@ const StyleText = styled(Text)`
   font-weight: normal;
   font-size: 12px;
   line-height: 20px;
-  color: ${({theme}) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+  color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
   ${({ theme }) => theme.mediaQueries.nav} {
     font-size: 14px;
+  }
+`
+
+const TextPrice = styled(StyleText)`
+  position: relative;
+  display: inline-block;
+  &:hover {
+    div {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+`
+
+const ToolTipHover = styled.div`
+  visibility: hidden;
+  background-color: ${({ theme }) => (theme.isDark ? darkColors.buttonView : lightColors.buttonView)};
+  color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: ${({ theme }) => (theme.isDark ? darkColors.buttonView : lightColors.buttonView)} transparent transparent transparent;
   }
 `
 
@@ -29,19 +66,43 @@ export function PoolPriceBar({
   poolTokenPercentage?: Percent
   price?: Price
 }) {
+  const handlePrice = (priceValue) => {
+    const priceString = priceValue?.toSignificant(6).toString()
+    let priceNew = priceString
+    if (priceString && priceString.length > 10) {
+      priceNew = `${priceString.slice(0, 10)}...`
+    }
+
+    return priceNew
+  }
+
   return (
     <AutoColumn gap="md">
       <AutoRow justify="space-around" gap="4px">
         <AutoColumn justify="center">
-          <Text><StyleText>{price?.toSignificant(6) ?? '-'}</StyleText></Text>
+          <Text>
+            <TextPrice>
+              {handlePrice(price) ?? '-'}
+              <ToolTipHover>{price?.toSignificant(6)}</ToolTipHover>
+            </TextPrice>
+          </Text>
           <Text pt={1}>
-            <StyleText>{currencies[Field.CURRENCY_B]?.symbol} per {currencies[Field.CURRENCY_A]?.symbol}</StyleText>
+            <StyleText>
+              {currencies[Field.CURRENCY_B]?.symbol} per {currencies[Field.CURRENCY_A]?.symbol}
+            </StyleText>
           </Text>
         </AutoColumn>
         <AutoColumn justify="center">
-          <Text><StyleText>{price?.invert()?.toSignificant(6) ?? '-'}</StyleText></Text>
+          <Text>
+          <TextPrice>
+              {handlePrice(price?.invert()) ?? '-'}
+              <ToolTipHover>{price?.invert()?.toSignificant(6)}</ToolTipHover>
+            </TextPrice>
+          </Text>
           <Text pt={1}>
-            <StyleText>{currencies[Field.CURRENCY_A]?.symbol} per {currencies[Field.CURRENCY_B]?.symbol}</StyleText>
+            <StyleText>
+              {currencies[Field.CURRENCY_A]?.symbol} per {currencies[Field.CURRENCY_B]?.symbol}
+            </StyleText>
           </Text>
         </AutoColumn>
         <AutoColumn justify="center">
