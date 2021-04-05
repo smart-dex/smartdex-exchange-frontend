@@ -154,7 +154,7 @@ export default function PoolFinder() {
                   setShowSearch(true)
                   setActiveField(Fields.TOKEN0)
                 }}
-                startIcon={currency0 ? <CurrencyLogo currency={currency0} style={{ marginRight: '.5rem' }} /> : null}
+                startIcon={currency0 ? <CurrencyLogo currency={currency0} style={{ marginRight: '.5rem', stroke:'#fff' }} /> : null}
                 endIcon={<ChevronDownIcon width="24px" color="white" />}
               >
                 {currency0 ? currency0.symbol : <TranslatedText translationId={82}>Select a Token</TranslatedText>}
@@ -171,7 +171,7 @@ export default function PoolFinder() {
                   setShowSearch(true)
                   setActiveField(Fields.TOKEN1)
                 }}
-                startIcon={currency1 ? <CurrencyLogo currency={currency1} style={{ marginRight: '.5rem' }} /> : null}
+                startIcon={currency1 ? <CurrencyLogo currency={currency1} style={{ marginRight: '.5rem', stroke:'#fff' }} /> : null}
                 endIcon={<ChevronDownIcon width="24px" color="white" />}
               >
                 {currency1 ? currency1.symbol : <TranslatedText translationId={82}>Select a Token</TranslatedText>}
