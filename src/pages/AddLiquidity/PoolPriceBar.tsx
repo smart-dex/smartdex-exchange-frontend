@@ -43,6 +43,7 @@ const ToolTipHover = styled.div`
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  font-size: 13px;
   &:after {
     content: '';
     position: absolute;
