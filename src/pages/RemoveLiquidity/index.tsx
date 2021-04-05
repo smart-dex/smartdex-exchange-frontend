@@ -1,5 +1,5 @@
-import React, { useCallback, useContext, useMemo, useState } from 'react'
-import styled, { ThemeContext } from 'styled-components'
+import React, { useCallback, useMemo, useState } from 'react'
+import styled from 'styled-components'
 import { splitSignature } from '@ethersproject/bytes'
 import { Contract } from '@ethersproject/contracts'
 import { TransactionResponse } from '@ethersproject/providers'
@@ -99,7 +99,7 @@ const TextHeaderStyle = styled(Text)`
 `
 
 const ButtonStyle = styled(Button)`
-  color: ${ baseColors.primary};
+  color: ${baseColors.primary};
   font-size: 12px;
   padding: 0 12px;
   height: 45px;
@@ -110,27 +110,29 @@ const ButtonStyle = styled(Button)`
   }
 `
 
-const handleBgDarkMode = (theme)=>(
-  theme.isDark ? darkColors.buttonView : lightColors.buttonView
-)
+const handleBgDarkMode = (theme) => (theme.isDark ? darkColors.buttonView : lightColors.buttonView)
 
-const handleColorDarkMode = (theme)=>(
-  theme.isDark ? darkColors.fontPlaceholder : '#8F8FA0'
-)
+const handleColorDarkMode = (theme) => (theme.isDark ? darkColors.fontPlaceholder : '#8F8FA0')
 
 const ButtonClick = styled(Button)`
   height: 45px;
   font-size: 12px;
-  background: ${({disabled, theme }) => disabled ? handleBgDarkMode(theme) : baseColors.primary} !important;
-  color: ${({disabled, theme }) => disabled ? handleColorDarkMode(theme) : lightColors.invertedContrast} !important;
-${({ theme }) => theme.mediaQueries.nav} {
-  font-size: 16px;
-  padding: 0 24px;
-  height: 56px;
-}
+  background: ${({ disabled, theme }) => (disabled ? handleBgDarkMode(theme) : baseColors.primary)} !important;
+  color: ${({ disabled, theme }) => (disabled ? handleColorDarkMode(theme) : lightColors.invertedContrast)} !important;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 16px;
+    padding: 0 24px;
+    height: 56px;
+  }
 `
 
 const ArrowDownStyle = styled(ArrowDown)`
+  margin: 8px;
+  stroke: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+`
+
+const PlusStyle = styled(Plus)`
+  margin: 8px;
   stroke: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
 `
 
@@ -148,7 +150,6 @@ export default function RemoveLiquidity({
     chainId,
   ])
 
-  const theme = useContext(ThemeContext)
 
   // burn state
   const { independentField, typedValue } = useBurnState()
@@ -416,7 +417,7 @@ export default function RemoveLiquidity({
           </RowFixed>
         </RowBetween>
         <RowFixed>
-          <Plus size="16" color={theme.colors.textSubtle} />
+          <PlusStyle size="16" />
         </RowFixed>
         <RowBetween align="flex-end">
           <TextStyle fontSize="24px">{parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)}</TextStyle>
@@ -463,7 +464,15 @@ export default function RemoveLiquidity({
             </RowBetween>
           </>
         )}
-        <ButtonClick disabled={!(approval === ApprovalState.APPROVED || signatureData !== null)} onClick={onRemove} style={{ background: !(approval === ApprovalState.APPROVED || signatureData !== null) ? '#E9EAEB' : baseColors.primary}}>
+        <ButtonClick
+          disabled={!(approval === ApprovalState.APPROVED || signatureData !== null)}
+          onClick={onRemove}
+          style={{
+            background: !(approval === ApprovalState.APPROVED || signatureData !== null)
+              ? '#E9EAEB'
+              : baseColors.primary,
+          }}
+        >
           Confirm
         </ButtonClick>
       </>
@@ -568,13 +577,25 @@ export default function RemoveLiquidity({
                         <Slider value={innerLiquidityPercentage} onChange={setInnerLiquidityPercentage} />
                       </FlexStyle>
                       <FlexStyle justifyContent="space-around">
-                        <ButtonStyle variant="tertiary" size="sm" onClick={() => onUserInput(Field.LIQUIDITY_PERCENT, '25')}>
+                        <ButtonStyle
+                          variant="tertiary"
+                          size="sm"
+                          onClick={() => onUserInput(Field.LIQUIDITY_PERCENT, '25')}
+                        >
                           25%
                         </ButtonStyle>
-                        <ButtonStyle variant="tertiary" size="sm" onClick={() => onUserInput(Field.LIQUIDITY_PERCENT, '50')}>
+                        <ButtonStyle
+                          variant="tertiary"
+                          size="sm"
+                          onClick={() => onUserInput(Field.LIQUIDITY_PERCENT, '50')}
+                        >
                           50%
                         </ButtonStyle>
-                        <ButtonStyle variant="tertiary" size="sm" onClick={() => onUserInput(Field.LIQUIDITY_PERCENT, '75')}>
+                        <ButtonStyle
+                          variant="tertiary"
+                          size="sm"
+                          onClick={() => onUserInput(Field.LIQUIDITY_PERCENT, '75')}
+                        >
                           75%
                         </ButtonStyle>
                         <ButtonStyle
@@ -658,7 +679,7 @@ export default function RemoveLiquidity({
                     id="liquidity-amount"
                   />
                   <ColumnCenter>
-                    <ArrowDown size="16" color={theme.colors.textSubtle} />
+                    <ArrowDownStyle size="16" />
                   </ColumnCenter>
                   <CurrencyInputPanel
                     hideBalance
@@ -672,7 +693,7 @@ export default function RemoveLiquidity({
                     id="remove-liquidity-tokena"
                   />
                   <ColumnCenter>
-                    <Plus size="16" color={theme.colors.textSubtle} />
+                    <PlusStyle size="16" />
                   </ColumnCenter>
                   <CurrencyInputPanel
                     hideBalance
@@ -714,7 +735,7 @@ export default function RemoveLiquidity({
                     style={{ width: '100%' }}
                   />
                 ) : (
-                  <RowBetween style={{padding: '0px 8px'}}>
+                  <RowBetween style={{ padding: '0px 8px' }}>
                     <ButtonClick
                       onClick={onAttemptToApprove}
                       variant={approval === ApprovalState.APPROVED || signatureData !== null ? 'success' : '#0085FF'}

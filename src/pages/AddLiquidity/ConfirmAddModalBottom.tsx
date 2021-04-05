@@ -9,7 +9,7 @@ import { Field } from '../../state/mint/actions'
 
 
 const TextStyle = styled(Text)`
-font-size: 10px;
+font-size: 12px;
 line-height: 20px;
 padding: 0;
 font-weight: 500;
@@ -23,6 +23,14 @@ ${({ theme }) => theme.mediaQueries.nav} {
 
 const ButtonStyle = styled(Button)`
   background: ${ baseColors.primary};
+  font-size: 12px;
+  padding: 0 12px;
+  height: 45px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 16px;
+    padding: 0 24px;
+    height: 56px;
+  }
 `
 
 export function ConfirmAddModalBottom({

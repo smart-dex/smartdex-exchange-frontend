@@ -19,6 +19,13 @@ const LinkExternalStyle = styled(LinkExternal)`
 
 const ButtonStyle = styled(Button)`
   background: ${ baseColors.primary};
+  font-size: 12px;
+  height: 45px;
+  padding: 0 24px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 16px;
+    height: 56px;
+  }
 `
 
 const WrapperStyle = styled(Wrapper)`
