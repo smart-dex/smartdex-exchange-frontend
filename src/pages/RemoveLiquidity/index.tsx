@@ -742,7 +742,7 @@ export default function RemoveLiquidity({
                     style={{ width: '100%' }}
                   />
                 ) : (
-                  <RowBetween style={{ padding: '0px 8px' }}>
+                  <RowBetween style={{ padding: '20px 8px' }}>
                     <ButtonClick
                       onClick={onAttemptToApprove}
                       variant={approval === ApprovalState.APPROVED || signatureData !== null ? 'success' : '#0085FF'}
