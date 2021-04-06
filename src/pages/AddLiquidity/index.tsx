@@ -379,6 +379,13 @@ export default function AddLiquidity({
     setTxHash('')
   }, [onFieldAInput, txHash])
 
+  const [valueDefaultA, setValueDefaultA ] = useState(formattedAmounts[Field.CURRENCY_A])
+  const [valueDefaultB, setValueDefaultB ] = useState(formattedAmounts[Field.CURRENCY_B])
+
+  useEffect(() => {
+    setValueDefaultA('');
+    setValueDefaultB('');
+  }, [])
  
   return (
     <>
@@ -421,9 +428,10 @@ export default function AddLiquidity({
                 </ColumnCenter>
               )}
               <CurrencyInputPanel
-                value={formattedAmounts[Field.CURRENCY_A]}
-                onUserInput={onFieldAInput}
+                value={valueDefaultA}
+                onUserInput={(value: string) => {setValueDefaultA(value); onFieldAInput(value)}}
                 onMax={() => {
+                  setValueDefaultA(maxAmounts[Field.CURRENCY_A]?.toExact() ?? '')
                   onFieldAInput(maxAmounts[Field.CURRENCY_A]?.toExact() ?? '')
                 }}
                 onCurrencySelect={handleCurrencyASelect}
@@ -438,10 +446,11 @@ export default function AddLiquidity({
                 </StyleIcon>
               </ColumnCenter>
               <CurrencyInputPanel
-                value={formattedAmounts[Field.CURRENCY_B]}
-                onUserInput={onFieldBInput}
+                value={valueDefaultB}
+                onUserInput={(value: string) => {setValueDefaultB(value); onFieldBInput(value)}}
                 onCurrencySelect={handleCurrencyBSelect}
                 onMax={() => {
+                  setValueDefaultB(maxAmounts[Field.CURRENCY_B]?.toExact() ?? '')
                   onFieldBInput(maxAmounts[Field.CURRENCY_B]?.toExact() ?? '')
                 }}
                 showMaxButton={!atMaxAmounts[Field.CURRENCY_B]}
