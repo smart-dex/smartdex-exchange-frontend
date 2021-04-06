@@ -129,7 +129,7 @@ export default function CurrencyInputPanel({
               <TextStyle fontSize="14px">{label}</TextStyle>
               {account && (
                 <TextStyle onClick={onMax} fontSize="14px" style={{ display: 'inline', cursor: 'pointer' }}>
-                  {!hideBalance && !!currency && selectedCurrencyBalance
+                  {!!currency && selectedCurrencyBalance
                     ? `Balance: ${  selectedCurrencyBalance?.toSignificant(8)}`
                     : ' -'}
                 </TextStyle>
