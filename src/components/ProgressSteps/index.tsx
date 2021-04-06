@@ -17,7 +17,7 @@ const Circle = styled.div<{ confirmed?: boolean; disabled?: boolean }>`
   min-width: 20px;
   min-height: 20px;
   background-color: ${({ theme, confirmed, disabled }) =>
-    disabled ? theme.colors.backgroundDisabled : confirmed ? theme.colors.success : baseColors.primary};
+    disabled ? theme.colors.backgroundDisabled : confirmed ? baseColors.primary : baseColors.primary};
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@ const Circle = styled.div<{ confirmed?: boolean; disabled?: boolean }>`
   line-height: 8px;
   font-size: 12px;
   color: ${({ theme, confirmed, disabled }) =>
-    disabled ? theme.colors.text : confirmed ? theme.colors.success : '#FFFFFF'};
+    disabled ? theme.colors.text : confirmed ? '#FFFFFF' : '#FFFFFF'};
 `
 
 const CircleRow = styled.div`
