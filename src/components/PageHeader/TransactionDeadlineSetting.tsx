@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { lightColors } from 'style/Color'
+import { lightColors, darkColors } from 'style/Color'
 import { Input, Text } from 'uikit-sotatek'
+import NumberFormat from 'react-number-format';
 import { useUserDeadline } from 'state/user/hooks'
 import QuestionHelper from '../QuestionHelper'
 import TranslatedText from '../TranslatedText'
@@ -37,6 +38,7 @@ const TextStyle = styled(Text)`
 `
 
 const StyleInput = styled(Text)`
+  margin-left: 0px !important;
   input {
     height: 48px;
     font-size: 13px;
@@ -44,6 +46,15 @@ const StyleInput = styled(Text)`
     ${({ theme }) => theme.mediaQueries.sm} {
       font-size: 16px;
     }
+
+    background-color: ${({ theme }) => (theme.isDark ? darkColors.backInputPercent : lightColors.backInputPercent)};
+    border: 0px;
+    border-radius: 16px;
+    display: block;
+    height: 48px;
+    outline: 0px;
+    padding: 0px 16px;
+    width: 100%;
   }
 `
 
@@ -81,7 +92,16 @@ const TransactionDeadlineSetting = () => {
         <QuestionHelper text="Your transaction will revert if it is pending for more than this long." />
       </Label>
       <Field>
-        <StyleInput><Input type="number" step="1" min="1" value={value} onChange={handleChange} /></StyleInput>
+        <StyleInput>
+          <NumberFormat
+            min={1}
+            value={value}
+            onChange={handleChange}
+            thousandSeparator=""
+            allowNegative={false}
+            decimalScale={0}
+          />
+        </StyleInput>
         <TextStyle>Minutes</TextStyle>
       </Field>
       {error && (
