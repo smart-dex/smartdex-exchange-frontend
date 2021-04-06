@@ -61,8 +61,8 @@ export const Input = React.memo(function InnerInput({
       onUserInput(nextUserInput)
     }
   }
-  
 
+  
   return (
     <StyledInput
       {...rest}

@@ -379,14 +379,26 @@ export default function AddLiquidity({
     setTxHash('')
   }, [onFieldAInput, txHash])
 
-  const [valueDefaultA, setValueDefaultA ] = useState(formattedAmounts[Field.CURRENCY_A])
-  const [valueDefaultB, setValueDefaultB ] = useState(formattedAmounts[Field.CURRENCY_B])
+  const formattedAmountsB = formattedAmounts[Field.CURRENCY_B];
+  const formattedAmountsA = formattedAmounts[Field.CURRENCY_A];
+  const [valueDefaultA, setValueDefaultA ] = useState(formattedAmountsB)
+  const [valueDefaultB, setValueDefaultB ] = useState(formattedAmountsA)
+
+  useEffect(() => {
+    setValueDefaultA(formattedAmountsA)
+  }, [formattedAmountsA])
+
+  useEffect(() => {
+    setValueDefaultB(formattedAmountsB)
+  }, [formattedAmountsB])
 
   useEffect(() => {
     setValueDefaultA('');
     setValueDefaultB('');
   }, [])
- 
+
+
+  
   return (
     <>
       <CardNav activeIndex={1} />
