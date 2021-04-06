@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { lightColors, darkColors } from 'style/Color'
 import { escapeRegExp } from '../../utils'
@@ -61,12 +61,22 @@ export const Input = React.memo(function InnerInput({
       onUserInput(nextUserInput)
     }
   }
+  const [valueInput, setValue] = useState(value)
+  
+  const handleOnChange = (event) => {
+    setValue(event.target.value)
+  }
+
+  useEffect(() => {
+    setValue('')
+  }, [])
 
   return (
     <StyledInput
       {...rest}
-      value={value}
+      value={valueInput}
       onChange={(event) => {
+        handleOnChange(event)
         // replace commas with periods, because uniswap exclusively uses period as the decimal separator
         enforcer(event.target.value.replace(/,/g, '.'))
       }}

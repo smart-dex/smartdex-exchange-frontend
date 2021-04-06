@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
 import styled from 'styled-components'
@@ -258,6 +258,14 @@ export default function AddLiquidity({
     }
   `
 
+  const StyleIcon = styled(UIKitText)`
+    svg {
+      width: 12px;
+      path {
+        fill: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+      }
+    }
+  `
 
   const handleBgDarkMode = (theme) => (theme.isDark ? darkColors.buttonView : lightColors.buttonView)
 
@@ -371,15 +379,7 @@ export default function AddLiquidity({
     setTxHash('')
   }, [onFieldAInput, txHash])
 
-  const StyleIcon = styled(UIKitText)`
-    svg {
-      width: 12px;
-      path {
-        fill: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
-      }
-    }
-  `
-
+ 
   return (
     <>
       <CardNav activeIndex={1} />
