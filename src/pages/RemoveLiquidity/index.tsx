@@ -143,6 +143,44 @@ ${({ theme }) => theme.mediaQueries.nav} {
 }
 `
 
+const TextPrice = styled(TextSmall)`
+  position: relative;
+  display: inline-block;
+  &:hover {
+    div {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+`
+
+const ToolTipHover = styled.div`
+  visibility: hidden;
+  background-color: ${({ theme }) => (theme.isDark ? darkColors.buttonView : lightColors.buttonView)};
+  color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 12px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 13px;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: ${({ theme }) => (theme.isDark ? darkColors.buttonView : lightColors.buttonView)} transparent transparent transparent;
+  }
+`
+
 export default function RemoveLiquidity({
   history,
   match: {
@@ -446,13 +484,25 @@ export default function RemoveLiquidity({
   }
 
   function modalBottom() {
+    const handlePrice = (priceValue) => {
+      const priceString = priceValue?.toSignificant(6).toString()
+      let priceNew = priceString
+      if (priceString && priceString.length > 4) {
+        priceNew = `${priceString.slice(0, 4)}...`
+      }
+  
+      return priceNew
+    }
     return (
       <>
         <RowBetween>
           <TextSmall color="textSubtle">{`FLIP ${currencyA?.symbol}/${currencyB?.symbol}`} Burned</TextSmall>
           <RowFixed>
             <DoubleCurrencyLogo currency0={currencyA} currency1={currencyB}  />
-            <TextSmall style={{ paddingLeft:'4px'}}>{parsedAmounts[Field.LIQUIDITY]?.toSignificant(6)}</TextSmall>
+            <TextPrice style={{ paddingLeft:'4px'}}>
+            {handlePrice(parsedAmounts[Field.LIQUIDITY]) ?? '-'}
+              <ToolTipHover>{parsedAmounts[Field.LIQUIDITY]?.toSignificant(6)}</ToolTipHover>
+            </TextPrice>
           </RowFixed>
         </RowBetween>
         {pair && (
