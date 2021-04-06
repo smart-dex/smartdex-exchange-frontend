@@ -136,6 +136,13 @@ const PlusStyle = styled(Plus)`
   stroke: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
 `
 
+const TextSmall = styled(TextStyle)`
+font-size: 12px;
+${({ theme }) => theme.mediaQueries.nav} {
+  font-size: 16px;
+}
+`
+
 export default function RemoveLiquidity({
   history,
   match: {
@@ -442,25 +449,25 @@ export default function RemoveLiquidity({
     return (
       <>
         <RowBetween>
-          <TextStyle color="textSubtle">{`FLIP ${currencyA?.symbol}/${currencyB?.symbol}`} Burned</TextStyle>
+          <TextSmall color="textSubtle">{`FLIP ${currencyA?.symbol}/${currencyB?.symbol}`} Burned</TextSmall>
           <RowFixed>
-            <DoubleCurrencyLogo currency0={currencyA} currency1={currencyB} margin />
-            <TextStyle>{parsedAmounts[Field.LIQUIDITY]?.toSignificant(6)}</TextStyle>
+            <DoubleCurrencyLogo currency0={currencyA} currency1={currencyB}  />
+            <TextSmall style={{ paddingLeft:'4px'}}>{parsedAmounts[Field.LIQUIDITY]?.toSignificant(6)}</TextSmall>
           </RowFixed>
         </RowBetween>
         {pair && (
           <>
             <RowBetween>
-              <TextStyle color="textSubtle">Price</TextStyle>
-              <TextStyle>
+              <TextSmall color="textSubtle">Price</TextSmall>
+              <TextSmall>
                 1 {currencyA?.symbol} = {tokenA ? pair.priceOf(tokenA).toSignificant(6) : '-'} {currencyB?.symbol}
-              </TextStyle>
+              </TextSmall>
             </RowBetween>
             <RowBetween>
               <div />
-              <TextStyle>
+              <TextSmall>
                 1 {currencyB?.symbol} = {tokenB ? pair.priceOf(tokenB).toSignificant(6) : '-'} {currencyA?.symbol}
-              </TextStyle>
+              </TextSmall>
             </RowBetween>
           </>
         )}
