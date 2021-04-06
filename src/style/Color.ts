@@ -51,6 +51,7 @@ export const baseColors = {
     boederInput: '#E2E2E8',
     buttonView: '#E8E8EB',
     boxShadow: 'rgba(239, 239, 239, 0.24)',
+    backInputPercent: 'rgb(238, 234, 244)',
   }
   
   export const darkColors = {
@@ -92,5 +93,6 @@ export const baseColors = {
     borderTop: '#181E31',
     buttonView: '#2A3145',
     boxShadow: 'rgba(46, 52, 69, 0.24)',
+    backInputPercent: 'rgb(72, 63, 90)',
   }
   

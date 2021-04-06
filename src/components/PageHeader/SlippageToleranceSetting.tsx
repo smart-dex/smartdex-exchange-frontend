@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Button, Flex, Input, Text } from 'uikit-sotatek'
+import { Button, Flex, Text } from 'uikit-sotatek'
+import NumberFormat from 'react-number-format';
 import { useUserSlippageTolerance } from 'state/user/hooks'
-import { lightColors, baseColors } from 'style/Color'
+import { lightColors, baseColors, darkColors } from 'style/Color'
 import QuestionHelper from '../QuestionHelper'
 import TranslatedText from '../TranslatedText'
 
@@ -68,6 +69,17 @@ const StyleInput = styled(Text)`
     ${({ theme }) => theme.mediaQueries.sm} {
       font-size: 16px;
     }
+    background-color: ${({ theme }) => (theme.isDark ? darkColors.backInputPercent : lightColors.backInputPercent)};
+    border: 0px;
+    border-radius: 16px;
+    display: block;
+    height: 48px;
+    outline: 0px;
+    padding: 0px 16px;
+    width: 100%;
+  }
+  .error {
+    box-shadow: rgb(237, 75, 158) 0px 0px 0px 1px, rgba(237, 75, 158, 0.2) 0px 0px 0px 4px;
   }
 `
 
@@ -152,15 +164,14 @@ const SlippageToleranceSettings = () => {
         <Flex alignItems="center">
           <Option>
             <StyleInput>
-              <Input
-                type="number"
-                scale="lg"
-                step={0.1}
+              <NumberFormat
                 min={0.1}
-                placeholder="5%"
                 value={value}
+                placeholder="5%"
                 onChange={handleChange}
-                isWarning={error !== null}
+                thousandSeparator=""
+                allowNegative={false}
+                className={error ? "error" : ""}
               />
             </StyleInput>
           </Option>
