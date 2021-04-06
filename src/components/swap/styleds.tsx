@@ -3,6 +3,7 @@ import React from 'react'
 import { AlertTriangle } from 'react-feather'
 import { Text } from 'uikit-sotatek'
 import styled, { css } from 'styled-components'
+import { baseColors } from 'style/Color'
 import { AutoColumn } from '../Column'
 
 export const Wrapper = styled.div`
@@ -129,8 +130,8 @@ export function SwapCallbackError({ error }: { error: string }) {
 }
 
 export const SwapShowAcceptChanges = styled(AutoColumn)`
-  background-color: ${({ theme }) => transparentize(0.9, theme.colors.primary)};
-  color: ${({ theme }) => theme.colors.primary};
+  background-color: #E8F3FB;
+  color: ${baseColors.primary};
   padding: 0.5rem;
   border-radius: 12px;
   margin-top: 8px;
