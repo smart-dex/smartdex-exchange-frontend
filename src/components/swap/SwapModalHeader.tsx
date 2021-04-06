@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from 'react'
 import styled, { ThemeContext } from 'styled-components'
 import { Trade, TradeType } from '@sotatek-anhdao/smartdex-sdk'
-import { darkColors, lightColors } from 'style/Color'
+import { darkColors, lightColors, baseColors } from 'style/Color'
 import { Button, Text } from 'uikit-sotatek'
 import { ArrowDown, AlertTriangle } from 'react-feather'
 import { Field } from '../../state/swap/actions'
@@ -28,6 +28,19 @@ const TextStyle = styled(Text)`
 
 const ArrowDownStyle = styled(ArrowDown)`
   color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+`
+
+const ButtonStyle = styled(Button)`
+  background: ${ baseColors.primary};
+  color: '#fff;
+  font-size: 12px;
+  padding: 0 12px;
+  height: 45px;
+  ${({ theme }) => theme.mediaQueries.nav} {
+    font-size: 16px;
+    padding: 0 24px;
+    height: 56px;
+  }
 `
 
 export default function SwapModalHeader({
@@ -104,7 +117,7 @@ export default function SwapModalHeader({
               <AlertTriangle size={20} style={{ marginRight: '8px', minWidth: 24 }} />
               <TextStyle color="primary"> Price Updated</TextStyle>
             </RowFixed>
-            <Button onClick={onAcceptChanges}>Accept</Button>
+            <ButtonStyle onClick={onAcceptChanges}>Accept</ButtonStyle>
           </RowBetween>
         </SwapShowAcceptChanges>
       ) : null}
