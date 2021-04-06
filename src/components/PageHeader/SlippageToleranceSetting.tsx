@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Button, Flex, Input, Text } from 'uikit-sotatek'
+import { Button, Flex, Text } from 'uikit-sotatek'
 import NumberFormat from 'react-number-format';
 import { useUserSlippageTolerance } from 'state/user/hooks'
 import { lightColors, baseColors, darkColors } from 'style/Color'
