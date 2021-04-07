@@ -5,7 +5,7 @@ import { lightColors, darkColors } from 'style/Color'
 import { ButtonMenu, ButtonMenuItem } from 'uikit-sotatek'
 
 const StyledNav = styled.div`
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   ${({ theme }) => theme.mediaQueries.nav} {
     margin-bottom: 0px;
     width: 218px;

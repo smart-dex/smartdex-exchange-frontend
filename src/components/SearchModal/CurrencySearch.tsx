@@ -2,7 +2,6 @@ import { Currency, ETHER, Token } from '@sotatek-anhdao/smartdex-sdk'
 import React, { KeyboardEvent, RefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Text } from 'uikit-sotatek'
 import { useSelector } from 'react-redux'
-import { useTranslation } from 'react-i18next'
 import { FixedSizeList } from 'react-window'
 import styled from 'styled-components'
 import AutoSizer from 'react-virtualized-auto-sizer'
@@ -121,7 +120,6 @@ export function CurrencySearch({
   isOpen,
   onChangeList,
 }: CurrencySearchProps) {
-  const { t } = useTranslation()
   const { chainId } = useActiveWeb3React()
 
   const fixedList = useRef<FixedSizeList>()
