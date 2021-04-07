@@ -52,6 +52,7 @@ export const baseColors = {
     buttonView: '#E8E8EB',
     boxShadow: 'rgba(239, 239, 239, 0.24)',
     backInputPercent: 'rgb(238, 234, 244)',
+    colorInputTrade: 'rgb(69, 42, 122)',
   }
   
   export const darkColors = {
@@ -94,5 +95,6 @@ export const baseColors = {
     buttonView: '#2A3145',
     boxShadow: 'rgba(46, 52, 69, 0.24)',
     backInputPercent: 'rgb(72, 63, 90)',
+    colorInputTrade: 'rgb(234, 226, 252)',
   }
   

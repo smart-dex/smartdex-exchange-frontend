@@ -4,12 +4,12 @@ import NumberFormat from 'react-number-format';
 import { lightColors, darkColors } from 'style/Color'
 import { escapeRegExp } from '../../utils'
 
-const StyledInput = styled.div<{ error?: boolean; fontSize?: string; align?: string }>`
+const StyledInput = styled.div`
   width: 0px;
   flex: 1 1 auto;
   input {
     width: 100%;
-    color: ${({ error, theme }) => (error ? theme.colors.failure : theme.colors.text)};
+    color: ${({ theme }) => (theme.isDark ? darkColors.colorInputTrade : lightColors.colorInputTrade)};
     position: relative;
     font-weight: 500;
     outline: none;
@@ -17,7 +17,6 @@ const StyledInput = styled.div<{ error?: boolean; fontSize?: string; align?: str
     flex: 1 1 auto;
     background-color: transparent;
     font-size: 16px;
-    text-align: ${({ align }) => align && align};
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -52,14 +51,10 @@ const inputRegex = RegExp(`^\\d*(?:\\\\[.])?\\d*$`) // match escaped "." charact
 export const Input = React.memo(function InnerInput({
   value,
   onUserInput,
-  placeholder,
-  ...rest
+  placeholder
 }: {
   value: string | number
   onUserInput: (input: string) => void
-  error?: boolean
-  fontSize?: string
-  align?: 'right' | 'left'
 } & Omit<React.HTMLProps<HTMLInputElement>, 'ref' | 'onChange' | 'as'>) {
   const enforcer = (nextUserInput: string) => {
     if (nextUserInput === '' || inputRegex.test(escapeRegExp(nextUserInput))) {
