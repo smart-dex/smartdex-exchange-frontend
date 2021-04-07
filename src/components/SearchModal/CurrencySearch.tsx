@@ -242,7 +242,7 @@ export function CurrencySearch({
         <SearchInputToken
           type="text"
           id="token-search-input"
-          placeholder={t('tokenSearchPlaceholder')}
+          placeholder={TranslateString(158, 'Search name or paste address ')}
           value={searchQuery}
           ref={inputRef as RefObject<HTMLInputElement>}
           onChange={handleInput}
