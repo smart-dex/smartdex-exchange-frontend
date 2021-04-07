@@ -379,23 +379,24 @@ export default function AddLiquidity({
     setTxHash('')
   }, [onFieldAInput, txHash])
 
-  const formattedAmountsB = formattedAmounts[Field.CURRENCY_B];
-  const formattedAmountsA = formattedAmounts[Field.CURRENCY_A];
-  const [valueDefaultA, setValueDefaultA ] = useState(formattedAmountsB)
-  const [valueDefaultB, setValueDefaultB ] = useState(formattedAmountsA)
+  // const formattedAmountsB = formattedAmounts[Field.CURRENCY_B];
+  // const formattedAmountsA = formattedAmounts[Field.CURRENCY_A];
+  // const [valueDefaultA, setValueDefaultA ] = useState(formattedAmountsB)
+  // const [valueDefaultB, setValueDefaultB ] = useState(formattedAmountsA)
 
-  useEffect(() => {
-    setValueDefaultA(formattedAmountsA)
-  }, [formattedAmountsA])
+  // useEffect(() => {
+  //   setValueDefaultA(formattedAmountsA)
+  // }, [formattedAmountsA])
 
-  useEffect(() => {
-    setValueDefaultB(formattedAmountsB)
-  }, [formattedAmountsB])
+  // useEffect(() => {
+  //   setValueDefaultB(formattedAmountsB)
+  // }, [formattedAmountsB])
 
-  useEffect(() => {
-    setValueDefaultA('');
-    setValueDefaultB('');
-  }, [])
+  // useEffect(() => {
+  //   onFieldBInput('')
+  //   setValueDefaultA('');
+  //   setValueDefaultB('');
+  // }, [])
 
   
   return (
@@ -439,10 +440,9 @@ export default function AddLiquidity({
                 </ColumnCenter>
               )}
               <CurrencyInputPanel
-                value={valueDefaultA}
-                onUserInput={(value: string) => {setValueDefaultA(value); onFieldAInput(value)}}
+                value={formattedAmounts[Field.CURRENCY_A]}
+                onUserInput={onFieldAInput}
                 onMax={() => {
-                  setValueDefaultA(maxAmounts[Field.CURRENCY_A]?.toExact() ?? '')
                   onFieldAInput(maxAmounts[Field.CURRENCY_A]?.toExact() ?? '')
                 }}
                 onCurrencySelect={handleCurrencyASelect}
@@ -457,11 +457,10 @@ export default function AddLiquidity({
                 </StyleIcon>
               </ColumnCenter>
               <CurrencyInputPanel
-                value={valueDefaultA ==='' ? '' : valueDefaultB}
-                onUserInput={(value: string) => { setValueDefaultB(value); onFieldBInput(value)}}
+                value={formattedAmounts[Field.CURRENCY_B]}
+                onUserInput={onFieldBInput}
                 onCurrencySelect={handleCurrencyBSelect}
                 onMax={() => {
-                  setValueDefaultB(maxAmounts[Field.CURRENCY_B]?.toExact() ?? '')
                   onFieldBInput(maxAmounts[Field.CURRENCY_B]?.toExact() ?? '')
                 }}
                 showMaxButton={!atMaxAmounts[Field.CURRENCY_B]}
