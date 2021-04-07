@@ -565,7 +565,7 @@ const Swap = () => {
                 {showApproveFlow && <ProgressSteps steps={[approval === ApprovalState.APPROVED]} />}
                 {isExpertMode && swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}
               </BottomGrouping>
-              {trade && <AdvancedSwapDetailsDropdown trade={trade} />}
+              {wrapType !== 1 && trade && <AdvancedSwapDetailsDropdown trade={trade} />}
             </CardBodyStyle>
           </Wrapper>
         </BodyStyle>
