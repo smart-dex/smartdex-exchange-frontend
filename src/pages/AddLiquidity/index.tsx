@@ -397,7 +397,6 @@ export default function AddLiquidity({
     setValueDefaultB('');
   }, [])
 
-
   
   return (
     <>
@@ -441,7 +440,7 @@ export default function AddLiquidity({
               )}
               <CurrencyInputPanel
                 value={valueDefaultA}
-                onUserInput={(value: string) => {setValueDefaultA(value); onFieldAInput(value)}}
+                onUserInput={(value: string) => {onFieldAInput(value)}}
                 onMax={() => {
                   setValueDefaultA(maxAmounts[Field.CURRENCY_A]?.toExact() ?? '')
                   onFieldAInput(maxAmounts[Field.CURRENCY_A]?.toExact() ?? '')
@@ -458,8 +457,8 @@ export default function AddLiquidity({
                 </StyleIcon>
               </ColumnCenter>
               <CurrencyInputPanel
-                value={valueDefaultB}
-                onUserInput={(value: string) => {setValueDefaultB(value); onFieldBInput(value)}}
+                value={valueDefaultA ==='' ? '' : valueDefaultB}
+                onUserInput={(value: string) => { onFieldBInput(value)}}
                 onCurrencySelect={handleCurrencyBSelect}
                 onMax={() => {
                   setValueDefaultB(maxAmounts[Field.CURRENCY_B]?.toExact() ?? '')
