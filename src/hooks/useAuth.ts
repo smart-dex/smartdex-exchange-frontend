@@ -15,7 +15,7 @@ import { connectorsByName } from 'connectors'
 
 const useAuth = () => {
   const { activate, deactivate } = useWeb3React()
-  const { toastError } = useToast()
+  const { toastError, toastSuccess } = useToast()
 
   const login = useCallback((connectorID: ConnectorNames) => {
     const connector = connectorsByName[connectorID]
@@ -25,7 +25,8 @@ const useAuth = () => {
         if (error instanceof UnsupportedChainIdError) {
           toastError('Unsupported Chain Id', 'Unsupported Chain Id Error. Check your chain Id.')
         } else if (error instanceof NoEthereumProviderError || error instanceof NoBscProviderError) {
-          toastError('Provider Error', 'No provider was found')
+          console.log("999999999999999999999999999")
+          toastSuccess('Provider Error', 'No provider was found')
         } else if (
           error instanceof UserRejectedRequestErrorInjected ||
           error instanceof UserRejectedRequestErrorWalletConnect
