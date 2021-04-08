@@ -26,7 +26,7 @@ const useAuth = () => {
           toastError('Unsupported Chain Id', 'Unsupported Chain Id Error. Check your chain Id.')
         } else if (error instanceof NoEthereumProviderError || error instanceof NoBscProviderError) {
           console.log("999999999999999999999999999")
-          toastSuccess('Provider Error', 'No provider was found')
+          toastError('Provider Error', 'No provider was found')
         } else if (
           error instanceof UserRejectedRequestErrorInjected ||
           error instanceof UserRejectedRequestErrorWalletConnect
