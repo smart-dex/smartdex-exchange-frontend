@@ -18,6 +18,7 @@ import Menu from '../components/Menu'
 import { darkColors, lightColors } from '../style/Color'
 import Popups from '../components/Popups'
 import { listLanguage } from '../locales/index'
+import ToastListener from '../components/ToastListener'
 
 const AppWrapper = styled.div`
   display: flex;
@@ -119,11 +120,13 @@ export default function App() {
     <Suspense fallback={null}>
       <HashRouter>
         <AppWrapper>
+        <ToastListener />
           <LanguageContext.Provider
             value={{ selectedLanguage, setSelectedLanguage, translatedLanguage, setTranslatedLanguage }}
           >
             <TranslationsContext.Provider value={{ translations, setTranslations }}>
               <Menu>
+             
                 <BlockPopup>
                   <Popups />
                 </BlockPopup>
