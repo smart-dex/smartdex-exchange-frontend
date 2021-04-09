@@ -6,6 +6,7 @@ import { ConnectorId } from '@pancakeswap-libs/uikit'
 import { injected, walletconnect } from 'connectors'
 import useI18n from 'hooks/useI18n'
 import { baseColors, darkColors, lightColors } from 'style/Color'
+import useAuth from '../../hooks/useAuth'
 
 const ButtonStyle = styled.div`
 button {
@@ -29,16 +30,10 @@ button {
 
 const UnlockButton: React.FC<ButtonProps> = (props) => {
   const TranslateString = useI18n()
-  const { account, activate, deactivate } = useWeb3React()
+  const { account, deactivate } = useWeb3React()
+  const { login } = useAuth()
 
-  const handleLogin = (connectorId: ConnectorId) => {
-    if (connectorId === 'walletconnect') {
-      return activate(walletconnect)
-    }
-    return activate(injected)
-  }
-
-  const { onPresentConnectModal } = useWalletModal(handleLogin, deactivate, account as string)
+  const { onPresentConnectModal } = useWalletModal(login, deactivate, account as string)
 
   return (
     <ButtonStyle>
