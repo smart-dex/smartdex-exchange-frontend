@@ -35,8 +35,6 @@ const useAuth = () => {
             walletConnector.walletConnectProvider = null
           }
           toastError('Authorization Error', 'Please authorize to access your account')
-        } else {
-          toastError(error.name, error.message)
         }
       })
     } else {
