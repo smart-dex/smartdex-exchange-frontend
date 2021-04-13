@@ -83,17 +83,6 @@ export const Input = React.memo(function InnerInput({
 
         thousandSeparator=","
         allowNegative={false}
-        decimalScale={8}
-        isAllowed={(values) => {
-          const {floatValue} = values;
-          if (value >= 10000000000000000 && String(floatValue).length < String(value).length) {
-            return true
-          }
-          if (floatValue && floatValue >= 10000000000000000) {
-            return false;
-          }
-          return true;
-        }}
       />
     </StyledInput>
   )
