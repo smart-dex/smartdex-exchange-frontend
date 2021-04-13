@@ -379,24 +379,23 @@ export default function AddLiquidity({
     setTxHash('')
   }, [onFieldAInput, txHash])
 
-  // const formattedAmountsB = formattedAmounts[Field.CURRENCY_B];
-  // const formattedAmountsA = formattedAmounts[Field.CURRENCY_A];
-  // const [valueDefaultA, setValueDefaultA ] = useState(formattedAmountsB)
-  // const [valueDefaultB, setValueDefaultB ] = useState(formattedAmountsA)
+  const formattedAmountsB = formattedAmounts[Field.CURRENCY_B];
+  const formattedAmountsA = formattedAmounts[Field.CURRENCY_A];
+  const [valueDefaultA, setValueDefaultA ] = useState(formattedAmountsB)
+  const [valueDefaultB, setValueDefaultB ] = useState(formattedAmountsA)
 
-  // useEffect(() => {
-  //   setValueDefaultA(formattedAmountsA)
-  // }, [formattedAmountsA])
+  useEffect(() => {
+    onFieldAInput('')
+    onFieldBInput('')
+  }, [onFieldAInput, onFieldBInput])
 
-  // useEffect(() => {
-  //   setValueDefaultB(formattedAmountsB)
-  // }, [formattedAmountsB])
+  useEffect(() => {
+    setValueDefaultA(formattedAmountsA)
+  }, [formattedAmountsA])
 
-  // useEffect(() => {
-  //   onFieldBInput('')
-  //   setValueDefaultA('');
-  //   setValueDefaultB('');
-  // }, [])
+  useEffect(() => {
+    setValueDefaultB(formattedAmountsB)
+  }, [formattedAmountsB])
 
   
   return (
@@ -440,7 +439,7 @@ export default function AddLiquidity({
                 </ColumnCenter>
               )}
               <CurrencyInputPanel
-                value={formattedAmounts[Field.CURRENCY_A]}
+                value={valueDefaultA}
                 onUserInput={onFieldAInput}
                 onMax={() => {
                   onFieldAInput(maxAmounts[Field.CURRENCY_A]?.toExact() ?? '')
@@ -457,7 +456,7 @@ export default function AddLiquidity({
                 </StyleIcon>
               </ColumnCenter>
               <CurrencyInputPanel
-                value={formattedAmounts[Field.CURRENCY_B]}
+                value={valueDefaultB}
                 onUserInput={onFieldBInput}
                 onCurrencySelect={handleCurrencyBSelect}
                 onMax={() => {
