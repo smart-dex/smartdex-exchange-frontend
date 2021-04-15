@@ -132,7 +132,7 @@ const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => {
             className="not-active"
             id="pool-nav-link"
             as="a"
-            href="https://www.binance.org/en/bridge?utm_source=PancakeSwap"
+            href={`${process.env.REACT_APP_BRIDGE}`}
             target="_blank"
             rel="noreferrer noopener"
           >
