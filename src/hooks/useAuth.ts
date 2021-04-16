@@ -21,6 +21,7 @@ const useAuth = () => {
     const connector = connectorsByName[connectorID]
     if (connector) {
       activate(connector, async (error: Error) => {
+        console.log(error)
         window.localStorage.removeItem(connectorLocalStorageKey)
         if (error instanceof UnsupportedChainIdError) {
           toastError('Unsupported Chain Id', 'Unsupported Chain Id Error. Check your chain Id.')
