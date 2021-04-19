@@ -1129,7 +1129,7 @@
             "stringId": 230,
             "contentType": "text/plain",
             "translationId": 36516,
-            "text": "每次交易都將收取 0.2% 的費用。其中 0.17% 會分配給流動性提供者，另外 0.03% 則會轉入 PancakeSwap 金庫中。",
+            "text": "每次交易都將收取 0.2% 的費用。其中 0.17% 會分配給流動性提供者，另外 0.03% 則會轉入 SmartDEX 金庫中。",
             "user": {
                 "id": 13476071,
                 "username": "Kbph",
@@ -7917,6 +7917,246 @@
                 "avatarUrl": "https://www.gravatar.com/avatar/e09b1f79b720812911a2f7d11f1c145b?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
             },
             "createdAt": "2021-03-12T10:15:49+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1201,
+            "contentType": "text/plain",
+            "translationId": 12011,
+            "text": " 反正",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1203,
+            "contentType": "text/plain",
+            "translationId": 12013,
+            "text": "價格影響過高",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1205,
+            "contentType": "text/plain",
+            "translationId": 12014,
+            "text": "分鐘",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1207,
+            "contentType": "text/plain",
+            "translationId": 12015,
+            "text": "最近交易",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1209,
+            "contentType": "text/plain",
+            "translationId": 12016,
+            "text": "請連接您的錢包以查看您最近的交易",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1211,
+            "contentType": "text/plain",
+            "translationId": 12017,
+            "text": "最近沒有交易",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1212,
+            "contentType": "text/plain",
+            "translationId": 12018,
+            "text": "按用戶添加",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1213,
+            "contentType": "text/plain",
+            "translationId": 12019,
+            "text": "確認掉期",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1214,
+            "contentType": "text/plain",
+            "translationId": 12020,
+            "text": "估計輸出。 您將至少收到 ",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1215,
+            "contentType": "text/plain",
+            "translationId": 12021,
+            "text": " 否則交易將恢復。",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1216,
+            "contentType": "text/plain",
+            "translationId": 12022,
+            "text": "估計輸入。您最多將出售 ",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1217,
+            "contentType": "text/plain",
+            "translationId": 12023,
+            "text": "等待確認中",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1218,
+            "contentType": "text/plain",
+            "translationId": 12024,
+            "text": "在您的錢包中確認此交易",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1219,
+            "contentType": "text/plain",
+            "translationId": 12025,
+            "text": "解雇",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1220,
+            "contentType": "text/plain",
+            "translationId": 12026,
+            "text": "交易已提交",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1221,
+            "contentType": "text/plain",
+            "translationId": 12027,
+            "text": "通過地址找到",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
         }
     }
 ]

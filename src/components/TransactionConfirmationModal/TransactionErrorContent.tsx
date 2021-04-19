@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Button, Text } from 'uikit-sotatek'
 import { AlertTriangle } from 'react-feather'
 import { baseColors, darkColors, lightColors } from 'style/Color'
+import { TranslateString } from 'utils/translateTextHelpers'
 import { AutoColumn } from '../Column'
 import { Wrapper, Section, BottomSection, ContentHeader } from './helpers'
 
@@ -41,7 +42,7 @@ const TransactionErrorContent = ({ message, onDismiss }: TransactionErrorContent
         </AutoColumn>
       </Section>
       <BottomSection gap="12px">
-        <ButtonStyle  onClick={onDismiss} style={{ background: baseColors.primary}}>Dismiss</ButtonStyle>
+        <ButtonStyle  onClick={onDismiss} style={{ background: baseColors.primary}}>{TranslateString(1219, "Dismiss")}</ButtonStyle>
       </BottomSection>
     </WrapperStyle>
   )

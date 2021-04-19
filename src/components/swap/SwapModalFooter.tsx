@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { Text , Button } from 'uikit-sotatek'
 import { Repeat } from 'react-feather'
 
+import { TranslateString } from 'utils/translateTextHelpers'
 import { Field } from '../../state/swap/actions'
 import {
   computeSlippageAdjustedAmounts,
@@ -77,7 +78,7 @@ export default function SwapModalFooter({
     <>
       <AutoColumn gap="0px">
         <RowBetween align="center">
-          <TextStyle fontSize="14px">Price</TextStyle>
+          <TextStyle fontSize="14px">{TranslateString(1182, "Price")}</TextStyle>
           <TextStyle
             fontSize="14px"
             style={{
@@ -99,9 +100,9 @@ export default function SwapModalFooter({
         <RowBetween>
           <RowFixed>
             <TextStyle fontSize="14px">
-              {trade.tradeType === TradeType.EXACT_INPUT ? 'Minimum received' : 'Maximum sold'}
+              {trade.tradeType === TradeType.EXACT_INPUT ? TranslateString(1210, "Minimum received") : TranslateString(220, "Maximum sold")}
             </TextStyle>
-            <QuestionHelper text="Your transaction will revert if there is a large, unfavorable price movement before it is confirmed." />
+            <QuestionHelper text={TranslateString(202, "Your transaction will revert if there is a large, unfavorable price movement before it is confirmed.")} />
           </RowFixed>
           <RowFixed>
             <TextStyle fontSize="14px">
@@ -118,15 +119,15 @@ export default function SwapModalFooter({
         </RowBetween>
         <RowBetween>
           <RowFixed>
-            <TextStyle fontSize="14px">Price Impact</TextStyle>
-            <QuestionHelper text="The difference between the market price and your price due to trade size." />
+            <TextStyle fontSize="14px">{TranslateString(226, "Price Impact")}</TextStyle>
+            <QuestionHelper text={TranslateString(224, "The difference between the market price and estimated price due to trade size.")} />
           </RowFixed>
           <FormattedPriceImpact priceImpact={priceImpactWithoutFee} />
         </RowBetween>
         <RowBetween>
           <RowFixed>
-            <TextStyle fontSize="14px">Liquidity Provider Fee</TextStyle>
-            <QuestionHelper text="For each trade a 0.2% fee is paid. 0.17% goes to liquidity providers and 0.03% goes to the SmartDEX treasury." />
+            <TextStyle fontSize="14px">{TranslateString(228, "Liquidity Provider Fee")}</TextStyle>
+            <QuestionHelper text={TranslateString(230, "For each trade a 0.2% fee is paid. 0.17% goes to liquidity providers and 0.03% goes to the SmartDEX treasury.")}/>
           </RowFixed>
           <TextStyle fontSize="14px">
             {realizedLPFee ? `${realizedLPFee?.toSignificant(6)  } ${  trade.inputAmount.currency.symbol}` : '-'}
@@ -144,7 +145,7 @@ export default function SwapModalFooter({
           mt="10px"
           id="confirm-swap-or-send"
         >
-          {severity > 2 ? 'Swap Anyway' : 'Confirm Swap'}
+          {severity > 2 ? `${TranslateString(1142, "Swap")} ${TranslateString(1201, "Anyway")} ` : TranslateString(1213, "Confirm Swap")}
         </ButtonStyle>
 
         {swapErrorMessage ? <SwapCallbackError error={swapErrorMessage} /> : null}

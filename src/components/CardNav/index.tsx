@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { lightColors, darkColors } from 'style/Color'
 import { ButtonMenu, ButtonMenuItem } from 'uikit-sotatek'
+import TranslatedText from 'components/TranslatedText'
 
 const StyledNav = styled.div`
   margin-bottom: 16px;
@@ -156,7 +157,7 @@ const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => {
                 <TabBlock>
                   <IconTab />
                   <TextTab className={activeIndex === item.index ? 'text-active' : 'text-not-active'}>
-                    {item.text}
+                    <TranslatedText translationId={item.text === 'Liquidity' ? 262 : 284}>{item.text}</TranslatedText>
                   </TextTab>
                 </TabBlock>
               </ButtonMenuItem>

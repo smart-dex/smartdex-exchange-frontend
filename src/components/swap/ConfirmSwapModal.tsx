@@ -1,5 +1,6 @@
 import { currencyEquals, Trade } from '@sotatek-anhdao/smartdex-sdk'
 import React, { useCallback, useMemo } from 'react'
+import { TranslateString } from 'utils/translateTextHelpers'
 import TransactionConfirmationModal, {
   ConfirmationModalContent,
   TransactionErrorContent
@@ -86,7 +87,7 @@ export default function ConfirmSwapModal({
         <TransactionErrorContent onDismiss={onDismiss} message={swapErrorMessage} />
       ) : (
         <ConfirmationModalContent
-          title="Confirm Swap"
+          title={TranslateString(1213, "Confirm Swap")}
           onDismiss={onDismiss}
           topContent={modalHeader}
           bottomContent={modalBottom}

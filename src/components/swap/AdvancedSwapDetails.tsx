@@ -3,6 +3,7 @@ import { Trade, TradeType } from '@sotatek-anhdao/smartdex-sdk'
 import { darkColors, lightColors} from 'style/Color'
 import styled from 'styled-components'
 import { CardBody, Text } from 'uikit-sotatek'
+import { TranslateString } from 'utils/translateTextHelpers'
 import { Field } from '../../state/swap/actions'
 import { useUserSlippageTolerance } from '../../state/user/hooks'
 import { computeSlippageAdjustedAmounts, computeTradePriceBreakdown } from '../../utils/prices'
@@ -33,8 +34,8 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
       <CardBody style={{ padding: '4px' }}>
         <RowBetween>
           <RowFixed>
-            <TextStyle fontSize="14px">{isExactIn ? 'Minimum received' : 'Maximum sold'}</TextStyle>
-            <QuestionHelper text="Your transaction will revert if there is a large, unfavorable price movement before it is confirmed." />
+            <TextStyle fontSize="14px">{isExactIn ? TranslateString(1210, "Minimum received") : TranslateString(220, "Maximum sold")}</TextStyle>
+            <QuestionHelper text={TranslateString(202, "Your transaction will revert if there is a large, unfavorable price movement before it is confirmed.")}/>
           </RowFixed>
           <RowFixed>
             <TextStyle fontSize="14px">
@@ -48,16 +49,16 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
         </RowBetween>
         <RowBetween>
           <RowFixed>
-            <TextStyle fontSize="14px">Price Impact</TextStyle>
-            <QuestionHelper text="The difference between the market price and estimated price due to trade size." />
+            <TextStyle fontSize="14px">{TranslateString(226, "Price Impact")}</TextStyle>
+            <QuestionHelper text= {TranslateString(224, "The difference between the market price and estimated price due to trade size.")} />
           </RowFixed>
           <FormattedPriceImpact priceImpact={priceImpactWithoutFee} />
         </RowBetween>
 
         <RowBetween>
           <RowFixed>
-            <TextStyle fontSize="14px">Liquidity Provider Fee</TextStyle>
-            <QuestionHelper text="For each trade a 0.2% fee is paid. 0.17% goes to liquidity providers and 0.03% goes to the SmartDEX treasury." />
+            <TextStyle fontSize="14px">{TranslateString(228, "Liquidity Provider Fee")}</TextStyle>
+            <QuestionHelper text={TranslateString(230, "For each trade a 0.2% fee is paid. 0.17% goes to liquidity providers and 0.03% goes to the SmartDEX treasury.")} />
           </RowFixed>
           <TextStyle fontSize="14px">
             {realizedLPFee ? `${realizedLPFee.toSignificant(4)} ${trade.inputAmount.currency.symbol}` : '-'}
@@ -87,8 +88,8 @@ export function AdvancedSwapDetails({ trade }: AdvancedSwapDetailsProps) {
               <SectionBreak />
               <AutoColumn style={{ padding: '0px' }}>
                 <RowFixed>
-                  <TextStyle fontSize="14px">Route</TextStyle>
-                  <QuestionHelper text="Routing through these tokens resulted in the best price for your trade." />
+                  <TextStyle fontSize="14px">{TranslateString(232, "Route")}</TextStyle>
+                  <QuestionHelper text={TranslateString(234, "Routing through these tokens resulted in the best price for your trade.")}/>
                 </RowFixed>
                 <SwapRoute trade={trade} />
               </AutoColumn>

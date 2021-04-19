@@ -1129,7 +1129,7 @@
             "stringId": 230,
             "contentType": "text/plain",
             "translationId": 37262,
-            "text": "トレードごとに0.2%の手数料が支払われます。0.17%は流動性提供者に払われ、0.03%はPancakeSwapの資金になります。",
+            "text": "トレードごとに0.2%の手数料が支払われます。0.17%は流動性提供者に払われ、0.03%はSmartDEXの資金になります。",
             "user": {
                 "id": 14144439,
                 "username": "nozomi.kugita",
@@ -7932,6 +7932,246 @@
                 "avatarUrl": "https://www.gravatar.com/avatar/d905b683b7887ec9315ed5ff9f128ad9?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
             },
             "createdAt": "2021-03-15T15:44:32+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1201,
+            "contentType": "text/plain",
+            "translationId": 12011,
+            "text": " とにかく",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1203,
+            "contentType": "text/plain",
+            "translationId": 12013,
+            "text": "価格への影響が高すぎる",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1205,
+            "contentType": "text/plain",
+            "translationId": 12014,
+            "text": "議事録",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1207,
+            "contentType": "text/plain",
+            "translationId": 12015,
+            "text": "最近の取引",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1209,
+            "contentType": "text/plain",
+            "translationId": 12016,
+            "text": "最近の取引を表示するには、ウォレットを接続してください",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1211,
+            "contentType": "text/plain",
+            "translationId": 12017,
+            "text": "最近の取引はありません",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1212,
+            "contentType": "text/plain",
+            "translationId": 12018,
+            "text": "ユーザーによる追加",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1213,
+            "contentType": "text/plain",
+            "translationId": 12019,
+            "text": "スワップの確認",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1214,
+            "contentType": "text/plain",
+            "translationId": 12020,
+            "text": "出力は推定されます。 少なくとも ",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1215,
+            "contentType": "text/plain",
+            "translationId": 12021,
+            "text": " を受け取るか、トランザクションが元に戻ります。",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1216,
+            "contentType": "text/plain",
+            "translationId": 12022,
+            "text": "入力が推定されます。あなたはせいぜい売るでしょう ",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1217,
+            "contentType": "text/plain",
+            "translationId": 12023,
+            "text": "確認を待ちます",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1218,
+            "contentType": "text/plain",
+            "translationId": 12024,
+            "text": "ウォレットでこのトランザクションを確認します",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1219,
+            "contentType": "text/plain",
+            "translationId": 12025,
+            "text": "退出させる",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1220,
+            "contentType": "text/plain",
+            "translationId": 12026,
+            "text": "提出されたトランザクション",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1221,
+            "contentType": "text/plain",
+            "translationId": 12027,
+            "text": "住所で見つかりました",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
         }
     }
 ]

@@ -3,8 +3,8 @@ import { Price } from '@sotatek-anhdao/smartdex-sdk'
 import styled from 'styled-components'
 import { SyncAltIcon, Text } from 'uikit-sotatek'
 import { baseColors, darkColors, lightColors} from 'style/Color'
+import { TranslateString } from 'utils/translateTextHelpers'
 import { StyledBalanceMaxMini } from './styleds'
-
 
 const IconStyle = styled.div`
 svg {
@@ -29,8 +29,8 @@ export default function TradePrice({ price, showInverted, setShowInverted }: Tra
 
   const show = Boolean(price?.baseCurrency && price?.quoteCurrency)
   const label = showInverted
-    ? `${price?.quoteCurrency?.symbol} per ${price?.baseCurrency?.symbol}`
-    : `${price?.baseCurrency?.symbol} per ${price?.quoteCurrency?.symbol}`
+    ? `${price?.quoteCurrency?.symbol} ${TranslateString(242, "per")} ${price?.baseCurrency?.symbol}`
+    : `${price?.baseCurrency?.symbol} ${TranslateString(242, "per")} ${price?.quoteCurrency?.symbol}`
 
   return (
     <TextStyle fontSize="14px">

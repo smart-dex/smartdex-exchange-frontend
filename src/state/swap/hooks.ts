@@ -13,7 +13,7 @@ import { AppDispatch, AppState } from '../index'
 import { useCurrencyBalances } from '../wallet/hooks'
 import { Field, replaceSwapState, selectCurrency, setRecipient, switchCurrencies, typeInput } from './actions'
 import { SwapState } from './reducer'
-
+import { TranslateString } from '../../utils/translateTextHelpers'
 import { useUserSlippageTolerance } from '../user/hooks'
 import { computeSlippageAdjustedAmounts } from '../../utils/prices'
 
@@ -156,11 +156,11 @@ export function useDerivedSwapInfo(): {
   }
 
   if (!parsedAmount) {
-    inputError = inputError ?? 'Enter an amount'
+    inputError = inputError ?? TranslateString(84, 'Enter an amount')
   }
 
   if (!currencies[Field.INPUT] || !currencies[Field.OUTPUT]) {
-    inputError = inputError ?? 'Select a token'
+    inputError = inputError ??  TranslateString(82, "Select a token")
   }
 
   const formattedTo = isAddress(to)

@@ -377,13 +377,13 @@ const Swap = () => {
               swapErrorMessage={swapErrorMessage}
               onDismiss={handleConfirmDismiss}
             />
-            <PageHeader title="Exchange" description="Trade tokens in an instant" />
+            <PageHeader title={TranslateString(284, "Exchange")} description={TranslateString(1192, "Trade tokens in an instant")} />
             <CardBodyStyle>
               <AutoColumn gap="md">
                 <CurrencyInputPanel
                   label={
                     independentField === Field.OUTPUT && !showWrap && trade
-                      ? 'From (estimated)'
+                      ? TranslateString(194, 'From (estimated)')
                       : TranslateString(76, 'From')
                   }
                   value={formattedAmounts[Field.INPUT]}
@@ -424,7 +424,7 @@ const Swap = () => {
                   onUserInput={handleTypeOutput}
                   label={
                     independentField === Field.INPUT && !showWrap && trade
-                      ? 'To (estimated)'
+                      ? TranslateString(196, 'To (estimated)')
                       : TranslateString(80, 'To')
                   }
                   showMaxButton={false}
@@ -453,7 +453,7 @@ const Swap = () => {
                     <AutoColumn gap="4px">
                       {Boolean(trade) && (
                         <RowBetween align="center">
-                          <TextStyle fontSize="14px">Price</TextStyle>
+                          <TextStyle fontSize="14px"> {TranslateString(1182, "Price")}</TextStyle>
                           <TradePrice
                             price={trade?.executionPrice}
                             showInverted={showInverted}
@@ -463,7 +463,7 @@ const Swap = () => {
                       )}
                       {allowedSlippage !== INITIAL_ALLOWED_SLIPPAGE && (
                         <RowBetween align="center">
-                          <TextStyle fontSize="14px">Slippage Tolerance</TextStyle>
+                          <TextStyle fontSize="14px">{TranslateString(88, "Slippage Tolerance")}</TextStyle>
                           <TextStyle fontSize="14px">{allowedSlippage / 100}%</TextStyle>
                         </RowBetween>
                       )}
@@ -488,7 +488,7 @@ const Swap = () => {
                   </ButtonStyle>
                 ) : noRoute && userHasSpecifiedInputOutput ? (
                   <GreyCard style={{ textAlign: 'center' }}>
-                    <TextStyle mb="4px">Insufficient liquidity for this trade.</TextStyle>
+                    <TextStyle mb="4px">{TranslateString(1194, "Insufficient liquidity for this trade.")}</TextStyle>
                   </GreyCard>
                 ) : showApproveFlow ? (
                   <RowBetween>
@@ -500,12 +500,12 @@ const Swap = () => {
                     >
                       {approval === ApprovalState.PENDING ? (
                         <AutoRow gap="6px" justify="center">
-                          Approving <Loader stroke="white" />
+                          {TranslateString(204, "Approving")} <Loader stroke="white" />
                         </AutoRow>
                       ) : approvalSubmitted && approval === ApprovalState.APPROVED ? (
                         'Approved'
                       ) : (
-                        `Approve ${currencies[Field.INPUT]?.symbol}`
+                        `${TranslateString(564, "Approve")} ${currencies[Field.INPUT]?.symbol}`
                       )}
                     </ButtonApprove>
                     <ButtonStyle
@@ -532,7 +532,7 @@ const Swap = () => {
                     >
                       {priceImpactSeverity > 3 && !isExpertMode
                         ? `Price Impact High`
-                        : `Swap${priceImpactSeverity > 2 ? ' Anyway' : ''}`}
+                        : `${TranslateString(1142, "Swap")}${priceImpactSeverity > 2 ? TranslateString(1142, "Anyway") : ''}`}
                     </ButtonStyle>
                   </RowBetween>
                 ) : (
@@ -558,8 +558,8 @@ const Swap = () => {
                   >
                     {swapInputError ||
                       (priceImpactSeverity > 3 && !isExpertMode
-                        ? `Price Impact Too High`
-                        : `Swap${priceImpactSeverity > 2 ? ' Anyway' : ''}`)}
+                        ? TranslateString(1203, "Price Impact Too High")
+                        : `${TranslateString(1142, "Swap")}${priceImpactSeverity > 2 ? TranslateString(1201, "Anyway") : ''}`) }
                   </ButtonStyle>
                 )}
                 {showApproveFlow && <ProgressSteps steps={[approval === ApprovalState.APPROVED]} />}

@@ -1129,15 +1129,13 @@
             "stringId": 230,
             "contentType": "text/plain",
             "translationId": 28780,
-            "text": "For each trade a 0.2% fee is paid. 0.17% goes to liquidity providers and 0.03% goes to the PanSDCSwap treasury.",
-            "user": {
+            "text": "For each trade a 0.2% fee is paid. 0.17% goes to liquidity providers and 0.03% goes to the SmartDEX treasury.",
                 "id": 13288016,
                 "username": "Chris66",
                 "fullName": "Chris66",
                 "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
             },
             "createdAt": "2021-02-03T05:31:22+00:00"
-        }
     },
     {
         "data": {
@@ -3784,7 +3782,7 @@
             "stringId": 564,
             "contentType": "text/plain",
             "translationId": 29100,
-            "text": "Approve",
+            "text": "Approve ",
             "user": {
                 "id": 13288016,
                 "username": "Chris66",
@@ -7925,6 +7923,246 @@
             "contentType": "text/plain",
             "translationId": 50918,
             "text": "Live",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1201,
+            "contentType": "text/plain",
+            "translationId": 12011,
+            "text": " Anyway",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1203,
+            "contentType": "text/plain",
+            "translationId": 12013,
+            "text": "Price Impact Too High",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1205,
+            "contentType": "text/plain",
+            "translationId": 12014,
+            "text": "Minutes",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1207,
+            "contentType": "text/plain",
+            "translationId": 12015,
+            "text": "Recent Transactions",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1209,
+            "contentType": "text/plain",
+            "translationId": 12016,
+            "text": "Please connect your wallet to view your recent transactions",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1211,
+            "contentType": "text/plain",
+            "translationId": 12017,
+            "text": "No recent transactions",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1212,
+            "contentType": "text/plain",
+            "translationId": 12018,
+            "text": "Add by user",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1213,
+            "contentType": "text/plain",
+            "translationId": 12019,
+            "text": "Confirm Swap",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1214,
+            "contentType": "text/plain",
+            "translationId": 12020,
+            "text": "Output is estimated. You will receive at least ",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1215,
+            "contentType": "text/plain",
+            "translationId": 12021,
+            "text": " or the transaction will revert.",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1216,
+            "contentType": "text/plain",
+            "translationId": 12022,
+            "text": "Input is estimated. You will sell at most ",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1217,
+            "contentType": "text/plain",
+            "translationId": 12023,
+            "text": "Waiting for confirmation",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1218,
+            "contentType": "text/plain",
+            "translationId": 12024,
+            "text": "Confirm this transaction in your wallet",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1219,
+            "contentType": "text/plain",
+            "translationId": 12025,
+            "text": "Dismiss",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1220,
+            "contentType": "text/plain",
+            "translationId": 12026,
+            "text": "Transaction submitted",
+            "user": {
+                "id": 13288016,
+                "username": "Chris66",
+                "fullName": "Chris66",
+                "avatarUrl": "https://www.gravatar.com/avatar/43b207a064212b2f0b164662b3a4f43f?s=96&d=https%3A%2F%2Fcrowdin.com%2Fimages%2Fuser-picture.png"
+            },
+            "createdAt": "2021-03-15T14:00:31+00:00"
+        }
+    },
+    {
+        "data": {
+            "stringId": 1221,
+            "contentType": "text/plain",
+            "translationId": 12027,
+            "text": "Found by address",
             "user": {
                 "id": 13288016,
                 "username": "Chris66",
