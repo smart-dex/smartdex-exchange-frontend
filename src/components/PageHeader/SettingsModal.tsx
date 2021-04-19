@@ -12,7 +12,6 @@ type SettingsModalProps = {
 const defaultOnDismiss = () => null
 
 const SettingsModal = ({ onDismiss = defaultOnDismiss }: SettingsModalProps) => {
-
   return (
     <Modal title={TranslateString(1200, 'Settings')} onDismiss={onDismiss}>
       <SlippageToleranceSetting />
