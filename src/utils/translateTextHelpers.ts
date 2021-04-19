@@ -36,7 +36,7 @@ export const TranslateString = (translationId: number, fallback: string) => {
     return getTranslation(translations, translationId, fallback)
   }
   if ((JSON.parse(localStorage.getItem("langLocal") || '{}')).length > 0) {
-    return getTranslation(JSON.parse(localStorage.getItem("local") || '{}'), translationId, fallback)
+    return getTranslation(JSON.parse(localStorage.getItem("langLocal") || '{}'), translationId, fallback)
   }
   return null
 }
