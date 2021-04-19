@@ -172,6 +172,7 @@ const SlippageToleranceSettings = () => {
                 thousandSeparator=""
                 allowNegative={false}
                 className={error ? "error" : ""}
+                allowedDecimalSeparators={[".", ","]}
               />
             </StyleInput>
           </Option>

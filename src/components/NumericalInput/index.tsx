@@ -83,6 +83,7 @@ export const Input = React.memo(function InnerInput({
 
         thousandSeparator=","
         allowNegative={false}
+        allowedDecimalSeparators={[".", ","]}
       />
     </StyledInput>
   )
