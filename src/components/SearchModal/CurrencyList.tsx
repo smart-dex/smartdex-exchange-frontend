@@ -4,6 +4,7 @@ import { FixedSizeList } from 'react-window'
 import styled from 'styled-components'
 import { darkColors, lightColors } from 'style/Color'
 import { Text } from 'uikit-sotatek'
+import { TranslateString } from 'utils/translateTextHelpers'
 import { useActiveWeb3React } from '../../hooks'
 import { useSelectedTokenList, WrappedTokenInfo } from '../../state/lists/hooks'
 import { useAddUserToken, useRemoveUserAddedToken } from '../../state/user/hooks'
@@ -161,27 +162,27 @@ function CurrencyRow({
         <FadedSpan>
           {!isOnSelectedList && customAdded && !(currency instanceof WrappedTokenInfo) ? (
             <TextStyle>
-              Added by user
+              {TranslateString(1212, "Added by user")}
               <LinkStyledButton
                 onClick={(event) => {
                   event.stopPropagation()
                   if (chainId && currency instanceof Token) removeToken(chainId, currency.address)
                 }}
               >
-                (Remove)
+                ({TranslateString(260, "Remove")})
               </LinkStyledButton>
             </TextStyle>
           ) : null}
           {!isOnSelectedList && !customAdded && !(currency instanceof WrappedTokenInfo) ? (
             <TextStyle>
-              Found by address
+              {TranslateString(1221, "Found by address")}
               <LinkStyledButton
                 onClick={(event) => {
                   event.stopPropagation()
                   if (currency instanceof Token) addToken(currency)
                 }}
               >
-                (Add)
+                ({TranslateString(258, "Add")})
               </LinkStyledButton>
             </TextStyle>
           ) : null}

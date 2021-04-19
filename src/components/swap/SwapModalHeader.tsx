@@ -4,6 +4,7 @@ import { Trade, TradeType } from '@sotatek-anhdao/smartdex-sdk'
 import { darkColors, lightColors, baseColors } from 'style/Color'
 import { Button, Text } from 'uikit-sotatek'
 import { ArrowDown, AlertTriangle } from 'react-feather'
+import { TranslateString } from 'utils/translateTextHelpers'
 import { Field } from '../../state/swap/actions'
 import { isAddress, shortenAddress } from '../../utils'
 import { computeSlippageAdjustedAmounts, computeTradePriceBreakdown, warningSeverity } from '../../utils/prices'
@@ -124,19 +125,19 @@ export default function SwapModalHeader({
       <AutoColumn justify="flex-start" gap="sm" style={{ padding: '16px 0 0' }}>
         {trade.tradeType === TradeType.EXACT_INPUT ? (
           <PriceInfoText>
-            {`Output is estimated. You will receive at least `}
+            {TranslateString(1214, "Output is estimated. You will receive at least ")}
             <span>
-              {slippageAdjustedAmounts[Field.OUTPUT]?.toSignificant(6)} {trade.outputAmount.currency.symbol}
+              {slippageAdjustedAmounts[Field.OUTPUT]?.toSignificant(6)} {trade.outputAmount.currency.symbol} 
             </span>
-            {' or the transaction will revert.'}
+            {TranslateString(1215, "or the transaction will revert.")}
           </PriceInfoText>
         ) : (
           <PriceInfoText>
-            {`Input is estimated. You will sell at most `}
+            {TranslateString(1216, "Input is estimated. You will sell at most ")}
             <span>
               {slippageAdjustedAmounts[Field.INPUT]?.toSignificant(6)} {trade.inputAmount.currency.symbol}
             </span>
-            {' or the transaction will revert.'}
+            {TranslateString(1215, "or the transaction will revert. ")}
           </PriceInfoText>
         )}
       </AutoColumn>

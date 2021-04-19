@@ -15,7 +15,7 @@ import DoubleCurrencyLogo from 'components/DoubleLogo'
 import { AddRemoveTabs } from 'components/NavigationTabs'
 import { MinimalPositionCard } from 'components/PositionCard'
 import Row, { RowBetween, RowFlat } from 'components/Row'
-
+import { TranslateString } from 'utils/translateTextHelpers'
 import { PairState } from 'data/Reserves'
 import { useActiveWeb3React } from 'hooks'
 import { useCurrency } from 'hooks/Tokens'
@@ -511,9 +511,9 @@ export default function AddLiquidity({
                             style={{ width: approvalB !== ApprovalState.APPROVED ? '48%' : '100%' }}
                           >
                             {approvalA === ApprovalState.PENDING ? (
-                              <Dots>Approving {currencies[Field.CURRENCY_A]?.symbol}</Dots>
+                              <Dots>{TranslateString(204, "Approving")} {currencies[Field.CURRENCY_A]?.symbol}</Dots>
                             ) : (
-                              `Approve ${currencies[Field.CURRENCY_A]?.symbol}`
+                              `${TranslateString(564, "Approve")} ${currencies[Field.CURRENCY_A]?.symbol}`
                             )}
                           </ButtonStyle>
                         )}
@@ -524,9 +524,9 @@ export default function AddLiquidity({
                             style={{ width: approvalA !== ApprovalState.APPROVED ? '48%' : '100%' }}
                           >
                             {approvalB === ApprovalState.PENDING ? (
-                              <Dots>Approving {currencies[Field.CURRENCY_B]?.symbol}</Dots>
+                              <Dots>{TranslateString(204, "Approving")}  {currencies[Field.CURRENCY_B]?.symbol}</Dots>
                             ) : (
-                              `Approve ${currencies[Field.CURRENCY_B]?.symbol}`
+                              `${TranslateString(564, "Approve")} ${currencies[Field.CURRENCY_B]?.symbol}`
                             )}
                           </ButtonStyle>
                         )}

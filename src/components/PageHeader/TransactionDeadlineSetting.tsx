@@ -4,8 +4,8 @@ import { lightColors, darkColors } from 'style/Color'
 import { Input, Text } from 'uikit-sotatek'
 import NumberFormat from 'react-number-format';
 import { useUserDeadline } from 'state/user/hooks'
+import { TranslateString } from 'utils/translateTextHelpers'
 import QuestionHelper from '../QuestionHelper'
-import TranslatedText from '../TranslatedText'
 
 const StyledTransactionDeadlineSetting = styled.div`
   margin-bottom: 16px;
@@ -87,9 +87,9 @@ const TransactionDeadlineSetting = () => {
     <StyledTransactionDeadlineSetting>
       <Label>
         <TextStyle style={{ fontWeight: 600 }}>
-          <TranslatedText translationId={90}>Transaction deadline</TranslatedText>
+          {TranslateString(90, "Transaction deadline")}
         </TextStyle>
-        <QuestionHelper text="Your transaction will revert if it is pending for more than this long." />
+        <QuestionHelper text={TranslateString(188, "Your transaction will revert if it is pending for more than this long")} />
       </Label>
       <Field>
         <StyleInput>
@@ -102,7 +102,7 @@ const TransactionDeadlineSetting = () => {
             decimalScale={0}
           />
         </StyleInput>
-        <TextStyle>Minutes</TextStyle>
+        <TextStyle>{TranslateString(1205, "Minutes")}</TextStyle>
       </Field>
       {error && (
         <TextStyle mt="8px" color="failure">

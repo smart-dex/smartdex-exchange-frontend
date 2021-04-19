@@ -4,6 +4,7 @@ import { darkColors, lightColors} from 'style/Color'
 import styled from 'styled-components'
 import { Button, Text } from 'uikit-sotatek'
 import { useDispatch } from 'react-redux'
+import { TranslateString } from 'utils/translateTextHelpers'
 import { AppDispatch } from '../../state'
 import { useRemovePopup } from '../../state/application/hooks'
 import { acceptListUpdate } from '../../state/lists/actions'
@@ -93,7 +94,7 @@ export default function ListUpdatePopup({
                 <Button onClick={handleAcceptUpdate}>Accept update</Button>
               </div>
               <div style={{ flexGrow: 1 }}>
-                <Button onClick={removeThisPopup}>Dismiss</Button>
+                <Button onClick={removeThisPopup}>{TranslateString(1219, "Dismiss")}</Button>
               </div>
             </AutoRow>
           </>

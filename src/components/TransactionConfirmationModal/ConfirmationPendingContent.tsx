@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Text } from 'uikit-sotatek'
 import { darkColors, lightColors} from 'style/Color'
+import { TranslateString } from 'utils/translateTextHelpers'
 import { Spinner } from '../Shared'
 import { AutoColumn } from '../Column'
 import { Wrapper, Section, ConfirmedIcon, ContentHeader } from './helpers'
@@ -25,7 +26,7 @@ const ConfirmationPendingContent = ({ onDismiss, pendingText }: ConfirmationPend
   return (
     <WrapperStyle>
       <Section>
-        <ContentHeader onDismiss={onDismiss}>Waiting for confirmation</ContentHeader>
+        <ContentHeader onDismiss={onDismiss}>{TranslateString(1217, "Waiting for confirmation")}</ContentHeader>
         <ConfirmedIcon>
           <CustomLightSpinner src="/images/blue-loader.svg" alt="loader" size="90px" />
         </ConfirmedIcon>
@@ -35,7 +36,7 @@ const ConfirmationPendingContent = ({ onDismiss, pendingText }: ConfirmationPend
               <strong>{pendingText}</strong>
             </TextStyle>
           </AutoColumn>
-          <TextStyle fontSize="14px">Confirm this transaction in your wallet</TextStyle>
+          <TextStyle fontSize="14px">{TranslateString(1218, "Confirm this transaction in your wallet")}</TextStyle>
         </AutoColumn>
       </Section>
     </WrapperStyle>

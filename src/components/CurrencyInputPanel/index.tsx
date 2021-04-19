@@ -130,7 +130,7 @@ export default function CurrencyInputPanel({
               {account && (
                 <TextStyle onClick={onMax} fontSize="14px" style={{ display: 'inline', cursor: 'pointer' }}>
                   {!hideBalance && !!currency && selectedCurrencyBalance
-                    ? `Balance: ${  selectedCurrencyBalance?.toSignificant(8)}`
+                    ? ` ${TranslateString(1120, "Balance")}: ${  selectedCurrencyBalance?.toSignificant(8)}`
                     : ' -'}
                 </TextStyle>
               )}
@@ -149,7 +149,7 @@ export default function CurrencyInputPanel({
               />
               {account && currency && showMaxButton && label !== 'To' && (
                 <Button onClick={onMax} size="sm" variant="text" style={{ color: baseColors.primary}}>
-                  MAX
+                  {TranslateString(166, "MAX")}
                 </Button>
               )}
             </>

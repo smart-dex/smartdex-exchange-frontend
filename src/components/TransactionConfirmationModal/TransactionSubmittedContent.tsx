@@ -4,6 +4,7 @@ import { baseColors, darkColors, lightColors } from 'style/Color'
 import styled  from 'styled-components'
 import { Button, LinkExternal } from 'uikit-sotatek'
 import { ArrowUpCircle } from 'react-feather'
+import { TranslateString } from 'utils/translateTextHelpers'
 import { AutoColumn } from '../Column'
 import { getBscScanLink } from '../../utils'
 import { Wrapper, Section, ConfirmedIcon, ContentHeader } from './helpers'
@@ -43,13 +44,13 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash }: TransactionSu
   return ( 
     <WrapperStyle>
       <Section>
-        <ContentHeader onDismiss={onDismiss}>Transaction submitted</ContentHeader>
+        <ContentHeader onDismiss={onDismiss}>{TranslateString(1220, "Transaction submitted")}</ContentHeader>
         <ConfirmedIcon>
           <ArrowUpCircle strokeWidth={0.5} size={97} color={baseColors.primary} />
         </ConfirmedIcon>
         <AutoColumn gap="8px" justify="center">
           {chainId && hash && (
-            <LinkExternalStyle href={getBscScanLink(chainId, hash, 'transaction')}>View on BscScan</LinkExternalStyle>
+            <LinkExternalStyle href={getBscScanLink(chainId, hash, 'transaction')}>{TranslateString(356, "View on BscScan")}</LinkExternalStyle>
           )}
           <ButtonStyle onClick={onDismiss} mt="20px">
             Close

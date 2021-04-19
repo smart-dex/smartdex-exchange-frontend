@@ -18,9 +18,9 @@ export const getTranslation = (translations: Array<any>, translationId: number, 
   if (foundTranslation) {
     const translatedString = foundTranslation.data.text
     const includesVariable = translatedString.includes('%')
-    if (includesVariable) {
-      return replaceDynamicString(translatedString, fallback)
-    }
+    // if (includesVariable) {
+    //   return replaceDynamicString(translatedString, fallback)
+    // }
     return translatedString
   }
   return fallback

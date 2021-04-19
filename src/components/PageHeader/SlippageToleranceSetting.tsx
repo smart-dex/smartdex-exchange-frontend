@@ -4,6 +4,7 @@ import { Button, Flex, Text } from 'uikit-sotatek'
 import NumberFormat from 'react-number-format';
 import { useUserSlippageTolerance } from 'state/user/hooks'
 import { lightColors, baseColors, darkColors } from 'style/Color'
+import { TranslateString } from 'utils/translateTextHelpers'
 import QuestionHelper from '../QuestionHelper'
 import TranslatedText from '../TranslatedText'
 
@@ -141,9 +142,9 @@ const SlippageToleranceSettings = () => {
     <StyledSlippageToleranceSettings>
       <Label>
         <TextStyle style={{ fontWeight: 600 }}>
-          <TranslatedText translationId={88}>Slippage tolerance</TranslatedText>
+           {TranslateString(88, "Slippage tolerance")}
         </TextStyle>
-        <QuestionHelper text="Your transaction will revert if the price changes unfavorably by more than this percentage." />
+        <QuestionHelper text={TranslateString(186, "Your transaction will revert if the price changes unfavorably by more than this percentage.")}/>
       </Label>
       <Options>
         <Flex mb={['8px', 0]} mr={[0, '8px']}>

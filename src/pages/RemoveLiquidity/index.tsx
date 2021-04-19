@@ -7,7 +7,7 @@ import { Currency, currencyEquals, ETHER, Percent, WETH } from '@sotatek-anhdao/
 import { Button, Flex, Text } from 'uikit-sotatek'
 import { ArrowDown, Plus } from 'react-feather'
 import { RouteComponentProps } from 'react-router'
-
+import { TranslateString } from 'utils/translateTextHelpers'
 import { BigNumber } from '@ethersproject/bignumber'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import CardNav from 'components/CardNav'
@@ -803,7 +803,7 @@ export default function RemoveLiquidity({
                       }}
                     >
                       {approval === ApprovalState.PENDING ? (
-                        <Dots>Approving</Dots>
+                        <Dots>{TranslateString(204, "Approving")}</Dots>
                       ) : approval === ApprovalState.APPROVED || signatureData !== null ? (
                         'Approved'
                       ) : (

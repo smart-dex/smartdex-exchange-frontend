@@ -7,6 +7,7 @@ import { getBscScanLink } from 'utils'
 import { isTransactionRecent, useAllTransactions } from 'state/transactions/hooks'
 import { TransactionDetails } from 'state/transactions/reducer'
 import Loader from 'components/Loader'
+import { TranslateString } from 'utils/translateTextHelpers'
 
 type RecentTransactionsModalProps = {
   onDismiss?: () => void
@@ -79,15 +80,15 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss }: RecentTransac
   `
 
   return (
-    <Modal title="Recent Transactions" onDismiss={onDismiss}>
+    <Modal title={TranslateString(1207, "Recent Transactions")} onDismiss={onDismiss}>
       {!account && (
         <Flex justifyContent="center" flexDirection="column" alignItems="center">
           <Text mb="8px" bold>
-            <StyleText>Please connect your wallet to view your recent transactions</StyleText>
+            <StyleText>{TranslateString(1209, "Please connect your wallet to view your recent transactions")}</StyleText>
           </Text>
           <StyleButton>
             <Button variant="tertiary" size="sm" onClick={onDismiss}>
-              Close
+              {TranslateString(438, "Close")}
             </Button>
           </StyleButton>
         </Flex>
@@ -95,11 +96,11 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss }: RecentTransac
       {account && chainId && sortedRecentTransactions.length === 0 && (
         <Flex justifyContent="center" flexDirection="column" alignItems="center">
           <Text mb="8px" bold>
-            <StyleText>No recent transactions</StyleText>
+            <StyleText>{TranslateString(1211, "No recent transactions")}</StyleText>
           </Text>
           <StyleButton>
             <Button variant="tertiary" size="sm" onClick={onDismiss}>
-              Close
+            {TranslateString(438, "Close")}
             </Button>
           </StyleButton>
         </Flex>
