@@ -37,7 +37,7 @@ const config: MenuEntry[] = [
     href: `${process.env.REACT_APP_FINANCE_URL}/lottery`,
   },
   {
-    label: 'NFT',
+    label: 'Collectibles',
     icon: 'NftIcon',
     href: `${process.env.REACT_APP_FINANCE_URL}/collectibles`,
   },

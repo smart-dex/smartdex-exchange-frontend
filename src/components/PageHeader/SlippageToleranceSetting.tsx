@@ -138,6 +138,18 @@ const SlippageToleranceSettings = () => {
     }
   }, [userSlippageTolerance, setError])
 
+  const handleTranslate = (errors) => {
+    let elementError
+    if(errors === 'Enter a valid slippage percentage'){
+      elementError = TranslateString(1144,'Enter a valid slippage percentage')
+    }
+    else if (errors === 'Your transaction may fail'){
+      elementError = TranslateString( 1146 ,'Your transaction may fail')
+    }
+    else elementError =  TranslateString( 1148,'Your transaction may be frontrun')
+    return elementError 
+  }
+
   return (
     <StyledSlippageToleranceSettings>
       <Label>
@@ -184,7 +196,7 @@ const SlippageToleranceSettings = () => {
       </Options>
       {error && (
         <TextStyle mt="8px" color="failure">
-          {error}
+          {handleTranslate(error)}
         </TextStyle>
       )}
     </StyledSlippageToleranceSettings>

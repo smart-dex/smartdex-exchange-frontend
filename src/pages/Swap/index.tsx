@@ -503,7 +503,7 @@ const Swap = () => {
                           {TranslateString(204, "Approving")} <Loader stroke="white" />
                         </AutoRow>
                       ) : approvalSubmitted && approval === ApprovalState.APPROVED ? (
-                        'Approved'
+                        TranslateString(206, "Approved")
                       ) : (
                         `${TranslateString(564, "Approve")} ${currencies[Field.INPUT]?.symbol}`
                       )}

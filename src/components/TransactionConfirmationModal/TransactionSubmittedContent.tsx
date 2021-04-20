@@ -53,7 +53,7 @@ const TransactionSubmittedContent = ({ onDismiss, chainId, hash }: TransactionSu
             <LinkExternalStyle href={getBscScanLink(chainId, hash, 'transaction')}>{TranslateString(356, "View on BscScan")}</LinkExternalStyle>
           )}
           <ButtonStyle onClick={onDismiss} mt="20px">
-            Close
+            {TranslateString(438, "Close")}
           </ButtonStyle>
         </AutoColumn>
       </Section>

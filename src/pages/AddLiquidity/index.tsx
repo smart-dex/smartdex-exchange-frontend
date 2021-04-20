@@ -314,13 +314,13 @@ export default function AddLiquidity({
         </RowFlat>
         <Row>
           <UIKitTextStyle fontSize="24px">
-            {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol} Pool Tokens`}
+            {`${currencies[Field.CURRENCY_A]?.symbol}/${currencies[Field.CURRENCY_B]?.symbol} ${TranslateString(1226, " Pool Tokens ")}`}
           </UIKitTextStyle>
         </Row>
         <UIKitTextStyle small textAlign="left" padding="8px 0 0 0 " style={{ fontStyle: 'italic' }}>
-          {`Output is estimated. If the price changes by more than ${
+          {`${TranslateString(1227, "Output is estimated. If the price changes by more than")} ${
             allowedSlippage / 100
-          }% your transaction will revert.`}
+          }% ${TranslateString(1228, "your transaction will revert.")}`}
         </UIKitTextStyle>
       </AutoColumn>
     )
@@ -339,9 +339,9 @@ export default function AddLiquidity({
     )
   }
 
-  const pendingText = `Supplying ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} ${
+  const pendingText = `${TranslateString(1229, "Supplying")} ${parsedAmounts[Field.CURRENCY_A]?.toSignificant(6)} ${
     currencies[Field.CURRENCY_A]?.symbol
-  } and ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)} ${currencies[Field.CURRENCY_B]?.symbol}`
+  } ${TranslateString(1230, "and")} ${parsedAmounts[Field.CURRENCY_B]?.toSignificant(6)} ${currencies[Field.CURRENCY_B]?.symbol}`
 
   const handleCurrencyASelect = useCallback(
     (currA: Currency) => {
@@ -411,7 +411,7 @@ export default function AddLiquidity({
             hash={txHash}
             content={() => (
               <ConfirmationModalContent
-                title={noLiquidity ? 'You are creating a pool' : 'You will receive'}
+                title={noLiquidity ? 'You are creating a pool' : TranslateString(1156, "You will receive")}
                 onDismiss={handleDismissConfirmation}
                 topContent={modalHeader}
                 bottomContent={modalBottom}
@@ -426,13 +426,13 @@ export default function AddLiquidity({
                   <Pane>
                     <AutoColumn gap="12px">
                       <UIKitText>
-                        <StyleText>You are the first liquidity provider.</StyleText>
+                        <StyleText> {TranslateString(1158, "You are the first liquidity provider.")} </StyleText>
                       </UIKitText>
                       <UIKitText>
-                        <StyleText>The ratio of tokens you add will set the price of this pool.</StyleText>
+                        <StyleText> {TranslateString(1160, "The ratio of tokens you add will set the price of this pool.")} </StyleText>
                       </UIKitText>
                       <UIKitText>
-                        <StyleText>Once you are happy with the rate click supply to review.</StyleText>
+                        <StyleText> {TranslateString(1162, "Once you are happy with the rate click supply to review.")} </StyleText>
                       </UIKitText>
                     </AutoColumn>
                   </Pane>
@@ -475,7 +475,7 @@ export default function AddLiquidity({
               />
               {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
                 <div>
-                  <StyleTextTit>{noLiquidity ? 'Initial prices and pool share' : 'Prices and pool share'}</StyleTextTit>
+                  <StyleTextTit>{noLiquidity ? TranslateString(1166, "Initial prices and pool share"): TranslateString(1166, "Prices and pool share")}</StyleTextTit>
                   <Pane>
                     <PoolPriceBar
                       currencies={currencies}
@@ -547,7 +547,7 @@ export default function AddLiquidity({
                         : 'primary'
                     }
                   >
-                    {error ?? 'Supply'}
+                    {error ?? TranslateString(1225, "Supply")}
                   </ButtonStyle>
                 </AutoColumnStyle>
               )}
