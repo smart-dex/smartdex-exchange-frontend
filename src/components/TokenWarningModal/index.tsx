@@ -26,8 +26,11 @@ const WarningContainer = styled.div`
   padding: 1rem;
   background: rgba(242, 150, 2, 0.05);
   border: 1px solid #f3841e;
-  border-radius: 20px;
+  border-radius: 40px;
   overflow: auto;
+  .not-disabled {
+    background-color: #0085FF;
+  }
 `
 
 const StyledWarningIcon = styled(AlertTriangle)`
@@ -36,6 +39,13 @@ const StyledWarningIcon = styled(AlertTriangle)`
 
 const TextStyle = styled(Text)`
   color: ${({ theme }) => (theme.isDark ? darkColors.textLogoMenuLeft : lightColors.textMenuLeft)};
+`
+
+const TextStyleLink = styled(Text)`
+  color: #0085FF;
+  &:hover {
+    text-decoration: underline;
+  }
 `
 
 interface TokenWarningCardProps {
@@ -78,8 +88,8 @@ function TokenWarningCard({ token }: TokenWarningCardProps) {
               : token.name || token.symbol}{' '}
           </TextStyle>
           {chainId && (
-            <ExternalLink style={{ fontWeight: 400 }} href={getBscScanLink(chainId, token.address, 'token')}>
-              <Text title={token.address}>{shortenAddress(token.address)} (View on BscScan)</Text>
+            <ExternalLink style={{ fontWeight: 400, color: '#0085FF' }} href={getBscScanLink(chainId, token.address, 'token')}>
+              <TextStyleLink title={token.address}>{shortenAddress(token.address)} (View on BscScan)</TextStyleLink>
             </ExternalLink>
           )}
         </AutoColumn>
@@ -107,7 +117,7 @@ export default function TokenWarningModal({
         <AutoColumn gap="lg">
           <AutoRow gap="6px">
             <StyledWarningIcon />
-            <Text color="failure">Token imported</Text>
+            <TextStyle>Token imported</TextStyle>
           </AutoRow>
           <TextStyle>
             Anyone can create an BEP20 token on BSC with <em>any</em> name, including creating fake versions of existing
@@ -142,7 +152,7 @@ export default function TokenWarningModal({
               disabled={!understandChecked}
               variant="danger"
               style={{ width: '140px' }}
-              className="token-dismiss-button"
+              className={!understandChecked ? "token-dismiss-button" : "not-disabled token-dismiss-button"}
               onClick={() => {
                 onConfirm()
               }}
