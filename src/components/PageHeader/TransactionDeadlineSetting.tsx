@@ -106,7 +106,7 @@ const TransactionDeadlineSetting = () => {
       </Field>
       {error && (
         <TextStyle mt="8px" color="failure">
-          {error}
+          {error === 'Enter a valid deadline' ? TranslateString(1150, 'Enter a valid deadline') : error}
         </TextStyle>
       )}
     </StyledTransactionDeadlineSetting>

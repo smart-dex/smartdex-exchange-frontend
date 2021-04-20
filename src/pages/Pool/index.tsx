@@ -190,7 +190,7 @@ export default function Pool() {
       <ArrowLeft />
       <div>
         <BodyStyle>
-          <PageHeader title="Liquidity" description="Add liquidity to receive LP tokens" />
+          <PageHeader title={TranslateString(262, 'Liquidity')} description={TranslateString(1168, 'Add liquidity to receive LP tokens')} />
           <AutoColumn gap="lg">
             <CardBodyStyle>
               <AutoColumn style={{ width: '100%' }}>
@@ -210,14 +210,15 @@ export default function Pool() {
                   <StyleConnect>
                     <LightCard padding="50px 20px">
                       <TextContent color="textDisabled" textAlign="center">
-                        Connect to a wallet to view your liquidity.
+                        
+                        {TranslateString(156, 'Connect to a wallet to view your liquidity.')}
                       </TextContent>
                     </LightCard>
                   </StyleConnect>
                 ) : v2IsLoading ? (
                   <LightCard padding="20px">
                     <TextStyle textAlign="center">
-                      <Dots>Loading</Dots>
+                      <Dots>{TranslateString(218, 'Loading')}</Dots>
                     </TextStyle>
                   </LightCard>
                 ) : allV2PairsWithLiquidity?.length > 0 ? (
@@ -244,14 +245,14 @@ export default function Pool() {
                     </TextLink>
                   </TextStyle>
                   <TextStyle fontSize="14px">
-                    Or, if you staked your FLIP tokens in a farm, unstake them to see them here.
+                    {TranslateString(1222, ' Or, if you staked your FLIP tokens in a farm, unstake them to see them here.')}
                   </TextStyle>
                 </div>
               </AutoColumn>
 
               <ButtonStyle>
                 <Button id="join-pool-button" as={Link} to="/add/ETH">
-                  {TranslateString(100, 'Add Liquidity')}
+                  {TranslateString(1223, 'Add Liquidity')}
                   <BoxIconDirect>
                     <IconDirect src="/images/icon-direct.svg" alt="" />
                   </BoxIconDirect>

@@ -5,6 +5,7 @@ import { Button, Card as UIKitCard, CardBody, Text } from 'uikit-sotatek'
 import { ChevronDown, ChevronUp } from 'react-feather'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { TranslateString } from 'utils/translateTextHelpers'
 import { useTotalSupply } from '../../data/TotalSupply'
 import { useActiveWeb3React } from '../../hooks'
 import { useTokenBalance } from '../../state/wallet/hooks'
@@ -100,7 +101,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false }: PositionCar
               <FixedHeightRow>
                 <RowFixed>
                   <TextStyle style={{ textTransform: 'uppercase', fontWeight: 600 }} fontSize="14px" color="textSubtle">
-                    LP Tokens in your Wallet
+                    {TranslateString(1224, "LP Tokens in your Wallet")}
                   </TextStyle>
                 </RowFixed>
               </FixedHeightRow>
@@ -241,7 +242,7 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
                   as={Link}
                   to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}
                 >
-                  Add
+                  {TranslateString(258, "Add")}
                 </Button>
               </ButtonStyle>
               <ButtonStyle>
@@ -249,7 +250,7 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
                   as={Link}
                   to={`/remove/${currencyId(currency0)}/${currencyId(currency1)}`}
                 >
-                  Remove
+                  {TranslateString(260, "Remove")}
                 </Button>
               </ButtonStyle>
             </RowBetween>

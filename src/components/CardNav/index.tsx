@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { lightColors, darkColors } from 'style/Color'
 import { ButtonMenu, ButtonMenuItem } from 'uikit-sotatek'
 import TranslatedText from 'components/TranslatedText'
+import { TranslateString } from 'utils/translateTextHelpers'
 
 const StyledNav = styled.div`
   margin-bottom: 16px;
@@ -140,7 +141,7 @@ const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => {
             <TabBlock>
               <IconTab />
               <TextTab className="text-not-active">
-                Bridge
+                {TranslateString(1234, "Bridge")}
               </TextTab>
             </TabBlock>
           </ButtonMenuItem>
@@ -157,7 +158,7 @@ const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => {
                 <TabBlock>
                   <IconTab />
                   <TextTab className={activeIndex === item.index ? 'text-active' : 'text-not-active'}>
-                    <TranslatedText translationId={item.text === 'Liquidity' ? 262 : 284}>{item.text}</TranslatedText>
+                    {TranslateString(item.text === 'Liquidity' ? 262 : 284, "Bridge")}
                   </TextTab>
                 </TabBlock>
               </ButtonMenuItem>

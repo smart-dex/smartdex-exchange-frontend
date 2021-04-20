@@ -33,11 +33,11 @@ const TransactionErrorContent = ({ message, onDismiss }: TransactionErrorContent
   return (
     <WrapperStyle>
       <Section>
-        <ContentHeader onDismiss={onDismiss}>Error</ContentHeader>
+        <ContentHeader onDismiss={onDismiss}>{ TranslateString(1236, "Error")}</ContentHeader>
         <AutoColumn style={{ marginTop: 20, padding: '2rem 0' }} gap="24px" justify="center">
           <AlertTriangle  style={{ strokeWidth: 1.5, color: '#ED4B9E' }} size={64} />
           <TextStyle fontSize="16px" color="failure" style={{ textAlign: 'center', width: '85%' }}>
-            {message}
+            { message === 'Transaction rejected.' ? TranslateString(1235, 'Transaction rejected.') : message}
           </TextStyle>
         </AutoColumn>
       </Section>

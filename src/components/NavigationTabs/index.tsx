@@ -5,6 +5,7 @@ import { ArrowLeft } from 'react-feather'
 import { RowBetween } from 'components/Row'
 import QuestionHelper from 'components/QuestionHelper'
 import { lightColors, darkColors } from 'style/Color'
+import { TranslateString } from 'utils/translateTextHelpers'
 
 const Tabs = styled.div`
   display: flex;
@@ -42,8 +43,8 @@ export function FindPoolTabs() {
         <HistoryLink to="/pool">
           <Styleback><StyledArrowLeft /></Styleback>
         </HistoryLink>
-        <ActiveText>Import Pool</ActiveText>
-        <QuestionHelper text={"Use this tool to find pairs that don't automatically appear in the interface."} />
+        <ActiveText>{TranslateString(254, "Import Pool")}</ActiveText>
+        <QuestionHelper text={TranslateString(256, "Use this tool to find pairs that don't automatically appear in the interface.")}/>
       </RowBetween>
     </Tabs>
   )
@@ -60,8 +61,8 @@ export function AddRemoveTabs({ adding }: { adding: boolean }) {
         <QuestionHelper
           text={
             adding
-              ? 'When you add liquidity, you are given pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time.'
-              : 'Removing pool tokens converts your position back into underlying tokens at the current rate, proportional to your share of the pool. Accrued fees are included in the amounts you receive.'
+              ? TranslateString(164, "When you add liquidity, you are given pool tokens representing your position. These tokens automatically earn fees proportional to your share of the pool, and can be redeemed at any time.")
+              : TranslateString(266,"Removing pool tokens converts your position back into underlying tokens at the current rate, proportional to your share of the pool. Accrued fees are included in the amounts you receive.")
           }
         />
       </RowBetween>

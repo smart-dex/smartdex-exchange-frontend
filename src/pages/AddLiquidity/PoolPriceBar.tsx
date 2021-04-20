@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { darkColors, lightColors } from 'style/Color'
 import { Currency, Percent, Price } from '@sotatek-anhdao/smartdex-sdk'
 import { Text } from 'uikit-sotatek'
+import { TranslateString } from 'utils/translateTextHelpers'
 import { AutoColumn } from '../../components/Column'
 import { AutoRow } from '../../components/Row'
 import { ONE_BIPS } from '../../constants'
@@ -89,7 +90,7 @@ export function PoolPriceBar({
           </Text>
           <Text pt={1}>
             <StyleText>
-              {currencies[Field.CURRENCY_B]?.symbol} per {currencies[Field.CURRENCY_A]?.symbol}
+              {currencies[Field.CURRENCY_B]?.symbol} {TranslateString(242, "per")} {currencies[Field.CURRENCY_A]?.symbol}
             </StyleText>
           </Text>
         </AutoColumn>
@@ -102,7 +103,7 @@ export function PoolPriceBar({
           </Text>
           <Text pt={1}>
             <StyleText>
-              {currencies[Field.CURRENCY_A]?.symbol} per {currencies[Field.CURRENCY_B]?.symbol}
+              {currencies[Field.CURRENCY_A]?.symbol} {TranslateString(242, "per")} {currencies[Field.CURRENCY_B]?.symbol}
             </StyleText>
           </Text>
         </AutoColumn>
@@ -116,7 +117,7 @@ export function PoolPriceBar({
             </StyleText>
           </Text>
           <Text fontSize="14px" color="textSubtle" pt={1}>
-            <StyleText>Share of Pool</StyleText>
+            <StyleText>{TranslateString(248, "Share of Pool")}</StyleText>
           </Text>
         </AutoColumn>
       </AutoRow>
