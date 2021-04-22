@@ -197,7 +197,7 @@ export default function PoolFinder() {
                       <Text style={{ textAlign: 'center' }}><StyleText>{ TranslateString(1176, "You don’t have liquidity in this pool yet.")}</StyleText></Text>
                       <StyledInternalLink to={`/pool/add/${currencyId(currency0)}/${currencyId(currency1)}`}>
                         <StyleLink style={{ textAlign: 'center' }}>
-                           {TranslateString(1223, 'Add Liquidity')}
+                           {TranslateString(168, 'Add Liquidity')}
                         </StyleLink>
                       </StyledInternalLink>
                     </AutoColumn>
