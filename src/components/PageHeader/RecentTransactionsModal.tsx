@@ -69,26 +69,28 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss }: RecentTransac
   `
 
   const LinkExternalStyle = styled(LinkExternal)`
-  color: ${({ theme }) => (theme.isDark ? darkColors.textSubtle : lightColors.textMenuLeft)};
-  width: 100%;
-  background: none;
-  justify-content: flex-start;
+    color: ${({ theme }) => (theme.isDark ? darkColors.textSubtle : lightColors.textMenuLeft)};
+    width: 100%;
+    background: none;
+    justify-content: flex-start;
     svg {
       margin-left: 4px;
-      fill: #0085FF;
-  }
+      fill: #0085ff;
+    }
   `
 
   return (
-    <Modal title={TranslateString(1207, "Recent Transactions")} onDismiss={onDismiss}>
+    <Modal title={TranslateString(1207, 'Recent Transactions')} onDismiss={onDismiss}>
       {!account && (
         <Flex justifyContent="center" flexDirection="column" alignItems="center">
           <Text mb="8px" bold>
-            <StyleText>{TranslateString(1209, "Please connect your wallet to view your recent transactions")}</StyleText>
+            <StyleText>
+              {TranslateString(1209, 'Please connect your wallet to view your recent transactions')}
+            </StyleText>
           </Text>
           <StyleButton>
             <Button variant="tertiary" size="sm" onClick={onDismiss}>
-              {TranslateString(438, "Close")}
+              {TranslateString(438, 'Close')}
             </Button>
           </StyleButton>
         </Flex>
@@ -96,11 +98,11 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss }: RecentTransac
       {account && chainId && sortedRecentTransactions.length === 0 && (
         <Flex justifyContent="center" flexDirection="column" alignItems="center">
           <Text mb="8px" bold>
-            <StyleText>{TranslateString(1211, "No recent transactions")}</StyleText>
+            <StyleText>{TranslateString(1211, 'No recent transactions')}</StyleText>
           </Text>
           <StyleButton>
             <Button variant="tertiary" size="sm" onClick={onDismiss}>
-            {TranslateString(438, "Close")}
+              {TranslateString(438, 'Close')}
             </Button>
           </StyleButton>
         </Flex>
@@ -110,12 +112,26 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss }: RecentTransac
         sortedRecentTransactions.map((sortedRecentTransaction) => {
           const { hash, summary } = sortedRecentTransaction
           const { icon } = getRowStatus(sortedRecentTransaction)
+          let translateSummary
+          const addText = summary?.includes('Add')
+          const removeText = summary?.includes('Remove')
+          const swapText = summary?.includes('Swap')
 
+          if(addText){
+            translateSummary = summary?.replace("Add", TranslateString(258, "Add"))
+          }
+          else if(removeText) {
+            translateSummary = summary?.replace("Remove", TranslateString(260, "Remove"))
+          }
+          else translateSummary = summary?.replace("Swap", TranslateString(1142, "Swap"))
+
+          const resultTranslateSummary =  swapText ? translateSummary.replace("for",TranslateString(1238, "for")) : translateSummary.replace("and",TranslateString(1230, "and"))
+         
           return (
             <>
               <Flex key={hash} alignItems="center" justifyContent="space-between" mb="4px">
-                <LinkExternalStyle href={getBscScanLink(chainId, hash, 'transaction')} >
-                  {summary ?? hash}
+                <LinkExternalStyle href={getBscScanLink(chainId, hash, 'transaction')}>
+                  {resultTranslateSummary ?? hash}
                 </LinkExternalStyle>
                 {icon}
               </Flex>
