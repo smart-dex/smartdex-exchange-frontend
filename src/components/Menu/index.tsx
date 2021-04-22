@@ -9,7 +9,7 @@ import useGetPriceData from 'hooks/useGetPriceData'
 import useGetLocalProfile from 'hooks/useGetLocalProfile'
 import useAuth from 'hooks/useAuth'
 import { injected } from 'connectors'
-import links from './config'
+import { TranslateString } from 'utils/translateTextHelpers'
 
 const Menu: React.FC = (props) => {
   const { account, activate, deactivate } = useWeb3React()
@@ -27,9 +27,118 @@ const Menu: React.FC = (props) => {
     }
   }, [account, activate])
 
+  const configLink = [
+    {
+      label: `${TranslateString(670, 'Home')}`,
+      icon: 'HomeIcon',
+      href: `${process.env.REACT_APP_FINANCE_URL}`,
+    },
+    {
+      label: `${TranslateString(672, 'Trade')}`,
+      icon: 'TradeIcon',
+      initialOpenState: true,
+      items: [
+        {
+          label: `${TranslateString(8, 'Exchange')}`,
+          href: '/swap',
+        },
+        {
+          label: `${TranslateString(262, 'Liquidity')}`,
+          href: '/pool',
+        },
+      ],
+    },
+    {
+      label: `${TranslateString(674, 'Farms')}`,
+      icon: 'FarmIcon',
+      href: `${process.env.REACT_APP_FINANCE_URL}/farms`,
+    },
+    {
+      label: `${TranslateString(676, 'Pools')}`,
+      icon: 'PoolIcon',
+      href: `${process.env.REACT_APP_FINANCE_URL}/pools`,
+    },
+    {
+      label: `${TranslateString(14, 'Lottery')}`,
+      icon: 'TicketIcon',
+      href: `${process.env.REACT_APP_FINANCE_URL}/lottery`,
+    },
+    {
+      label: `${TranslateString(12215, 'Collectibles')}`,
+      icon: 'NftIcon',
+      href: `${process.env.REACT_APP_FINANCE_URL}/collectibles`,
+    },
+    {
+      label: `${TranslateString(12216, 'Teams & Profile')}`,
+      icon: 'GroupsIcon',
+      items: [
+        {
+          label: `${TranslateString(12217, 'Leaderboard')}`,
+          href: `${process.env.REACT_APP_FINANCE_URL}/teams`,
+        },
+        {
+          label: `${TranslateString(1090, 'Task Center')}`,
+          href: `${process.env.REACT_APP_FINANCE_URL}/tasks`,
+        },
+        {
+          label: `${TranslateString(12218, 'Your Profile')}`,
+          href: `${process.env.REACT_APP_FINANCE_URL}/profile`,
+        },
+      ],
+    },
+    {
+      label: `${TranslateString(680, 'Info')}`,
+      icon: 'InfoIcon',
+      items: [
+        {
+          label: `${TranslateString(688, 'Overview')}`,
+          href: `${process.env.REACT_APP_INFO_URL}/home`,
+        },
+        {
+          label: `${TranslateString(12223, 'Tokens')}`,
+          href: `${process.env.REACT_APP_INFO_URL}/tokens`,
+        },
+        {
+          label: `${TranslateString(692, 'Pairs')}`,
+          href: `${process.env.REACT_APP_INFO_URL}/pairs`,
+        },
+        {
+          label: `${TranslateString(694, 'Accounts')}`,
+          href: `${process.env.REACT_APP_INFO_URL}/accounts`,
+        },
+      ],
+    },
+    {
+      label: 'IFO',
+      icon: 'IfoIcon',
+      href: `${process.env.REACT_APP_FINANCE_URL}/ifo`,
+    },
+    {
+      label: `${TranslateString(684, 'More')}`,
+      icon: 'MoreIcon',
+      items: [
+        {
+          label: `${TranslateString(12, 'Voting')}`,
+          href: '',
+        },
+        {
+          label: 'Github',
+          href: '',
+        },
+        {
+          label: `${TranslateString(10, 'Docs')}`,
+          href: `${process.env.REACT_APP_DOCS_URL}`,
+        },
+        {
+          label: `${TranslateString(310, 'Blog')}`,
+          href: '',
+        },
+      ],
+    },
+  ]
   return (
     <UikitMenu
-      links={links}
+      links={configLink}
       account={account as string}
       login={login}
       logout={logout}
