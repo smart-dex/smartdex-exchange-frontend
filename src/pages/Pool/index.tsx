@@ -252,7 +252,7 @@ export default function Pool() {
 
               <ButtonStyle>
                 <Button id="join-pool-button" as={Link} to="/pool/add/ETH">
-                  {TranslateString(1223, 'Add Liquidity')}
+                  {TranslateString(168, 'Add Liquidity')}
                   <BoxIconDirect>
                     <IconDirect src="/images/icon-direct.svg" alt="" />
                   </BoxIconDirect>
