@@ -240,7 +240,7 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
               <ButtonStyle>
                 <Button
                   as={Link}
-                  to={`/add/${currencyId(currency0)}/${currencyId(currency1)}`}
+                  to={`/pool/add/${currencyId(currency0)}/${currencyId(currency1)}`}
                 >
                   {TranslateString(258, "Add")}
                 </Button>
@@ -248,7 +248,7 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
               <ButtonStyle>
                 <Button
                   as={Link}
-                  to={`/remove/${currencyId(currency0)}/${currencyId(currency1)}`}
+                  to={`/pool/remove/${currencyId(currency0)}/${currencyId(currency1)}`}
                 >
                   {TranslateString(260, "Remove")}
                 </Button>

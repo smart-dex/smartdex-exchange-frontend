@@ -251,7 +251,7 @@ export default function Pool() {
               </AutoColumn>
 
               <ButtonStyle>
-                <Button id="join-pool-button" as={Link} to="/add/ETH">
+                <Button id="join-pool-button" as={Link} to="/pool/add/ETH">
                   {TranslateString(1223, 'Add Liquidity')}
                   <BoxIconDirect>
                     <IconDirect src="/images/icon-direct.svg" alt="" />
