@@ -1249,7 +1249,7 @@
             "stringId": 246,
             "contentType": "text/plain",
             "translationId": 36540,
-            "text": "匯率",
+            "text": "費率",
             "user": {
                 "id": 13476071,
                 "username": "Kbph",
@@ -2689,7 +2689,7 @@
             "stringId": 1164,
             "contentType": "text/plain",
             "translationId": 49988,
-            "text": "初始價格和資金池持份",
+            "text": "初始價格和股票份額",
             "user": {
                 "id": 13476071,
                 "username": "Kbph",

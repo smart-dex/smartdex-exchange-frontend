@@ -475,7 +475,7 @@ export default function AddLiquidity({
               />
               {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
                 <div>
-                  <StyleTextTit>{noLiquidity ? TranslateString(1166, "Initial prices and pool share"): TranslateString(1166, "Prices and pool share")}</StyleTextTit>
+                  <StyleTextTit>{noLiquidity ? TranslateString(1164, "Initial prices and pool share"): TranslateString(1166, "Prices and pool share")}</StyleTextTit>
                   <Pane>
                     <PoolPriceBar
                       currencies={currencies}

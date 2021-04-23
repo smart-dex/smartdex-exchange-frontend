@@ -1249,7 +1249,7 @@
             "stringId": 246,
             "contentType": "text/plain",
             "translationId": 27304,
-            "text": "汇率",
+            "text": "费率",
             "user": {
                 "id": 13470935,
                 "username": "Liangzdz",
@@ -2689,7 +2689,7 @@
             "stringId": 1164,
             "contentType": "text/plain",
             "translationId": 49604,
-            "text": "初始价格和资金池份额",
+            "text": "初始价格和股票份额",
             "user": {
                 "id": 13470935,
                 "username": "Liangzdz",
