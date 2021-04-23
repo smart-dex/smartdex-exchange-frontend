@@ -136,7 +136,7 @@ export default function App() {
                   <Web3ReactManager>
                     <Switch>
                       <Route exact strict path="/swap" component={Swap} />
-                      <Route exact strict path="/find" component={PoolFinder} />
+                      <Route exact strict path="/pool/find" component={PoolFinder} />
                       <Route exact strict path="/pool" component={Pool} />
                       <Route exact strict path="/pool/add" component={AddLiquidity} />
                       <Route exact strict path="/pool/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
