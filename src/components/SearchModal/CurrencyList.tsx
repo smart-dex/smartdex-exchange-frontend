@@ -83,7 +83,7 @@ const StyleListToken = styled(Text)`
 const TextStyle = styled(Text)`
   font-size: 12px;
   ${({ theme }) => theme.mediaQueries.nav} {
-    font-size: 15px;
+    font-size: 15px !important;
   }
 `
 
