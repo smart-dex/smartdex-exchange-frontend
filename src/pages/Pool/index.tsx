@@ -190,7 +190,10 @@ export default function Pool() {
       <ArrowLeft />
       <div>
         <BodyStyle>
-          <PageHeader title={TranslateString(262, 'Liquidity')} description={TranslateString(1168, 'Add liquidity to receive LP tokens')} />
+          <PageHeader
+            title={TranslateString(262, 'Liquidity')}
+            description={TranslateString(1168, 'Add liquidity to receive LP tokens')}
+          />
           <AutoColumn gap="lg">
             <CardBodyStyle>
               <AutoColumn style={{ width: '100%' }}>
@@ -210,7 +213,6 @@ export default function Pool() {
                   <StyleConnect>
                     <LightCard padding="50px 20px">
                       <TextContent color="textDisabled" textAlign="center">
-                        
                         {TranslateString(156, 'Connect to a wallet to view your liquidity.')}
                       </TextContent>
                     </LightCard>
@@ -229,9 +231,7 @@ export default function Pool() {
                   </>
                 ) : (
                   <LightCard padding="40px 20px">
-                    <TextStyle textAlign="center">
-                      <TranslatedText translationId={104}>No liquidity found.</TranslatedText>
-                    </TextStyle>
+                    <TextStyle textAlign="center">{TranslateString(170, 'No liquidity found.')}</TextStyle>
                   </LightCard>
                 )}
 
@@ -245,7 +245,10 @@ export default function Pool() {
                     </TextLink>
                   </TextStyle>
                   <TextStyle fontSize="14px">
-                    {TranslateString(1222, ' Or, if you staked your FLIP tokens in a farm, unstake them to see them here.')}
+                    {TranslateString(
+                      1222,
+                      ' Or, if you staked your FLIP tokens in a farm, unstake them to see them here.'
+                    )}
                   </TextStyle>
                 </div>
               </AutoColumn>

@@ -411,7 +411,7 @@ export default function AddLiquidity({
             hash={txHash}
             content={() => (
               <ConfirmationModalContent
-                title={noLiquidity ? 'You are creating a pool' : TranslateString(1156, "You will receive")}
+                title={noLiquidity ? TranslateString(1154, "You are creating a pool") : TranslateString(1156, "You will receive")}
                 onDismiss={handleDismissConfirmation}
                 topContent={modalHeader}
                 bottomContent={modalBottom}

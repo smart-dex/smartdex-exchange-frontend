@@ -694,7 +694,7 @@
             "stringId": 168,
             "contentType": "text/plain",
             "translationId": 8906,
-            "text": "流動性の追加",
+            "text": "流動性を追加する",
             "user": {
                 "id": 14439204,
                 "username": "bocaabajo",
@@ -709,7 +709,7 @@
             "stringId": 170,
             "contentType": "text/plain",
             "translationId": 8908,
-            "text": "流動性が見つかりません。",
+            "text": "流動性は見つかりませんでした。",
             "user": {
                 "id": 14439204,
                 "username": "bocaabajo",
@@ -1219,7 +1219,7 @@
             "stringId": 242,
             "contentType": "text/plain",
             "translationId": 8988,
-            "text": "毎",
+            "text": "あたり",
             "user": {
                 "id": 14439204,
                 "username": "bocaabajo",
@@ -1264,7 +1264,7 @@
             "stringId": 248,
             "contentType": "text/plain",
             "translationId": 37306,
-            "text": "プールのシェア:",
+            "text": "プールのシェア",
             "user": {
                 "id": 14144439,
                 "username": "nozomi.kugita",
@@ -1279,7 +1279,7 @@
             "stringId": 250,
             "contentType": "text/plain",
             "translationId": 37310,
-            "text": "プールと供給の作成",
+            "text": "プールと供給を作成する",
             "user": {
                 "id": 14144439,
                 "username": "nozomi.kugita",
@@ -1294,7 +1294,7 @@
             "stringId": 252,
             "contentType": "text/plain",
             "translationId": 37312,
-            "text": "供給の確定",
+            "text": "提供を確認する",
             "user": {
                 "id": 14144439,
                 "username": "nozomi.kugita",
@@ -1414,7 +1414,7 @@
             "stringId": 268,
             "contentType": "text/plain",
             "translationId": 9014,
-            "text": "プール済",
+            "text": "プール",
             "user": {
                 "id": 14439204,
                 "username": "bocaabajo",
@@ -2719,7 +2719,7 @@
             "stringId": 1168,
             "contentType": "text/plain",
             "translationId": 49286,
-            "text": "流動性を追加してLPトークンを受け取る",
+            "text": "LPトークンを受け取るために流動性を追加する",
             "user": {
                 "id": 14144439,
                 "username": "nozomi.kugita",
@@ -4639,7 +4639,7 @@
             "stringId": 684,
             "contentType": "text/plain",
             "translationId": 31278,
-            "text": "その他",
+            "text": "もっと",
             "user": {
                 "id": 14144439,
                 "username": "nozomi.kugita",

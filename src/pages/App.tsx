@@ -83,7 +83,8 @@ export default function App() {
       const storedLang = getStoredLang(storedLangCode)
       setSelectedLanguage(storedLang)
     } else {
-      setSelectedLanguage(EN)
+      const data = JSON.parse(localStorage.getItem("lang") || '{}').code ? JSON.parse(localStorage.getItem("lang") || '{}') : EN
+      setSelectedLanguage(data)
     }
   }, [])
 
@@ -107,6 +108,7 @@ export default function App() {
   useEffect(() => {
     let translationData
     if (selectedLanguage) {
+      localStorage.setItem('lang', JSON.stringify(selectedLanguage))
       listLanguage.map((item)=>{
         if (item.language === selectedLanguage.code){
           translationData = item.data

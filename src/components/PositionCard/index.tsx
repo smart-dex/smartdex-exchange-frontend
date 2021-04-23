@@ -202,7 +202,7 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
           <AutoColumn gap="8px">
             <FixedHeightRow>
               <RowFixed>
-                <TextStyle>Pooled {currency0.symbol}:</TextStyle>
+                <TextStyle>{TranslateString(268, "Pooled")} {currency0.symbol}:</TextStyle>
               </RowFixed>
               {token0Deposited ? (
                 <RowFixed>
@@ -216,7 +216,7 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
 
             <FixedHeightRow>
               <RowFixed>
-                <TextStyle>Pooled {currency1.symbol}:</TextStyle>
+                <TextStyle>{TranslateString(268, "Pooled")} {currency1.symbol}:</TextStyle>
               </RowFixed>
               {token1Deposited ? (
                 <RowFixed>
@@ -228,11 +228,11 @@ export default function FullPositionCard({ pair }: PositionCardProps) {
               )}
             </FixedHeightRow>
             <FixedHeightRow>
-              <TextStyle>Your pool tokens:</TextStyle>
+              <TextStyle> {TranslateString(270, "Your pool tokens:")}</TextStyle>
               <TextStyle>{userPoolBalance ? userPoolBalance.toSignificant(4) : '-'}</TextStyle>
             </FixedHeightRow>
             <FixedHeightRow>
-              <TextStyle>Your pool share:</TextStyle>
+              <TextStyle> {TranslateString(272, "Your pool share:")}</TextStyle>
               <TextStyle>{poolTokenPercentage ? `${poolTokenPercentage.toFixed(2)}%` : '-'}</TextStyle>
             </FixedHeightRow>
 
