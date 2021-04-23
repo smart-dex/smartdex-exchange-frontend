@@ -49,7 +49,7 @@
             "stringId": 10,
             "contentType": "text/plain",
             "translationId": 5566,
-            "text": "文档",
+            "text": "文件资料",
             "user": {
                 "id": 14439406,
                 "username": "Potaball",
@@ -709,7 +709,7 @@
             "stringId": 170,
             "contentType": "text/plain",
             "translationId": 27192,
-            "text": "未找到流动性。",
+            "text": "找不到流动性。",
             "user": {
                 "id": 13470935,
                 "username": "Liangzdz",
@@ -1279,7 +1279,7 @@
             "stringId": 250,
             "contentType": "text/plain",
             "translationId": 39564,
-            "text": "创建资金池并供应",
+            "text": "创建池和供应",
             "user": {
                 "id": 13470935,
                 "username": "Liangzdz",
@@ -1414,7 +1414,7 @@
             "stringId": 268,
             "contentType": "text/plain",
             "translationId": 44318,
-            "text": "资金池量",
+            "text": "汇集",
             "user": {
                 "id": 13470935,
                 "username": "Liangzdz",
@@ -1429,7 +1429,7 @@
             "stringId": 270,
             "contentType": "text/plain",
             "translationId": 27360,
-            "text": "您的资金池代币：",
+            "text": "您的泳池代币:",
             "user": {
                 "id": 13470935,
                 "username": "Liangzdz",
@@ -1444,7 +1444,7 @@
             "stringId": 272,
             "contentType": "text/plain",
             "translationId": 27348,
-            "text": "您的资金池份额：",
+            "text": "您的泳池份额：",
             "user": {
                 "id": 13470935,
                 "username": "Liangzdz",
@@ -2614,7 +2614,7 @@
             "stringId": 1154,
             "contentType": "text/plain",
             "translationId": 49596,
-            "text": "您正在创建资金池",
+            "text": "您正在创建一个池",
             "user": {
                 "id": 13470935,
                 "username": "Liangzdz",
@@ -4714,7 +4714,7 @@
             "stringId": 694,
             "contentType": "text/plain",
             "translationId": 26428,
-            "text": "账户",
+            "text": "帐目",
             "user": {
                 "id": 13470935,
                 "username": "Liangzdz",
@@ -7849,7 +7849,7 @@
             "stringId": 1120,
             "contentType": "text/plain",
             "translationId": 48434,
-            "text": "余额",
+            "text": "平衡",
             "user": {
                 "id": 13470935,
                 "username": "Liangzdz",
@@ -8179,7 +8179,7 @@
             "stringId": 1224,
             "contentType": "text/plain",
             "translationId": 12029,
-            "text": "流動性を追加する",
+            "text": "钱包中的LP令牌",
             "user": {
                 "id": 13288016,
                 "username": "Chris66",

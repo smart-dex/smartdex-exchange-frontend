@@ -49,7 +49,7 @@
             "stringId": 10,
             "contentType": "text/plain",
             "translationId": 6192,
-            "text": "文檔",
+            "text": "文件資料",
             "user": {
                 "id": 14439406,
                 "username": "Potaball",
@@ -1279,7 +1279,7 @@
             "stringId": 250,
             "contentType": "text/plain",
             "translationId": 36546,
-            "text": "創造資金池並供應",
+            "text": "創建池和供應",
             "user": {
                 "id": 13476071,
                 "username": "Kbph",
@@ -1339,7 +1339,7 @@
             "stringId": 258,
             "contentType": "text/plain",
             "translationId": 18266,
-            "text": "增加",
+            "text": "添加",
             "user": {
                 "id": 14439406,
                 "username": "Potaball",
@@ -1414,7 +1414,7 @@
             "stringId": 268,
             "contentType": "text/plain",
             "translationId": 36600,
-            "text": "已儲集",
+            "text": "匯集",
             "user": {
                 "id": 13476071,
                 "username": "Kbph",
@@ -1429,7 +1429,7 @@
             "stringId": 270,
             "contentType": "text/plain",
             "translationId": 36604,
-            "text": "您的資金池代幣：",
+            "text": "您的泳池代幣:",
             "user": {
                 "id": 13476071,
                 "username": "Kbph",
@@ -1444,7 +1444,7 @@
             "stringId": 272,
             "contentType": "text/plain",
             "translationId": 36606,
-            "text": "您的資金池持份：",
+            "text": "您的泳池份額：",
             "user": {
                 "id": 13476071,
                 "username": "Kbph",
@@ -2614,7 +2614,7 @@
             "stringId": 1154,
             "contentType": "text/plain",
             "translationId": 49978,
-            "text": "您正在建立資金池",
+            "text": "您正在創建一個池",
             "user": {
                 "id": 13476071,
                 "username": "Kbph",
@@ -4609,7 +4609,7 @@
             "stringId": 680,
             "contentType": "text/plain",
             "translationId": 38664,
-            "text": "資訊",
+            "text": "信息",
             "user": {
                 "id": 13476071,
                 "username": "Kbph",
@@ -4714,7 +4714,7 @@
             "stringId": 694,
             "contentType": "text/plain",
             "translationId": 38678,
-            "text": "帳戶",
+            "text": "帳目",
             "user": {
                 "id": 13476071,
                 "username": "Kbph",
@@ -7849,7 +7849,7 @@
             "stringId": 1120,
             "contentType": "text/plain",
             "translationId": 47446,
-            "text": "餘額",
+            "text": "平衡",
             "user": {
                 "id": 13476071,
                 "username": "Kbph",
