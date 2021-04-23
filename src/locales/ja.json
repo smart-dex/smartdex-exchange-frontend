@@ -1309,7 +1309,7 @@
             "stringId": 254,
             "contentType": "text/plain",
             "translationId": 9000,
-            "text": "プールのインポート",
+            "text": "インポートプール",
             "user": {
                 "id": 14439204,
                 "username": "bocaabajo",
@@ -2314,7 +2314,7 @@
             "stringId": 438,
             "contentType": "text/plain",
             "translationId": 20626,
-            "text": "終了",
+            "text": "閉じる",
             "user": {
                 "id": 14451920,
                 "username": "cryptobluecat",

@@ -39,8 +39,9 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss }: RecentTransac
   // Logic taken from Web3Status/index.tsx line 175
   const sortedRecentTransactions = useMemo(() => {
     const txs = Object.values(allTransactions)
-    return txs.filter(isTransactionRecent).sort(newTransactionsFirst)
-  }, [allTransactions])
+    
+    return txs.filter(isTransactionRecent).sort(newTransactionsFirst).filter((item) => item.from === account)
+  }, [allTransactions, account])
 
   const StyleText = styled(Text)`
     font-size: 13px;
