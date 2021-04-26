@@ -14,9 +14,10 @@ import useToast from 'hooks/useToast'
 import { connectorsByName } from 'connectors'
 
 const useAuth = () => {
+
   const { activate, deactivate } = useWeb3React()
   const { toastError, toastSuccess } = useToast()
-
+  
   const login = useCallback((connectorID: ConnectorNames) => {
     const connector = connectorsByName[connectorID]
     if (connector) {
@@ -38,13 +39,35 @@ const useAuth = () => {
           toastError('Authorization Error', 'Please authorize to access your account')
         }
       })
+
+      const iframe = document.getElementById("iframe-x-finance")
+
+      if (iframe instanceof HTMLIFrameElement) {
+        const win = iframe.contentWindow;
+        if (win) {
+          win.postMessage({ key: connectorLocalStorageKey, value: "injected" }, "*")
+        }
+      }
+
     } else {
       toastError("Can't find connector", 'The connector config is wrong')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  return { login, logout: deactivate }
+  const logout = () => {
+    deactivate()
+    const iframe = document.getElementById("iframe-x-finance")
+
+    if (iframe instanceof HTMLIFrameElement) {
+      const win = iframe.contentWindow;
+      if (win){
+        win.postMessage({ action: "remove", key: connectorLocalStorageKey }, "*")
+      }
+    }
+  }
+
+  return { login, logout }
 }
 
 export default useAuth
