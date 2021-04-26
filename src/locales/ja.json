@@ -424,7 +424,7 @@
             "stringId": 130,
             "contentType": "text/plain",
             "translationId": 37348,
-            "text": "流動性を追加すると、あなたのプールシェアを表すプールトークンが与えられます。あなたが参加しているプールがこのリストに含まれていない場合は、以下でプールをインポートしてみてください",
+            "text": "流動性を追加すると、シェアを表すプールトークンが与えられます。 このリストに参加したプールが表示されている場合は、以下のプールをインポートしてみてください。",
             "user": {
                 "id": 14144439,
                 "username": "nozomi.kugita",
@@ -1234,7 +1234,7 @@
             "stringId": 244,
             "contentType": "text/plain",
             "translationId": 37300,
-            "text": "入金",
+            "text": "寄託",
             "user": {
                 "id": 14144439,
                 "username": "nozomi.kugita",
@@ -1399,7 +1399,7 @@
             "stringId": 266,
             "contentType": "text/plain",
             "translationId": 37336,
-            "text": "プールトークンを取り除くと、あなたのポジションは、現在のレートであなたのプールシェアに比例した元のトークンに変換し直されます。未払いの手数料は受け取り量に含まれます。",
+            "text": "プールトークンを削除すると、プールのシェアに比例して、現在のレートでポジションが基になるトークンに変換されます。 未払料金は、受け取る金額に含まれています。",
             "user": {
                 "id": 14144439,
                 "username": "nozomi.kugita",
@@ -2629,7 +2629,7 @@
             "stringId": 1156,
             "contentType": "text/plain",
             "translationId": 49272,
-            "text": "受け取り",
+            "text": "あなたは受け取ることになります",
             "user": {
                 "id": 14144439,
                 "username": "nozomi.kugita",
@@ -2779,7 +2779,7 @@
             "stringId": 1176,
             "contentType": "text/plain",
             "translationId": 49338,
-            "text": "まだこのプールには流動性を追加していません。",
+            "text": "このプールには、まだリクイディティがありません。",
             "user": {
                 "id": 14144439,
                 "username": "nozomi.kugita",
@@ -8359,7 +8359,7 @@
             "stringId": 1233,
             "contentType": "text/plain",
             "translationId": 12039,
-            "text": "フリップ",
+            "text": "FLIP",
             "user": {
                 "id": 13288016,
                 "username": "Chris66",
