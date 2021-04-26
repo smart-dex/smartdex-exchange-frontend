@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import NumberFormat from 'react-number-format';
 import { lightColors, darkColors } from 'style/Color'
+import { TranslateString } from 'utils/translateTextHelpers'
 import { escapeRegExp } from '../../utils'
 
 const StyledInput = styled.div`
@@ -73,7 +74,7 @@ export const Input = React.memo(function InnerInput({
         }}
         // universal input options
         inputMode="decimal"
-        title="Token Amount"
+        title={TranslateString(12224, "Token Amount")}
         autoComplete="off"
         autoCorrect="off"
         // text-specific options
