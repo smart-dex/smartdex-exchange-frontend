@@ -20,6 +20,22 @@ const ThemeContextProvider: React.FC = ({ children }) => {
   const toggleTheme = () => {
     setIsDark((prevState: any) => {
       localStorage.setItem(CACHE_KEY, JSON.stringify(!prevState))
+      const iframe=document.getElementById("iframe-x-finance")
+      if (iframe instanceof HTMLIFrameElement){
+        const win = iframe.contentWindow;
+        if (win){
+          win.postMessage({key: CACHE_KEY, value: JSON.stringify(!prevState)},"*")
+        }
+      }
+
+      const iframeI=document.getElementById("iframe-x-info")
+      if (iframeI instanceof HTMLIFrameElement){
+        const win = iframeI.contentWindow;
+        if (win){
+          win.postMessage({action: "update", item: 'UNISWAP',key: "DARK_MODE", value: JSON.stringify(!prevState)},"*")
+        }
+      }
+
       return !prevState
     })
   }

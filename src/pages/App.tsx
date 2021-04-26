@@ -86,6 +86,8 @@ export default function App() {
       const data = JSON.parse(localStorage.getItem("lang") || '{}').code ? JSON.parse(localStorage.getItem("lang") || '{}') : EN
       setSelectedLanguage(data)
     }
+
+    
   }, [])
 
   // const fetchTranslationsForSelectedLanguage = async () => {
@@ -114,7 +116,15 @@ export default function App() {
           translationData = item.data
         }
         return setTranslations(translationData)
-      })   
+      })
+
+    const iframe=document.getElementById("iframe-x-finance")
+    if (iframe instanceof HTMLIFrameElement){
+      const win = iframe.contentWindow
+      if (win){
+        win.postMessage({key: "pancakeSwapLanguage", value: selectedLanguage.code},"*")
+      }
+    }
     }
   }, [selectedLanguage, setTranslations])
 
