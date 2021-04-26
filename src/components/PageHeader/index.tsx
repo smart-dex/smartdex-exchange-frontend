@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import { Heading, IconButton, Text, Flex, useModal } from 'uikit-sotatek'
 import { lightColors, darkColors } from 'style/Color'
+import { TranslateString } from 'utils/translateTextHelpers'
 import SettingsModal from './SettingsModal'
 import RecentTransactionsModal from './RecentTransactionsModal'
 
@@ -99,10 +100,10 @@ const PageHeader = ({ title, description, children }: PageHeaderProps) => {
           )}
         </Details>
         <StyleButton>
-          <IconButton variant="text" onClick={onPresentSettings} title="Settings">
+          <IconButton variant="text" onClick={onPresentSettings} title={TranslateString(1200, 'Settings')}>
             <StyledCogIcon />
           </IconButton>
-          <IconButton variant="text" onClick={onPresentRecentTransactions} title="Recent transactions">
+          <IconButton variant="text" onClick={onPresentRecentTransactions} title={TranslateString(1207, 'Recent Transactions')}>
             <StyledHistoryIcon/>
           </IconButton>
         </StyleButton>
