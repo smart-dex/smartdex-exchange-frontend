@@ -117,12 +117,15 @@ const RecentTransactionsModal = ({ onDismiss = defaultOnDismiss }: RecentTransac
           const addText = summary?.includes('Add')
           const removeText = summary?.includes('Remove')
           const swapText = summary?.includes('Swap')
+          const approveText = summary?.includes('Approve')
 
           if(addText){
             translateSummary = summary?.replace("Add", TranslateString(258, "Add"))
           }
           else if(removeText) {
             translateSummary = summary?.replace("Remove", TranslateString(260, "Remove"))
+          } else if(approveText) {
+            translateSummary = summary?.replace("Approve", TranslateString(564, "Approve"))
           }
           else translateSummary = summary?.replace("Swap", TranslateString(1142, "Swap"))
 
