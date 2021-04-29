@@ -11,7 +11,7 @@ import useAuth from 'hooks/useAuth'
 import { injected } from 'connectors'
 import { TranslateString } from 'utils/translateTextHelpers'
 
-const Menu: React.FC = (props) => {
+const Menu = (props) => {
   const { account, activate, deactivate } = useWeb3React()
   const { login, logout } = useAuth()
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
@@ -136,6 +136,28 @@ const Menu: React.FC = (props) => {
       ],
     },
   ]
+
+  const linkMyPage = [
+    {
+      label: "My Page",
+      icon: "MyPageIcon",
+      items: [
+        {
+          label: "Wallet",
+          href: `${process.env.REACT_APP_FINANCE_URL}/wallet`,
+        },
+        {
+          label: "Referral",
+          href: `${process.env.REACT_APP_FINANCE_URL}/referral`,
+        },
+        {
+          label: "Refferral Management",
+          href: `${process.env.REACT_APP_FINANCE_URL}/refferral-management`,
+        },
+      ],
+    },
+  ];
+
   return (
     <UikitMenu
       links={configLink}
@@ -148,6 +170,7 @@ const Menu: React.FC = (props) => {
       langs={allLanguages}
       setLang={setSelectedLanguage}
       cakePriceUsd={sdcPriceUsd}
+      linkMyPage={linkMyPage}
       profile={profile}
       {...props}
     />
