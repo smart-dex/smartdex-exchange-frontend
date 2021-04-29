@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { lightColors, darkColors } from 'style/Color'
-import { Input, Text } from 'uikit-sotatek'
+import { Input, Text } from 'smartdex-uikit'
 import NumberFormat from 'react-number-format';
 import { useUserDeadline } from 'state/user/hooks'
 import { TranslateString } from 'utils/translateTextHelpers'

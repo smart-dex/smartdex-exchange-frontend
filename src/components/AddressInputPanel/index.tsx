@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react'
 import styled from 'styled-components'
-import { Text } from 'uikit-sotatek'
+import { Text } from 'smartdex-uikit'
 import useENS from '../../hooks/useENS'
 import { useActiveWeb3React } from '../../hooks'
 import { ExternalLink } from '../Shared'

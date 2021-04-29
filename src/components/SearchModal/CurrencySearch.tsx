@@ -1,6 +1,6 @@
 import { Currency, ETHER, Token } from '@sotatek-anhdao/smartdex-sdk'
 import React, { KeyboardEvent, RefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { Text } from 'uikit-sotatek'
+import { Text } from 'smartdex-uikit'
 import { useSelector } from 'react-redux'
 import { FixedSizeList } from 'react-window'
 import styled from 'styled-components'

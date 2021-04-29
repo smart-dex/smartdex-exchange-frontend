@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from 'uikit-sotatek'
+import { Text } from 'smartdex-uikit'
 import styled from 'styled-components'
 import { lightColors, darkColors } from 'style/Color'
 import { RowFixed } from '../Row'

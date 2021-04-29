@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
-import { Button, Text } from 'uikit-sotatek'
+import { Button, Text } from 'smartdex-uikit'
 import { AlertTriangle } from 'react-feather'
 import Modal from '../Modal'
 import { AutoRow, RowBetween } from '../Row'

@@ -2,7 +2,7 @@ import { Trade, TradeType } from '@sotatek-anhdao/smartdex-sdk'
 import React, { useMemo, useState } from 'react'
 import { darkColors, lightColors, baseColors } from 'style/Color'
 import styled from 'styled-components'
-import { Text , Button } from 'uikit-sotatek'
+import { Text , Button } from 'smartdex-uikit'
 import { Repeat } from 'react-feather'
 
 import { TranslateString } from 'utils/translateTextHelpers'

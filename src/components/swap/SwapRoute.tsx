@@ -2,7 +2,7 @@ import { Trade } from '@sotatek-anhdao/smartdex-sdk'
 import React, { Fragment, memo, useContext } from 'react'
 import { darkColors, lightColors} from 'style/Color'
 import { ChevronRight } from 'react-feather'
-import { Flex, Text } from 'uikit-sotatek'
+import { Flex, Text } from 'smartdex-uikit'
 import styled, { ThemeContext } from 'styled-components'
 import CurrencyLogo from '../CurrencyLogo'
 

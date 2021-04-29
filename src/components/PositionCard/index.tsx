@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { JSBI, Pair, Percent } from '@sotatek-anhdao/smartdex-sdk'
 import { darkColors, lightColors, baseColors } from 'style/Color'
-import { Button, Card as UIKitCard, CardBody, Text } from 'uikit-sotatek'
+import { Button, Card as UIKitCard, CardBody, Text } from 'smartdex-uikit'
 import { ChevronDown, ChevronUp } from 'react-feather'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'

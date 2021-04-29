@@ -1,4 +1,4 @@
-import { MenuEntry } from 'uikit-sotatek'
+import { MenuEntry } from 'smartdex-uikit'
 
 const config: MenuEntry[] = [
   {

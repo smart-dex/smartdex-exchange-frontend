@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Card } from 'uikit-sotatek'
+import { Card } from 'smartdex-uikit'
 import { lightColors, darkColors, baseColors } from 'style/Color'
 
 export const BodyWrapper = styled(Card)`

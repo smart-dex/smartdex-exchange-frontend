@@ -1,6 +1,6 @@
 import { Token } from '@sotatek-anhdao/smartdex-sdk'
 import { transparentize } from 'polished'
-import { Button, Text } from 'uikit-sotatek'
+import { Button, Text } from 'smartdex-uikit'
 import React, { useCallback, useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { AlertTriangle } from 'react-feather'

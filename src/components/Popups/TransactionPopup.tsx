@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { AlertCircle, CheckCircle } from 'react-feather'
 import { darkColors, lightColors, baseColors} from 'style/Color'
-import { Text } from 'uikit-sotatek'
+import { Text } from 'smartdex-uikit'
 import styled, { ThemeContext } from 'styled-components'
 import { useActiveWeb3React } from '../../hooks'
 import { getBscScanLink } from '../../utils'

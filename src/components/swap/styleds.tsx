@@ -1,7 +1,7 @@
 import { transparentize } from 'polished'
 import React from 'react'
 import { AlertTriangle } from 'react-feather'
-import { Text } from 'uikit-sotatek'
+import { Text } from 'smartdex-uikit'
 import styled, { css } from 'styled-components'
 import { baseColors } from 'style/Color'
 import { AutoColumn } from '../Column'

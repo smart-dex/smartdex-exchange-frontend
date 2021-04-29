@@ -1,7 +1,7 @@
 import React from 'react'
 import { useWeb3React } from '@web3-react/core'
 import styled from 'styled-components'
-import { Button, ButtonProps, useWalletModal } from 'uikit-sotatek'
+import { Button, ButtonProps, useWalletModal } from 'smartdex-uikit'
 import { ConnectorId } from '@pancakeswap-libs/uikit'
 import { injected, walletconnect } from 'connectors'
 import useI18n from 'hooks/useI18n'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text } from 'uikit-sotatek'
+import { Text } from 'smartdex-uikit'
 import { ChainId, Currency, currencyEquals, ETHER, Token } from '@sotatek-anhdao/smartdex-sdk'
 import styled from 'styled-components'
 import { darkColors, lightColors} from 'style/Color'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Price } from '@sotatek-anhdao/smartdex-sdk'
 import styled from 'styled-components'
-import { SyncAltIcon, Text } from 'uikit-sotatek'
+import { SyncAltIcon, Text } from 'smartdex-uikit'
 import { baseColors, darkColors, lightColors} from 'style/Color'
 import { TranslateString } from 'utils/translateTextHelpers'
 import { StyledBalanceMaxMini } from './styleds'

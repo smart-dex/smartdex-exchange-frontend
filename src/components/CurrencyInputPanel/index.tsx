@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import { Currency, Pair } from '@sotatek-anhdao/smartdex-sdk'
-import { Button, ChevronDownIcon, Text } from 'uikit-sotatek'
+import { Button, ChevronDownIcon, Text } from 'smartdex-uikit'
 import styled from 'styled-components'
 import { darken } from 'polished'
 import { lightColors, darkColors, baseColors } from 'style/Color'
