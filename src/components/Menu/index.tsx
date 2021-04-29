@@ -129,10 +129,6 @@ const Menu = (props) => {
           label: `${TranslateString(10, 'Docs')}`,
           href: `${process.env.REACT_APP_DOCS_URL}`,
         },
-        {
-          label: `${TranslateString(310, 'Blog')}`,
-          href: '',
-        },
       ],
     },
   ]
