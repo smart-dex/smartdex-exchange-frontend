@@ -147,8 +147,8 @@ const Menu = (props) => {
           href: `${process.env.REACT_APP_FINANCE_URL}/referral`,
         },
         {
-          label: "Refferral Management",
-          href: `${process.env.REACT_APP_FINANCE_URL}/refferral-management`,
+          label: "Referral Management",
+          href: `${process.env.REACT_APP_FINANCE_URL}/referral-management`,
         },
       ],
     },
