@@ -22,7 +22,7 @@ const MobilePopupInner = styled.div`
   overflow-x: auto;
   overflow-y: hidden;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   -webkit-overflow-scrolling: touch;
   ::-webkit-scrollbar {
     display: none;
@@ -36,6 +36,8 @@ const FixedPopupColumn = styled(AutoColumn)`
   max-width: 355px !important;
   width: 100%;
   z-index: 2;
+  display: flex;
+  flex-direction: column !important;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     display: none;
