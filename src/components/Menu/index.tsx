@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import { ConnectorId } from '@pancakeswap-libs/uikit'
-import { Menu as UikitMenu } from 'uikit-sotatek'
+import { Menu as UikitMenu } from 'smartdex-uikit'
 import { useWeb3React } from '@web3-react/core'
 import { allLanguages } from 'constants/localisation/languageCodes'
 import { LanguageContext } from 'hooks/LanguageContext'

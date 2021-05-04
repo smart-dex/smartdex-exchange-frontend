@@ -1,4 +1,4 @@
-import { Text } from 'uikit-sotatek'
+import { Text } from 'smartdex-uikit'
 import styled from 'styled-components'
 import { baseColors } from 'style/Color'
 

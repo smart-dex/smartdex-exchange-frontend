@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal } from 'uikit-sotatek'
+import { Modal } from 'smartdex-uikit'
 import SlippageToleranceSetting from './SlippageToleranceSetting'
 import TransactionDeadlineSetting from './TransactionDeadlineSetting'
 import { TranslateString } from '../../utils/translateTextHelpers'

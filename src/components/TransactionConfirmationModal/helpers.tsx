@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import { darkColors, lightColors } from 'style/Color'
-import { Heading, IconButton, CloseIcon } from 'uikit-sotatek'
+import { Heading, IconButton, CloseIcon } from 'smartdex-uikit'
 import { AutoColumn, ColumnCenter } from '../Column'
 
 export const Wrapper = styled.div`

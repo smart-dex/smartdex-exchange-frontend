@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text } from 'uikit-sotatek'
+import { Text } from 'smartdex-uikit'
 import { darkColors, lightColors} from 'style/Color'
 import { TranslateString } from 'utils/translateTextHelpers'
 import { Spinner } from '../Shared'

@@ -1,4 +1,4 @@
-import { Toast } from 'uikit-sotatek'
+import { Toast } from 'smartdex-uikit'
 
 export interface ToastsState {
     data: Toast[]

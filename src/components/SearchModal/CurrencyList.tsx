@@ -3,7 +3,7 @@ import React, { CSSProperties, MutableRefObject, useCallback, useMemo } from 're
 import { FixedSizeList } from 'react-window'
 import styled from 'styled-components'
 import { darkColors, lightColors } from 'style/Color'
-import { Text } from 'uikit-sotatek'
+import { Text } from 'smartdex-uikit'
 import { TranslateString } from 'utils/translateTextHelpers'
 import { useActiveWeb3React } from '../../hooks'
 import { useSelectedTokenList, WrappedTokenInfo } from '../../state/lists/hooks'

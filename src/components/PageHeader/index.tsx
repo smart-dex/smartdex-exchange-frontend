@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
-import { Heading, IconButton, Text, Flex, useModal } from 'uikit-sotatek'
+import { Heading, IconButton, Text, Flex, useModal } from 'smartdex-uikit'
 import { lightColors, darkColors } from 'style/Color'
 import { TranslateString } from 'utils/translateTextHelpers'
 import SettingsModal from './SettingsModal'

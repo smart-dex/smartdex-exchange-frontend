@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button, Text } from 'uikit-sotatek'
+import { Button, Text } from 'smartdex-uikit'
 import { AlertTriangle } from 'react-feather'
 import { baseColors, darkColors, lightColors } from 'style/Color'
 import { TranslateString } from 'utils/translateTextHelpers'

@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { kebabCase } from 'lodash'
-import { Toast, toastTypes } from 'uikit-sotatek'
+import { Toast, toastTypes } from 'smartdex-uikit'
 import { useDispatch } from 'react-redux'
 
 import {

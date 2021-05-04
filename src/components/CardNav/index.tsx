@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { lightColors, darkColors } from 'style/Color'
-import { ButtonMenu, ButtonMenuItem } from 'uikit-sotatek'
+import { ButtonMenu, ButtonMenuItem } from 'smartdex-uikit'
 import TranslatedText from 'components/TranslatedText'
 import { TranslateString } from 'utils/translateTextHelpers'
 

@@ -2,7 +2,7 @@ import { Currency, ETHER, JSBI, TokenAmount } from '@sotatek-anhdao/smartdex-sdk
 import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { baseColors, darkColors, lightColors } from 'style/Color'
-import { Button, ChevronDownIcon, AddIcon, CardBody, Text } from 'uikit-sotatek'
+import { Button, ChevronDownIcon, AddIcon, CardBody, Text } from 'smartdex-uikit'
 import CardNav from 'components/CardNav'
 import { LightCard } from 'components/Card'
 import { AutoColumn, ColumnCenter } from 'components/Column'

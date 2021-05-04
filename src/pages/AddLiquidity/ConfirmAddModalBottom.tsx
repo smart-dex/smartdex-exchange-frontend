@@ -2,7 +2,7 @@ import { Currency, CurrencyAmount, Fraction, Percent } from '@sotatek-anhdao/sma
 import React from 'react'
 import { darkColors, lightColors, baseColors} from 'style/Color'
 import styled from 'styled-components'
-import { Button, Text } from 'uikit-sotatek'
+import { Button, Text } from 'smartdex-uikit'
 import { TranslateString } from 'utils/translateTextHelpers'
 import { RowBetween, RowFixed } from '../../components/Row'
 import CurrencyLogo from '../../components/CurrencyLogo'
