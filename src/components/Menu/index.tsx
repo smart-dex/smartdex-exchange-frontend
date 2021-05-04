@@ -53,39 +53,39 @@ const Menu = (props) => {
       icon: 'FarmIcon',
       href: `${process.env.REACT_APP_FINANCE_URL}/farms`,
     },
-    {
-      label: `${TranslateString(676, 'Pools')}`,
-      icon: 'PoolIcon',
-      href: `${process.env.REACT_APP_FINANCE_URL}/pools`,
-    },
-    {
-      label: `${TranslateString(14, 'Lottery')}`,
-      icon: 'TicketIcon',
-      href: `${process.env.REACT_APP_FINANCE_URL}/lottery`,
-    },
-    {
-      label: `${TranslateString(12215, 'Collectibles')}`,
-      icon: 'NftIcon',
-      href: `${process.env.REACT_APP_FINANCE_URL}/collectibles`,
-    },
-    {
-      label: `${TranslateString(12216, 'Teams & Profile')}`,
-      icon: 'GroupsIcon',
-      items: [
-        {
-          label: `${TranslateString(12217, 'Leaderboard')}`,
-          href: `${process.env.REACT_APP_FINANCE_URL}/teams`,
-        },
-        {
-          label: `${TranslateString(1090, 'Task Center')}`,
-          href: `${process.env.REACT_APP_FINANCE_URL}/tasks`,
-        },
-        {
-          label: `${TranslateString(12218, 'Your Profile')}`,
-          href: `${process.env.REACT_APP_FINANCE_URL}/profile`,
-        },
-      ],
-    },
+    // {
+    //   label: `${TranslateString(676, 'Pools')}`,
+    //   icon: 'PoolIcon',
+    //   href: `${process.env.REACT_APP_FINANCE_URL}/pools`,
+    // },
+    // {
+    //   label: `${TranslateString(14, 'Lottery')}`,
+    //   icon: 'TicketIcon',
+    //   href: `${process.env.REACT_APP_FINANCE_URL}/lottery`,
+    // },
+    // {
+    //   label: `${TranslateString(12215, 'Collectibles')}`,
+    //   icon: 'NftIcon',
+    //   href: `${process.env.REACT_APP_FINANCE_URL}/collectibles`,
+    // },
+    // {
+    //   label: `${TranslateString(12216, 'Teams & Profile')}`,
+    //   icon: 'GroupsIcon',
+    //   items: [
+    //     {
+    //       label: `${TranslateString(12217, 'Leaderboard')}`,
+    //       href: `${process.env.REACT_APP_FINANCE_URL}/teams`,
+    //     },
+    //     {
+    //       label: `${TranslateString(1090, 'Task Center')}`,
+    //       href: `${process.env.REACT_APP_FINANCE_URL}/tasks`,
+    //     },
+    //     {
+    //       label: `${TranslateString(12218, 'Your Profile')}`,
+    //       href: `${process.env.REACT_APP_FINANCE_URL}/profile`,
+    //     },
+    //   ],
+    // },
     {
       label: `${TranslateString(680, 'Info')}`,
       icon: 'InfoIcon',
