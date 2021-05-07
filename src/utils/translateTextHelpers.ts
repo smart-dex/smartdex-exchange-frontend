@@ -28,15 +28,16 @@ export const getTranslation = (translations: Array<any>, translationId: number, 
 
 export const TranslateString = (translationId: number, fallback: string) => {
   const { translations } = useContext(TranslationsContext)
+
   if (translations[0] === 'error') {
     return fallback
   }
   if (translations.length > 0) {
-    localStorage.setItem('langLocal', JSON.stringify(translations));
+    localStorage.setItem('langLocal', JSON.stringify(translations))
     return getTranslation(translations, translationId, fallback)
   }
-  if ((JSON.parse(localStorage.getItem("langLocal") || '{}')).length > 0) {
-    return getTranslation(JSON.parse(localStorage.getItem("langLocal") || '{}'), translationId, fallback)
+  if (JSON.parse(localStorage.getItem('langLocal') || '{}').length > 0) {
+    return getTranslation(JSON.parse(localStorage.getItem('langLocal') || '{}'), translationId, fallback)
   }
-  return null
+  return getTranslation(translations, translationId, fallback)
 }
