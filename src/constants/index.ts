@@ -1,6 +1,9 @@
 import { ChainId, JSBI, Percent, Token, WETH } from '@sotatek-anhdao/smartdex-sdk'
 
 export const ROUTER_ADDRESS = '0xD1E12E525dAe581CB3CCA551734d3BAFd2E8cE0C'
+export const SDC = '0x863d95004611e547c32c123d6f37f765474a3e9f'
+export const BUNDLE_ID = '1'
+export const FACTORY_ADDRESS = '0x87a58Cc6fE4A6d1290ff6DCd7a152F2a8777E433'
 
 // a list of tokens by chain
 type ChainTokenList = {
