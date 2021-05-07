@@ -10,15 +10,15 @@ import useGetLocalProfile from 'hooks/useGetLocalProfile'
 import useAuth from 'hooks/useAuth'
 import { injected } from 'connectors'
 import { TranslateString } from 'utils/translateTextHelpers'
+import { useGlobalData } from '../../contexts/GlobalData'
 
 const Menu = (props) => {
   const { account, activate, deactivate } = useWeb3React()
   const { login, logout } = useAuth()
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   const { isDark, toggleTheme } = useTheme()
-  const priceData = useGetPriceData()
+  const {sdcPriceUsd} = useGlobalData()
   // TO-DO
-  const sdcPriceUsd = priceData ? Number(priceData.prices.Sdc) : undefined
   const profile = useGetLocalProfile()
 
   useEffect(() => {
