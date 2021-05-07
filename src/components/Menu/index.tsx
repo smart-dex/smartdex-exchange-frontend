@@ -135,19 +135,19 @@ const Menu = (props) => {
 
   const linkMyPage = [
     {
-      label: "My Page",
+      label: `${TranslateString(12219, "My Page")}`,
       icon: "MyPageIcon",
       items: [
         {
-          label: "Wallet",
+          label: `${TranslateString(12220, "Wallet")}`,
           href: `${process.env.REACT_APP_FINANCE_URL}/wallet`,
         },
         {
-          label: "Referral",
+          label: `${TranslateString(12221, "Referral")}`,
           href: `${process.env.REACT_APP_FINANCE_URL}/referral`,
         },
         {
-          label: "Referral Management",
+          label: `${TranslateString(12222, "Referral Management")}`,
           href: `${process.env.REACT_APP_FINANCE_URL}/referral-management`,
         },
       ],
