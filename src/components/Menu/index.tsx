@@ -18,6 +18,13 @@ const Menu = (props) => {
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   const { isDark, toggleTheme } = useTheme()
   const {sdcPriceUsd} = useGlobalData()
+  if (sdcPriceUsd || sdcPriceUsd === 0) {
+    localStorage.setItem("sdcPrice",sdcPriceUsd.toString())
+  }
+  const sdcPriceLocalStorage = Number(localStorage.getItem("sdcPrice"))
+
+  const showSdcPrice = sdcPriceUsd ||  sdcPriceLocalStorage
+
   // TO-DO
   const profile = useGetLocalProfile()
 
@@ -165,7 +172,7 @@ const Menu = (props) => {
       currentLang={selectedLanguage?.code || ''}
       langs={allLanguages}
       setLang={setSelectedLanguage}
-      cakePriceUsd={sdcPriceUsd}
+      cakePriceUsd={showSdcPrice}
       linkMyPage={linkMyPage}
       profile={profile}
       {...props}
