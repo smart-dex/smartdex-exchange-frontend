@@ -34,7 +34,7 @@
             "stringId": 8,
             "contentType": "text/plain",
             "translationId": 4930,
-            "text": "通貨の交換",
+            "text": "交換",
             "user": {
                 "id": 14439204,
                 "username": "bocaabajo",
@@ -2779,7 +2779,7 @@
             "stringId": 1176,
             "contentType": "text/plain",
             "translationId": 49338,
-            "text": "このプールには、まだリクイディティがありません。",
+            "text": "このプールには、まだ流動性がありません。",
             "user": {
                 "id": 14144439,
                 "username": "nozomi.kugita",
@@ -4639,7 +4639,7 @@
             "stringId": 684,
             "contentType": "text/plain",
             "translationId": 31278,
-            "text": "もっと",
+            "text": "詳細",
             "user": {
                 "id": 14144439,
                 "username": "nozomi.kugita",
@@ -5539,7 +5539,7 @@
             "stringId": 808,
             "contentType": "text/plain",
             "translationId": 33156,
-            "text": "CAKE残高不足",
+            "text": "不十分なSDC残高",
             "user": {
                 "id": 14144439,
                 "username": "nozomi.kugita",
@@ -8224,7 +8224,7 @@
             "stringId": 1224,
             "contentType": "text/plain",
             "translationId": 12030,
-            "text": "あなたの財布の中のLPトークン",
+            "text": "ウォレットの中のLPトークン",
             "user": {
                 "id": 13288016,
                 "username": "Chris66",
@@ -8524,7 +8524,7 @@
             "stringId": 12218,
             "contentType": "text/plain",
             "translationId": 50928,
-            "text": "あなたのプロフィール",
+            "text": "プロフィール",
             "user": {
                 "id": 13288016,
                 "username": "Chris66",
@@ -8554,7 +8554,7 @@
             "stringId": 12220,
             "contentType": "text/plain",
             "translationId": 50930,
-            "text": "財布",
+            "text": "ウォレット",
             "user": {
                 "id": 13288016,
                 "username": "Chris66",
