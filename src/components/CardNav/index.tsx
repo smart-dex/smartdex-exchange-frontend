@@ -158,7 +158,7 @@ const Nav = ({ activeIndex = 0 }: { activeIndex?: number }) => {
                 <TabBlock>
                   <IconTab />
                   <TextTab className={activeIndex === item.index ? 'text-active' : 'text-not-active'}>
-                    {TranslateString(item.text === 'Liquidity' ? 262 : 284, "Bridge")}
+                    {TranslateString(item.text === 'Liquidity' ? 262 : 8, "Bridge")}
                   </TextTab>
                 </TabBlock>
               </ButtonMenuItem>
