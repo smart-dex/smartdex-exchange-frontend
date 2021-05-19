@@ -11,6 +11,22 @@
   "keywords": ["pancake", "default"],
   "tokens": [
     {
+      "name": "SDC Token",
+      "symbol": "SDC",
+      "address": "0x998659588c7a13BA757d811d65c729c98e180338",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "/images/coins/BUSD.png"
+    },
+    {
+      "name": "CAKE Token",
+      "symbol": "CAKE",
+      "address": "0x56C350f6909eE0105389cC84d147047697511ebf",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "/images/coins/BUSD.png"
+    },
+    {
       "name": "WBNB Token",
       "symbol": "WBNB",
       "address": "0xae13d989dac2f0debff460ac112a837c89baa7cd",
